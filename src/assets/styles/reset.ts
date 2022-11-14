@@ -54,14 +54,14 @@ export const Reset = createGlobalStyle`
   &:root{
     --Primary: #1B4B66;
     --PrimaryTint: #639599;
-    --Error: #1B4B66;
-    --Highlight: #1B4B66;
-    --Accent: #1B4B66;
-    --Dark: #1B4B66;
-    --Bright: #1B4B66;
-    --Grey: #1B4B66;
-    --LightText: #1B4B66;
-    --TypeHighEmphasis: #1B4B66;
-    --TypeLowEmphasis: #1B4B66;
+    --Error: #B00020;
+    --Highlight: #FF8C4B;
+    --Accent: #F4F4F4;
+    --Dark: #13101E;
+    --Bright: #FFFFFF;
+    --Grey: #F1F1F1;
+    --LightText: #B6B6B6;
+    --TypeHighEmphasis: #171520;
+    --TypeLowEmphasis: #626262;
   }
 `
