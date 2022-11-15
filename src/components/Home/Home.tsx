@@ -1,10 +1,12 @@
 import Header from "../Header/Header";
-
+import * as S from "./HomeStyle"
+import Main from "./main/main";
 export default function Home() {
     return (
-        <div>
+        <S.Container>
             <Header />
-        </div>
+            <Main />
+        </S.Container>
     )
 
 }
