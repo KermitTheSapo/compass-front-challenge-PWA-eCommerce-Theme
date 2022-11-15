@@ -2,6 +2,10 @@ import * as S from "./mainStyle"
 import Funk from "../../../assets/imgs/home/main/funk.png"
 import Categories from "./categories/categories"
 import Arrivals from "./Arrivals/arrivals"
+import Handpicked from "./handpicked/handpicked"
+import Brands from "./brands/brands"
+import Makeup from "./makeup/makeup"
+import Navigation from "./bottom-navigation/navigation"
 
 export default function Main() {
     return (
@@ -22,6 +26,10 @@ export default function Main() {
             </S.BannerDesktop>
             <Categories />
             <Arrivals />
+            <Handpicked />
+            <Brands />
+            <Makeup />
+            <Navigation />
         </S.MainContainer>
     )
 }
