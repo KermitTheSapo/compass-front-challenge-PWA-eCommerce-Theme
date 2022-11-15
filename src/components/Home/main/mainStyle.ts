@@ -84,6 +84,7 @@ export const CarryDiv = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   padding: 0 47px;
+  border: none;
 `
 export const CarryTitle = styled.h1`
   font-weight: 800;
