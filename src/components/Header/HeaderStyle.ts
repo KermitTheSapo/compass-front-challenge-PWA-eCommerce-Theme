@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import search from '../../assets/imgs/home/header/search.svg'
+import search from '../../assets/imgs/header/search.svg'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -17,7 +17,7 @@ export const MenuContainer = styled.div`
   justify-content: space-between;
   width: 101px;
   height: 24px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
 `
@@ -36,7 +36,7 @@ export const TrailingIconsContainer = styled.div`
   justify-content: space-between;
   width: 120px;
   height: 24px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
 `
@@ -58,6 +58,9 @@ export const UlCategory = styled.ul`
   align-items: center;
   height: 18px;
   gap: 20px;
+  @media (max-width: 1090px){
+    margin-right: 10px;
+  }
 `
 export const LiCategory = styled.li`
   font-weight: 500;
@@ -67,7 +70,8 @@ export const LiCategory = styled.li`
 
 export const Input = styled.input`
   height: 44px;
-  width: 322px;
+  /* width: 322px; */
+  width: 22vw;
   border-radius: 4px;
   background-color: var(--Grey);
   font-weight: 500;
@@ -93,7 +97,7 @@ export const IconsContainer = styled.div`
 `
 
 export const IconImgMobile = styled.img`
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
 `
@@ -109,3 +113,21 @@ export const LinkCategory = styled.a`
   align-items: center;
   justify-content: center;
 `
+
+export const NavList = styled.nav`
+  @media (min-width: 769px) {
+    display: none;
+  }
+`
+export const ListUl = styled.ul`
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  position: absolute;
+  width: 25vw;
+  height: 15vh;
+  top: 50px;
+  left: 0px;
+  background-color: var(--carryDiv);
+`
+export const ListLi = styled.li``
