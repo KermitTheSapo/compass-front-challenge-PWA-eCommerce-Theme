@@ -11,7 +11,7 @@ export const MainContainer = styled.main`
 
 export const Banner = styled.img`
   padding: 0 16px;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
 `
