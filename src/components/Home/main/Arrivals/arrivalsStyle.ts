@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ArrivalsDiv = styled.div`
+export const ArrivalsSection = styled.section`
   display: flex;
   flex-direction: column;
   padding: 0 16px;
@@ -23,7 +23,6 @@ export const HeaderTitle = styled.h3`
 `
 export const LinkParagraph = styled.a`
   text-decoration: none;
-  justify-con
 `
 
 export const Paragraph = styled.p`
