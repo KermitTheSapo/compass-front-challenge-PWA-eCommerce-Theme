@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-export const CategoriesDiv = styled.div`
+export const CategoriesContainer = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0 16px;
   margin-top: 18px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: none;
   }
 `
@@ -20,6 +20,6 @@ export const CategoriesTitle = styled.h3`
 `
 export const CategoriesList = styled.ul`
   display: flex;
-  gap: 16px;
   align-items: center;
+  justify-content: space-around;
 `
