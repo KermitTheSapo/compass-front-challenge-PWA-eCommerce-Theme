@@ -26,6 +26,7 @@ export const Reset = createGlobalStyle`
         font-size: 100%;
         font: inherit;
         vertical-align: baseline;
+        box-sizing: border-box;
     }
     /* HTML5 display-role reset for older browsers */
     article, aside, details, figcaption, figure, 
@@ -63,5 +64,7 @@ export const Reset = createGlobalStyle`
     --LightText: #B6B6B6;
     --TypeHighEmphasis: #171520;
     --TypeLowEmphasis: #626262;
+    --alertBanner: #F0F0F0;
+    --carryDiv: #DEDEDEB2;
   }
 `
