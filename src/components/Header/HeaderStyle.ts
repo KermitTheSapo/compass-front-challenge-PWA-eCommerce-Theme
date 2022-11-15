@@ -41,6 +41,8 @@ export const TrailingIconsContainer = styled.div`
   }
 `
 export const NavCategory = styled.nav`
+  display: flex;
+  gap: 32px;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -84,6 +86,7 @@ export const Input = styled.input`
 
 export const IconsContainer = styled.div`
   display: flex;
+  gap: 26px;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -98,4 +101,11 @@ export const IconImg = styled.img`
   @media screen and (max-width: 768px) {
     display: none;
   }
+`
+
+export const LinkCategory = styled.a`
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
