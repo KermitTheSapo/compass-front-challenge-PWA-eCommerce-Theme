@@ -7,7 +7,7 @@ import Collosal from "../../../../assets/imgs/home/main/arrivals/Collosal.png"
 
 export default function Arrivals() {
     return (
-        <S.ArrivalsDiv>
+        <S.ArrivalsSection>
             <S.ArrivalHeader>
                 <S.HeaderTitle>New Arrivals</S.HeaderTitle>
                 <S.LinkParagraph href="/error">
@@ -19,6 +19,6 @@ export default function Arrivals() {
                 <ItemArrival ImgSrc={boker} ImgAlt={""} itemName={"Boker"} heartSrc={heart} heartAlt={""} Description={"Blossom PouchBrown Bag"} Price={"$34.55"} />
                 {/* <ItemArrival ImgSrc={boker} ImgAlt={""} itemName={"Collosal"} heartSrc={heart} heartAlt={""} Description={"Tall Heels"} Price={"$40.00"} /> */}
             </S.ArrivalList>
-        </S.ArrivalsDiv>
+        </S.ArrivalsSection>
     )
 }
