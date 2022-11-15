@@ -1,5 +1,7 @@
 import * as S from "./mainStyle"
 import Funk from "../../../assets/imgs/home/main/funk.png"
+import Categories from "./categories/categories"
+import Arrivals from "./Arrivals/arrivals"
 
 export default function Main() {
     return (
@@ -18,6 +20,8 @@ export default function Main() {
                     </a>
                 </S.CarryDiv>
             </S.BannerDesktop>
+            <Categories />
+            <Arrivals />
         </S.MainContainer>
     )
 }
