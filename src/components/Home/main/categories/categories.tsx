@@ -7,16 +7,16 @@ import Watches from '../../../../assets/imgs/home/main/categories/Watches.svg'
 
 export default function Categories() {
     return (
-        <S.CategoriesDiv>
+        <S.CategoriesContainer>
             <S.CategoriesTitle>Top Categories</S.CategoriesTitle>
             <S.CategoriesList>
                 <Item label={"Skincare"} icon={skinCare} alt={""} route={"/error"} />
                 <Item label={"Jewellery"} icon={Jewellery} alt={""} route={"/error"} />
                 <Item label={"Handbags"} icon={Handbags} alt={""} route={"/error"} />
                 <Item label={"Watches"} icon={Watches} alt={""} route={"/error"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/error"} />
+                {/* <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/error"} /> */}
                 {/* <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/error"} /> */}
             </S.CategoriesList>
-        </S.CategoriesDiv>
+        </S.CategoriesContainer>
     )
 }
