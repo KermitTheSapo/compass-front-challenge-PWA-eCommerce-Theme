@@ -15,26 +15,50 @@ export default function Header() {
                 <S.MenuImg src={menu} alt="" />
                 <S.TitlePage>Home</S.TitlePage>
             </S.MenuContainer>
-            <S.ImgLogo src={imgLogo} alt="" />
             <S.NavCategory>
+                <S.LinkCategory href="/error">
+                    <S.ImgLogo src={imgLogo} alt="" />
+                </S.LinkCategory>
                 <S.UlCategory>
-                    <S.LiCategory>Handbags</S.LiCategory>
-                    <S.LiCategory>Watches</S.LiCategory>
-                    <S.LiCategory>Skincare</S.LiCategory>
-                    <S.LiCategory>Jewellery</S.LiCategory>
-                    <S.LiCategory>Apparels</S.LiCategory>
+                    <S.LinkCategory href="/error">
+                        <S.LiCategory>Handbags</S.LiCategory>
+                    </S.LinkCategory>
+                    <S.LinkCategory href="/error">
+                        <S.LiCategory>Watches</S.LiCategory>
+                    </S.LinkCategory>
+                    <S.LinkCategory href="/error">
+                        <S.LiCategory>Skincare</S.LiCategory>
+                    </S.LinkCategory>
+                    <S.LinkCategory href="/error">
+                        <S.LiCategory>Jewellery</S.LiCategory>
+                    </S.LinkCategory>
+                    <S.LinkCategory href="/error">
+                        <S.LiCategory>Apparels</S.LiCategory>
+                    </S.LinkCategory>
                 </S.UlCategory>
             </S.NavCategory>
-            <S.Input type="text" placeholder="Search for products or brands....." />
             <S.IconsContainer>
-                <S.IconImg src={heart} alt="" />
-                <S.IconImg src={profile} alt="" />
-                <S.IconImg src={bag} alt="" />
+                <S.Input type="text" placeholder="Search for products or brands....." />
+                <S.LinkCategory href="/error">
+                    <S.IconImg src={heart} alt="" />
+                </S.LinkCategory>
+                <S.LinkCategory href="/error">
+                    <S.IconImg src={profile} alt="" />
+                </S.LinkCategory>
+                <S.LinkCategory href="/error">
+                    <S.IconImg src={bag} alt="" />
+                </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
-                <S.IconImgMobile src={add} alt="" />
-                <S.IconImgMobile src={notification} alt="" />
-                <S.IconImgMobile src={search} alt="" />
+                <S.LinkCategory href="/error">
+                    <S.IconImgMobile src={add} alt="" />
+                </S.LinkCategory>
+                <S.LinkCategory href="/error">
+                    <S.IconImgMobile src={notification} alt="" />
+                </S.LinkCategory>
+                <S.LinkCategory href="/error">
+                    <S.IconImgMobile src={search} alt="" />
+                </S.LinkCategory>
             </S.TrailingIconsContainer>
         </S.HeaderContainer>
     )
