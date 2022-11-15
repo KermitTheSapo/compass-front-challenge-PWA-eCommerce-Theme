@@ -66,5 +66,11 @@ export const Reset = createGlobalStyle`
     --TypeLowEmphasis: #626262;
     --alertBanner: #F0F0F0;
     --carryDiv: #DEDEDEB2;
+    --shortcutDiv: #FFE6CA;
+    --brownMakeup: #97451F;
+    --pinkMakeup: #A53F64;
+    --Brown14Makeup: #97451F24;
+    --White50: #FFFFFF80;
+    --Primary16: #17494D29;
   }
 `
