@@ -36,11 +36,15 @@ export const ItemName = styled.h3`
     font-size: 1rem;
   }
 `
-export const Heart = styled.img``
+export const Heart = styled.img`
+  height: 16.5px;
+  width: 18.75px;
+`
 export const ItemDescription = styled.p`
   font-weight: 500;
   font-size: 0.75rem;
   color: var(--TypeLowEmphasis);
+  width: 90%;
   @media (min-width: 768px) {
     font-weight: 400;
     font-size: 0.875rem;
