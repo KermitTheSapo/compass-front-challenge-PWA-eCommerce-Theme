@@ -5,6 +5,7 @@ import Arrivals from "./Arrivals/arrivals"
 import Handpicked from "./handpicked/handpicked"
 import Brands from "./brands/brands"
 import Makeup from "./makeup/makeup"
+import Trending from "./trending/trending"
 import Navigation from "./bottom-navigation/navigation"
 
 export default function Main() {
@@ -14,7 +15,11 @@ export default function Main() {
                 <S.AlertH3>We are currently experiencing local customs clearance delays. For the latest updates, please check your order status</S.AlertH3>
                 <S.AlertLink href="/error">here</S.AlertLink>
             </S.AlertDiv>
-            <S.Banner src={Funk} alt="" />
+            <S.BannersCarrossel>
+                <S.Banner src={Funk} alt="" />
+                <S.Banner src={Funk} alt="" />
+                <S.Banner src={Funk} alt="" />
+            </S.BannersCarrossel>
             <S.BannerDesktop>
                 <S.CarryDiv>
                     <S.CarryTitle>Carry your Funk</S.CarryTitle>
@@ -29,6 +34,7 @@ export default function Main() {
             <Handpicked />
             <Brands />
             <Makeup />
+            <Trending />
             <Navigation />
         </S.MainContainer>
     )
