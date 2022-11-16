@@ -11,11 +11,12 @@ type Props = {
     Description: string;
     Price: string;
     heartFill: string;
+    onClick: () => void;
 };
-export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName, heartFill }: Props) {
+export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName, heartFill, onClick }: Props) {
     const [heartStatus, setHeartStatus] = useState(true)
     return (
-        <S.ItemArrival>
+        <S.ItemArrival onClick={onClick}>
             <S.ImgProduct src={ImgSrc} alt={ImgAlt} />
             <S.InformationDiv>
                 <S.NameHeart>
