@@ -73,5 +73,6 @@ export const Reset = createGlobalStyle`
     --White50: #FFFFFF80;
     --Primary16: #17494D29;
     --TypeBright: #FFFFFF;
+    --DarkShadow: #0000004D;
   }
 `
