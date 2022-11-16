@@ -21,5 +21,10 @@ export const CategoriesTitle = styled.h3`
 export const CategoriesList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  overflow: auto;
+  gap: 16px;
+  &::-webkit-scrollbar { 
+  display: none;
+}
 `
