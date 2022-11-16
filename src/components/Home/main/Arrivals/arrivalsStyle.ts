@@ -34,5 +34,15 @@ export const Paragraph = styled.p`
 export const ArrivalList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  min-width: 100%;
+  overflow: auto;
+  height: 25vh;
+  gap: 25px;
+  &::-webkit-scrollbar { 
+  display: none;
+}
+@media (min-width: 768px) {
+  height: 50vh;
+}
 `
