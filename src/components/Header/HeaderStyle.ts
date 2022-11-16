@@ -9,6 +9,9 @@ export const HeaderContainer = styled.header`
   background-color: var(--Bright);
   height: 56px;
   padding: 0 19px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 `
 
 export const MenuContainer = styled.div`
