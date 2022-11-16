@@ -12,7 +12,7 @@ export default function Categories() {
             <S.CategoriesList>
                 <Item label={"Skincare"} icon={skinCare} alt={""} route={"/error"} />
                 <Item label={"Jewellery"} icon={Jewellery} alt={""} route={"/error"} />
-                <Item label={"Handbags"} icon={Handbags} alt={""} route={"/error"} />
+                <Item label={"Handbags"} icon={Handbags} alt={""} route={"/handbags"} />
                 <Item label={"Watches"} icon={Watches} alt={""} route={"/error"} />
                 <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/error"} />
                 <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/error"} />
