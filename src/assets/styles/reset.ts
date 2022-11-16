@@ -72,5 +72,6 @@ export const Reset = createGlobalStyle`
     --Brown14Makeup: #97451F24;
     --White50: #FFFFFF80;
     --Primary16: #17494D29;
+    --TypeBright: #FFFFFF;
   }
 `
