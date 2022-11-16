@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as S from "./itemArrivalStyle"
 
 
@@ -9,15 +10,17 @@ type Props = {
     heartAlt: string;
     Description: string;
     Price: string;
+    heartFill: string;
 };
-export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName }: Props) {
+export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName, heartFill }: Props) {
+    const [heartStatus, setHeartStatus] = useState(true)
     return (
         <S.ItemArrival>
             <S.ImgProduct src={ImgSrc} alt={ImgAlt} />
             <S.InformationDiv>
                 <S.NameHeart>
                     <S.ItemName>{itemName}</S.ItemName>
-                    <S.Heart src={heartSrc} alt={heartAlt} />
+                    <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heartSrc : heartFill} alt={heartAlt} />
                 </S.NameHeart>
                 <S.ItemDescription>{Description}</S.ItemDescription>
                 <S.ItemPrice>{Price}</S.ItemPrice>
