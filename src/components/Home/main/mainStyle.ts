@@ -6,10 +6,22 @@ import funkDesktop from '../../../assets/imgs/home/main/funkDesktop.png'
 export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
-  margin-top: 23px;
+  margin-top: 65px;
+`
+
+export const BannersCarrossel = styled.div`
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    width: 100%;
+    overflow: auto;
+    &::-webkit-scrollbar { 
+      display: none;
+    }
 `
 
 export const Banner = styled.img`
+  min-width: 90%;
   padding: 0 16px;
   @media screen and (min-width: 769px) {
     display: none;
@@ -98,3 +110,4 @@ export const CarryParagraph = styled.p`
   line-height: 38px;
   width: 80%;
 `
+
