@@ -58,4 +58,9 @@ export const ItemPrice = styled.p`
     font-weight: 500;
     font-size: 1rem;
   }
+
+`
+
+export const ItemLink = styled.a`
+  text-decoration: none;
 `
