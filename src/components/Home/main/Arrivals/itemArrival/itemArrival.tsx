@@ -11,21 +11,24 @@ type Props = {
     Description: string;
     Price: string;
     heartFill: string;
-    onClick: () => void;
+    onClick?: () => void;
+    link: string;
 };
-export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName, heartFill, onClick }: Props) {
+export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName, heartFill, onClick, link }: Props) {
     const [heartStatus, setHeartStatus] = useState(true)
     return (
-        <S.ItemArrival onClick={onClick}>
-            <S.ImgProduct src={ImgSrc} alt={ImgAlt} />
-            <S.InformationDiv>
-                <S.NameHeart>
-                    <S.ItemName>{itemName}</S.ItemName>
-                    <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heartSrc : heartFill} alt={heartAlt} />
-                </S.NameHeart>
-                <S.ItemDescription>{Description}</S.ItemDescription>
-                <S.ItemPrice>{Price}</S.ItemPrice>
-            </S.InformationDiv>
-        </S.ItemArrival>
+        <S.ItemLink href={link}>
+            <S.ItemArrival onClick={onClick}>
+                <S.ImgProduct src={ImgSrc} alt={ImgAlt} />
+                <S.InformationDiv>
+                    <S.NameHeart>
+                        <S.ItemName>{itemName}</S.ItemName>
+                        <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heartSrc : heartFill} alt={heartAlt} />
+                    </S.NameHeart>
+                    <S.ItemDescription>{Description}</S.ItemDescription>
+                    <S.ItemPrice>{Price}</S.ItemPrice>
+                </S.InformationDiv>
+            </S.ItemArrival>
+        </S.ItemLink>
     )
 }
