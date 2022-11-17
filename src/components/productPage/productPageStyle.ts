@@ -54,6 +54,7 @@ export const Content = styled.div`
     flex-direction: column;    
     justify-content: space-evenly;
     margin-top: 56px;
+    width: 100%;
     @media (min-width: 768px) {
         width: 50%;
         align-self: flex-start;
@@ -115,10 +116,16 @@ export const ProductsPics = styled.div`
     width: 50%;
     height: 100%;
     gap: 24px;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 export const PicsContent = styled.div`
     display: flex;
+    @media (max-width: 768px) {
+        margin-bottom: 80px;
+    }
 `
 
 export const ImgPics = styled.img`
