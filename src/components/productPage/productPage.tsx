@@ -16,6 +16,9 @@ import InviteFriends from "./inviteFriends/inviteFriends"
 import AlsoLike from "./alsoLike/alsoLike"
 import Header from "../Header/Header"
 import Quantity from "./quantity/quantity"
+import Buttons from "./buttons/buttons"
+import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescriptionDesktop"
+import Footer from "../footer/footer"
 
 export default function ProductPage() {
     return (
@@ -56,6 +59,7 @@ export default function ProductPage() {
                     <ProductInfo />
                     <DeliveryDetails />
                     <Quantity />
+                    <Buttons />
                     <S.Separator></S.Separator>
                     <ProductDescription />
                     <S.Separator></S.Separator>
@@ -66,6 +70,8 @@ export default function ProductPage() {
                     <AlsoLike />
                 </S.Content>
             </S.PicsContent>
+            <ProductDescriptionDesktop />
+            {window.screen.width > 768 && <Footer />}
             <S.FooterNav>
                 <S.heartDiv>
                     <S.ImgHeart src={heart} alt="" />
