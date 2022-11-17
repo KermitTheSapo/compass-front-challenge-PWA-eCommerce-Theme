@@ -7,7 +7,6 @@ export const AlsoLike = styled.div`
     flex-direction: column;
     padding: 0 16px;
     gap: 10px;
-    margin-bottom: 80px;
     height: 23vh;
     @media (min-width: 768px) {
         display: none;
