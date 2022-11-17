@@ -75,5 +75,6 @@ export const Reset = createGlobalStyle`
     --TypeBright: #FFFFFF;
     --DarkShadow: #0000004D;
     --DiscountText: #E21D1D;
+    --MajorVibrant: #FF404B;
   }
 `
