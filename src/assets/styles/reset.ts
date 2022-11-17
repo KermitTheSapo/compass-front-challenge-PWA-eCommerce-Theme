@@ -74,5 +74,6 @@ export const Reset = createGlobalStyle`
     --Primary16: #17494D29;
     --TypeBright: #FFFFFF;
     --DarkShadow: #0000004D;
+    --DiscountText: #E21D1D;
   }
 `
