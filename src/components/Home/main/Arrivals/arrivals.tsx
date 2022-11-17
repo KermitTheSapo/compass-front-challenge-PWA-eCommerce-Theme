@@ -6,7 +6,7 @@ import grande from "../../../../assets/imgs/home/main/arrivals/grande.png"
 import boker from "../../../../assets/imgs/home/main/arrivals/boker.png"
 import Sheet from "../sheet/sheet"
 import { useState } from "react"
-import keepState from "../../../../utils/keepState"
+// import keepState from "../../../../utils/keepState"
 
 export default function Arrivals() {
     const [grandeStatus, setGrandeStatus] = useState(false)
