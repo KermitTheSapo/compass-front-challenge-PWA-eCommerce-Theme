@@ -50,29 +50,29 @@ Thiago decided to enter the e-commerce sector (online sales), in addition, he de
 ## Features
 
 - [ ] page home
-    - [ ] Header
-    - [ ] carrossel
-    - [ ] categories (mobile)
-    - [ ] new arrivals
-    - [ ] Handpicked Collections (categories)
-    - [ ] shop by brands
-    - [ ] Makeup & Skincare
-    - [ ] Trending Deals
-    - [ ] banners
-    - [ ] footer More about CORA’L
-    - [ ] navbar fixed in bottom
+    - [X] Header
+    - [X] carrossel
+    - [X] categories (mobile)
+    - [X] new arrivals
+    - [X] Handpicked Collections (categories)
+    - [X] shop by brands
+    - [X] Makeup & Skincare
+    - [X] Trending Deals
+    - [X] banners
+    - [X] footer More about CORA’L
+    - [X] navbar fixed in bottom
     - [ ] bottom sheet
 
 - [ ] category page
-    - [ ] banner
+    - [X] banner
     - [ ] tem que ter 4 tipos diferentes de categorias para 4 paginas com produtos diferentes
     - [ ] navegação de números 
     - [ ] filtrar itens
     - [ ] ao clicar no icon abrir um modal
 
 - [ ] product page
-    - [ ] estrutura
-    - [ ] estilização
+    - [X] estrutura
+    - [X] estilização
     - [ ] logica de quantidade e aumentar o valor com base na quantidade
 
 
