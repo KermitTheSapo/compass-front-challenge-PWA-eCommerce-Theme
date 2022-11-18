@@ -3,15 +3,23 @@ import star from "../../../assets/imgs/productPage/Star.svg"
 import starOn from "../../../assets/imgs/productPage/star-on.svg"
 import starOff from "../../../assets/imgs/productPage/star-off.svg"
 
-export default function ProductInfo() {
+type Props = {
+    name: string;
+    value: string;
+    safe: string;
+    discount: string;
+    productParagraph: string;
+}
+
+export default function ProductInfo({ name, value, safe, discount, productParagraph }: Props) {
     return (
         <S.ProductInfo>
-            <S.ProductName>Coach</S.ProductName>
-            <S.ProductParagraph>Leather Coach Bag with adjustable starps.</S.ProductParagraph>
+            <S.ProductName>{name}</S.ProductName>
+            <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
             <S.ProductValues>
-                <S.ProductPrice>$54.69</S.ProductPrice>
-                <S.ProductSafe>$69.99</S.ProductSafe>
-                <S.ProductDiscount>20%OFF</S.ProductDiscount>
+                <S.ProductPrice>{value}</S.ProductPrice>
+                <S.ProductSafe>{safe}</S.ProductSafe>
+                <S.ProductDiscount>{discount}</S.ProductDiscount>
             </S.ProductValues>
             <S.ProductAverage>
                 <S.Ratings>
