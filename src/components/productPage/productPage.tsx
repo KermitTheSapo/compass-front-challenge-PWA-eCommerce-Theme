@@ -4,9 +4,6 @@ import arrow from "../../assets/imgs/productPage/arrowLeft.svg"
 import heart from "../../assets/imgs/productPage/heart.svg"
 import arrowRight from "../../assets/imgs/productPage/arrow-right.svg"
 import arrowRightMini from "../../assets/imgs/productPage/arrow-right-mini.svg"
-import productsPics from "../../assets/imgs/productPage/productPics.png"
-import ImgSmallPic from "../../assets/imgs/productPage/coach.png"
-
 import Products from "./products/products"
 import ProductInfo from "./productInfo/productInfo"
 import DeliveryDetails from "./deliveryDetails/deliveryDetails"
@@ -20,7 +17,18 @@ import Buttons from "./buttons/buttons"
 import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescriptionDesktop"
 import Footer from "../footer/footer"
 
-export default function ProductPage() {
+type Props = {
+    name: string;
+    value: string;
+    img: string;
+    productDescription: string;
+    productParagraph: string;
+    safe: string;
+    discount: string;
+    imgCarousel: string;
+}
+
+export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel }: Props) {
     return (
         <S.ProductPageContainer>
             <Header />
@@ -38,16 +46,16 @@ export default function ProductPage() {
             </S.BreadCrumb>
             <S.PicsContent>
                 <S.ProductsPics>
-                    <S.ImgPics src={productsPics} alt="" />
+                    <S.ImgPics src={img} alt="" />
                     <S.ProductPhotos>
                         <S.ProductArrow>
                             <img src={arrow} alt="" />
                         </S.ProductArrow>
                         <S.ImgSmallDiv>
-                            <S.ImgSmallPic src={ImgSmallPic} alt="" />
-                            <S.ImgSmallPic src={ImgSmallPic} alt="" />
-                            <S.ImgSmallPic src={ImgSmallPic} alt="" />
-                            <S.ImgSmallPic src={ImgSmallPic} alt="" />
+                            <S.ImgSmallPic src={img} alt="" />
+                            <S.ImgSmallPic src={img} alt="" />
+                            <S.ImgSmallPic src={img} alt="" />
+                            <S.ImgSmallPic src={img} alt="" />
                         </S.ImgSmallDiv>
                         <S.ProductArrow>
                             <img src={arrowRight} alt="" />
@@ -55,8 +63,8 @@ export default function ProductPage() {
                     </S.ProductPhotos>
                 </S.ProductsPics>
                 <S.Content>
-                    <Products />
-                    <ProductInfo />
+                    <Products imgCarousel={imgCarousel} />
+                    <ProductInfo name={name} value={value} productParagraph={productParagraph} safe={safe} discount={discount} />
                     <DeliveryDetails />
                     <Quantity />
                     <Buttons />
@@ -70,7 +78,7 @@ export default function ProductPage() {
                     <AlsoLike />
                 </S.Content>
             </S.PicsContent>
-            <ProductDescriptionDesktop />
+            <ProductDescriptionDesktop productDescription={productDescription} />
             {window.screen.width > 768 && <Footer />}
             <S.FooterNav>
                 <S.heartDiv>
