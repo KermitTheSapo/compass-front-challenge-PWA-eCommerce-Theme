@@ -1,5 +1,6 @@
 import * as S from "./inviteFriendsStyle"
 import invite from "../../../assets/imgs/productPage/inviteImg.png"
+import inviteArrow from "../../../assets/imgs/productPage/inviteArrow.svg"
 
 export default function InviteFriends() {
     return (
@@ -9,7 +10,7 @@ export default function InviteFriends() {
                 <S.InviteFriendsParagraph>Invite yourGet uptp 100 reward points for every friend you invite</S.InviteFriendsParagraph>
                 <S.LinkInvite>
                     <S.InviteText>Invite Now</S.InviteText>
-                    <S.ImgArrowInvite src="" alt="" />
+                    <S.ImgArrowInvite src={inviteArrow} alt="" />
                 </S.LinkInvite>
             </S.InviteFriendsContent>
             <S.InviteFriendsPicture>
