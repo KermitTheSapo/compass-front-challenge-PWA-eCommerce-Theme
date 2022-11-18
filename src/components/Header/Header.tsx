@@ -8,10 +8,13 @@ import heart from "../../assets/imgs/header/heart.svg"
 import profile from "../../assets/imgs/header/profile.svg"
 import bag from "../../assets/imgs/header/bag.svg"
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
 
     const [listCategory, setListCategory] = useState(false)
+
+    const navigate = useNavigate();
 
     return (
         <S.HeaderContainer>
@@ -21,65 +24,65 @@ export default function Header() {
             </S.MenuContainer>
             {listCategory && <S.NavList>
                 <S.ListUl>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/handbags")}>
                         <S.LiCategory>Handbags</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/watches")}>
                         <S.LiCategory>Watches</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/skincare")}>
                         <S.LiCategory>Skincare</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/jewellery")}>
                         <S.LiCategory>Jewellery</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/apparels")}>
                         <S.LiCategory>Apparels</S.LiCategory>
                     </S.LinkCategory>
                 </S.ListUl>
             </S.NavList>}
             <S.NavCategory>
-                <S.LinkCategory href="/error">
+                <S.LinkCategory onClick={() => navigate("/")}>
                     <S.ImgLogo src={imgLogo} alt="" />
                 </S.LinkCategory>
                 <S.UlCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/handbags")}>
                         <S.LiCategory>Handbags</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/watches")}>
                         <S.LiCategory>Watches</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/skincare")}>
                         <S.LiCategory>Skincare</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/jewellery")}>
                         <S.LiCategory>Jewellery</S.LiCategory>
                     </S.LinkCategory>
-                    <S.LinkCategory href="/error">
+                    <S.LinkCategory onClick={() => navigate("/apparels")}>
                         <S.LiCategory>Apparels</S.LiCategory>
                     </S.LinkCategory>
                 </S.UlCategory>
             </S.NavCategory>
             <S.IconsContainer>
                 <S.Input type="text" placeholder="Search for products or brands..." />
-                <S.LinkCategory href="/error">
+                <S.LinkCategory onClick={() => navigate("/")}>
                     <S.IconImg src={heart} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory href="/error">
+                <S.LinkCategory onClick={() => navigate("/")}>
                     <S.IconImg src={profile} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory href="/error">
+                <S.LinkCategory onClick={() => navigate("/")}>
                     <S.IconImg src={bag} alt="" />
                 </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
-                <S.LinkCategory href="/error">
+                <S.LinkCategory onClick={() => navigate("/")}>
                     <S.IconImgMobile src={add} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory href="/error">
+                <S.LinkCategory onClick={() => navigate("/")}>
                     <S.IconImgMobile src={notification} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory href="/error">
+                <S.LinkCategory onClick={() => navigate("/")}>
                     <S.IconImgMobile src={search} alt="" />
                 </S.LinkCategory>
             </S.TrailingIconsContainer>
