@@ -1,7 +1,11 @@
 import { useState } from "react"
 import * as S from "./productDescriptionDesktopStyle"
 
-export default function ProductDescriptionDesktop() {
+type Props = {
+    productDescription: string;
+}
+
+export default function ProductDescriptionDesktop( {productDescription}: Props) {
     const [tabColorOne, setTabColorOne] = useState("#1B4B66")
     const [tabColorTwo, setTabColorTwo] = useState("transparent")
     const [tabColorThree, setTabColorThree] = useState("transparent")
@@ -36,7 +40,7 @@ export default function ProductDescriptionDesktop() {
                 </S.Tab>
             </S.DescriptionHeader>
             <S.DescriptionContent>
-                {tabColorOne === "#1B4B66" && <S.Paragraph>Experience comfortable and easy travelling like never before with this coach bag. It features a zip closure, removable straps and multiple organization compartments to keep your valuables safe. Crafted from premium material, it is durable and lasts long.</S.Paragraph>}
+                {tabColorOne === "#1B4B66" && <S.Paragraph>{productDescription}</S.Paragraph>}
                 {tabColorTwo === "#1B4B66" && <S.Paragraph>Related Products</S.Paragraph>}
                 {tabColorThree === "#1B4B66" && <S.Paragraph>Ratings & Reviews</S.Paragraph>}
             </S.DescriptionContent>
