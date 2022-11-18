@@ -64,16 +64,82 @@ export const ProductHeader = styled.div`
 
 `
 
+export const ListingOptions = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    @media (max-width: 768px) {
+        display: none;
+    }
+`
 export const GridSort = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
 `
-export const ParagraphShow = styled.p``
-export const ToShow = styled.div``
-export const SortBy = styled.div``
-export const GridDiv = styled.div``
-export const ImgGrid = styled.img``
+export const ParagraphShow = styled.p`
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--TypeHighEmphasis);
+`
+export const ToShow = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15%;
+`
+
+
+export const SelectToShow = styled.select`
+    background-color: var(--Grey);
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    padding: 16px;
+`
+export const OptionToShow = styled.option`
+
+`
+export const SortTitle = styled.h3`
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--TypeHighEmphasis);
+`
+export const SelectSort = styled.select`
+    background-color: var(--Grey);
+    border: none;
+    outline: none;
+    border: 0;
+    height: 56px;
+    width: 206px;
+    -webkit-appearance: none;
+    padding: 10px;
+`
+export const OptionSort = styled.option`
+
+`
+
+export const ToShowTitle = styled.h3`
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--TypeHighEmphasis);
+`
+export const SortBy = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+`
+export const GridDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${(props) => props.color};
+    padding: 3px;
+`
+export const ImgGrid = styled.img`
+
+`
 
 export const ProductsCount = styled.p`
     font-weight: 600;
@@ -124,6 +190,9 @@ export const Breadcrumb = styled.div`
     flex-direction: column;
     padding: 0 20px;
     height: 10vh;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 export const BreadcrumbHorizontal = styled.div`
@@ -145,10 +214,8 @@ export const LabelPage = styled.p`
 
 export const CategoryDiv = styled.div`
     display: flex;
-    border: solid red;
 `
 export const MenuSideNav = styled.div`
     width: 70%;
-    border: solid;
 `
 
