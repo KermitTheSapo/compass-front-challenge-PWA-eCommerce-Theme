@@ -3,8 +3,12 @@ import * as S from "./makeupStyle"
 import brownArrow from "../../../../assets/imgs/home/main/makeup/brownArrow.svg"
 import pinkArrow from "../../../../assets/imgs/home/main/makeup/pinkArrow.svg"
 import GreenArrow from "../../../../assets/imgs/home/main/makeup/GreenArrow.svg"
+import { useNavigate } from "react-router-dom";
 
 export default function Makeup() {
+
+    const navigate = useNavigate();
+
     return (
         <S.MakeupContainer>
             <S.Title>Makeup & Skincare</S.Title>
@@ -12,7 +16,7 @@ export default function Makeup() {
                 <S.LifestyleDiv>
                     <S.Paragraph>LIFESTYLE</S.Paragraph>
                     <S.Name>Makeup Accessories from Top Brands</S.Name>
-                    <S.LinkCirclePrimary href="/error">
+                    <S.LinkCirclePrimary onClick={() => navigate("/error")}>
                         <S.CirclePrimary>
                             <S.Arrow src={brownArrow} alt="" />
                         </S.CirclePrimary>
@@ -21,7 +25,7 @@ export default function Makeup() {
                 <S.BannersSecondary>
                     <S.SkincareDiv>
                         <S.NameSecondary>Skincare Essentials</S.NameSecondary>
-                        <S.LinkCircle href="/error">
+                        <S.LinkCircle onClick={() => navigate("/error")}>
                             <S.CircleSkincare>
                                 <S.Arrow src={pinkArrow} alt="" />
                             </S.CircleSkincare>
@@ -29,7 +33,7 @@ export default function Makeup() {
                     </S.SkincareDiv>
                     <S.FacePacksDiv>
                         <S.NameFacePacks>Facepacks & Peels</S.NameFacePacks>
-                        <S.LinkCircle href="/error">
+                        <S.LinkCircle onClick={() => navigate("/error")}>
                             <S.CircleFacepacks>
                                 <S.Arrow src={GreenArrow} alt="" />
                             </S.CircleFacepacks>
