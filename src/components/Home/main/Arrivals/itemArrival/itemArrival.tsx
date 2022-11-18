@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as S from "./itemArrivalStyle"
 
 
@@ -15,11 +16,14 @@ type Props = {
     link: string;
 };
 export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName, heartFill, onClick, link }: Props) {
+    const navigate = useNavigate();
+
     const [heartStatus, setHeartStatus] = useState(true)
+
     return (
-        <S.ItemLink href={link}>
+        <S.ItemLink>
             <S.ItemArrival onClick={onClick}>
-                <S.ImgProduct src={ImgSrc} alt={ImgAlt} />
+                <S.ImgProduct onClick={() => navigate(link)} src={ImgSrc} alt={ImgAlt} />
                 <S.InformationDiv>
                     <S.NameHeart>
                         <S.ItemName>{itemName}</S.ItemName>
