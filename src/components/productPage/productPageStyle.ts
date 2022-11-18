@@ -129,7 +129,8 @@ export const PicsContent = styled.div`
 `
 
 export const ImgPics = styled.img`
-
+    height: 605px;
+    width: 605px;
 `
 
 export const ProductPhotos = styled.div`
