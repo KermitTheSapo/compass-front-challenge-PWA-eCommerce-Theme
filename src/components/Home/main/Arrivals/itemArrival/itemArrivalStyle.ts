@@ -10,6 +10,8 @@ export const ItemArrival = styled.div`
   }
 `
 export const ImgProduct = styled.img`
+height: 138px;
+width: 136px;
   @media (min-width: 768px) {
     height: 286px;
     width: 286px;
