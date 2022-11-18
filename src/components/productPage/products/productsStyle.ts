@@ -16,8 +16,10 @@ export const Products = styled.div`
 `
 
 export const ProductImage = styled.img`
-    min-width: 95%;   
-    height: 100%; 
+    /* min-width: 95%;   
+    height: 100%; */
+    height: 340px;
+    width: 328px; 
     
 `
 
