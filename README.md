@@ -45,6 +45,8 @@ Thiago decided to enter the e-commerce sector (online sales), in addition, he de
 "Npm run dev" for localhost
 "npm run storybook" for storybook
 
+Currently working for mobile screens: 420px and desktop 1440px
+
 ---
 
 ## Features
