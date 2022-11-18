@@ -6,6 +6,7 @@ import grande from "../../../../assets/imgs/home/main/arrivals/grande.png"
 import boker from "../../../../assets/imgs/home/main/arrivals/boker.png"
 import Sheet from "../sheet/sheet"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 // import keepState from "../../../../utils/keepState"
 
 export default function Arrivals() {
@@ -14,12 +15,12 @@ export default function Arrivals() {
     const showConsole = () => {
         grandeStatus === true ? setGrandeStatus(false) : setGrandeStatus(true)
     }
-    console.log(grandeStatus)
+    const navigate = useNavigate();
     return (
         <S.ArrivalsSection>
             <S.ArrivalHeader>
                 <S.HeaderTitle >New Arrivals</S.HeaderTitle>
-                <S.LinkParagraph href="/error">
+                <S.LinkParagraph onClick={() => navigate("/error")}>
                     <S.Paragraph>View all &gt;</S.Paragraph>
                 </S.LinkParagraph>
             </S.ArrivalHeader>
