@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
 
     const [listCategory, setListCategory] = useState(false)
-
+    const [inputSearchClick, setInputSearchClick] = useState(false)
     const navigate = useNavigate();
 
     return (
@@ -65,26 +65,30 @@ export default function Header() {
             </S.NavCategory>
             <S.IconsContainer>
                 <S.Input type="text" placeholder="Search for products or brands..." />
-                <S.LinkCategory onClick={() => navigate("/")}>
+                <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImg src={heart} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/")}>
+                <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImg src={profile} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/")}>
+                <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImg src={bag} alt="" />
                 </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
-                <S.LinkCategory onClick={() => navigate("/")}>
+                <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImgMobile src={add} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/")}>
+                <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImgMobile src={notification} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/")}>
+                <S.LinkCategory onClick={() => inputSearchClick ? setInputSearchClick(false) : setInputSearchClick(true)}>
                     <S.IconImgMobile src={search} alt="" />
                 </S.LinkCategory>
+                {inputSearchClick && <S.DivInputSearch>
+                    <S.InputSearch type="text" placeholder="Search for products or brands..." />
+                </S.DivInputSearch>}
+
             </S.TrailingIconsContainer>
         </S.HeaderContainer>
     )
