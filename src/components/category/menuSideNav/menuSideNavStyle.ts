@@ -5,6 +5,9 @@ export const MenuSideNavContainer = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 20px;
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 export const Separator = styled.div`
