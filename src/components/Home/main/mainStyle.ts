@@ -111,3 +111,8 @@ export const CarryParagraph = styled.p`
   width: 80%;
 `
 
+export const ImgBanner = styled.img`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`
