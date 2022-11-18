@@ -134,3 +134,28 @@ export const ListUl = styled.ul`
   background-color: var(--carryDiv);
 `
 export const ListLi = styled.li``
+
+export const DivInputSearch = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--Bright);
+  height: 44px;
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  left: 0px;
+`
+
+export const InputSearch = styled.input`
+  width: 80%;
+  border-radius: 4px;
+  background-color: var(--Grey);
+  background-image: url(${search});
+  background-repeat: no-repeat;
+  background-position: 10px;
+  border: none;
+  outline: none;
+  height: 34px;
+  padding-left: 35px;
+`
