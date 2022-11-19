@@ -18,21 +18,21 @@ export default function Products({ imgCarousel }: Props) {
     return (
         <S.Products>
             <S.DivProductImage>
-                <S.ProductImage src={imgCarousel} alt="" />
+                <S.ProductImage src={imgCarousel} alt="carousel image" />
                 <S.DivSimilarProduct onClick={() => showSimilarProducts ? setShowSimilarProducts(false) : setShowSimilarProducts(true)}>
-                    <S.ImgSimilar src={viewSimilar} alt="" />
+                    <S.ImgSimilar src={viewSimilar} alt="3 cards next to each other" />
                 </S.DivSimilarProduct>
             </S.DivProductImage>
             <S.DivProductImage>
-                <S.ProductImage src={imgCarousel} alt="" />
+                <S.ProductImage src={imgCarousel} alt="carousel image" />
                 <S.DivSimilarProduct onClick={() => showSimilarProducts ? setShowSimilarProducts(false) : setShowSimilarProducts(true)}>
-                    <S.ImgSimilar src={viewSimilar} alt="" />
+                    <S.ImgSimilar src={viewSimilar} alt="3 cards next to each other" />
                 </S.DivSimilarProduct>
             </S.DivProductImage>
             <S.DivProductImage>
-                <S.ProductImage src={imgCarousel} alt="" />
+                <S.ProductImage src={imgCarousel} alt="carousel image" />
                 <S.DivSimilarProduct onClick={() => showSimilarProducts ? setShowSimilarProducts(false) : setShowSimilarProducts(true)}>
-                    <S.ImgSimilar src={viewSimilar} alt="" />
+                    <S.ImgSimilar src={viewSimilar} alt="3 cards next to each other" />
                 </S.DivSimilarProduct>
             </S.DivProductImage>
             {showSimilarProducts && <S.BottomSheetContainer>

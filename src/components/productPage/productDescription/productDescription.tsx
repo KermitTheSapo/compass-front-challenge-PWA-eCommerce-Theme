@@ -8,7 +8,7 @@ export default function ProductDescription() {
         <S.ProductDescription>
             <S.ProductHeader>
                 <S.ProductModalTitle>Product Description</S.ProductModalTitle>
-                <S.ArrowProduct onClick={() => modalProductDescription ? setModalProductDescription(false) : setModalProductDescription(true)} src={modalProductDescription ? arrowDown : arrowUp} alt="" />
+                <S.ArrowProduct onClick={() => modalProductDescription ? setModalProductDescription(false) : setModalProductDescription(true)} src={modalProductDescription ? arrowDown : arrowUp} alt="up or down arrow" />
             </S.ProductHeader>
             {modalProductDescription && <S.ProductDescriptionParagraph>
                 Experience comfortable and easy travelling like never before with this coach bag. It features a zip closure, removable straps and multiple organization compartments to keep your valuables safe. Crafted from premium material, it is durable and lasts long.

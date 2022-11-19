@@ -10,11 +10,11 @@ export default function InviteFriends() {
                 <S.InviteFriendsParagraph>Invite yourGet uptp 100 reward points for every friend you invite</S.InviteFriendsParagraph>
                 <S.LinkInvite>
                     <S.InviteText>Invite Now</S.InviteText>
-                    <S.ImgArrowInvite src={inviteArrow} alt="" />
+                    <S.ImgArrowInvite src={inviteArrow} alt="blue right arrow" />
                 </S.LinkInvite>
             </S.InviteFriendsContent>
             <S.InviteFriendsPicture>
-                <S.InviteFriendsImg src={invite} alt="" />
+                <S.InviteFriendsImg src={invite} alt="clear square" />
             </S.InviteFriendsPicture>
         </S.InviteFriends>
     )

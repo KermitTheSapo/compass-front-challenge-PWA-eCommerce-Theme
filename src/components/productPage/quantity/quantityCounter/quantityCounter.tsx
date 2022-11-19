@@ -8,9 +8,9 @@ export default function QuantityCounter() {
 
     return (
         <S.QuantityCounter>
-            <S.Img onClick={() => quantity > 1 ? setQuantity(quantity - 1) : setQuantity(quantity)} src={minus} alt="" />
+            <S.Img onClick={() => quantity > 1 ? setQuantity(quantity - 1) : setQuantity(quantity)} src={minus} alt="a plus icon" />
             <S.QuantityNumber>{quantity}</S.QuantityNumber>
-            <S.Img onClick={() => quantity < 10 ? setQuantity(quantity + 1) : setQuantity(quantity)} src={plus} alt="" />
+            <S.Img onClick={() => quantity < 10 ? setQuantity(quantity + 1) : setQuantity(quantity)} src={plus} alt="a minus icon" />
         </S.QuantityCounter>
     )
 }

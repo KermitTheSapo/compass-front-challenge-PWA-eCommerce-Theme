@@ -16,6 +16,7 @@ import Quantity from "./quantity/quantity"
 import Buttons from "./buttons/buttons"
 import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescriptionDesktop"
 import Footer from "../footer/footer"
+import { useNavigate } from "react-router-dom"
 
 type Props = {
     name: string;
@@ -29,36 +30,37 @@ type Props = {
 }
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel }: Props) {
+    const navigate = useNavigate()
     return (
         <S.ProductPageContainer>
             <Header />
             <S.Header>
-                <S.LinkArrow href="/">
-                    <S.ImgArrow src={arrow} alt="" />
+                <S.LinkArrow onClick={() => navigate("/")}>
+                    <S.ImgArrow src={arrow} alt="left arrow icon" />
                 </S.LinkArrow>
             </S.Header>
             <S.BreadCrumb>
                 <S.BreadCrumbRouteOn>Home</S.BreadCrumbRouteOn>
-                <S.ArrowRightMini src={arrowRightMini} alt="" />
+                <S.ArrowRightMini src={arrowRightMini} alt="a small arrow to the right" />
                 <S.BreadCrumbRouteOn>Handbag</S.BreadCrumbRouteOn>
-                <S.ArrowRightMini src={arrowRightMini} alt="" />
+                <S.ArrowRightMini src={arrowRightMini} alt="a small arrow to the right" />
                 <S.BreadCrumbRouteOff>Label</S.BreadCrumbRouteOff>
             </S.BreadCrumb>
             <S.PicsContent>
                 <S.ProductsPics>
-                    <S.ImgPics src={img} alt="" />
+                    <S.ImgPics src={img} alt="large image of a product" />
                     <S.ProductPhotos>
                         <S.ProductArrow>
-                            <img src={arrow} alt="" />
+                            <img src={arrow} alt="large image of a product" />
                         </S.ProductArrow>
                         <S.ImgSmallDiv>
-                            <S.ImgSmallPic src={img} alt="" />
-                            <S.ImgSmallPic src={img} alt="" />
-                            <S.ImgSmallPic src={img} alt="" />
-                            <S.ImgSmallPic src={img} alt="" />
+                            <S.ImgSmallPic src={img} alt="small images" />
+                            <S.ImgSmallPic src={img} alt="small images" />
+                            <S.ImgSmallPic src={img} alt="small images" />
+                            <S.ImgSmallPic src={img} alt="small images" />
                         </S.ImgSmallDiv>
                         <S.ProductArrow>
-                            <img src={arrowRight} alt="" />
+                            <img src={arrowRight} alt="right arrow" />
                         </S.ProductArrow>
                     </S.ProductPhotos>
                 </S.ProductsPics>
@@ -82,7 +84,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
             {window.screen.width > 768 && <Footer />}
             <S.FooterNav>
                 <S.heartDiv>
-                    <S.ImgHeart src={heart} alt="" />
+                    <S.ImgHeart src={heart} alt="heart icon" />
                 </S.heartDiv>
                 <S.ButtonAdd>Add to Bag</S.ButtonAdd>
             </S.FooterNav>

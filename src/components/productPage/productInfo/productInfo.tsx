@@ -24,11 +24,11 @@ export default function ProductInfo({ name, value, safe, discount, productParagr
             <S.ProductAverage>
                 <S.Ratings>
                     <S.StarImgs>
-                        <S.Star src={starOn} alt="" />
-                        <S.Star src={starOn} alt="" />
-                        <S.Star src={starOn} alt="" />
-                        <S.Star src={starOn} alt="" />
-                        <S.Star src={starOff} alt="" />
+                        <S.Star src={starOn} alt="filled yellow star" />
+                        <S.Star src={starOn} alt="filled yellow star" />
+                        <S.Star src={starOn} alt="filled yellow star" />
+                        <S.Star src={starOn} alt="filled yellow star" />
+                        <S.Star src={starOff} alt="unfilled yellow star" />
                     </S.StarImgs>
                     <S.StarRating>
                         <S.RatingName>(250) Ratings</S.RatingName>
@@ -36,7 +36,7 @@ export default function ProductInfo({ name, value, safe, discount, productParagr
                 </S.Ratings>
                 <S.StarDiv>
                     <S.ValueRating>4.5</S.ValueRating>
-                    <S.StarImg src={star} alt="" />
+                    <S.StarImg src={star} alt="big yellow star" />
                 </S.StarDiv>
                 <S.RatingDiv>
                     <S.RatingTitle>Average Rating</S.RatingTitle>
