@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Reset } from "./assets/styles/reset"
 import Boker from "./components/boker/boker"
 import Boujee from "./components/boujee/boujee"
+import Apparels from "./components/category/apparels/apparels"
 import Eyewear from "./components/category/eyewear/eyewear"
 import Handbags from "./components/category/handbags/handbags"
 import Jewellery from "./components/category/jewellery/jewellery"
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/remus" element={<Remus />} />
         <Route path="/boujee" element={<Boujee />} />
         <Route path="/boker" element={<Boker />} />
+        <Route path="/apparels" element={<Apparels />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
