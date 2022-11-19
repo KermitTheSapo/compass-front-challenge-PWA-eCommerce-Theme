@@ -24,7 +24,7 @@ export default function Header() {
     return (
         <S.HeaderContainer>
             <S.MenuContainer>
-                <S.MenuImg src={menu} alt="" onClick={() => listCategory === true ? setListCategory(false) : setListCategory(true)} />
+                <S.MenuImg src={menu} alt="a hamburger menu with three lines" onClick={() => listCategory === true ? setListCategory(false) : setListCategory(true)} />
                 <S.TitlePage>Home</S.TitlePage>
             </S.MenuContainer>
             {listCategory && <S.NavList>
@@ -48,7 +48,7 @@ export default function Header() {
             </S.NavList>}
             <S.NavCategory>
                 <S.LinkCategory onClick={() => navigate("/")}>
-                    <S.ImgLogo src={imgLogo} alt="" />
+                    <S.ImgLogo src={imgLogo} alt="mark written Coral with a different font" />
                 </S.LinkCategory>
                 <S.UlCategory>
                     <S.LinkCategory onClick={() => navigate("/handbags")}>
@@ -71,24 +71,24 @@ export default function Header() {
             <S.IconsContainer>
                 <S.Input type="text" placeholder="Search for products or brands..." />
                 <S.LinkCategory onClick={() => navigate("/error")}>
-                    <S.IconImg src={heart} alt="" />
+                    <S.IconImg src={heart} alt="unfilled heart symbol" />
                 </S.LinkCategory>
                 <S.LinkCategory onClick={() => navigate("/error")}>
-                    <S.IconImg src={profile} alt="" />
+                    <S.IconImg src={profile} alt="icon of a person's head and shoulder" />
                 </S.LinkCategory>
                 <S.LinkCategory >
-                    <S.IconImg onClick={() => showCartInfo ? setShowCartInfo(false) : setShowCartInfo(true)} src={bag} alt="" />
+                    <S.IconImg onClick={() => showCartInfo ? setShowCartInfo(false) : setShowCartInfo(true)} src={bag} alt="a bag icon" />
                 </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
                 <S.LinkCategory onClick={() => navigate("/error")}>
-                    <S.IconImgMobile src={add} alt="" />
+                    <S.IconImgMobile src={add} alt="icon of a square with a plus in the middle" />
                 </S.LinkCategory>
                 <S.LinkCategory onClick={() => navigate("/error")}>
-                    <S.IconImgMobile src={notification} alt="" />
+                    <S.IconImgMobile src={notification} alt="bell icon" />
                 </S.LinkCategory>
                 <S.LinkCategory onClick={() => inputSearchClick ? setInputSearchClick(false) : setInputSearchClick(true)}>
-                    <S.IconImgMobile src={search} alt="" />
+                    <S.IconImgMobile src={search} alt="magnifying glass icon" />
                 </S.LinkCategory>
                 {inputSearchClick && <S.DivInputSearch>
                     <S.InputSearch type="text" placeholder="Search for products or brands..." />
@@ -97,13 +97,13 @@ export default function Header() {
             {showCartInfo && <S.CartInfoContainer>
                 <S.CartInfoDiv>
                     <S.AppBar>
-                        <S.ImgBackArrow src={arrowLeft} alt="" onClick={() => setShowCartInfo(false)} />
+                        <S.ImgBackArrow src={arrowLeft} alt="left arrow icon" onClick={() => setShowCartInfo(false)} />
                         <S.TitleAppBar>Back</S.TitleAppBar>
                     </S.AppBar>
                     <S.CardVerticalContainer>
                         <S.CardVertical>
                             <S.CardVerticalImgDiv>
-                                <S.CardImg src={coach} alt="" />
+                                <S.CardImg src={coach} alt="an orange leather bag" />
                             </S.CardVerticalImgDiv>
                             <S.ProductDescription>
                                 <S.ProductTitle>Coach</S.ProductTitle>
@@ -111,14 +111,14 @@ export default function Header() {
                                 <QuantityCounter />
                             </S.ProductDescription>
                             <S.PriceDeleteDiv>
-                                <S.BtnDelete src={deleteImg} alt="" />
+                                <S.BtnDelete src={deleteImg} alt="an X icon" />
                                 <S.PriceText>$54.69</S.PriceText>
                             </S.PriceDeleteDiv>
                         </S.CardVertical>
                         <S.Separator></S.Separator>
                         <S.CardVertical>
                             <S.CardVerticalImgDiv>
-                                <S.CardImg src={coach} alt="" />
+                                <S.CardImg src={coach} alt="an orange leather bag" />
                             </S.CardVerticalImgDiv>
                             <S.ProductDescription>
                                 <S.ProductTitle>Coach</S.ProductTitle>
@@ -126,7 +126,7 @@ export default function Header() {
                                 <QuantityCounter />
                             </S.ProductDescription>
                             <S.PriceDeleteDiv>
-                                <S.BtnDelete src={deleteImg} alt="" />
+                                <S.BtnDelete src={deleteImg} alt="an X icon" />
                                 <S.PriceText>$54.69</S.PriceText>
                             </S.PriceDeleteDiv>
                         </S.CardVertical>

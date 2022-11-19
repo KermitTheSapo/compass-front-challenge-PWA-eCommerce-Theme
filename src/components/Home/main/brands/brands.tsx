@@ -7,8 +7,11 @@ import Chanel from "../../../../assets/imgs/home/main/brands/chanel.svg"
 import Prada from "../../../../assets/imgs/home/main/brands/prada.svg"
 import Phone from "../../../../assets/imgs/home/main/brands/phone.svg"
 import arrow from "../../../../assets/imgs/home/main/brands/arrow.svg"
+import { useNavigate } from "react-router-dom"
 
 export default function Brands() {
+    const navigate = useNavigate()
+
     return (
         <S.Brands>
             <S.BrandsHeader>
@@ -17,33 +20,33 @@ export default function Brands() {
             </S.BrandsHeader>
             <S.BrandsImgs>
                 <S.FigureImg>
-                    <img src={Zara} alt="" />
+                    <img src={Zara} alt="logo image of a company called 'Zara'" />
                 </S.FigureImg>
                 <S.FigureImg>
-                    <img src={DG} alt="" />
+                    <img src={DG} alt="logo image of a company called 'DG'" />
                 </S.FigureImg>
                 <S.FigureImg>
-                    <img src={HM} alt="" />
+                    <img src={HM} alt="logo image of a company called 'HM'" />
                 </S.FigureImg>
                 <S.FigureImg>
-                    <img src={Biba} alt="" />
+                    <img src={Biba} alt="logo image of a company called 'Biba'" />
                 </S.FigureImg>
                 <S.FigureImg>
-                    <img src={Chanel} alt="" />
+                    <img src={Chanel} alt="logo image of a company called 'Chanel'" />
                 </S.FigureImg>
                 <S.FigureImg>
-                    <img src={Prada} alt="" />
+                    <img src={Prada} alt="logo image of a company called 'Prada'" />
                 </S.FigureImg>
             </S.BrandsImgs>
             <S.ShortcutDiv>
                 <S.ShortcutFigure>
-                    <S.ImgPhone src={Phone} alt="" />
+                    <S.ImgPhone src={Phone} alt="cell phone image" />
                 </S.ShortcutFigure>
                 <S.ShortcutContent>
                     <S.ShortcutName>Discover your favorite products faster with CORA’L web app.</S.ShortcutName>
-                    <S.ShortcutLink href="/error">
+                    <S.ShortcutLink onClick={() => navigate("/error")}>
                         <S.ShortcutParagraph>Add Shortcut</S.ShortcutParagraph>
-                        <img src={arrow} alt="" />
+                        <img src={arrow} alt="a white arrow to the right" />
                     </S.ShortcutLink>
                 </S.ShortcutContent>
             </S.ShortcutDiv>
