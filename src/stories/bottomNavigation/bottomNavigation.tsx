@@ -9,6 +9,7 @@ import profileFill from "../../assets/imgs/home/navigation/profile-fill.svg"
 import bag from "../../assets/imgs/home/navigation/bag.svg"
 import bagFill from "../../assets/imgs/home/navigation/bag-fill.svg"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function BottomNavigation() {
     const [activeHome, setActiveHome] = useState(false)
@@ -16,28 +17,29 @@ export default function BottomNavigation() {
     const [activeProfile, setActiveProfile] = useState(false)
     const [activeBag, setActiveBag] = useState(false)
 
+    const navigate = useNavigate()
 
     return (
         <S.Navigation>
-            <S.LinkNavTab href="/error" onMouseEnter={() => setActiveHome(true)} onMouseLeave={() => setActiveHome(false)}>
+            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveHome(true)} onMouseLeave={() => setActiveHome(false)}>
                 <S.NavTab>
                     <S.Img src={activeHome ? HomeFill : Home} alt="" />
                     <S.Name>Home</S.Name>
                 </S.NavTab>
             </S.LinkNavTab>
-            <S.LinkNavTab href="/error" onMouseEnter={() => setActiveCategories(true)} onMouseLeave={() => setActiveCategories(false)}>
+            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveCategories(true)} onMouseLeave={() => setActiveCategories(false)}>
                 <S.NavTab>
                     <S.Img src={activeCategories ? categoriesFill : categories} alt="" />
                     <S.Name>Categories</S.Name>
                 </S.NavTab>
             </S.LinkNavTab>
-            <S.LinkNavTab href="/error" onMouseEnter={() => setActiveProfile(true)} onMouseLeave={() => setActiveProfile(false)}>
+            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveProfile(true)} onMouseLeave={() => setActiveProfile(false)}>
                 <S.NavTab>
                     <S.Img src={activeProfile ? profileFill : profile} alt="" />
                     <S.Name>Profile</S.Name>
                 </S.NavTab>
             </S.LinkNavTab>
-            <S.LinkNavTab href="/error" onMouseEnter={() => setActiveBag(true)} onMouseLeave={() => setActiveBag(false)}>
+            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveBag(true)} onMouseLeave={() => setActiveBag(false)}>
                 <S.NavTab>
                     <S.Img src={activeBag ? bagFill : bag} alt="" />
                     <S.Name>Bag</S.Name>
