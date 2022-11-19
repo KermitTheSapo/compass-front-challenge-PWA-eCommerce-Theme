@@ -76,5 +76,6 @@ export const Reset = createGlobalStyle`
     --DarkShadow: #0000004D;
     --DiscountText: #E21D1D;
     --MajorVibrant: #FF404B;
+    --Separator: #0000001F;
   }
 `
