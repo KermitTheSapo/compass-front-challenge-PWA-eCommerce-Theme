@@ -19,7 +19,7 @@ export default function ItemDiv({ name, item1, item2, item3, item4, item5, item6
         <S.SizeDiv>
             <S.SizeHeader>
                 <S.MenuSideNavTitle>{name}</S.MenuSideNavTitle>
-                <S.ImgSize onClick={() => options ? setOptions(false) : setOptions(true)} src={options ? minus : plus} alt="" />
+                <S.ImgSize onClick={() => options ? setOptions(false) : setOptions(true)} src={options ? minus : plus} alt="plus or menus icon" />
             </S.SizeHeader>
             {options &&
                 <S.SizeOptions>
