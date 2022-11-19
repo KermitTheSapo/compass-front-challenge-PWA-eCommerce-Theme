@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Reset } from "./assets/styles/reset"
+import Boker from "./components/boker/boker"
 import Boujee from "./components/boujee/boujee"
 import Eyewear from "./components/category/eyewear/eyewear"
 import Handbags from "./components/category/handbags/handbags"
@@ -23,10 +24,11 @@ export default function App() {
         <Route path="/jewellery" element={<Jewellery />} />
         <Route path="/skincare" element={<Skincare />} />
         <Route path="/watches" element={<Watches />} />
-        <Route path="/grandeItem" element={<GrandeItem />} />
+        <Route path="/grande" element={<GrandeItem />} />
         <Route path="/coach" element={<Coach />} />
         <Route path="/remus" element={<Remus />} />
         <Route path="/boujee" element={<Boujee />} />
+        <Route path="/boker" element={<Boker />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
