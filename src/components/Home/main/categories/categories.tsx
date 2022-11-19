@@ -15,7 +15,7 @@ export default function Categories() {
                 <Item label={"Handbags"} icon={Handbags} alt={""} route={"/handbags"} />
                 <Item label={"Watches"} icon={Watches} alt={""} route={"/watches"} />
                 <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/eyewear"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/eyewear"} />
+                <Item label={"Apparels"} icon={skinCare} alt={""} route={"/apparels"} />
                 <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/eyewear"} />
                 <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/eyewear"} />
             </S.CategoriesList>
