@@ -7,7 +7,7 @@ export const AlsoLike = styled.div`
     flex-direction: column;
     padding: 0 16px;
     gap: 10px;
-    height: 23vh;
+    height: 33vh;
     @media (min-width: 768px) {
         display: none;
     }
@@ -21,6 +21,7 @@ export const AlsoLikeProductsList = styled.div`
     overflow: auto;
     min-width: 100%;
     gap: 10px;
+    height: 26vh;
     justify-content: flex-start;
     &::-webkit-scrollbar { 
       display: none;
