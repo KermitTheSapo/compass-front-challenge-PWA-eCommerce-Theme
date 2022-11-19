@@ -6,7 +6,7 @@ import grande from "../../../../assets/imgs/home/main/arrivals/grande.png"
 import boker from "../../../../assets/imgs/home/main/arrivals/boker.png"
 import coach from "../../../../assets/imgs/productPage/coach.png"
 import remus from "../../../../assets/imgs/remus/remus.png"
-import Sheet from "../sheet/sheet"
+// import Sheet from "../sheet/sheet"
 import boujee from "../../../../assets/imgs/boujee/boujee.png"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
@@ -28,13 +28,15 @@ export default function Arrivals() {
                 </S.LinkParagraph>
             </S.ArrivalHeader>
             <S.ArrivalList>
-                <ItemArrival onClick={() => showConsole()} ImgSrc={grande} ImgAlt={""} itemName={"Grande"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Blossom Pouch"} Price={"$39.49"} link="/grandeItem" />
-                {grandeStatus && <Sheet />}
-                <ItemArrival onClick={() => showConsole()} ImgSrc={boker} ImgAlt={""} itemName={"Boker"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Blossom"} Price={"$34.55"} link="/error" />
+                <ItemArrival onClick={() => showConsole()} ImgSrc={grande} ImgAlt={""} itemName={"Grande"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Blossom Pouch"} Price={"$39.49"} link="/grande" />
+                {/* {grandeStatus && <Sheet />} */}
+                <ItemArrival onClick={() => showConsole()} ImgSrc={boker} ImgAlt={""} itemName={"Boker"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Blossom"} Price={"$34.55"} link="/boker" />
 
                 <ItemArrival onClick={() => showConsole()} ImgSrc={coach} ImgAlt={""} itemName={"Coach"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Leather Coach Bag"} Price={"$54.69"} link="/coach" />
 
                 <ItemArrival onClick={() => showConsole()} ImgSrc={remus} ImgAlt={""} itemName={"Remus"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Brown Strap Bag"} Price={"$57.00"} link="/remus" />
+                <ItemArrival onClick={() => showConsole()} ImgSrc={boujee} ImgAlt={""} itemName={"boujee"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Black Bag"} Price={"$56.49"} link="/boujee" />
+                <ItemArrival onClick={() => showConsole()} ImgSrc={boujee} ImgAlt={""} itemName={"boujee"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Black Bag"} Price={"$56.49"} link="/boujee" />
                 <ItemArrival onClick={() => showConsole()} ImgSrc={boujee} ImgAlt={""} itemName={"boujee"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Black Bag"} Price={"$56.49"} link="/boujee" />
             </S.ArrivalList>
         </S.ArrivalsSection>
