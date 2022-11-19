@@ -18,7 +18,7 @@ export default function Makeup() {
                     <S.Name>Makeup Accessories from Top Brands</S.Name>
                     <S.LinkCirclePrimary onClick={() => navigate("/error")}>
                         <S.CirclePrimary>
-                            <S.Arrow src={brownArrow} alt="" />
+                            <S.Arrow src={brownArrow} alt="a brown right arrow" />
                         </S.CirclePrimary>
                     </S.LinkCirclePrimary>
                 </S.LifestyleDiv>
@@ -27,7 +27,7 @@ export default function Makeup() {
                         <S.NameSecondary>Skincare Essentials</S.NameSecondary>
                         <S.LinkCircle onClick={() => navigate("/error")}>
                             <S.CircleSkincare>
-                                <S.Arrow src={pinkArrow} alt="" />
+                                <S.Arrow src={pinkArrow} alt="a pink right arrow" />
                             </S.CircleSkincare>
                         </S.LinkCircle>
                     </S.SkincareDiv>
@@ -35,7 +35,7 @@ export default function Makeup() {
                         <S.NameFacePacks>Facepacks & Peels</S.NameFacePacks>
                         <S.LinkCircle onClick={() => navigate("/error")}>
                             <S.CircleFacepacks>
-                                <S.Arrow src={GreenArrow} alt="" />
+                                <S.Arrow src={GreenArrow} alt="a green right arrow" />
                             </S.CircleFacepacks>
                         </S.LinkCircle>
                     </S.FacePacksDiv>

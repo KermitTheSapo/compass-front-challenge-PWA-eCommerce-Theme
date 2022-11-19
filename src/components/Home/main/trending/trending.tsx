@@ -7,10 +7,10 @@ export default function Trending() {
         <S.TrendingContainer>
             <S.Title>Trending Deals</S.Title>
             <S.ImgsDiv>
-                <S.ImgPoster src={spring} alt="" />
-                <S.ImgPoster src={spring} alt="" />
-                <S.ImgPoster src={spring} alt="" />
-                <S.ImgPoster src={spring} alt="" />
+                <S.ImgPoster src={spring} alt="image of a woman with the yellow background written 'spring summer collection'" />
+                <S.ImgPoster src={spring} alt="image of a woman with the yellow background written 'spring summer collection'" />
+                <S.ImgPoster src={spring} alt="image of a woman with the yellow background written 'spring summer collection'" />
+                <S.ImgPoster src={spring} alt="image of a woman with the yellow background written 'spring summer collection'" />
             </S.ImgsDiv>
         </S.TrendingContainer>
     )

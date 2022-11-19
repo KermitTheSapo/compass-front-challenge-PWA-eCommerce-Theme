@@ -15,16 +15,16 @@ export default function Handpicked() {
             <S.Title>Handpicked Collections</S.Title>
             <S.Collections>
                 <a onClick={() => navigate("/error")}>
-                    <S.ImgCollections src={personalCare} alt="" />
+                    <S.ImgCollections src={personalCare} alt="picture of a perfume" />
                 </a>
                 <a onClick={() => navigate("/error")}>
-                    <S.ImgCollections src={sunglasses} alt="" />
+                    <S.ImgCollections src={sunglasses} alt="picture of a sunglasses" />
                 </a>
                 <a onClick={() => navigate("/error")}>
-                    <S.ImgCollections src={handbags} alt="" />
+                    <S.ImgCollections src={handbags} alt="image of a pink handbag" />
                 </a>
                 <a onClick={() => navigate("/error")}>
-                    <S.ImgCollections src={wristWatches} alt="" />
+                    <S.ImgCollections src={wristWatches} alt="image of a wristwatch" />
                 </a>
             </S.Collections>
         </S.HandpickedContainer>

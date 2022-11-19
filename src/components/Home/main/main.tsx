@@ -45,9 +45,9 @@ export default function Main() {
                 <S.AlertLink onClick={() => navigate("/error")}>here</S.AlertLink>
             </S.AlertDiv>
             <S.BannersCarrossel>
-                <S.Banner src={Funk} alt="" />
-                <S.Banner src={Funk} alt="" />
-                <S.Banner src={Funk} alt="" />
+                <S.Banner src={Funk} alt="image of a person with a pink bag near a brick wall" />
+                <S.Banner src={Funk} alt="image of a person with a pink bag near a brick wall" />
+                <S.Banner src={Funk} alt="image of a person with a pink bag near a brick wall" />
             </S.BannersCarrossel>
             {bannerOne && <S.BannerDesktop>
                 <S.CarryDiv>
@@ -58,8 +58,8 @@ export default function Main() {
                     </a>
                 </S.CarryDiv>
             </S.BannerDesktop>}
-            {bannerTwo && <S.ImgBanner src={hero} alt="" />}
-            {bannerThree && <S.ImgBanner src={makeup} alt="" />}
+            {bannerTwo && <S.ImgBanner src={hero} alt="an image of a black bag with a black tag written black friday on a white background with a written title saying 70% off black friday" />}
+            {bannerThree && <S.ImgBanner src={makeup} alt="image of a table with various makeup" />}
             <Categories />
             <Arrivals />
             <Handpicked />
