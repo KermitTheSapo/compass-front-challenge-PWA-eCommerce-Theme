@@ -42,3 +42,63 @@ export const DivSimilarProduct = styled.div`
     left: 275px;
 `
 export const ImgSimilar = styled.img``
+
+export const BottomSheetContainer = styled.div`
+    @media (min-width: 768px) {
+        dispay: none;
+    }
+`
+export const BottomSheetDark = styled.div`
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    background-color: #0000004D;
+    z-index: 3;
+`
+export const BottomSheetContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 35vh;
+    width: 100vw;
+    background-color: var(--Bright);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 4;
+    border-radius: 10px 10px 0px 0px;
+`
+
+export const BottomSheetHeader = styled.div`
+    padding: 19px 16px;
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`
+
+export const BottomSheetTitle = styled.h3`
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--TypeLowEmphasis);
+`
+
+export const SeparatorDiv = styled.div`
+    height: 1px;
+    width: 100%;
+    background: var(--Separator);
+    `
+export const BottomSheetBody = styled.div`
+    display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 100%;
+  overflow: auto;
+  height: 30vh;
+  gap: 16px;
+  padding: 0 16px;
+  &::-webkit-scrollbar { 
+  display: none;
+  }
+`
