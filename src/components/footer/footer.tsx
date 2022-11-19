@@ -27,41 +27,41 @@ export default function Footer() {
                     <S.Category>
                         <S.CategoryName>Shop by Category</S.CategoryName>
                         <S.CategoryList>
-                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/")}>Skincare</S.LinkItem></S.CategoryItem>
-                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/")}>Personal Care</S.LinkItem></S.CategoryItem>
-                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/")}>Handbags</S.LinkItem></S.CategoryItem>
-                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/")}>Apparels</S.LinkItem></S.CategoryItem>
-                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/")}>Watches</S.LinkItem></S.CategoryItem>
-                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/")}>Eye Wear</S.LinkItem></S.CategoryItem>
-                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/")}>Jewellery</S.LinkItem></S.CategoryItem>
+                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/skincare")}>Skincare</S.LinkItem></S.CategoryItem>
+                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/error")}>Personal Care</S.LinkItem></S.CategoryItem>
+                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/handbags")}>Handbags</S.LinkItem></S.CategoryItem>
+                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/apparels")}>Apparels</S.LinkItem></S.CategoryItem>
+                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/watches")}>Watches</S.LinkItem></S.CategoryItem>
+                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/eyewear")}>Eye Wear</S.LinkItem></S.CategoryItem>
+                            <S.CategoryItem><S.LinkItem onClick={() => navigate("/jewellery")}>Jewellery</S.LinkItem></S.CategoryItem>
                         </S.CategoryList>
                     </S.Category>
                     <S.Policy>
                         <S.PolicyName>Policy</S.PolicyName>
                         <S.PolicyList>
-                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/")}>Return</S.LinkItem></S.PolicyItem>
+                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/error")}>Return</S.LinkItem></S.PolicyItem>
                             <S.Border></S.Border>
-                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/")}>Terms of use</S.LinkItem></S.PolicyItem>
+                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/error")}>Terms of use</S.LinkItem></S.PolicyItem>
                             <S.Border></S.Border>
-                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/")}>Sitemap</S.LinkItem></S.PolicyItem>
+                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/error")}>Sitemap</S.LinkItem></S.PolicyItem>
                             <S.Border></S.Border>
-                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/")}>Security</S.LinkItem></S.PolicyItem>
+                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/error")}>Security</S.LinkItem></S.PolicyItem>
                             <S.Border></S.Border>
-                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/")}>Privacy</S.LinkItem></S.PolicyItem>
+                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/error")}>Privacy</S.LinkItem></S.PolicyItem>
                             <S.Border></S.Border>
-                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/")}>EPR Compliance</S.LinkItem></S.PolicyItem>
+                            <S.PolicyItem><S.LinkItem onClick={() => navigate("/error")}>EPR Compliance</S.LinkItem></S.PolicyItem>
                         </S.PolicyList>
                     </S.Policy>
                     <S.About>
                         <S.AboutName>About</S.AboutName>
                         <S.AboutList>
-                            <S.AboutItem><S.LinkItem onClick={() => navigate("/")}>Contact Us</S.LinkItem></S.AboutItem>
+                            <S.AboutItem><S.LinkItem onClick={() => navigate("/error")}>Contact Us</S.LinkItem></S.AboutItem>
                             <S.Border></S.Border>
-                            <S.AboutItem><S.LinkItem onClick={() => navigate("/")}>About Us</S.LinkItem></S.AboutItem>
+                            <S.AboutItem><S.LinkItem onClick={() => navigate("/error")}>About Us</S.LinkItem></S.AboutItem>
                             <S.Border></S.Border>
-                            <S.AboutItem><S.LinkItem onClick={() => navigate("/")}>Careers</S.LinkItem></S.AboutItem>
+                            <S.AboutItem><S.LinkItem onClick={() => navigate("/error")}>Careers</S.LinkItem></S.AboutItem>
                             <S.Border></S.Border>
-                            <S.AboutItem><S.LinkItem onClick={() => navigate("/")}>Press</S.LinkItem></S.AboutItem>
+                            <S.AboutItem><S.LinkItem onClick={() => navigate("/error")}>Press</S.LinkItem></S.AboutItem>
                         </S.AboutList>
                     </S.About>
                     <S.BorderHorizontal></S.BorderHorizontal>
