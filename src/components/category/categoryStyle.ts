@@ -219,3 +219,85 @@ export const MenuSideNav = styled.div`
     width: 70%;
 `
 
+
+export const NumberPageTabs = styled.div`
+    margin-top: 20px;
+    @media (max-width: 768px) {
+        display: none;
+    }
+`
+
+export const BottomSheet = styled.div`
+ @media (min-width: 768px) {
+    display: none;
+ }
+`
+
+export const BottomSheetDark = styled.div`
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--DarkShadow);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+`
+
+export const BottomSheetContent = styled.div`
+    background-color: var(--Bright);
+    height: 256px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 3;
+    border-radius: 16px 16px 0 0;
+`
+
+export const BottomSheetHeader = styled.div`
+    padding: 19px 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 8vh;
+`
+export const BottomSheetTitle = styled.h3`
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--TypeLowEmphasis);
+`
+
+export const BottomSheetBody = styled.div`
+    padding: 0px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70%;
+`
+
+export const Separator = styled.div`
+    height: 1px;
+    width: 100%;
+    background-color: var(--Separator);
+`
+
+
+export const InputRadio = styled.input`
+
+`
+
+export const LabelBottomSheet = styled.label`
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--TypeLowEmphasis);
+    &:active{
+        color: var(--TypeHighEmphasis);
+    }
+`
+
+export const RadioDiv = styled.div`
+    display: flex;
+    align-items: center;
+`
+// export const xx = styled.div``
+// export const xx = styled.div``
