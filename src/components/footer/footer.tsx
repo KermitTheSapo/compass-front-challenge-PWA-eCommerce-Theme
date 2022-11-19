@@ -20,7 +20,7 @@ export default function Footer() {
         <S.FooterContainer>
             <S.MoreInfo>
                 <S.AboutTitle>More about CORA’L</S.AboutTitle>
-                <S.Arrow src={showFooter === true ? arrowUp : arrowDown} alt="" onClick={() => showFooter === true ? setShowFooter(false) : setShowFooter(true)} />
+                <S.Arrow src={showFooter === true ? arrowUp : arrowDown} alt="a gray up or down arrow" onClick={() => showFooter === true ? setShowFooter(false) : setShowFooter(true)} />
             </S.MoreInfo>
             {showFooter &&
                 <S.FooterContent>
@@ -68,20 +68,20 @@ export default function Footer() {
                     <S.Details>
                         <S.Logos>
                             <S.CircleFigure>
-                                <S.LogoImg src={facebook} alt="" />
+                                <S.LogoImg src={facebook} alt="facebook icon, gray with the letter F" />
                             </S.CircleFigure>
                             <S.CircleFigure>
-                                <S.LogoImg src={instagram} alt="" />
+                                <S.LogoImg src={instagram} alt="instagram icon" />
                             </S.CircleFigure>
                             <S.CircleFigure>
-                                <S.LogoImg src={twitter} alt="" />
+                                <S.LogoImg src={twitter} alt="twitter icon, a little bird" />
                             </S.CircleFigure>
                             <S.CircleFigure>
-                                <S.LogoImg src={youtube} alt="" />
+                                <S.LogoImg src={youtube} alt="the youtube icon" />
                             </S.CircleFigure>
                         </S.Logos>
                         <S.Localization>
-                            <S.ImgLocation src={location} alt="" />
+                            <S.ImgLocation src={location} alt="the location symbol" />
                             <S.LocalizationName>United States</S.LocalizationName>
                         </S.Localization>
                         <S.Copyright>
