@@ -7,7 +7,7 @@ export default function RatingReviews() {
     return (
         <S.RatingsReviews>
             <S.RatingsReviewsTitle>Ratings & Reviews</S.RatingsReviewsTitle>
-            <S.LinkRatings onClick={() => navigate("/error")}><S.RatingArrow src={arrowRight} alt="" /></S.LinkRatings>
+            <S.LinkRatings onClick={() => navigate("/error")}><S.RatingArrow src={arrowRight} alt="an arrow to the right" /></S.LinkRatings>
         </S.RatingsReviews>
     )
 }
