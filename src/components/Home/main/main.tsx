@@ -19,18 +19,23 @@ export default function Main() {
     const [bannerOne, setBannerOne] = useState(true)
     const [bannerTwo, setBannerTwo] = useState(false)
     const [bannerThree, setBannerThree] = useState(false)
-
-    setInterval(() => {
+    const changeBanner = () => {
         if (bannerOne) {
             setBannerOne(false)
             setBannerTwo(true)
+            return;
         } else if (bannerTwo) {
             setBannerTwo(false)
             setBannerThree(true)
+            return;
         } else if (bannerThree) {
             setBannerThree(false)
             setBannerOne(true)
+            return;
         }
+    }
+    setInterval(() => {
+        changeBanner()
     }, 30000)
 
     return (
