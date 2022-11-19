@@ -6,14 +6,19 @@ import search from "../../assets/imgs/header/search.svg"
 import imgLogo from "../../assets/imgs/header/imgLogo.svg"
 import heart from "../../assets/imgs/header/heart.svg"
 import profile from "../../assets/imgs/header/profile.svg"
+import arrowLeft from "../../assets/imgs/header/arrowLeft.svg"
 import bag from "../../assets/imgs/header/bag.svg"
+import coach from "../../assets/imgs/header/coach.png"
+import deleteImg from "../../assets/imgs/header/deleteImg.svg"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import QuantityCounter from "../productPage/quantity/quantityCounter/quantityCounter";
 
 export default function Header() {
 
     const [listCategory, setListCategory] = useState(false)
     const [inputSearchClick, setInputSearchClick] = useState(false)
+    const [showCartInfo, setShowCartInfo] = useState(false)
     const navigate = useNavigate();
 
     return (
@@ -71,8 +76,8 @@ export default function Header() {
                 <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImg src={profile} alt="" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/error")}>
-                    <S.IconImg src={bag} alt="" />
+                <S.LinkCategory >
+                    <S.IconImg onClick={() => showCartInfo ? setShowCartInfo(false) : setShowCartInfo(true)} src={bag} alt="" />
                 </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
@@ -88,8 +93,72 @@ export default function Header() {
                 {inputSearchClick && <S.DivInputSearch>
                     <S.InputSearch type="text" placeholder="Search for products or brands..." />
                 </S.DivInputSearch>}
-
             </S.TrailingIconsContainer>
-        </S.HeaderContainer>
+            {showCartInfo && <S.CartInfoContainer>
+                <S.CartInfoDiv>
+                    <S.AppBar>
+                        <S.ImgBackArrow src={arrowLeft} alt="" onClick={() => setShowCartInfo(false)} />
+                        <S.TitleAppBar>Back</S.TitleAppBar>
+                    </S.AppBar>
+                    <S.CardVerticalContainer>
+                        <S.CardVertical>
+                            <S.CardVerticalImgDiv>
+                                <S.CardImg src={coach} alt="" />
+                            </S.CardVerticalImgDiv>
+                            <S.ProductDescription>
+                                <S.ProductTitle>Coach</S.ProductTitle>
+                                <S.ProductParagraph>Leather Coach Bag</S.ProductParagraph>
+                                <QuantityCounter />
+                            </S.ProductDescription>
+                            <S.PriceDeleteDiv>
+                                <S.BtnDelete src={deleteImg} alt="" />
+                                <S.PriceText>$54.69</S.PriceText>
+                            </S.PriceDeleteDiv>
+                        </S.CardVertical>
+                        <S.Separator></S.Separator>
+                        <S.CardVertical>
+                            <S.CardVerticalImgDiv>
+                                <S.CardImg src={coach} alt="" />
+                            </S.CardVerticalImgDiv>
+                            <S.ProductDescription>
+                                <S.ProductTitle>Coach</S.ProductTitle>
+                                <S.ProductParagraph>Leather Coach Bag</S.ProductParagraph>
+                                <QuantityCounter />
+                            </S.ProductDescription>
+                            <S.PriceDeleteDiv>
+                                <S.BtnDelete src={deleteImg} alt="" />
+                                <S.PriceText>$54.69</S.PriceText>
+                            </S.PriceDeleteDiv>
+                        </S.CardVertical>
+                        <S.Separator></S.Separator>
+                        <S.OrderDetailsDiv>
+                            <S.OrderDetails>
+                                <S.OrderTitle>Subtotal:</S.OrderTitle>
+                                <S.OrderPrice>$109.38</S.OrderPrice>
+                            </S.OrderDetails>
+                            <S.OrderDetails>
+                                <S.OrderTitle>Tax:</S.OrderTitle>
+                                <S.OrderPrice>$2.00</S.OrderPrice>
+                            </S.OrderDetails>
+                            <S.OrderDetails>
+                                <S.OrderResultTitle>Total:</S.OrderResultTitle>
+                                <S.OrderResultValue>$111.38</S.OrderResultValue>
+                            </S.OrderDetails>
+                        </S.OrderDetailsDiv>
+                        <S.CouponDiv>
+                            <S.InputCode type="text" placeholder="Apply Coupon Code" />
+                            <S.ButtonCheck>Check</S.ButtonCheck>
+                        </S.CouponDiv>
+                        <S.ButtonsDiv>
+                            <S.PlaceOrderBtn>Place Order</S.PlaceOrderBtn>
+                            <S.LinkContinue onClick={() => setShowCartInfo(false)}>
+                                <S.ParagraphContinue >Continue Shopping</S.ParagraphContinue>
+                            </S.LinkContinue>
+                        </S.ButtonsDiv>
+                    </S.CardVerticalContainer>
+                </S.CartInfoDiv>
+                <S.CarInfoDark onClick={() => setShowCartInfo(false)}></S.CarInfoDark>
+            </S.CartInfoContainer>}
+        </S.HeaderContainer >
     )
 }
