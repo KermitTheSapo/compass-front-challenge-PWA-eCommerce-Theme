@@ -159,3 +159,222 @@ export const InputSearch = styled.input`
   height: 34px;
   padding-left: 35px;
 `
+
+export const CartInfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  @media (max-width: 769px) {
+    display: none;
+  }
+`
+export const CarInfoDark = styled.div`
+  position: fixed;
+  background-color: #00000022;
+  right: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100vw;
+`
+
+export const CartInfoDiv = styled.div`
+  background-color: var(--Bright);
+  height: 50vh;
+  width: 50vw;
+  position: fixed;
+  display: flex;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 697px;
+  width: 394px;
+  top: 80px;
+  right: 10px; 
+  padding: 28px 0px 0px 8px;
+`
+
+
+export const AppBar = styled.div`
+  display: flex;
+  align-items: center;
+  width: 90%;
+  gap: 25px;
+`
+
+export const ImgBackArrow = styled.img`
+  height: 24px;
+  width: 24px;
+`
+
+export const TitleAppBar = styled.h3`
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--Primary);
+`
+
+export const CardVerticalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+`
+
+export const CardVertical = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  height: 15vh;
+  margin-bottom: 30px;
+`
+export const CardVerticalImgDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+export const CardImg = styled.img`
+
+`
+export const ProductDescription = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 70%;
+`
+export const PriceDeleteDiv = styled.div`
+  display: flex;
+  flex-direction:column;
+  height: 70%;
+  justify-content: space-between;
+  align-items: flex-end;
+`
+export const BtnDelete = styled.img`
+  height: 24px;
+  width: 24px;
+`
+export const PriceText = styled.p`
+
+`
+export const ProductTitle = styled.h2`
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--TypeHighEmphasis);
+`
+export const ProductParagraph = styled.p`
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--TypeLowEmphasis);
+`
+export const Separator = styled.div`
+  width: 100%;
+  background-color: #0000001F;
+  height: 1px;
+`
+export const OrderDetailsDiv = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+  height: 12vh;
+`
+export const OrderDetails = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`
+export const OrderTitle = styled.h3`
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--TypeHighEmphasis);
+`
+export const OrderPrice = styled.p`
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--TypeHighEmphasis);
+`
+export const OrderResultTitle = styled.h3`
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--TypeHighEmphasis);
+`
+export const OrderResultValue = styled.p`
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--TypeHighEmphasis);
+`
+export const CouponDiv = styled.div`
+  height: 12vh;
+  width: 100%;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--TypeLowEmphasis);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+export const InputCode = styled.input`
+  width: 80%;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--TypeLowEmphasis);
+  border: none;
+  outline: none;
+  height: 56px;
+  padding: 0px 16px;
+  background-color: var(--Grey);
+  border-radius: 4px 0px 0px 4px;
+`
+export const ButtonCheck = styled.button`
+  width: 20%;
+  height: 56px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--Primary);
+  background-color: var(--Grey);
+  border-radius: 0px 4px 4px 0px;
+`
+
+
+export const ButtonsDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: column;
+  height: 12vh;
+`
+
+export const PlaceOrderBtn = styled.button`
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  background-color: var(--Primary);
+  border: none;
+  outline: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--Bright);
+`
+export const LinkContinue = styled.div`
+  color: var(--Primary);
+`
+export const ParagraphContinue = styled.p`
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--Primary);
+  text-decoration: underline;
+`
+
+
+// export const XX = styled.XX``
+// export const XX = styled.XX``
+// export const XX = styled.XX``
