@@ -9,6 +9,7 @@ import Jewellery from "./components/category/jewellery/jewellery"
 import Skincare from "./components/category/skincare/skincare"
 import Watches from "./components/category/watches/watches"
 import Coach from "./components/coach/coach"
+import Collosal from "./components/collosal/collosal"
 import Error from "./components/error/error"
 import GrandeItem from "./components/grandeItem/grandeItem"
 import Home from "./components/Home/Home"
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/boujee" element={<Boujee />} />
         <Route path="/boker" element={<Boker />} />
         <Route path="/apparels" element={<Apparels />} />
+        <Route path="/collosal" element={<Collosal />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
