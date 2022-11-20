@@ -92,11 +92,11 @@ export default function Category({ name, imgProductOne, imgAltProductOne, itemNa
                         <S.SortBy>
                             <S.SortTitle>Sort By</S.SortTitle>
                             <S.SelectSort name="" id="">
-                                <S.OptionSort value="Position">Position</S.OptionSort>
-                                <S.OptionSort value="Position">Position</S.OptionSort>
-                                <S.OptionSort value="Position">Position</S.OptionSort>
-                                <S.OptionSort value="Position">Position</S.OptionSort>
-                                <S.OptionSort value="Position">Position</S.OptionSort>
+                                <S.OptionSort value="Position">Latest Products</S.OptionSort>
+                                <S.OptionSort value="Position">Price- Low to High</S.OptionSort>
+                                <S.OptionSort value="Position">Price- High to Low</S.OptionSort>
+                                <S.OptionSort value="Position">Popularity</S.OptionSort>
+                                <S.OptionSort value="Position">Customer Ratings</S.OptionSort>
                             </S.SelectSort>
                         </S.SortBy>
                         <S.ProductHeader>
