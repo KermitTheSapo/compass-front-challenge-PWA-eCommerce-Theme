@@ -46,3 +46,16 @@ export const ArrivalList = styled.ul`
   height: 50vh;
 }
 `
+
+export const BottomSheetHomeDark = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--DarkShadow);
+  z-index: 2;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
