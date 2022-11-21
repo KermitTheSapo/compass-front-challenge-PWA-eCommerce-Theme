@@ -8,11 +8,9 @@ import heart from "../../assets/imgs/header/heart.svg"
 import profile from "../../assets/imgs/header/profile.svg"
 import arrowLeft from "../../assets/imgs/header/arrowLeft.svg"
 import bag from "../../assets/imgs/header/bag.svg"
-import coach from "../../assets/imgs/header/coach.png"
-import deleteImg from "../../assets/imgs/header/deleteImg.svg"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import QuantityCounter from "../productPage/quantity/quantityCounter/quantityCounter";
+import CardVertical from "./cardVertical/cardVertical";
 
 export default function Header() {
 
@@ -20,6 +18,11 @@ export default function Header() {
     const [inputSearchClick, setInputSearchClick] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
     const navigate = useNavigate();
+    const bagInfo = localStorage.getItem("bag")
+    const bagInfoParse = JSON.parse(bagInfo)
+    // console.log(bagInfoParse.map((item) => {
+    //     console.log(item.name)
+    // }))
 
     return (
         <S.HeaderContainer>
@@ -101,35 +104,9 @@ export default function Header() {
                         <S.TitleAppBar>Back</S.TitleAppBar>
                     </S.AppBar>
                     <S.CardVerticalContainer>
-                        <S.CardVertical>
-                            <S.CardVerticalImgDiv>
-                                <S.CardImg src={coach} alt="an orange leather bag" />
-                            </S.CardVerticalImgDiv>
-                            <S.ProductDescription>
-                                <S.ProductTitle>Coach</S.ProductTitle>
-                                <S.ProductParagraph>Leather Coach Bag</S.ProductParagraph>
-                                <QuantityCounter />
-                            </S.ProductDescription>
-                            <S.PriceDeleteDiv>
-                                <S.BtnDelete src={deleteImg} alt="an X icon" />
-                                <S.PriceText>$54.69</S.PriceText>
-                            </S.PriceDeleteDiv>
-                        </S.CardVertical>
-                        <S.Separator></S.Separator>
-                        <S.CardVertical>
-                            <S.CardVerticalImgDiv>
-                                <S.CardImg src={coach} alt="an orange leather bag" />
-                            </S.CardVerticalImgDiv>
-                            <S.ProductDescription>
-                                <S.ProductTitle>Coach</S.ProductTitle>
-                                <S.ProductParagraph>Leather Coach Bag</S.ProductParagraph>
-                                <QuantityCounter />
-                            </S.ProductDescription>
-                            <S.PriceDeleteDiv>
-                                <S.BtnDelete src={deleteImg} alt="an X icon" />
-                                <S.PriceText>$54.69</S.PriceText>
-                            </S.PriceDeleteDiv>
-                        </S.CardVertical>
+                        {bagInfoParse && bagInfoParse.map((item: any) => {
+                            <CardVertical productTitle={item.name} productParagraph={item.productParagraph} productPrice={item.value} />
+                        })}
                         <S.Separator></S.Separator>
                         <S.OrderDetailsDiv>
                             <S.OrderDetails>
