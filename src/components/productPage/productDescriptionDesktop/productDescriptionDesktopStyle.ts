@@ -18,6 +18,7 @@ export const DescriptionHeader = styled.div`
     background-color: var(--Grey);
     border-radius: 12px;
     height: 48px;
+    padding: 0 16px;
 `
 export const DescriptionContent = styled.div`
     display: flex;
