@@ -54,6 +54,7 @@ export const AlertLink = styled.a`
   line-height: 18px;
   text-align: center;
   color: var(--Primary);
+  text-decoration: underline;
 `
 export const BannerDesktop = styled.div`
   background-image: url(${funkDesktop});
