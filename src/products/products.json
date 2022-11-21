@@ -1,0 +1,67 @@
+[{
+    "img": "src",
+    "name": "Coach",
+    "paragraph": "Leather Coach Bag",
+    "description": "Leather Coach Bag with adjustable starps.",
+    "price": "$54.69",
+    "safe": "$78.66",
+    "discount": "50%OFF",
+    "link": "/coach",
+    "imgAlt": ""
+},
+{
+    "img": "src",
+    "name": "Grande",
+    "paragraph": "Blossom Pouch",
+    "description": "Blossom Pouch",
+    "price": "$39.49",
+    "safe": "$78.66",
+    "discount": "50%OFF",
+    "link": "/grande",
+    "imgAlt": ""
+},
+{
+    "img": "src",
+    "name": "Remus",
+    "paragraph": "Brown Strap Bag",
+    "description": "Brown Strap Bag",
+    "price": "$57.00",
+    "safe": "$78.66",
+    "discount": "50%OFF",
+    "link": "/remus",
+    "imgAlt": ""
+},
+{
+    "img": "src",
+    "name": "Boujee",
+    "paragraph": "Black Bag",
+    "description": "Black Bag",
+    "price": "$56.49",
+    "safe": "",
+    "discount": "50%OFF",
+    "link": "/boujee",
+    "imgAlt": ""
+},
+{
+    "img": "src",
+    "name": "Collosal",
+    "paragraph": "Tall Heels",
+    "description": "Tall Heels",
+    "price": "$40.00",
+    "safe": "$78.66",
+    "discount": "50%OFF",
+    "link": "/collosal",
+    "imgAlt": ""
+},
+{
+    "img": "src",
+    "name": "boker",
+    "paragraph": "Brown Bag",
+    "description": "Brown Bag",
+    "price": "$34.55",
+    "safe": "$78.66",
+    "discount": "50%OFF",
+    "link": "/boker",
+    "imgAlt": ""
+}
+]
