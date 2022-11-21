@@ -7,8 +7,7 @@ import arrowRightSmall from "../../assets/imgs/category/arrow-right-small.svg"
 import grid from "../../assets/imgs/category/grid.svg"
 import sortImg from "../../assets/imgs/category/sort.svg"
 import filter from "../../assets/imgs/category/handbags/filter.svg"
-import heart from "../../assets/imgs/home/main/arrivals/heart.svg"
-import heartFill from "../../assets/imgs/home/main/arrivals/heartFill.svg"
+
 import ItemArrival from "../Home/main/Arrivals/itemArrival/itemArrival"
 import { useNavigate } from "react-router-dom"
 import Header from "../Header/Header"
@@ -16,23 +15,13 @@ import MenuSideNav from "./menuSideNav/menuSideNav"
 import { useState } from "react"
 import PageNumberTab from "./pageNumberTab/pageNumberTab"
 
+import ProductsItem from "../../products/products.json"
+
 type Props = {
     name: string;
-    imgProductOne: string;
-    imgAltProductOne: string;
-    itemNameOne: string;
-    descriptionOne: string;
-    priceOne: string;
-    linkOne: string;
-    imgProductTwo: string;
-    imgAltProductTwo: string;
-    itemNameTwo: string;
-    descriptionTwo: string;
-    priceTwo: string;
-    linkTwo: string;
 };
 
-export default function Category({ name, imgProductOne, imgAltProductOne, itemNameOne, descriptionOne, priceOne, linkOne, imgProductTwo, imgAltProductTwo, itemNameTwo, descriptionTwo, priceTwo, linkTwo }: Props) {
+export default function Category({ name }: Props) {
     const navigate = useNavigate();
     const [ShowBottomSheet, setShowBottomSheet] = useState(false)
 
@@ -104,15 +93,9 @@ export default function Category({ name, imgProductOne, imgAltProductOne, itemNa
                         </S.ProductHeader>
                     </S.ListingOptions >
                     <S.Products>
-                        <ItemArrival ImgSrc={imgProductOne} ImgAlt={imgAltProductOne} itemName={itemNameOne} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionOne} Price={priceOne} link={linkOne} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
-                        <ItemArrival ImgSrc={imgProductTwo} ImgAlt={imgAltProductTwo} itemName={itemNameTwo} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={descriptionTwo} Price={priceTwo} link={linkTwo} />
+                        {ProductsItem.map((item) => (
+                            <ItemArrival ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.description} Price={item.price} link={item.link} />
+                        ))}
                     </S.Products>
                     <S.NumberPageTabs>
                         <PageNumberTab />
