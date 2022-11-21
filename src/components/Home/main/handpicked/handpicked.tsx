@@ -20,10 +20,10 @@ export default function Handpicked() {
                 <a onClick={() => navigate("/error")}>
                     <S.ImgCollections src={sunglasses} alt="picture of a sunglasses" />
                 </a>
-                <a onClick={() => navigate("/error")}>
+                <a onClick={() => navigate("/handbags")}>
                     <S.ImgCollections src={handbags} alt="image of a pink handbag" />
                 </a>
-                <a onClick={() => navigate("/error")}>
+                <a onClick={() => navigate("/watches")}>
                     <S.ImgCollections src={wristWatches} alt="image of a wristwatch" />
                 </a>
             </S.Collections>
