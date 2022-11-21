@@ -19,22 +19,22 @@ export default function Brands() {
                 <S.Paragraph>View all &gt;</S.Paragraph>
             </S.BrandsHeader>
             <S.BrandsImgs>
-                <S.FigureImg>
+                <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={Zara} alt="logo image of a company called 'Zara'" />
                 </S.FigureImg>
-                <S.FigureImg>
+                <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={DG} alt="logo image of a company called 'DG'" />
                 </S.FigureImg>
-                <S.FigureImg>
+                <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={HM} alt="logo image of a company called 'HM'" />
                 </S.FigureImg>
-                <S.FigureImg>
+                <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={Biba} alt="logo image of a company called 'Biba'" />
-                </S.FigureImg>
-                <S.FigureImg>
+                </S.FigureImg> 
+                <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={Chanel} alt="logo image of a company called 'Chanel'" />
                 </S.FigureImg>
-                <S.FigureImg>
+                <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={Prada} alt="logo image of a company called 'Prada'" />
                 </S.FigureImg>
             </S.BrandsImgs>
