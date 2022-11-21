@@ -51,7 +51,7 @@ Currently working for mobile screens: 420px and desktop: 1440px.
 
 ## Features
 
-- [ ] page home
+- [X] page home
     - [X] Header
     - [X] carrossel
     - [X] categories (mobile)
@@ -63,14 +63,14 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [X] banners
     - [X] footer More about CORA’L
     - [X] navbar fixed in bottom
-    - [ ] bottom sheet
+    - [X] bottom sheet
 
 - [ ] category page
     - [X] banner
-    - [ ] tem que ter 4 tipos diferentes de categorias para 4 paginas com produtos diferentes
+    - [X] tem que ter 4 tipos diferentes de categorias para 4 paginas com produtos diferentes
     - [ ] navegação de números 
     - [ ] filtrar itens
-    - [ ] ao clicar no icon abrir um modal
+    - [X] ao clicar no icon abrir um modal
 
 - [ ] product page
     - [X] estrutura
@@ -80,10 +80,10 @@ Currently working for mobile screens: 420px and desktop: 1440px.
 
 - [ ] storybook
     - [ ] Header and Footers
-        - [ ] header web
-        - [ ] footer web
-        - [ ] footer mobile
-        - [ ] app bar
+        - [X] header web
+        - [X] footer web
+        - [X] footer mobile
+        - [X] app bar
         - [ ] bottom navigation
     - [ ] Elements
         - [ ] buttons and chips
