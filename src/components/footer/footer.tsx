@@ -67,16 +67,16 @@ export default function Footer() {
                     <S.BorderHorizontal></S.BorderHorizontal>
                     <S.Details>
                         <S.Logos>
-                            <S.CircleFigure>
+                            <S.CircleFigure onClick={() => navigate("/error")}>
                                 <S.LogoImg src={facebook} alt="facebook icon, gray with the letter F" />
                             </S.CircleFigure>
-                            <S.CircleFigure>
+                            <S.CircleFigure onClick={() => navigate("/error")}>
                                 <S.LogoImg src={instagram} alt="instagram icon" />
                             </S.CircleFigure>
-                            <S.CircleFigure>
+                            <S.CircleFigure onClick={() => navigate("/error")}>
                                 <S.LogoImg src={twitter} alt="twitter icon, a little bird" />
                             </S.CircleFigure>
-                            <S.CircleFigure>
+                            <S.CircleFigure onClick={() => navigate("/error")}>
                                 <S.LogoImg src={youtube} alt="the youtube icon" />
                             </S.CircleFigure>
                         </S.Logos>
