@@ -53,7 +53,7 @@ export default function Main() {
                 <S.CarryDiv>
                     <S.CarryTitle>Carry your Funk</S.CarryTitle>
                     <S.CarryParagraph>Trendy handbags collection for your party animal</S.CarryParagraph>
-                    <a onClick={() => navigate("/")}>
+                    <a onClick={() => navigate("/error")}>
                         <S.BtnBanner>See more</S.BtnBanner>
                     </a>
                 </S.CarryDiv>
