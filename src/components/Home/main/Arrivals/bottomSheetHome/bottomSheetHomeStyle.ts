@@ -21,6 +21,7 @@ export const SheetHeader = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 40%; 
+    gap: 20px;
 `
 
 
