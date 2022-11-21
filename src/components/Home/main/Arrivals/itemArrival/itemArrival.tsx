@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./itemArrivalStyle"
-
+import heart from "../../../../../assets/imgs/home/main/arrivals/heart.svg"
+import heartFill from "../../../../../assets/imgs/home/main/arrivals/heartFill.svg"
 
 type Props = {
     ImgSrc: string;
     ImgAlt: string;
     itemName: string;
-    heartSrc: string;
-    heartAlt: string;
     Description: string;
     Price: string;
-    heartFill: string;
     onClick?: () => void;
     link: string;
 };
-export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartAlt, heartSrc, itemName, heartFill, onClick, link }: Props) {
+export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, onClick, link }: Props) {
     const navigate = useNavigate();
 
     const [heartStatus, setHeartStatus] = useState(true)
@@ -27,7 +25,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartA
                 <S.InformationDiv >
                     <S.NameHeart>
                         <S.ItemName>{itemName}</S.ItemName>
-                        <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heartSrc : heartFill} alt={heartAlt} />
+                        <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heart : heartFill} alt="" />
                     </S.NameHeart>
                     <S.ItemDescription>{Description}</S.ItemDescription>
                     <S.ItemPrice>{Price}</S.ItemPrice>
