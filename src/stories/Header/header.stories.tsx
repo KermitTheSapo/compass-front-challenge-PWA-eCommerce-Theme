@@ -1,12 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Header } from "./header";
+import { HeaderS } from "./header";
 
 export default {
   title: 'HeaderAndFooters/Header',
-  component: Header
-} as ComponentMeta<typeof Header>;
+  component: HeaderS
+} as ComponentMeta<typeof HeaderS>;
 
-const Template: ComponentStory<typeof Header> = () => <Header />;
+const Template: ComponentStory<typeof HeaderS> = () => <HeaderS />;
 
 export const HeaderMobileDesktop = Template.bind({});
