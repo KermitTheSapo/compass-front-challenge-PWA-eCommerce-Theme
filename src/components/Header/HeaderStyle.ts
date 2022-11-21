@@ -221,57 +221,7 @@ export const CardVerticalContainer = styled.div`
   width: 90%;
 `
 
-export const CardVertical = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  height: 15vh;
-  margin-bottom: 30px;
-`
-export const CardVerticalImgDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-export const CardImg = styled.img`
 
-`
-export const ProductDescription = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 70%;
-`
-export const PriceDeleteDiv = styled.div`
-  display: flex;
-  flex-direction:column;
-  height: 70%;
-  justify-content: space-between;
-  align-items: flex-end;
-`
-export const BtnDelete = styled.img`
-  height: 24px;
-  width: 24px;
-`
-export const PriceText = styled.p`
-
-`
-export const ProductTitle = styled.h2`
-  font-weight: 500;
-  font-size: 1rem;
-  color: var(--TypeHighEmphasis);
-`
-export const ProductParagraph = styled.p`
-  font-weight: 400;
-  font-size: 1rem;
-  color: var(--TypeLowEmphasis);
-`
-export const Separator = styled.div`
-  width: 100%;
-  background-color: #0000001F;
-  height: 1px;
-`
 export const OrderDetailsDiv = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -372,6 +322,12 @@ export const ParagraphContinue = styled.p`
   font-size: 0.875rem;
   color: var(--Primary);
   text-decoration: underline;
+`
+
+export const Separator = styled.div`
+  width: 100%;
+  background-color: #0000001F;
+  height: 1px;
 `
 
 
