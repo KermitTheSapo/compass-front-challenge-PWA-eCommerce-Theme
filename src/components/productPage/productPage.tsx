@@ -17,6 +17,7 @@ import Buttons from "./buttons/buttons"
 import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescriptionDesktop"
 import Footer from "../footer/footer"
 import { useNavigate } from "react-router-dom"
+import { useState } from "react"
 
 type Props = {
     name: string;
@@ -30,6 +31,12 @@ type Props = {
 }
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel }: Props) {
+    const [productInfo, setProductInfo] = useState([{}])
+    const addToLocalStorage = (value) => {
+        setProductInfo([...productInfo, { "name": name, "value": value, "productParagraph": productParagraph, "img": img }])
+        localStorage.setItem("bag", JSON.stringify(productInfo))
+        alert("Item added to bag")
+    }
     const navigate = useNavigate()
     return (
         <S.ProductPageContainer>
@@ -86,7 +93,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 <S.heartDiv>
                     <S.ImgHeart src={heart} alt="heart icon" />
                 </S.heartDiv>
-                <S.ButtonAdd>Add to Bag</S.ButtonAdd>
+                <S.ButtonAdd onClick={() => addToLocalStorage(value)}>Add to Bag</S.ButtonAdd>
             </S.FooterNav>
         </S.ProductPageContainer>
     )
