@@ -22,9 +22,9 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, heartA
 
     return (
         <S.ItemLink>
-            <S.ItemArrival onClick={onClick}>
-                <S.ImgProduct onClick={() => navigate(link)} src={ImgSrc} alt={ImgAlt} />
-                <S.InformationDiv>
+            <S.ItemArrival onClick={() => navigate(link)}>
+                <S.ImgProduct onClick={onClick} src={ImgSrc} alt={ImgAlt} />
+                <S.InformationDiv >
                     <S.NameHeart>
                         <S.ItemName>{itemName}</S.ItemName>
                         <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heartSrc : heartFill} alt={heartAlt} />
