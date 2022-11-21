@@ -33,42 +33,42 @@ export default function Arrivals() {
                 <ItemArrival onClick={() => setGrandeStatus(true)} ImgSrc={grande} ImgAlt={""} itemName={"Grande"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Blossom Pouch"} Price={"$39.49"} link={window.screen.width > 768 ? "/grande" : ""} />
                 {grandeStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setGrandeStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"Grande"} description={"Blossom Pouch"} price={"$39.49"} img={grande} />
+                    <BottomSheetHome name={"Grande"} description={"Blossom Pouch"} price={"$39.49"} img={grande} link="grande" />
                 </>}
                 <ItemArrival onClick={() => setBokerStatus(true)} ImgSrc={boker} ImgAlt={""} itemName={"Boker"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Blossom"} Price={"$34.55"} link={window.screen.width > 768 ? "/boker" : ""} />
                 {bokerStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setBokerStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"Boker"} description={"Blossom"} price={"$34.55"} img={boker} />
+                    <BottomSheetHome name={"Boker"} description={"Blossom"} price={"$34.55"} img={boker} link="boker" />
                 </>}
                 <ItemArrival onClick={() => setCoachStatus(true)} ImgSrc={coach} ImgAlt={""} itemName={"Coach"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Leather Coach Bag"} Price={"$54.69"} link={window.screen.width > 768 ? "/coach" : ""} />
                 {coachStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setCoachStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"Coach"} description={"Leather Coach Bag"} price={"$54.69"} img={coach} />
+                    <BottomSheetHome name={"Coach"} description={"Leather Coach Bag"} price={"$54.69"} img={coach} link="coach" />
                 </>}
                 <ItemArrival onClick={() => setRemusStatus(true)} ImgSrc={remus} ImgAlt={""} itemName={"Remus"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Brown Strap Bag"} Price={"$57.00"} link={window.screen.width > 768 ? "/remus" : ""} />
                 {remusStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setRemusStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"Remus"} description={"Brown Strap Bag"} price={"$57.00"} img={remus} />
+                    <BottomSheetHome name={"Remus"} description={"Brown Strap Bag"} price={"$57.00"} img={remus} link="remus" />
                 </>}
                 <ItemArrival onClick={() => setCollosalStatus(true)} ImgSrc={collosal} ImgAlt={""} itemName={"Collosal"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Tall Heels"} Price={"$40.00"} link={window.screen.width > 768 ? "/collosal" : ""} />
                 {collosalStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setCollosalStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"collosal"} description={"Tall Heels"} price={"$40.00"} img={collosal} />
+                    <BottomSheetHome name={"collosal"} description={"Tall Heels"} price={"$40.00"} img={collosal} link="collosal" />
                 </>}
                 <ItemArrival onClick={() => setBoujeeStatus(true)} ImgSrc={boujee} ImgAlt={""} itemName={"boujee"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Black Bag"} Price={"$56.49"} link={window.screen.width > 768 ? "/boujee" : ""} />
                 {boujeeStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setBoujeeStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"boujee"} description={"Black Bag"} price={"$56.49"} img={boujee} />
+                    <BottomSheetHome name={"boujee"} description={"Black Bag"} price={"$56.49"} img={boujee} link="boujee" />
                 </>}
                 <ItemArrival onClick={() => setBoujeeStatus(true)} ImgSrc={boujee} ImgAlt={""} itemName={"boujee"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Black Bag"} Price={"$56.49"} link={window.screen.width > 768 ? "/boujee" : ""} />
                 {boujeeStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setBoujeeStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"boujee"} description={"Black Bag"} price={"$56.49"} img={boujee} />
+                    <BottomSheetHome name={"boujee"} description={"Black Bag"} price={"$56.49"} img={boujee} link="boujee" />
                 </>}
                 <ItemArrival onClick={() => setBoujeeStatus(true)} ImgSrc={boujee} ImgAlt={""} itemName={"boujee"} heartSrc={heart} heartFill={heartFill} heartAlt={""} Description={"Black Bag"} Price={"$56.49"} link={window.screen.width > 768 ? "/boujee" : ""} />
                 {boujeeStatus && <>
                     <S.BottomSheetHomeDark onClick={() => setBoujeeStatus(false)}></S.BottomSheetHomeDark>
-                    <BottomSheetHome name={"boujee"} description={"Black Bag"} price={"$56.49"} img={boujee} />
+                    <BottomSheetHome name={"boujee"} description={"Black Bag"} price={"$56.49"} img={boujee} link="boujee" />
                 </>}
             </S.ArrivalList>
         </S.ArrivalsSection>
