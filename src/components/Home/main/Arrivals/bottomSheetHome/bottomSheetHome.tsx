@@ -4,15 +4,18 @@ import star from "../../../../../assets/imgs/home/main/arrivals/star.png"
 import arrow from "../../../../../assets/imgs/home/main/arrivals/arrowLeft.svg"
 import placeholder from "../../../../../assets/imgs/home/main/arrivals/placeholder.svg"
 import ButtonAdd from "./buttonAdd/buttonAdd"
+import { useNavigate } from "react-router-dom"
 
 type Props = {
     name: string;
     description: string;
     price: string;
     img: string;
+    link: string;
 }
 
-export default function BottomSheetHome({ name, description, price, img }: Props) {
+export default function BottomSheetHome({ name, description, price, img, link }: Props) {
+    const navigate = useNavigate()
     return (
         <S.BottomSheetHomeContainer>
             <S.SheetHeader>
@@ -44,7 +47,7 @@ export default function BottomSheetHome({ name, description, price, img }: Props
                 </S.SizeTabs>
             </S.SelectSize>
             <S.Buttons>
-                <S.ImgPlaceHolderDiv>
+                <S.ImgPlaceHolderDiv onClick={() => navigate(`/${link}`)}>
                     <img src={placeholder} alt="" />
                 </S.ImgPlaceHolderDiv>
                 <ButtonAdd />
