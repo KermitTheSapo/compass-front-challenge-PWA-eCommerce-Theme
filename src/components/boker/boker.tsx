@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
 import ProductPage from "../productPage/productPage";
 
-import boker from "../../assets/imgs/home/main/arrivals/boker.png"
+import boker from "@/assets/imgs/home/main/arrivals/boker.png"
 import products from "../../products/products.json"
 export default function Boker() {
     return (

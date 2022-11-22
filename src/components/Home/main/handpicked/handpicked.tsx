@@ -1,9 +1,9 @@
 import * as S from "./handpickedStyle"
 
-import personalCare from "../../../../assets/imgs/home/handpicked/personalCare.png"
-import sunglasses from "../../../../assets/imgs/home/handpicked/sunglasses.png"
-import handbags from "../../../../assets/imgs/home/handpicked/handbags.png"
-import wristWatches from "../../../../assets/imgs/home/handpicked/wristWatches.png"
+import personalCare from "@/assets/imgs/home/handpicked/personalCare.png"
+import sunglasses from "@/assets/imgs/home/handpicked/sunglasses.png"
+import handbags from "@/assets/imgs/home/handpicked/handbags.png"
+import wristWatches from "@/assets/imgs/home/handpicked/wristWatches.png"
 import { useNavigate } from "react-router-dom"
 
 export default function Handpicked() {

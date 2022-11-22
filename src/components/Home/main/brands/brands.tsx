@@ -1,12 +1,12 @@
 import * as S from "./brandsStyle"
-import Zara from "../../../../assets/imgs/home/main/brands/ZaraLogo.svg"
-import DG from "../../../../assets/imgs/home/main/brands/D&G.svg"
-import HM from "../../../../assets/imgs/home/main/brands/H&M.svg"
-import Biba from "../../../../assets/imgs/home/main/brands/biba.svg"
-import Chanel from "../../../../assets/imgs/home/main/brands/chanel.svg"
-import Prada from "../../../../assets/imgs/home/main/brands/prada.svg"
-import Phone from "../../../../assets/imgs/home/main/brands/phone.svg"
-import arrow from "../../../../assets/imgs/home/main/brands/arrow.svg"
+import Zara from "@/assets/imgs/home/main/brands/ZaraLogo.svg"
+import DG from "@/assets/imgs/home/main/brands/D&G.svg"
+import HM from "@/assets/imgs/home/main/brands/H&M.svg"
+import Biba from "@/assets/imgs/home/main/brands/biba.svg"
+import Chanel from "@/assets/imgs/home/main/brands/chanel.svg"
+import Prada from "@/assets/imgs/home/main/brands/prada.svg"
+import Phone from "@/assets/imgs/home/main/brands/phone.svg"
+import arrow from "@/assets/imgs/home/main/brands/arrow.svg"
 import { useNavigate } from "react-router-dom"
 
 export default function Brands() {
@@ -30,7 +30,7 @@ export default function Brands() {
                 </S.FigureImg>
                 <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={Biba} alt="logo image of a company called 'Biba'" />
-                </S.FigureImg> 
+                </S.FigureImg>
                 <S.FigureImg onClick={() => navigate("/error")}>
                     <img src={Chanel} alt="logo image of a company called 'Chanel'" />
                 </S.FigureImg>

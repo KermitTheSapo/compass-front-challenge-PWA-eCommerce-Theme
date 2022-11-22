@@ -1,6 +1,6 @@
 import * as S from "./trendingStyle"
 
-import spring from "../../../../assets/imgs/home/main/trending/springSummer.png"
+import spring from "@/assets/imgs/home/main/trending/springSummer.png"
 
 export default function Trending() {
     return (
