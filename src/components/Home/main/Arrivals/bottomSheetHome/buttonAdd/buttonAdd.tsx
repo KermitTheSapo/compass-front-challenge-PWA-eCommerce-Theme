@@ -1,7 +1,20 @@
 import * as S from "./buttonAddStyle"
 
-export default function ButtonAdd() {
-    return(
-        <S.ButtonAdd>Add to Bag</S.ButtonAdd>
+type Props = {
+    name: string;
+    description: string;
+    price: string;
+    img: string;
+}
+
+export default function ButtonAdd({ name, description, price, img }: Props) {
+    const addItemLocalStorage = (name, description, price, img) => {
+        let items = JSON.parse(localStorage.getItem('items')) || [];
+        items.push({ name, description, price, img })
+        localStorage.setItem('items', JSON.stringify(items))
+        alert("Item added to cart")
+    }
+    return (
+        <S.ButtonAdd onClick={() => { addItemLocalStorage(name, description, price, img) }}>Add to Bag</S.ButtonAdd>
     )
 }
