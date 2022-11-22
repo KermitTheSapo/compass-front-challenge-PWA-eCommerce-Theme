@@ -20,7 +20,6 @@ export const AlsoLikeProductsList = styled.div`
     align-items: center;
     overflow: auto;
     min-width: 100%;
-    gap: 10px;
     height: 26vh;
     justify-content: flex-start;
     &::-webkit-scrollbar { 
