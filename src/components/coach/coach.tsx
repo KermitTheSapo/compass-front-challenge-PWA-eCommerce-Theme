@@ -1,5 +1,5 @@
 import ProductPage from "../productPage/productPage";
-import coach from "../../assets/imgs/productPage/coach.png"
+import coach from "@/assets/imgs/productPage/coach.png"
 import { Helmet } from "react-helmet";
 import products from "../../products/products.json"
 

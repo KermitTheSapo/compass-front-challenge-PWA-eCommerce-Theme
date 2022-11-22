@@ -1,12 +1,12 @@
 import * as S from "./footerStyle"
 
-import arrowUp from "../../assets/imgs/footer/arrow-up.svg"
-import arrowDown from "../../assets/imgs/footer/arrow-down.svg"
-import facebook from "../../assets/imgs/footer/facebook.svg"
-import instagram from "../../assets/imgs/footer/instagram.svg"
-import twitter from "../../assets/imgs/footer/twitter.svg"
-import youtube from "../../assets/imgs/footer/youtube.svg"
-import location from "../../assets/imgs/footer/location.svg"
+import arrowUp from "@/assets/imgs/footer/arrow-up.svg"
+import arrowDown from "@/assets/imgs/footer/arrow-down.svg"
+import facebook from "@/assets/imgs/footer/facebook.svg"
+import instagram from "@/assets/imgs/footer/instagram.svg"
+import twitter from "@/assets/imgs/footer/twitter.svg"
+import youtube from "@/assets/imgs/footer/youtube.svg"
+import location from "@/assets/imgs/footer/location.svg"
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"

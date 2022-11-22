@@ -1,6 +1,6 @@
 import * as S from "./itemDivStyle"
-import plus from "../../../../assets/imgs/category/menuSideNav/plus.svg"
-import minus from "../../../../assets/imgs/category/menuSideNav/minus.svg"
+import plus from "@/assets/imgs/category/menuSideNav/plus.svg"
+import minus from "@/assets/imgs/category/menuSideNav/minus.svg"
 import { useState } from "react"
 
 type Props = {

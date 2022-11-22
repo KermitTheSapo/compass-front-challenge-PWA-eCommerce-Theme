@@ -1,7 +1,7 @@
 import ProductPage from "../productPage/productPage";
-import remus from "../../assets/imgs/remus/remus.png"
+import remus from "@/assets/imgs/remus/remus.png"
 import { Helmet } from "react-helmet";
-import products from "../../products/products.json"
+import products from "@/products/products.json"
 export default function Remus() {
     return (
         <>

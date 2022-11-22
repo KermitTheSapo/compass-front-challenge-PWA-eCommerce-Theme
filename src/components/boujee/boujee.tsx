@@ -1,5 +1,5 @@
 import ProductPage from "../productPage/productPage";
-import boujee from "../../assets/imgs/boujee/boujee.png"
+import boujee from "@/assets/imgs/boujee/boujee.png"
 import { Helmet } from "react-helmet";
 import products from "../../products/products.json"
 export default function Boujee() {

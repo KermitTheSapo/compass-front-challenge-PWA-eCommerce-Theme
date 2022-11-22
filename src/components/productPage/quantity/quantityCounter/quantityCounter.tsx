@@ -1,6 +1,6 @@
 import * as S from "./quantityCounterStyle"
-import minus from "../../../../assets/imgs/productPage/minus.svg"
-import plus from "../../../../assets/imgs/productPage/plus.svg"
+import minus from "@/assets/imgs/productPage/minus.svg"
+import plus from "@/assets/imgs/productPage/plus.svg"
 import { useState } from "react"
 
 export default function QuantityCounter() {

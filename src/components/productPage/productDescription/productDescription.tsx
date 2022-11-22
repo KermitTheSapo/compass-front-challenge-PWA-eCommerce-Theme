@@ -1,6 +1,6 @@
 import * as S from "./productDescriptionStyle"
-import arrowDown from "../../../assets/imgs/productPage/arrow-down.svg"
-import arrowUp from "../../../assets/imgs/productPage/arrow-up.svg"
+import arrowDown from "@/assets/imgs/productPage/arrow-down.svg"
+import arrowUp from "@/assets/imgs/productPage/arrow-up.svg"
 import { useState } from "react"
 export default function ProductDescription() {
     const [modalProductDescription, setModalProductDescription] = useState(false)

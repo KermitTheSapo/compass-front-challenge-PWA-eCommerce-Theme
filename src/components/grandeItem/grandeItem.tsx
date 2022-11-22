@@ -1,5 +1,5 @@
 import ProductPage from "../productPage/productPage";
-import grandeItem from "../../assets/imgs/grande/grandeItem.png"
+import grandeItem from "@/assets/imgs/grande/grandeItem.png"
 import { Helmet } from "react-helmet";
 import products from "../../products/products.json"
 export default function GrandeItem() {

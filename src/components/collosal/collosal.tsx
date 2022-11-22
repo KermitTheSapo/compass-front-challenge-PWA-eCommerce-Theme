@@ -1,5 +1,5 @@
 import ProductPage from "../productPage/productPage";
-import collosal from "../../assets/imgs/productPage/collosal.png"
+import collosal from "@/assets/imgs/productPage/collosal.png"
 import { Helmet } from "react-helmet";
 import products from "../../products/products.json"
 

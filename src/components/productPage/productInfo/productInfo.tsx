@@ -1,7 +1,7 @@
 import * as S from "./productInfoStyle"
-import star from "../../../assets/imgs/productPage/Star.svg"
-import starOn from "../../../assets/imgs/productPage/star-on.svg"
-import starOff from "../../../assets/imgs/productPage/star-off.svg"
+import star from "@/assets/imgs/productPage/Star.svg"
+import starOn from "@/assets/imgs/productPage/star-on.svg"
+import starOff from "@/assets/imgs/productPage/star-off.svg"
 
 type Props = {
     name: string;

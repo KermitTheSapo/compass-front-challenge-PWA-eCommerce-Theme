@@ -1,5 +1,5 @@
 import * as S from "./ratingReviewsStyle"
-import arrowRight from "../../../assets/imgs/productPage/arrow-right.svg"
+import arrowRight from "@/assets/imgs/productPage/arrow-right.svg"
 import { useNavigate } from "react-router-dom"
 
 export default function RatingReviews() {

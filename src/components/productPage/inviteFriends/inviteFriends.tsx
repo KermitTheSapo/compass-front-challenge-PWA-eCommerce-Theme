@@ -1,6 +1,6 @@
 import * as S from "./inviteFriendsStyle"
-import invite from "../../../assets/imgs/productPage/inviteImg.png"
-import inviteArrow from "../../../assets/imgs/productPage/inviteArrow.svg"
+import invite from "@/assets/imgs/productPage/inviteImg.png"
+import inviteArrow from "@/assets/imgs/productPage/inviteArrow.svg"
 
 export default function InviteFriends() {
     return (
