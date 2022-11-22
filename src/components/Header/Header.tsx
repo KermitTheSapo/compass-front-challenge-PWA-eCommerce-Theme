@@ -1,13 +1,13 @@
 import * as S from "./HeaderStyle";
-import menu from "../../assets/imgs/header/menu.svg"
-import add from "../../assets/imgs/header/add.svg"
-import notification from "../../assets/imgs/header/notification.svg"
-import search from "../../assets/imgs/header/search.svg"
-import imgLogo from "../../assets/imgs/header/imgLogo.svg"
-import heart from "../../assets/imgs/header/heart.svg"
-import profile from "../../assets/imgs/header/profile.svg"
-import arrowLeft from "../../assets/imgs/header/arrowLeft.svg"
-import bag from "../../assets/imgs/header/bag.svg"
+import menu from "@/assets/imgs/header/menu.svg"
+import add from "@/assets/imgs/header/add.svg"
+import notification from "@/assets/imgs/header/notification.svg"
+import search from "@/assets/imgs/header/search.svg"
+import imgLogo from "@/assets/imgs/header/imgLogo.svg"
+import heart from "@/assets/imgs/header/heart.svg"
+import profile from "@/assets/imgs/header/profile.svg"
+import arrowLeft from "@/assets/imgs/header/arrowLeft.svg"
+import bag from "@/assets/imgs/header/bag.svg"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
@@ -17,8 +17,9 @@ export default function Header() {
     const [listCategory, setListCategory] = useState(false)
     const [inputSearchClick, setInputSearchClick] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
+    const [price, setPrice] = useState(0.00)
     const navigate = useNavigate();
-    const bagInfo = localStorage.getItem("bag")
+    const bagInfo = localStorage.getItem("items")
     const bagInfoParse = JSON.parse(bagInfo)
     // console.log(bagInfoParse.map((item) => {
     //     console.log(item.name)
@@ -104,14 +105,18 @@ export default function Header() {
                         <S.TitleAppBar>Back</S.TitleAppBar>
                     </S.AppBar>
                     <S.CardVerticalContainer>
-                        {bagInfoParse && bagInfoParse.map((item: any) => {
-                            <CardVertical productTitle={item.name} productParagraph={item.productParagraph} productPrice={item.value} />
-                        })}
-                        <S.Separator></S.Separator>
+                        <S.DivCardProducts>
+                            {bagInfoParse && bagInfoParse.map((item: any) => (
+                                <>
+                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.value} price={price} setPrice={setPrice} img={item.img} />
+                                    <S.Separator></S.Separator>
+                                </>
+                            ))}
+                        </S.DivCardProducts>
                         <S.OrderDetailsDiv>
                             <S.OrderDetails>
                                 <S.OrderTitle>Subtotal:</S.OrderTitle>
-                                <S.OrderPrice>$109.38</S.OrderPrice>
+                                <S.OrderPrice>${price}</S.OrderPrice>
                             </S.OrderDetails>
                             <S.OrderDetails>
                                 <S.OrderTitle>Tax:</S.OrderTitle>
