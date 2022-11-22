@@ -1,9 +1,13 @@
 import * as S from "./buttonsStyle"
 
-export default function Buttons() {
+type Props = {
+    onClick: () => void;
+}
+
+export default function Buttons({ onClick }: Props) {
     return (
         <S.ButtonsContainer>
-            <S.ButtonAddBag>Add to bag</S.ButtonAddBag>
+            <S.ButtonAddBag onClick={onClick}>Add to bag</S.ButtonAddBag>
             <S.ButtonAddWish>Add To Wishlist</S.ButtonAddWish>
         </S.ButtonsContainer>
     )
