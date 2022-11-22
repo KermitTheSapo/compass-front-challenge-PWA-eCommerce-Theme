@@ -1,5 +1,5 @@
 [{
-    "img": "src",
+    "img": "/src/assets/imgs/productPage/coach.png",
     "name": "Coach",
     "paragraph": "Leather Coach Bag",
     "description": "Leather Coach Bag with adjustable starps.",
@@ -10,7 +10,7 @@
     "imgAlt": ""
 },
 {
-    "img": "src",
+    "img": "/src/assets/imgs/grande/grandeitem.png",
     "name": "Grande",
     "paragraph": "Blossom Pouch",
     "description": "Blossom Pouch",
@@ -21,7 +21,7 @@
     "imgAlt": ""
 },
 {
-    "img": "src",
+    "img": "/src/assets/imgs/remus/remus.png",
     "name": "Remus",
     "paragraph": "Brown Strap Bag",
     "description": "Brown Strap Bag",
@@ -32,7 +32,7 @@
     "imgAlt": ""
 },
 {
-    "img": "src",
+    "img": "/src/assets/imgs/boujee/boujee.png",
     "name": "Boujee",
     "paragraph": "Black Bag",
     "description": "Black Bag",
@@ -43,7 +43,7 @@
     "imgAlt": ""
 },
 {
-    "img": "src",
+    "img": "/src/assets/imgs/productPage/collosal.png",
     "name": "Collosal",
     "paragraph": "Tall Heels",
     "description": "Tall Heels",
@@ -54,7 +54,7 @@
     "imgAlt": ""
 },
 {
-    "img": "src",
+    "img": "/src/assets/imgs/home/main/arrivals/boker.png",
     "name": "boker",
     "paragraph": "Brown Bag",
     "description": "Brown Bag",
