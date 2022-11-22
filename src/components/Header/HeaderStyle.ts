@@ -331,6 +331,13 @@ export const Separator = styled.div`
 `
 
 
-// export const XX = styled.XX``
-// export const XX = styled.XX``
-// export const XX = styled.XX``
+export const DivCardProducts = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 330px;
+  overflow: auto;
+  width: 90%;
+  &::-webkit-scrollbar { 
+      display: none;
+    }
+`
