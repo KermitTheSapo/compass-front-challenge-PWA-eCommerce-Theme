@@ -21,7 +21,7 @@ import { useState } from "react"
 
 type Props = {
     name: string;
-    value: string;
+    value: number;
     img: string;
     productDescription: string;
     productParagraph: string;
@@ -31,7 +31,6 @@ type Props = {
 }
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel }: Props) {
-    const [productInfo, setProductInfo] = useState([{}])
     const addToLocalStorage = (name, description, price, img) => {
         let items = JSON.parse(localStorage.getItem('items')) || [];
         items.push({ name, description, price, img })
