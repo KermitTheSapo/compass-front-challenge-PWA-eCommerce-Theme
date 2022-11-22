@@ -5,13 +5,11 @@ import deleteImg from "@/assets/imgs/header/deleteImg.svg"
 type Props = {
     productTitle: string;
     productParagraph: string;
-    productPrice: string;
-    price: number;
-    setPrice: (price: number) => void;
+    productPrice: number;
     img: string;
 }
 
-export default function CardVertical({ productTitle, productParagraph, productPrice, price, setPrice, img }: Props) {
+export default function CardVertical({ productTitle, productParagraph, productPrice, img }: Props) {
 
     return (
         <S.CardVertical>
