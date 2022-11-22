@@ -6,7 +6,8 @@ export const ProductDescriptionDesktopContainer = styled.div`
     flex-direction: column;
     padding: 0 16px;
     justify-content: space-evenly;
-    height: 30vh;
+    min-height: 35vh;
+    margin-top: 15px;
     @media (max-width: 768px) {
         display: none;
     }
@@ -25,6 +26,7 @@ export const DescriptionContent = styled.div`
     flex-direction: column;
     justify-content: space-between;
     gap: 15px;
+    
 `
 export const Tab = styled.div`
     border-radius: 8px;
@@ -47,4 +49,10 @@ export const Paragraph = styled.p`
     color: var(--TypeLowEmphasis);
     line-height: 20px;
     height: 10vh;
+`
+
+export const DivAlsoLike = styled.div`
+    height: 45vh;
+    min-width: 100%;
+    height: 100%;
 `
