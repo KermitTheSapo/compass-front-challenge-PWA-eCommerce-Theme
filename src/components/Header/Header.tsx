@@ -17,13 +17,21 @@ export default function Header() {
     const [listCategory, setListCategory] = useState(false)
     const [inputSearchClick, setInputSearchClick] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
-    const [price, setPrice] = useState(0.00)
+    const [price, setPrice] = useState(0)
     const navigate = useNavigate();
     const bagInfo = localStorage.getItem("items")
     const bagInfoParse = JSON.parse(bagInfo)
-    // console.log(bagInfoParse.map((item) => {
-    //     console.log(item.name)
-    // }))
+    const openCartInfo = () => {
+        if (showCartInfo) {
+            setShowCartInfo(false)
+        } else {
+            setShowCartInfo(true)
+        }
+        let value = 0
+        bagInfoParse.map((item) => { value = value + item.price });
+        setPrice(value)
+        value = 0;
+    }
 
     return (
         <S.HeaderContainer>
@@ -81,7 +89,7 @@ export default function Header() {
                     <S.IconImg src={profile} alt="icon of a person's head and shoulder" />
                 </S.LinkCategory>
                 <S.LinkCategory >
-                    <S.IconImg onClick={() => showCartInfo ? setShowCartInfo(false) : setShowCartInfo(true)} src={bag} alt="a bag icon" />
+                    <S.IconImg onClick={() => openCartInfo()} src={bag} alt="a bag icon" />
                 </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
@@ -108,7 +116,7 @@ export default function Header() {
                         <S.DivCardProducts>
                             {bagInfoParse && bagInfoParse.map((item: any) => (
                                 <>
-                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.value} price={price} setPrice={setPrice} img={item.img} />
+                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.img} />
                                     <S.Separator></S.Separator>
                                 </>
                             ))}
@@ -124,7 +132,7 @@ export default function Header() {
                             </S.OrderDetails>
                             <S.OrderDetails>
                                 <S.OrderResultTitle>Total:</S.OrderResultTitle>
-                                <S.OrderResultValue>$111.38</S.OrderResultValue>
+                                <S.OrderResultValue>${price + 2}</S.OrderResultValue>
                             </S.OrderDetails>
                         </S.OrderDetailsDiv>
                         <S.CouponDiv>
