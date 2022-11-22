@@ -10,7 +10,7 @@ type Props = {
     ImgAlt: string;
     itemName: string;
     Description: string;
-    Price: string;
+    Price: number;
     safe?: string;
     discount?: string;
     onClick?: () => void;
@@ -19,7 +19,7 @@ type Props = {
     setState?: () => void;
     star?: string;
     ratings?: string;
-    link2: string;
+    link2?: string;
 };
 export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, onClick, link, state, setState, safe, discount, star, ratings, link2 }: Props) {
     const navigate = useNavigate();
@@ -40,7 +40,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
                             <S.Ratings>{ratings}</S.Ratings>
                         </S.DivStar>
                         <S.DivInfoItem>
-                            <S.ItemPrice>{Price}</S.ItemPrice>
+                            <S.ItemPrice>${Price}</S.ItemPrice>
                             <S.ItemSafe>{safe}</S.ItemSafe>
                             <S.ItemDiscount>{discount}</S.ItemDiscount>
                         </S.DivInfoItem>
