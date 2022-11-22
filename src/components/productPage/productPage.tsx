@@ -1,9 +1,9 @@
 import * as S from "./productPageStyle"
 
-import arrow from "../../assets/imgs/productPage/arrowLeft.svg"
-import heart from "../../assets/imgs/productPage/heart.svg"
-import arrowRight from "../../assets/imgs/productPage/arrow-right.svg"
-import arrowRightMini from "../../assets/imgs/productPage/arrow-right-mini.svg"
+import arrow from "@/assets/imgs/productPage/arrowLeft.svg"
+import heart from "@/assets/imgs/productPage/heart.svg"
+import arrowRight from "@/assets/imgs/productPage/arrow-right.svg"
+import arrowRightMini from "@/assets/imgs/productPage/arrow-right-mini.svg"
 import Products from "./products/products"
 import ProductInfo from "./productInfo/productInfo"
 import DeliveryDetails from "./deliveryDetails/deliveryDetails"
@@ -32,10 +32,11 @@ type Props = {
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel }: Props) {
     const [productInfo, setProductInfo] = useState([{}])
-    const addToLocalStorage = (value) => {
-        setProductInfo([...productInfo, { "name": name, "value": value, "productParagraph": productParagraph, "img": img }])
-        localStorage.setItem("bag", JSON.stringify(productInfo))
-        alert("Item added to bag")
+    const addToLocalStorage = (name, description, price, img) => {
+        let items = JSON.parse(localStorage.getItem('items')) || [];
+        items.push({ name, description, price, img })
+        localStorage.setItem('items', JSON.stringify(items))
+        alert("Item added to cart")
     }
     const navigate = useNavigate()
     return (
@@ -76,7 +77,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                     <ProductInfo name={name} value={value} productParagraph={productParagraph} safe={safe} discount={discount} />
                     <DeliveryDetails />
                     <Quantity />
-                    <Buttons />
+                    <Buttons onClick={() => addToLocalStorage(name, productParagraph, value, img)} />
                     <S.Separator></S.Separator>
                     <ProductDescription />
                     <S.Separator></S.Separator>
@@ -93,7 +94,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 <S.heartDiv>
                     <S.ImgHeart src={heart} alt="heart icon" />
                 </S.heartDiv>
-                <S.ButtonAdd onClick={() => addToLocalStorage(value)}>Add to Bag</S.ButtonAdd>
+                <S.ButtonAdd onClick={() => addToLocalStorage(name, productParagraph, value, img)}>Add to Bag</S.ButtonAdd>
             </S.FooterNav>
         </S.ProductPageContainer>
     )
