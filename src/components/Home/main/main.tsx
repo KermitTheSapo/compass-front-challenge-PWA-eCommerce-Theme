@@ -1,5 +1,5 @@
 import * as S from "./mainStyle"
-import Funk from "../../../assets/imgs/home/main/funk.png"
+import Funk from "@/assets/imgs/home/main/funk.png"
 import Categories from "./categories/categories"
 import Arrivals from "./Arrivals/arrivals"
 import Handpicked from "./handpicked/handpicked"
@@ -10,8 +10,8 @@ import Navigation from "./bottom-navigation/navigation"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
-import hero from "../../../assets/imgs/category/hero.png"
-import makeup from "../../../assets/imgs/home/main/makeup/accessories.png"
+import hero from "@/assets/imgs/category/hero.png"
+import makeup from "@/assets/imgs/home/main/makeup/accessories.png"
 
 export default function Main() {
     const navigate = useNavigate();
