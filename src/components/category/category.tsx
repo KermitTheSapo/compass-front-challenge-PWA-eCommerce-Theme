@@ -1,12 +1,13 @@
 import * as S from "./categoryStyle"
 
-import arrow from "../../assets/imgs/category/handbags/arrow.svg"
-import sort from "../../assets/imgs/category/handbags/sort.svg"
-import hero from "../../assets/imgs/category/hero.png"
-import arrowRightSmall from "../../assets/imgs/category/arrow-right-small.svg"
-import grid from "../../assets/imgs/category/grid.svg"
-import sortImg from "../../assets/imgs/category/sort.svg"
-import filter from "../../assets/imgs/category/handbags/filter.svg"
+import arrow from "@/assets/imgs/category/handbags/arrow.svg"
+import sort from "@/assets/imgs/category/handbags/sort.svg"
+import hero from "@/assets/imgs/category/hero.png"
+import arrowRightSmall from "@/assets/imgs/category/arrow-right-small.svg"
+import grid from "@/assets/imgs/category/grid.svg"
+import sortImg from "@/assets/imgs/category/sort.svg"
+import filter from "@/assets/imgs/category/handbags/filter.svg"
+import stars from "@/assets/imgs/home/main/arrivals/stars.svg"
 
 import ItemArrival from "../Home/main/Arrivals/itemArrival/itemArrival"
 import { useNavigate } from "react-router-dom"
@@ -94,7 +95,7 @@ export default function Category({ name }: Props) {
                     </S.ListingOptions >
                     <S.Products>
                         {ProductsItem.map((item) => (
-                            <ItemArrival ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.description} Price={item.price} link={item.link} />
+                            <ItemArrival ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={"43 Ratings"} link2={item.link} />
                         ))}
                     </S.Products>
                     <S.NumberPageTabs>
