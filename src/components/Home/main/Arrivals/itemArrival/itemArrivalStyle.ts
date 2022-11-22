@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const ItemArrival = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 3px;
   margin-top: 12px;
   @media (min-width: 768px) {
@@ -21,7 +22,11 @@ width: 136px;
 export const InformationDiv = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
+  width: 95%;
+  @media (max-width: 768px) {
+    width: 90%;    
+  }
 `
 
 export const NameHeart = styled.div`
@@ -65,4 +70,50 @@ export const ItemPrice = styled.p`
 
 export const ItemLink = styled.a`
   text-decoration: none;
+`
+
+export const DivInfoItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+`
+export const ItemSafe = styled.p`
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--TypeLowEmphasis);
+  text-decoration: line-through;
+  @media (max-width: 768px) {
+    font-weight: 500;
+    font-size: 0.625rem;
+  }
+`
+export const ItemDiscount = styled.p`
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--DiscountText);
+  @media (max-width: 768px) {
+    font-weight: 500;
+    font-size: 0.625rem;
+  }
+`
+
+export const DivStar = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+export const Star = styled.img`
+  @media (max-width: 768px) {
+    width: 50%;
+  }
+`
+
+export const Ratings = styled.p`
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--Primary);
+  @media (max-width: 768px) {
+    font-weight: 500;
+    font-size: 0.625rem;
+  }
 `
