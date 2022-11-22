@@ -17,13 +17,16 @@ export const CardVerticalImgDiv = styled.div`
   justify-content: center;
 `
 export const CardImg = styled.img`
-
+  height: 80px;
+  width: 72px;
 `
 export const ProductDescription = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 70%;
+  height: 100%;
+  gap: 5px;
+  width: 40%;
 `
 export const PriceDeleteDiv = styled.div`
   display: flex;
