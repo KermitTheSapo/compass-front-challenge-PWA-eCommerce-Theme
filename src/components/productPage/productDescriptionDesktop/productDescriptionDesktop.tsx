@@ -1,11 +1,12 @@
 import { useState } from "react"
+import AlsoLikeItem from "../alsoLike/alsoLikeItem/alsoLikeItem";
 import * as S from "./productDescriptionDesktopStyle"
 
 type Props = {
     productDescription: string;
 }
 
-export default function ProductDescriptionDesktop( {productDescription}: Props) {
+export default function ProductDescriptionDesktop({ productDescription }: Props) {
     const [tabColorOne, setTabColorOne] = useState("#1B4B66")
     const [tabColorTwo, setTabColorTwo] = useState("transparent")
     const [tabColorThree, setTabColorThree] = useState("transparent")
@@ -41,7 +42,9 @@ export default function ProductDescriptionDesktop( {productDescription}: Props) 
             </S.DescriptionHeader>
             <S.DescriptionContent>
                 {tabColorOne === "#1B4B66" && <S.Paragraph>{productDescription}</S.Paragraph>}
-                {tabColorTwo === "#1B4B66" && <S.Paragraph>Related Products</S.Paragraph>}
+                {tabColorTwo === "#1B4B66" && <S.DivAlsoLike>
+                    <AlsoLikeItem />
+                </S.DivAlsoLike>}
                 {tabColorThree === "#1B4B66" && <S.Paragraph>Ratings & Reviews</S.Paragraph>}
             </S.DescriptionContent>
         </S.ProductDescriptionDesktopContainer>
