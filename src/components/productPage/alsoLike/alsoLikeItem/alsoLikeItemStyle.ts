@@ -6,7 +6,16 @@ export const AlsoLikeImgs = styled.img`
 
 export const AlsoLikeProducts = styled.div`
     display: flex;
-    width: 136px;
+    width: 154px;
+    @media (min-width: 768px) {
+        overflow: auto;
+        width: 98vw;
+        gap: 150px;
+        height:50vh;
+        &::-webkit-scrollbar { 
+            display: none;
+        }
+    }
 `
 export const BtnTrending = styled.div`
     border-radius: 4px;
@@ -30,4 +39,9 @@ export const SpanTrending = styled.span`
 
 export const AlsoLikeContent = styled.div`
 
+`
+
+export const Div = styled.div`
+    display: flex;
+    width: 154px;
 `
