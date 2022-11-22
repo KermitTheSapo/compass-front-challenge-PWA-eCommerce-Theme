@@ -137,7 +137,16 @@ export const ImgPlaceHolderDiv = styled.div`
     border-radius: 50%;
     background-color: var(--Accent);
 `
-// export const XX = styled.div``
-// export const XX = styled.div``
-// export const XX = styled.div``
-// export const XX = styled.div``
+
+export const BottomSheetHomeDark = styled.div`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--DarkShadow);
+  z-index: 2;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`
