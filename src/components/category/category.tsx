@@ -28,6 +28,25 @@ export default function Category({ name }: Props) {
 
     const [isGridActive, setIsGridActive] = useState(true)
     const [isSortActive, setIsSortActive] = useState(false)
+    const [priceLowToHigh, setPriceLowToHigh] = useState(false)
+    const [priceHighToLow, setPriceHighToLow] = useState(false)
+    const [inicialProducts, setInicialProducts] = useState(true)
+
+    const setSortValue = (e) => {
+        if (e.target.value === "priceLowToHigh") {
+            setPriceLowToHigh(true)
+            setPriceHighToLow(false)
+            setInicialProducts(false)
+        } else if (e.target.value === "priceHighToLow") {
+            setPriceLowToHigh(false)
+            setPriceHighToLow(true)
+            setInicialProducts(false)
+        } else if (e.target.value === "LatestProducts") {
+            setPriceLowToHigh(false)
+            setPriceHighToLow(false)
+            setInicialProducts(true)
+        }
+    }
 
     const changeValueGrid = () => {
         setIsGridActive(true)
@@ -81,10 +100,10 @@ export default function Category({ name }: Props) {
                         </S.ToShow>
                         <S.SortBy>
                             <S.SortTitle>Sort By</S.SortTitle>
-                            <S.SelectSort name="" id="">
-                                <S.OptionSort value="Position">Latest Products</S.OptionSort>
-                                <S.OptionSort value="Position">Price- Low to High</S.OptionSort>
-                                <S.OptionSort value="Position">Price- High to Low</S.OptionSort>
+                            <S.SelectSort name="" id="" onChange={(e) => setSortValue(e)}>
+                                <S.OptionSort value="LatestProducts">Latest Products</S.OptionSort>
+                                <S.OptionSort value="priceLowToHigh">Price- Low to High</S.OptionSort>
+                                <S.OptionSort value="priceHighToLow">Price- High to Low</S.OptionSort>
                                 <S.OptionSort value="Position">Popularity</S.OptionSort>
                                 <S.OptionSort value="Position">Customer Ratings</S.OptionSort>
                             </S.SelectSort>
@@ -94,7 +113,15 @@ export default function Category({ name }: Props) {
                         </S.ProductHeader>
                     </S.ListingOptions >
                     <S.Products>
-                        {ProductsItem.map((item) => (
+                        {inicialProducts && ProductsItem.map((item) => (
+                            <ItemArrival ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={"43 Ratings"} link2={item.link} />
+                        ))}
+                        {priceLowToHigh &&
+                            ProductsItem.sort(function (a, b) { return a.price - b.price }).map((item) => (
+                                <ItemArrival ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={"43 Ratings"} link2={item.link} />
+                            ))
+                        }
+                        {priceHighToLow && ProductsItem.sort(function (a, b) { return b.price - a.price }).map((item) => (
                             <ItemArrival ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={"43 Ratings"} link2={item.link} />
                         ))}
                     </S.Products>
@@ -121,15 +148,15 @@ export default function Category({ name }: Props) {
                         <S.Separator></S.Separator>
                     </S.BottomSheetHeader>
                     <S.BottomSheetBody>
-                        <S.RadioDiv>
+                        <S.RadioDiv onClick={() => { setInicialProducts(true); setPriceHighToLow(false); setPriceLowToHigh(false) }}>
                             <S.InputRadio type="radio" name="sort" id="latest" />
                             <S.LabelBottomSheet htmlFor="latest">Latest Products</S.LabelBottomSheet>
                         </S.RadioDiv>
-                        <S.RadioDiv>
+                        <S.RadioDiv onClick={() => { setPriceLowToHigh(true); setPriceHighToLow(false); setInicialProducts(false) }}>
                             <S.InputRadio type="radio" name="sort" id="priceLow" />
                             <S.LabelBottomSheet htmlFor="priceLow">Price- Low to High</S.LabelBottomSheet>
                         </S.RadioDiv>
-                        <S.RadioDiv>
+                        <S.RadioDiv onClick={() => { setPriceHighToLow(true); setPriceLowToHigh(false); setInicialProducts(false) }}>
                             <S.InputRadio type="radio" name="sort" id="priceHigh" />
                             <S.LabelBottomSheet htmlFor="priceHigh">Price- High to Low</S.LabelBottomSheet>
                         </S.RadioDiv>
