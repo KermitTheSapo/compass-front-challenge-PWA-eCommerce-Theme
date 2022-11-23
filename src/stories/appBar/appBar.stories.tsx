@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { AppBar } from "./appBar";
 
 export default {
-  title: 'HeaderAndFooters/FooterWeb',
+  title: 'HeaderAndFooters/AppBar',
   component: AppBar
 } as ComponentMeta<typeof AppBar>;
 

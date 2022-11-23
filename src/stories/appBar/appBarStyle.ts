@@ -15,7 +15,7 @@ export const Div = styled.div`
     flex-direction: column;
     height: 246px;
     border-radius: 5px;
-    width: 30%;
+    width: 40%;
     background-color: var(--Bright);
     border: 1px dashed #7B61FF;
 `
@@ -23,7 +23,7 @@ export const Div = styled.div`
 export const LeadingIcon = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    gap: 23px;
     width: 40%;
 `
 export const Text = styled.h2`
@@ -61,4 +61,10 @@ export const Content = styled.div`
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+`
+
+export const Paragraph = styled.p`
+    font-size: 0.9rem;
+    color: var(--TypeLowEmphasis);
+    font-weight: 500;
 `

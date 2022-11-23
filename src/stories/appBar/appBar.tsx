@@ -11,7 +11,7 @@ export const AppBar = () => (
                         <S.LeadingIconImg src={icon} alt="" />
                         <S.Content>
                             <S.Text>Page Title</S.Text>
-                            <p>Page Info</p>
+                            <S.Paragraph>Page Info</S.Paragraph>
                         </S.Content>
                     </S.LeadingIcon>
                     <S.TrailingIcon>
