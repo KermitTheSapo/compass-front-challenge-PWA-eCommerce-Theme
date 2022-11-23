@@ -50,10 +50,9 @@ Currently working for mobile screens: 420px and desktop: 1440px.
 ---
 
 ## Features
-
 - [X] page home
     - [X] Header
-    - [X] carrossel
+    - [X] carousel
     - [X] categories (mobile)
     - [X] new arrivals
     - [X] Handpicked Collections (categories)
@@ -61,28 +60,28 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [X] Makeup & Skincare
     - [X] Trending Deals
     - [X] banners
-    - [X] footer More about CORA’L
+    - [X] footer More about CORA'L
     - [X] navbar fixed in bottom
     - [X] bottom sheet
 
 - [ ] category page
     - [X] banner
-    - [X] tem que ter 4 tipos diferentes de categorias para 4 paginas com produtos diferentes
-    - [ ] navegação de números 
-    - [ ] filtrar itens
-    - [X] ao clicar no icon abrir um modal
+    - [X] must have 4 different types of categories for 4 pages with different products
+    - [ ] number navigation
+    - [X] filter items
+    - [X] when clicking on the icon to open a modal
 
-- [ ] product page
-    - [X] estrutura
-    - [X] estilização
-    - [ ] logica de quantidade e aumentar o valor com base na quantidade
+- [X] product page
+    - [X] structure
+    - [X] styling
+    - [X] quantity logic and increase value based on quantity
 
 
 - [ ] storybook
     - [ ] Header and Footers
         - [X] header web
         - [X] footer web
-        - [X] footer mobile
+        - [X] mobile footer
         - [X] app bar
         - [ ] bottom navigation
     - [ ] Elements
@@ -94,7 +93,7 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [ ] Menu
         - [ ] Tabs and Breadcrumbs
         - [ ] Ratings and Stepper
-        - [ ] Search Bar
+        - [ ] SearchBar
     - [ ] Form Control
         - [ ] label
     - [ ] Style Guide
