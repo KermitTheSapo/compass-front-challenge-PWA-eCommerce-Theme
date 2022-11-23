@@ -1,51 +1,41 @@
-import * as S from "../../components/Home/main/bottom-navigation/navigationStyle"
+import { Reset } from "../../assets/styles/reset"
+import * as S from "./bottomNavigationStyle"
+import homeOff from "../assets/bottomNavigation/home-off.svg"
+import homeOn from "../assets/bottomNavigation/home.svg"
+import categoriesOff from "../assets/bottomNavigation/categories-off.svg"
+import categoriesOn from "../assets/bottomNavigation/categories-on.svg"
+import profileOff from "../assets/bottomNavigation/profile-off.svg"
+import profileOn from "../assets/bottomNavigation/profile-on.svg"
+import bagOff from "../assets/bottomNavigation/bag-off.svg"
+import bagOn from "../assets/bottomNavigation/bag-on.svg"
 
-import Home from "../../assets/imgs/home/navigation/home.svg"
-import HomeFill from "../../assets/imgs/home/navigation/home-fill.svg"
-import categories from "../../assets/imgs/home/navigation/categories.svg"
-import categoriesFill from "../../assets/imgs/home/navigation/categories-fill.svg"
-import profile from "../../assets/imgs/home/navigation/profile.svg"
-import profileFill from "../../assets/imgs/home/navigation/profile-fill.svg"
-import bag from "../../assets/imgs/home/navigation/bag.svg"
-import bagFill from "../../assets/imgs/home/navigation/bag-fill.svg"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import useState from 'storybook-addon-state';
 
 export default function BottomNavigation() {
-    const [activeHome, setActiveHome] = useState(false)
-    const [activeCategories, setActiveCategories] = useState(false)
-    const [activeProfile, setActiveProfile] = useState(false)
-    const [activeBag, setActiveBag] = useState(false)
-
-    const navigate = useNavigate()
-
+    const [hoverHome, setHoverHome] = useState("0", false);
+    const [hoverCategories, setHoverCategories] = useState("1", false);
+    const [hoverProfile, setHoverProfile] = useState("2", false);
+    const [hoverBag, setHoverBag] = useState("3", false);
     return (
-        <S.Navigation>
-            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveHome(true)} onMouseLeave={() => setActiveHome(false)}>
-                <S.NavTab>
-                    <S.Img src={activeHome ? HomeFill : Home} alt="" />
-                    <S.Name>Home</S.Name>
-                </S.NavTab>
-            </S.LinkNavTab>
-            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveCategories(true)} onMouseLeave={() => setActiveCategories(false)}>
-                <S.NavTab>
-                    <S.Img src={activeCategories ? categoriesFill : categories} alt="" />
-                    <S.Name>Categories</S.Name>
-                </S.NavTab>
-            </S.LinkNavTab>
-            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveProfile(true)} onMouseLeave={() => setActiveProfile(false)}>
-                <S.NavTab>
-                    <S.Img src={activeProfile ? profileFill : profile} alt="" />
-                    <S.Name>Profile</S.Name>
-                </S.NavTab>
-            </S.LinkNavTab>
-            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveBag(true)} onMouseLeave={() => setActiveBag(false)}>
-                <S.NavTab>
-                    <S.Img src={activeBag ? bagFill : bag} alt="" />
-                    <S.Name>Bag</S.Name>
-                </S.NavTab>
-            </S.LinkNavTab>
-        </S.Navigation>
+        <S.BottomNavigationContainer>
+            <Reset />
+            <S.Tab onMouseEnter={() => setHoverHome(true)} onMouseLeave={() => setHoverHome(false)} >
+                <S.ImgIcon src={hoverHome ? homeOn : homeOff} alt="" />
+                {hoverHome && <S.labelParagraph>Home</S.labelParagraph>}
+            </S.Tab>
+            <S.Tab onMouseEnter={() => setHoverCategories(true)} onMouseLeave={() => setHoverCategories(false)} >
+                <S.ImgIcon src={hoverCategories ? categoriesOn : categoriesOff} alt="" />
+                {hoverCategories && <S.labelParagraph>Categories</S.labelParagraph>}
+            </S.Tab>
+            <S.Tab onMouseEnter={() => setHoverProfile(true)} onMouseLeave={() => setHoverProfile(false)} >
+                <S.ImgIcon src={hoverProfile ? profileOn : profileOff} alt="" />
+                {hoverProfile && <S.labelParagraph>Profile</S.labelParagraph>}
+            </S.Tab>
+            <S.Tab onMouseEnter={() => setHoverBag(true)} onMouseLeave={() => setHoverBag(false)}>
+                <S.ImgIcon src={hoverBag ? bagOn : bagOff} alt="" />
+                {hoverBag && <S.labelParagraph>Bag</S.labelParagraph>}
+            </S.Tab>
+        </S.BottomNavigationContainer>
     )
 }
 
