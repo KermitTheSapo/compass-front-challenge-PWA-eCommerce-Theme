@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
 
 export default function Header() {
-
     const [listCategory, setListCategory] = useState(false)
     const [inputSearchClick, setInputSearchClick] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
