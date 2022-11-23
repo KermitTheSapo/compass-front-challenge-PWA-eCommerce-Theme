@@ -77,5 +77,7 @@ export const Reset = createGlobalStyle`
     --DiscountText: #E21D1D;
     --MajorVibrant: #FF404B;
     --Separator: #0000001F;
+    --SeparatorStorybook: #D8D8D8;
+    --ParagraphDateOrderCard: #7E7E7E;
   }
 `
