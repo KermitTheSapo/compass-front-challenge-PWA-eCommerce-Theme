@@ -1,10 +1,12 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { withRouter } from 'storybook-addon-react-router-v6';
 
 import { HeaderS } from "./header";
 
 export default {
   title: 'HeaderAndFooters/Header',
-  component: HeaderS
+  component: HeaderS,
+  decorators: [withRouter],
 } as ComponentMeta<typeof HeaderS>;
 
 const Template: ComponentStory<typeof HeaderS> = () => <HeaderS />;
