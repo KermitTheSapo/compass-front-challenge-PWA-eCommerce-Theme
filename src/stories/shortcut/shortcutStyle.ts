@@ -8,9 +8,7 @@ export const ShortcutDiv = styled.div`
     height: 120px;
     background-color: var(--Primary);
     justify-content: space-between;
-    @media (min-width: 768px) {
-        display: none;
-    }
+    width: 328px;
 `
 
 export const ShortcutFigure = styled.figure`
@@ -46,6 +44,7 @@ export const ShortcutParagraph = styled.p`
     font-weight: 700;
     font-size: 0.875rem;
     color: var(--Bright);
+    cursor: pointer;
 `
 
 export const ShortcutLink = styled.a`
