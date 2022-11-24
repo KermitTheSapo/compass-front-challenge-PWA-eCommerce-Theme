@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Ratings from "./ratings";
 
 export default {
-  title: 'menu/Ratings',
+  title: 'Elements/Ratings',
   component: Ratings
 } as ComponentMeta<typeof Ratings>;
 
