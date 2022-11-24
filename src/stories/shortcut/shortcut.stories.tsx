@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Shortcut from "./shortcut";
 
 export default {
-  title: 'MiscellaneousElements/Shortcut',
+  title: 'Cards/Shortcut',
   component: Shortcut
 } as ComponentMeta<typeof Shortcut>;
 
