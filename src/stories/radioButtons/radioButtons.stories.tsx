@@ -9,4 +9,4 @@ export default {
 
 const Template: ComponentStory<typeof RadioButtons> = () => <RadioButtons />;
 
-export const RadioButtonsExample = Template.bind({});
+export const RadioButtonsExample = Template.bind({});   
