@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import RadioButtons from "./radioButtons";
 
 export default {
-  title: 'CheckboxesAndRadioButtons/RadioButtons',
+  title: 'Elements/RadioButtons',
   component: RadioButtons
 } as ComponentMeta<typeof RadioButtons>;
 
