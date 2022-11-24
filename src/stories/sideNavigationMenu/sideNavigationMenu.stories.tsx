@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import SideNavigationMenu from "./sideNavigationMenu";
 
 export default {
-  title: 'menu/SideNavigationMenu',
+  title: 'Elements/SideNavigationMenu',
   component: SideNavigationMenu
 } as ComponentMeta<typeof SideNavigationMenu>;
 
