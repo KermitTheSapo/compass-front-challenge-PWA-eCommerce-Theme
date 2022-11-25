@@ -5,7 +5,7 @@ export default function AlsoLike() {
         <S.AlsoLike>
             <S.AlsoLikeTitle>You Might Also Like</S.AlsoLikeTitle>
             <S.AlsoLikeProductsList>
-                <AlsoLikeItem />
+                <AlsoLikeItem value={false} />
             </S.AlsoLikeProductsList>
         </S.AlsoLike>
     )
