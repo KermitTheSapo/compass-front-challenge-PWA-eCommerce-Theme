@@ -72,7 +72,7 @@ export const BottomSheetDark = styled.div`
 export const BottomSheetContent = styled.div`
     display: flex;
     flex-direction: column;
-    height: 35vh;
+    height: 40vh;
     width: 100vw;
     background-color: var(--Bright);
     position: fixed;
