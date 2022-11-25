@@ -5,8 +5,7 @@ export const ButtonsAndChipsContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--Primary);
-    width: 328px;
+    background-color: ${p => p.color};
     height: 44px;
     border-radius: 10px;
     gap: 8px;
