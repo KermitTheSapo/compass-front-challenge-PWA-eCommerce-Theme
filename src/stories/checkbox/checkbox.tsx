@@ -5,7 +5,7 @@ export default function Checkbox() {
     return (
         <div>
             <Reset />
-            <input type="checkbox" />
+            <S.InputCheckbox type="checkbox" />
             <label htmlFor="">asdfasdfsd</label>
         </div>
     )
