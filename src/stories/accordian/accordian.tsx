@@ -10,7 +10,7 @@ export default function Accordian() {
         <S.AccordianContainer>
             <Reset />
             <S.Title>Product Details</S.Title>
-            <S.Img onClick={() => setOpen(!open)} src={open ? arrowDown : arrowUp} alt="" />
+            <S.Img onClick={() => setOpen(!open)} src={open ? arrowDown : arrowUp} alt="an image of an up or down arrow" />
         </S.AccordianContainer>
     )
 }
