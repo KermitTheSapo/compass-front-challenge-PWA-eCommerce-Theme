@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const BottomNavigationContainer = styled.div`
     width: 360px;
     height: 56px;
-    background-color: var(--Primary);
+    background-color: ${p => p.color};
     display: flex;
     align-items: center;
+    margin: 0 auto;
 `
 
 export const Tab = styled.div`
@@ -24,5 +25,5 @@ export const ImgIcon = styled.img``
 export const labelParagraph = styled.p`
     font-size: 0.75rem;
     font-weight: 400;
-    color: var(--Bright);
+    color: ${p => p.color};
 `

@@ -1,39 +1,44 @@
 import { Reset } from "../../assets/styles/reset"
 import * as S from "./bottomNavigationStyle"
-import homeOff from "../assets/bottomNavigation/home-off.svg"
-import homeOn from "../assets/bottomNavigation/home.svg"
-import categoriesOff from "../assets/bottomNavigation/categories-off.svg"
-import categoriesOn from "../assets/bottomNavigation/categories-on.svg"
-import profileOff from "../assets/bottomNavigation/profile-off.svg"
-import profileOn from "../assets/bottomNavigation/profile-on.svg"
-import bagOff from "../assets/bottomNavigation/bag-off.svg"
-import bagOn from "../assets/bottomNavigation/bag-on.svg"
-
 import useState from 'storybook-addon-state';
+import HomeImg from "./homeImg/homeImg"
+import CategoriesImg from "./categoriesImg/categoriesImg"
+import ProfileImg from "./profileImg/profile"
+import BagImg from "./bagImg/bagImg"
 
-export default function BottomNavigation() {
+interface ProfileProps {
+    background?: string;
+    color?: string;
+}
+
+export default function BottomNavigation({ background, color }: ProfileProps) {
     const [hoverHome, setHoverHome] = useState("0", false);
     const [hoverCategories, setHoverCategories] = useState("1", false);
     const [hoverProfile, setHoverProfile] = useState("2", false);
     const [hoverBag, setHoverBag] = useState("3", false);
+    const [homeColor, setHomeColor] = useState("4", "#B6B6B6")
+    const [categoriesColor, setCategoriesColor] = useState("5", "#B6B6B6")
+    const [profileColor, setProfileColor] = useState("6", "#B6B6B6")
+    const [bagColor, setBagColor] = useState("7", "#B6B6B6")
+
     return (
-        <S.BottomNavigationContainer>
+        <S.BottomNavigationContainer color={background}>
             <Reset />
-            <S.Tab onMouseEnter={() => setHoverHome(true)} onMouseLeave={() => setHoverHome(false)} >
-                <S.ImgIcon src={hoverHome ? homeOn : homeOff} alt="" />
-                {hoverHome && <S.labelParagraph>Home</S.labelParagraph>}
+            <S.Tab onMouseEnter={() => { setHoverHome(true); background === "#FFFFFF" ? setHomeColor("#1B4B66") : setHomeColor("#FFFFFF") }} onMouseLeave={() => { setHoverHome(false); setHomeColor("#B6B6B6") }} >
+                <HomeImg color={homeColor} />
+                {hoverHome && <S.labelParagraph color={color}>Home</S.labelParagraph>}
             </S.Tab>
-            <S.Tab onMouseEnter={() => setHoverCategories(true)} onMouseLeave={() => setHoverCategories(false)} >
-                <S.ImgIcon src={hoverCategories ? categoriesOn : categoriesOff} alt="" />
-                {hoverCategories && <S.labelParagraph>Categories</S.labelParagraph>}
+            <S.Tab onMouseEnter={() => { setHoverCategories(true); background === "#FFFFFF" ? setCategoriesColor("#1B4B66") : setCategoriesColor("#FFFFFF") }} onMouseLeave={() => { setHoverCategories(false); setCategoriesColor("#B6B6B6") }} >
+                <CategoriesImg color={categoriesColor} />
+                {hoverCategories && <S.labelParagraph color={color}>Categories</S.labelParagraph>}
             </S.Tab>
-            <S.Tab onMouseEnter={() => setHoverProfile(true)} onMouseLeave={() => setHoverProfile(false)} >
-                <S.ImgIcon src={hoverProfile ? profileOn : profileOff} alt="" />
-                {hoverProfile && <S.labelParagraph>Profile</S.labelParagraph>}
+            <S.Tab onMouseEnter={() => { setHoverProfile(true); background === "#FFFFFF" ? setProfileColor("#1B4B66") : setProfileColor("#FFFFFF") }} onMouseLeave={() => { setHoverProfile(false); setProfileColor("#B6B6B6") }} >
+                <ProfileImg color={profileColor} />
+                {hoverProfile && <S.labelParagraph color={color}>Profile</S.labelParagraph>}
             </S.Tab>
-            <S.Tab onMouseEnter={() => setHoverBag(true)} onMouseLeave={() => setHoverBag(false)}>
-                <S.ImgIcon src={hoverBag ? bagOn : bagOff} alt="" />
-                {hoverBag && <S.labelParagraph>Bag</S.labelParagraph>}
+            <S.Tab onMouseEnter={() => { setHoverBag(true); background === "#FFFFFF" ? setBagColor("#1B4B66") : setBagColor("#FFFFFF") }} onMouseLeave={() => { setHoverBag(false); setBagColor("#B6B6B6") }}>
+                <BagImg color={bagColor} />
+                {hoverBag && <S.labelParagraph color={color}>Bag</S.labelParagraph>}
             </S.Tab>
         </S.BottomNavigationContainer>
     )
