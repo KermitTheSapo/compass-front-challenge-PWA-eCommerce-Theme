@@ -7,11 +7,12 @@ type Props = {
     name: string;
     value: number;
     safe: string;
-    discount: string;
+    discount: number;
     productParagraph: string;
+    ratings: number;
 }
 
-export default function ProductInfo({ name, value, safe, discount, productParagraph }: Props) {
+export default function ProductInfo({ name, value, safe, discount, productParagraph, ratings }: Props) {
     return (
         <S.ProductInfo>
             <S.ProductName>{name}</S.ProductName>
@@ -19,7 +20,7 @@ export default function ProductInfo({ name, value, safe, discount, productParagr
             <S.ProductValues>
                 <S.ProductPrice>{value}</S.ProductPrice>
                 <S.ProductSafe>{safe}</S.ProductSafe>
-                <S.ProductDiscount>{discount}</S.ProductDiscount>
+                <S.ProductDiscount>{discount}%OFF</S.ProductDiscount>
             </S.ProductValues>
             <S.ProductAverage>
                 <S.Ratings>
@@ -31,7 +32,7 @@ export default function ProductInfo({ name, value, safe, discount, productParagr
                         <S.Star src={starOff} alt="unfilled yellow star" />
                     </S.StarImgs>
                     <S.StarRating>
-                        <S.RatingName>(250) Ratings</S.RatingName>
+                        <S.RatingName>({ratings}) Ratings</S.RatingName>
                     </S.StarRating>
                 </S.Ratings>
                 <S.StarDiv>
