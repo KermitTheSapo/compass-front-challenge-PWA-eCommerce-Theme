@@ -17,7 +17,6 @@ import Buttons from "./buttons/buttons"
 import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescriptionDesktop"
 import Footer from "../footer/footer"
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
 
 type Props = {
     name: string;
@@ -26,11 +25,12 @@ type Props = {
     productDescription: string;
     productParagraph: string;
     safe: string;
-    discount: string;
+    discount: number;
     imgCarousel: string;
+    ratings: number;
 }
 
-export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel }: Props) {
+export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel, ratings }: Props) {
     const addToLocalStorage = (name, description, price, img) => {
         let items = JSON.parse(localStorage.getItem('items')) || [];
         items.push({ name, description, price, img })
@@ -73,7 +73,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 </S.ProductsPics>
                 <S.Content>
                     <Products imgCarousel={imgCarousel} />
-                    <ProductInfo name={name} value={value} productParagraph={productParagraph} safe={safe} discount={discount} />
+                    <ProductInfo name={name} value={value} productParagraph={productParagraph} safe={safe} discount={discount} ratings={ratings} />
                     <DeliveryDetails />
                     <Quantity />
                     <Buttons onClick={() => addToLocalStorage(name, productParagraph, value, img)} />
