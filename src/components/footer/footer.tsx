@@ -12,7 +12,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
 export default function Footer() {
-    // console.log(window.screen.width)
     const [showFooter, setShowFooter] = useState(true)
     const navigate = useNavigate()
 
