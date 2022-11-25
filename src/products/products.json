@@ -5,9 +5,10 @@
     "description": "Leather Coach Bag with adjustable starps.",
     "price": 54.69,
     "safe": "$78.66",
-    "discount": "50%OFF",
+    "discount": 50,
     "link": "/coach",
-    "imgAlt": ""
+    "imgAlt": "image of a leather bag with a handle",
+    "ratings": 10
 },
 {
     "img": "/src/assets/imgs/grande/grandeitem.png",
@@ -16,9 +17,10 @@
     "description": "Blossom Pouch",
     "price": 39.49,
     "safe": "$78.66",
-    "discount": "50%OFF",
+    "discount": 50,
     "link": "/grande",
-    "imgAlt": ""
+    "imgAlt": "picture of a pink bag",
+    "ratings": 23
 },
 {
     "img": "/src/assets/imgs/remus/remus.png",
@@ -27,9 +29,10 @@
     "description": "Brown Strap Bag",
     "price": 57.00,
     "safe": "$78.66",
-    "discount": "50%OFF",
+    "discount": 50,
     "link": "/remus",
-    "imgAlt": ""
+    "imgAlt": "image of a leather bag with chain",
+    "ratings": 23
 },
 {
     "img": "/src/assets/imgs/boujee/boujee.png",
@@ -38,9 +41,10 @@
     "description": "Black Bag",
     "price": 56.49,
     "safe": "",
-    "discount": "50%OFF",
+    "discount": 50,
     "link": "/boujee",
-    "imgAlt": ""
+    "imgAlt": "image of a black leather shoulder bag",
+    "ratings": 22
 },
 {
     "img": "/src/assets/imgs/productPage/collosal.png",
@@ -49,9 +53,10 @@
     "description": "Tall Heels",
     "price": 40.00,
     "safe": "$78.66",
-    "discount": "50%OFF",
+    "discount": 50,
     "link": "/collosal",
-    "imgAlt": ""
+    "imgAlt": "image of black shoes with high heels",
+    "ratings": 20
 },
 {
     "img": "/src/assets/imgs/home/main/arrivals/boker.png",
@@ -60,8 +65,9 @@
     "description": "Brown Bag",
     "price": 34.55,
     "safe": "$78.66",
-    "discount": "50%OFF",
+    "discount": 50,
     "link": "/boker",
-    "imgAlt": ""
+    "imgAlt": "image of a leather bag",
+    "ratings": 45
 }
 ]
