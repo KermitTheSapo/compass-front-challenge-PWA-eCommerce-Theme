@@ -9,7 +9,7 @@ import profile from "@/assets/imgs/header/profile.svg"
 import arrowLeft from "@/assets/imgs/header/arrowLeft.svg"
 import bag from "@/assets/imgs/header/bag.svg"
 import bagNotification from "@/assets/imgs/header/bag-notification.svg"
-import { Key, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
 
