@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default function ButtonAdd({ name, description, price, img }: Props) {
-    const addItemLocalStorage = (name, description, price, img) => {
+    const addItemLocalStorage = (name: String, description: String, price: String, img: String) => {
         let items = JSON.parse(localStorage.getItem('items')) || [];
         items.push({ name, description, price, img })
         localStorage.setItem('items', JSON.stringify(items))
