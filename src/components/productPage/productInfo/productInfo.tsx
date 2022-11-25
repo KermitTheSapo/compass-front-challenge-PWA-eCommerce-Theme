@@ -18,7 +18,7 @@ export default function ProductInfo({ name, value, safe, discount, productParagr
             <S.ProductName>{name}</S.ProductName>
             <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
             <S.ProductValues>
-                <S.ProductPrice>{value.toFixed(2)}</S.ProductPrice>
+                <S.ProductPrice>${value.toFixed(2)}</S.ProductPrice>
                 <S.ProductSafe>{safe}</S.ProductSafe>
                 <S.ProductDiscount>{discount}%OFF</S.ProductDiscount>
             </S.ProductValues>
