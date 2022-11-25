@@ -9,13 +9,24 @@ export const ItemArrival = styled.div`
   @media (min-width: 768px) {
     gap: 38px;
   }
+  @media (max-width: 375px) {
+    width: 130px;
+  }
 `
 export const ImgProduct = styled.img`
 height: 138px;
 width: 136px;
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     height: 286px;
     width: 286px;
+  }
+  @media (max-width: 768px) {
+    height: 180px;
+    width: 180px;
+  }
+  @media (max-width: 375px) {
+    height: 140px;
+    width: 140px;
   }
 `
 

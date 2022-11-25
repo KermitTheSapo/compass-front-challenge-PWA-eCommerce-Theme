@@ -8,8 +8,11 @@ export const AlsoLike = styled.div`
     padding: 0 16px;
     gap: 10px;
     height: 33vh;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
+    }
+    @media (max-width: 768px) {
+        height: 40vh;
     }
 `
 export const AlsoLikeTitle = styled.h3`
@@ -24,5 +27,8 @@ export const AlsoLikeProductsList = styled.div`
     justify-content: flex-start;
     &::-webkit-scrollbar { 
       display: none;
+    }
+    @media (max-width: 768px) {
+        height: 100%;
     }
 `

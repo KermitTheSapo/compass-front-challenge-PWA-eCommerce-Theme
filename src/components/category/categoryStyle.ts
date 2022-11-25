@@ -15,7 +15,7 @@ export const Header = styled.header`
     position: fixed;
     top: 0;
     width: 100%;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `
@@ -153,6 +153,12 @@ export const Products = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    @media (width: 768px) {
+        gap: 20px;        
+    }
+    @media (max-width: 425px) {
+        margin-bottom: 80px;
+    }
 `
 
 export const FooterBar = styled.footer`
@@ -163,7 +169,7 @@ export const FooterBar = styled.footer`
     background-color: var(--Bright);
     display: flex;
     justify-content: space-between;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `

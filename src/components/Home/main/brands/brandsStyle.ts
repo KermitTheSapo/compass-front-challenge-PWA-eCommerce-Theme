@@ -53,7 +53,15 @@ export const FigureImg = styled.figure`
     display: flex;
     align-items: center;
     justify-content: center;
-    @media (min-width: 768px) {
+    @media (min-width: 1440px) {
+        height: 200px;
+        width: 200px;
+    }
+    @media (max-width: 768px) {
+        height: 140px;
+        width: 140px;
+    }
+    @media (max-width: 768px) {
         height: 168px;
         width: 168px;
     }

@@ -7,6 +7,7 @@ export const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   margin-top: 65px;
+  width: 100vw;
 `
 
 export const BannersCarrossel = styled.div`

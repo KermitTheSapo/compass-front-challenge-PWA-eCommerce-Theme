@@ -62,6 +62,9 @@ export const Name = styled.h3`
         font-size: 3.25rem;
         line-height: 68px;
     }
+    @media (max-width: 320px) {
+        width: 80%;
+    }
 `
 
 export const CirclePrimary = styled.div`
@@ -135,6 +138,7 @@ export const NameSecondary = styled.h4`
         font-size: 2.5rem;
         line-height: 52px;
     }
+
 `
 
 export const CircleSkincare = styled.div`
@@ -181,7 +185,11 @@ export const NameFacePacks = styled.h4`
         font-weight: 700;
         font-size: 2.5rem;
         line-height: 52px;
-        width: 40%;
+        width: 70%;
+    }
+    @media (max-width: 320px) {
+        height: 60%;
+        width: 70%;
     }
 `
 

@@ -7,7 +7,16 @@ export const AlsoLikeImgs = styled.img`
 export const AlsoLikeProducts = styled.div`
     display: flex;
     width: 154px;
-    @media (min-width: 768px) {
+    @media (max-width: 1023px) {
+        overflow: auto;
+        width: 98vw;
+        gap: 50px;
+        height:35vh;
+        &::-webkit-scrollbar { 
+            display: none;
+        }
+    }
+    @media (min-width: 1024px) {
         overflow: auto;
         width: 98vw;
         gap: 150px;

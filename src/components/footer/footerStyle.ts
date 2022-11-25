@@ -6,6 +6,7 @@ export const FooterContainer = styled.footer`
     flex-direction: column;
     @media (min-width: 768px) {
         margin-bottom: 0px;
+        width: 100vw;
     }
 `
 
@@ -52,11 +53,17 @@ export const Category = styled.div`
     justify-content: space-evenly;
     height: 193px;
     padding: 0 15px;
-    @media (min-width: 768px) {
+    @media (min-width: 1440px) {
         padding: 0px;
         height: 100%;
         width: 15%;
         justify-content: space-between;
+    }
+    @media (min-width: 768px) {
+        padding: 0px;
+        height: 100%;
+        width: 35%;
+        justify-content: space-between;        
     }
 `
 export const CategoryName = styled.h3`
@@ -149,10 +156,17 @@ export const About = styled.div`
     height: 44px;
     justify-content: space-between;
     padding: 0 15px;
-    @media (min-width: 768px) {
+    @media (min-width: 1440px) {
         padding: 0px;
         height: 100%;
         width: 15%;
+        order: 1;
+        justify-content: flex-start;
+    }
+    @media (min-width: 768px) {
+        padding: 0px;
+        height: 100%;
+        width: 25%;
         order: 1;
         justify-content: flex-start;
     }
@@ -199,8 +213,11 @@ export const Logos = styled.div`
     align-items: center;
     width: 60%;
     padding: 0 15px;
-    @media (min-width: 768px) {
+    @media (min-width: 1440px) {
         width: 80%;
+    }
+    @media (min-width: 768px) {
+        width: 90%;
     }
 `
 
@@ -224,7 +241,13 @@ export const Localization = styled.div`
     justify-content: space-between;
     width: 40%;
     padding: 0 15px;
+    @media (min-width: 1440px) {
+        width: 50%;
+    }
     @media (min-width: 768px) {
+        width: 80%;
+    }
+    @media (max-width: 320px) {
         width: 50%;
     }
 `
@@ -241,6 +264,9 @@ export const LocalizationName = styled.h4`
 
 export const Copyright = styled.div`
     padding: 0 15px;
+    @media (min-width: 768px) {
+        width: 90%;
+    }
 `
 
 export const ParagraphCopy = styled.p`

@@ -27,6 +27,9 @@ export const ButtonAddBag = styled.button`
     background-image: url(${iconBag});
     background-repeat: no-repeat;
     background-position: 120px center;
+    @media (min-width: 1024px) {
+        background-position: 50px center;
+    }
 `
 
 export const ButtonAddWish = styled.button`
@@ -41,4 +44,7 @@ export const ButtonAddWish = styled.button`
     background-image: url(${iconWish});
     background-repeat: no-repeat;
     background-position: 40px center;
+    @media (min-width: 1024px) {
+        background-position: 5px center;
+    }
 `

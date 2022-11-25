@@ -6,7 +6,7 @@ export const InviteFriends = styled.div`
     align-items: center;
     padding: 0 16px;
     height: 14vh;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `

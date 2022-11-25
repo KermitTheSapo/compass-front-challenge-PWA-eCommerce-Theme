@@ -23,13 +23,37 @@ export const Collections = styled.div`
     justify-content: space-between;
     margin-top: 13px;
     font-size: 15px;
+
+    @media (max-width: 320px) {
+        gap: 10px;
+    }
 `
 
 export const ImgCollections = styled.img`
     width: 186px;
     height: 180px;
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
         width: 280px;
         height: 280px;
+    }
+    @media (max-width: 1024px) {
+        width: 220px;
+        height: 220px;
+    }
+    @media (max-width: 768px) {
+        width: 280px;
+        height: 280px;
+    }
+    @media (max-width: 425px) {
+        width: 186px;
+        height: 180px;
+    }
+    @media (max-width: 375px) {
+        width: 160px;
+        height: 160px;
+    }
+    @media (max-width: 320px) {
+        width: 120px;
+        height: 120px;
     }
 `

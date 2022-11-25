@@ -9,6 +9,9 @@ export const TrendingContainer = styled.section`
     @media (min-width: 768px) {
         display: none;
     }
+    @media (max-width: 320px) {
+        height: 15vh;
+    }
 `
 
 export const Title = styled.h3`
