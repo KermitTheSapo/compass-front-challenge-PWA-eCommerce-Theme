@@ -101,7 +101,7 @@ export default function Category({ name }: Props) {
                                 <S.ImgGrid src={sortImg} alt="a list icon a square with a small square and a rectangle" />
                             </S.GridDiv>
                         </S.GridSort>
-                        <S.ParagraphShow>Showing 1 - 40 of 145 items</S.ParagraphShow>
+                        <S.ParagraphShow>Showing 1 - {ProductsItem.length} of {ProductsItem.length} items</S.ParagraphShow>
                         <S.ToShow>
                             <S.ToShowTitle>To Show:</S.ToShowTitle>
                             <S.SelectToShow name="" id="">
