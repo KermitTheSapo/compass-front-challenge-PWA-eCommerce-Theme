@@ -214,6 +214,7 @@ export const LabelPage = styled.p`
 
 export const CategoryDiv = styled.div`
     display: flex;
+    justify-content: space-between;
 `
 export const MenuSideNav = styled.div`
     width: 70%;
@@ -299,5 +300,10 @@ export const RadioDiv = styled.div`
     display: flex;
     align-items: center;
 `
-// export const xx = styled.div``
-// export const xx = styled.div``
+export const DivPage = styled.div`
+    min-width: 955px;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
