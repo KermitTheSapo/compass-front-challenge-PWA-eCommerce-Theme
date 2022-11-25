@@ -6,7 +6,7 @@ export const RatingsReviews = styled.div`
     justify-content: space-between;
     padding: 0 16px;
     height: 48px;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `
