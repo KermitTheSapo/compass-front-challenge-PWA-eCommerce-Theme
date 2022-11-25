@@ -8,6 +8,7 @@ import useState from 'storybook-addon-state';
 
 export default function HorizontalCards() {
     const [quantity, setQuantity] = useState("0", 1);
+    const [price, setPrice] = useState("1", 54.69);
     return (
         <div>
             <Reset />
@@ -18,7 +19,7 @@ export default function HorizontalCards() {
                 <S.ProductDescription>
                     <S.ProductTitle>PRADA</S.ProductTitle>
                     <S.ProductParagraph>Leather Coach Bag</S.ProductParagraph>
-                    <p>Qty- 1</p>
+                    <p>Qty- {quantity}</p>
                     <S.QuantityCounter>
                         <S.Img onClick={() => quantity > 1 ? setQuantity(quantity - 1) : setQuantity(quantity)} src={minus} alt="a plus icon" />
                         <S.QuantityNumber>{quantity}</S.QuantityNumber>
@@ -27,7 +28,7 @@ export default function HorizontalCards() {
                 </S.ProductDescription>
                 <S.PriceDeleteDiv>
                     <S.BtnDelete src={deleteImg} alt="an X icon" />
-                    <S.PriceText>$54.69</S.PriceText>
+                    <S.PriceText>${price * quantity}</S.PriceText>
                 </S.PriceDeleteDiv>
             </S.CardVertical>
         </div>

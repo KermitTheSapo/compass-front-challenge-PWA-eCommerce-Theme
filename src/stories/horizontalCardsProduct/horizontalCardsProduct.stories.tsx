@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import HorizontalCardsProduct from "./horizontalCardsProduct";
 
 export default {
-  title: 'menu/HorizontalCardsProduct',
+  title: 'Cards/HorizontalCardsProduct',
   component: HorizontalCardsProduct
 } as ComponentMeta<typeof HorizontalCardsProduct>;
 

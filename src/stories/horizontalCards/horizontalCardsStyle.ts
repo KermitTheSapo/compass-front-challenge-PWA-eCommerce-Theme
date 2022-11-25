@@ -4,10 +4,11 @@ import styled from "styled-components";
 export const CardVertical = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 383px;
   justify-content: space-between;
   height: 15vh;
   margin-bottom: 30px;
+
 `
 
 
@@ -68,5 +69,5 @@ font-size: 0.875rem;
 color: var(--TypeHighEmphasis);
 `
 export const Img = styled.img`
-
+  cursor: pointer;
 `
