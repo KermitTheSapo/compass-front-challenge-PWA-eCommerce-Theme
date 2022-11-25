@@ -58,12 +58,13 @@ export const FigureImg = styled.figure`
         width: 200px;
     }
     @media (max-width: 768px) {
-        height: 140px;
-        width: 140px;
-    }
-    @media (max-width: 768px) {
         height: 168px;
         width: 168px;
+        
+    }
+    @media (max-width: 500px) {
+        height: 120px;
+        width: 120px;
     }
 
 `
