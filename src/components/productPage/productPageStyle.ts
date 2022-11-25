@@ -14,7 +14,7 @@ export const Header = styled.header`
     top: 0;
     background-color: var(--Bright);
     width: 100%;
-    @media (min-width: 768px) { 
+    @media (min-width: 769px) { 
         display: none;
     }
 `
@@ -25,7 +25,7 @@ export const BreadCrumb = styled.div`
     margin-top: 70px;
     padding: 0 22px;
     margin-bottom: 19px;
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
         display: none;
     }
 `
@@ -55,7 +55,7 @@ export const Content = styled.div`
     justify-content: space-evenly;
     margin-top: 56px;
     width: 100%;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         width: 50%;
         align-self: flex-start;
         margin-top: 0px;
@@ -70,7 +70,7 @@ export const FooterNav = styled.footer`
     align-items: center;
     justify-content: space-around;
     height: 66px;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `
@@ -103,7 +103,7 @@ export const Separator = styled.div`
     width: 100%;
     height: 8px;
     background-color: var(--Grey);
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `
@@ -116,21 +116,29 @@ export const ProductsPics = styled.div`
     width: 50%;
     height: 100%;
     gap: 24px;
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
         display: none;
     }
+    
 `
 
 export const PicsContent = styled.div`
     display: flex;
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
         margin-bottom: 80px;
+    }
+    @media (max-width: 320px) {
+        margin-bottom: 50px;
     }
 `
 
 export const ImgPics = styled.img`
     height: 605px;
     width: 605px;
+    @media (min-width: 1023px) {
+        height: 505px;
+        width: 505px;
+    }
 `
 
 export const ProductPhotos = styled.div`
