@@ -182,7 +182,7 @@ export default function Category({ name }: Props) {
                             <S.InputRadio type="radio" name="sort" id="priceHigh" />
                             <S.LabelBottomSheet htmlFor="priceHigh">Price- High to Low</S.LabelBottomSheet>
                         </S.RadioDiv>
-                        <S.RadioDiv>
+                        <S.RadioDiv onClick={() => { setPriceLowToHigh(false); setPriceHighToLow(false); setInicialProducts(false); setPopularity(true) }}>
                             <S.InputRadio type="radio" name="sort" id="popularity" />
                             <S.LabelBottomSheet htmlFor="popularity">Popularity</S.LabelBottomSheet>
                         </S.RadioDiv>
