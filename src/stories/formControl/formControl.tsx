@@ -5,8 +5,7 @@ export default function FormControl() {
     return (
         <div>
             <Reset />
-            <h1>asdfasdf</h1>
-            <img src="" alt="" />
+            <S.Input type="text" placeholder="Label" />
         </div>
     )
 }
