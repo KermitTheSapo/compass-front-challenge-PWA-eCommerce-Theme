@@ -43,6 +43,9 @@ export const FooterContent = styled.div`
         height: 40vh;
         justify-content: space-between;
     }
+    @media (max-width: 320px) {
+        height: 90vh;
+    }
 `
 
 
