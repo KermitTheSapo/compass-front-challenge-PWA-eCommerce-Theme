@@ -8,7 +8,7 @@ export default function Coach() {
     const coachInfo = products[0]
     return (
         <>
-            <ProductPage name={coachInfo.name} img={coach} discount={coachInfo.discount} productDescription="Experience comfortable and easy travelling like never before with this coach bag. It features a zip closure, removable straps and multiple organization compartments to keep your valuables safe. Crafted from premium material, it is durable and lasts long." productParagraph={coachInfo.description} safe={coachInfo.safe} value={coachInfo.price} imgCarousel={coach} />
+            <ProductPage name={coachInfo.name} img={coach} discount={coachInfo.discount} productDescription="Experience comfortable and easy traveling like never before with this coach bag. It features a zip closure, removable straps and multiple organization compartments to keep your valuables safe. Crafted from premium material, it is durable and lasts long." productParagraph={coachInfo.description} safe={coachInfo.safe} value={coachInfo.price} imgCarousel={coach} ratings={coachInfo.ratings} />
             <Helmet>
                 <title>Coral'l | Coach</title>
             </Helmet>
