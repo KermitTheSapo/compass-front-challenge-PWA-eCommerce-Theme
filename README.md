@@ -64,10 +64,10 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [X] navbar fixed in bottom
     - [X] bottom sheet
 
-- [ ] category page
+- [X] category page
     - [X] banner
     - [X] must have 4 different types of categories for 4 pages with different products
-    - [ ] number navigation
+    - [X] number navigation
     - [X] filter items
     - [X] when clicking on the icon to open a modal
 
@@ -78,32 +78,33 @@ Currently working for mobile screens: 420px and desktop: 1440px.
 
 
 - [ ] storybook
-    - [ ] Header and Footers
+    - [X] Header and Footers
         - [X] header web
         - [X] footer web
         - [X] mobile footer
         - [X] app bar
-        - [ ] bottom navigation
+        - [X] bottom navigation
     - [ ] Elements
-        - [ ] buttons and chips
-        - [ ] assembly
-        - [ ] banners
-        - [ ] Accordion
+        - [X] buttons and chips
+        - [X] assembly
+        - [X] banners
+        - [X] Accordion
         - [ ] Checkboxes and Radio Buttons
-    - [ ] Menu
-        - [ ] Tabs and Breadcrumbs
-        - [ ] Ratings and Stepper
-        - [ ] SearchBar
+        - [X] buttons and chips
+    - [X] Menu
+        - [X] Tabs and Breadcrumbs
+        - [X] Ratings and Stepper
+        - [X] SearchBar
     - [ ] Form Control
         - [ ] label
     - [ ] Style Guide
-        - [ ] Typography
-        - [ ] Inter
-        - [ ] Colors
-        - [ ] Icons
-    - [ ] cards
-        - [ ] Miscellaneous Elements
-        - [ ] Horizontal Cards
+        - [X] Typography
+        - [X] Inter
+        - [X] Colors
+        - [X] Icons
+    - [X] cards
+        - [X] Miscellaneous Elements
+        - [X] Horizontal Cards
   
 ---
 
