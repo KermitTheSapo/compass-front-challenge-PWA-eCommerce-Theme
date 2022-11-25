@@ -8,7 +8,8 @@ import heart from "@/assets/imgs/header/heart.svg"
 import profile from "@/assets/imgs/header/profile.svg"
 import arrowLeft from "@/assets/imgs/header/arrowLeft.svg"
 import bag from "@/assets/imgs/header/bag.svg"
-import { useState } from "react";
+import bagNotification from "@/assets/imgs/header/bag-notification.svg"
+import { Key, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
 
@@ -17,6 +18,8 @@ export default function Header() {
     const [inputSearchClick, setInputSearchClick] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
     const [price, setPrice] = useState(0)
+    const [tax, setTax] = useState(2)
+    const [resultValue, setResultValue] = useState(0)
     const navigate = useNavigate();
     const bagInfo = localStorage.getItem("items")
     const bagInfoParse = JSON.parse(bagInfo)
@@ -29,9 +32,9 @@ export default function Header() {
         let value = 0
         bagInfoParse.map((item) => { value = value + item.price });
         setPrice(value)
+        setResultValue(price + tax)
         value = 0;
     }
-
     return (
         <S.HeaderContainer>
             <S.MenuContainer>
@@ -88,7 +91,7 @@ export default function Header() {
                     <S.IconImg src={profile} alt="icon of a person's head and shoulder" />
                 </S.LinkCategory>
                 <S.LinkCategory >
-                    <S.IconImg onClick={() => openCartInfo()} src={bag} alt="a bag icon" />
+                    <S.IconImg onClick={() => openCartInfo()} src={bagInfoParse === null ? bag : bagNotification} alt="a bag icon" />
                 </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
@@ -113,25 +116,25 @@ export default function Header() {
                     </S.AppBar>
                     <S.CardVerticalContainer>
                         <S.DivCardProducts>
-                            {bagInfoParse && bagInfoParse.map((item: any) => (
-                                <>
+                            {bagInfoParse && bagInfoParse.map((item: any, key) => (
+                                <div key={key}>
                                     < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.img} />
                                     <S.Separator></S.Separator>
-                                </>
+                                </div>
                             ))}
                         </S.DivCardProducts>
                         <S.OrderDetailsDiv>
                             <S.OrderDetails>
                                 <S.OrderTitle>Subtotal:</S.OrderTitle>
-                                <S.OrderPrice>${price}</S.OrderPrice>
+                                <S.OrderPrice>${price.toFixed(2)}</S.OrderPrice>
                             </S.OrderDetails>
                             <S.OrderDetails>
                                 <S.OrderTitle>Tax:</S.OrderTitle>
-                                <S.OrderPrice>$2.00</S.OrderPrice>
+                                <S.OrderPrice>${tax}</S.OrderPrice>
                             </S.OrderDetails>
                             <S.OrderDetails>
                                 <S.OrderResultTitle>Total:</S.OrderResultTitle>
-                                <S.OrderResultValue>${price + 2}</S.OrderResultValue>
+                                <S.OrderResultValue>${resultValue.toFixed(2)}</S.OrderResultValue>
                             </S.OrderDetails>
                         </S.OrderDetailsDiv>
                         <S.CouponDiv>
