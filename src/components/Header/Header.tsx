@@ -27,9 +27,14 @@ export default function Header() {
             setShowCartInfo(false)
         } else {
             setShowCartInfo(true)
+            setPrice(0)
+            setTax(0)
         }
         const bagInfo = localStorage.getItem("items")
         const bagInfoParse = JSON.parse(bagInfo)
+        if (bagInfoParse !== null) {
+            setTax(2)
+        }
         let value = 0
         bagInfoParse.map((item: { price: number; }) => { value = value + item.price });
         setPrice(value)
