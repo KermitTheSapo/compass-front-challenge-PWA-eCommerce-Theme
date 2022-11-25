@@ -1,7 +1,15 @@
 import { useState } from "react"
 import * as S from "./pageNumberTabStyle"
 
-export default function PageNumberTab() {
+type Props = {
+    setStatePageOne: React.Dispatch<React.SetStateAction<boolean>>;
+    setStatePageTwo: React.Dispatch<React.SetStateAction<boolean>>;
+    setStatePageThree: React.Dispatch<React.SetStateAction<boolean>>;
+    setStatePageFour: React.Dispatch<React.SetStateAction<boolean>>;
+    setStatePageFive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setStatePageThree, setStatePageFour, setStatePageFive }: Props) {
     const [numberOneColor, setNumberOneColor] = useState("#FFFFFF")
     const [numberTwoColor, setNumberTwoColor] = useState("#626262")
     const [numberThreeColor, setNumberThreeColor] = useState("#626262")
@@ -26,31 +34,48 @@ export default function PageNumberTab() {
         setNumberFourBackgroundColor("transparent")
         setNumberFiveBackgroundColor("transparent")
     }
+    const ResetPage = () => {
+        setStatePageOne(false)
+        setStatePageTwo(false)
+        setStatePageThree(false)
+        setStatePageFour(false)
+        setStatePageFive(false)
+    }
 
     const focusNumberOne = () => {
         ResetColors()
         setNumberOneColor("#FFFFFF")
         setNumberOneBackgroundColor("#1B4B66")
+        ResetPage()
+        setStatePageOne(true)
     }
     const focusNumberTwo = () => {
         ResetColors()
         setNumberTwoColor("#FFFFFF")
         setNumberTwoBackgroundColor("#1B4B66")
+        ResetPage()
+        setStatePageTwo(true)
     }
     const focusNumberThree = () => {
         ResetColors()
         setNumberThreeColor("#FFFFFF")
         setNumberThreeBackgroundColor("#1B4B66")
+        ResetPage()
+        setStatePageThree(true)
     }
     const focusNumberFour = () => {
         ResetColors()
         setNumberFourColor("#FFFFFF")
         setNumberFourBackgroundColor("#1B4B66")
+        ResetPage()
+        setStatePageFour(true)
     }
     const focusNumberFive = () => {
         ResetColors()
         setNumberFiveColor("#FFFFFF")
         setNumberFiveBackgroundColor("#1B4B66")
+        ResetPage()
+        setStatePageFive(true)
     }
 
     const ChangeNumberButton = () => {
