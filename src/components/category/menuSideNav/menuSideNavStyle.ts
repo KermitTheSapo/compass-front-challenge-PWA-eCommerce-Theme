@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MenuSideNavContainer = styled.div`
-    width: 70%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     padding: 0 20px;
