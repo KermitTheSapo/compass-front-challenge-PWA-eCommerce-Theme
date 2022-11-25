@@ -25,7 +25,7 @@
   </a>
 
 <h4 align="center"> 
-	 Status: Doing
+	 Status: Done
 </h4>
 
 <p align="center">
@@ -77,7 +77,7 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [X] quantity logic and increase value based on quantity
 
 
-- [ ] storybook
+- [X] storybook
     - [X] Header and Footers
         - [X] header web
         - [X] footer web
@@ -95,9 +95,9 @@ Currently working for mobile screens: 420px and desktop: 1440px.
         - [X] Tabs and Breadcrumbs
         - [X] Ratings and Stepper
         - [X] SearchBar
-    - [ ] Form Control
-        - [ ] label
-    - [ ] Style Guide
+    - [X] Form Control
+        - [X] label
+    - [X] Style Guide
         - [X] Typography
         - [X] Inter
         - [X] Colors
