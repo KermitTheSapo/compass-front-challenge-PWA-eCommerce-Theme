@@ -4,7 +4,7 @@ export const ProductDescription = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 16px;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `
