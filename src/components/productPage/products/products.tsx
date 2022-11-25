@@ -36,7 +36,7 @@ export default function Products({ imgCarousel }: Props) {
                         <S.SeparatorDiv></S.SeparatorDiv>
                     </S.BottomSheetHeader>
                     <S.BottomSheetBody>
-                        <AlsoLikeItem />
+                        <AlsoLikeItem value={false} />
                     </S.BottomSheetBody>
                 </S.BottomSheetContent>
             </S.BottomSheetContainer>}
