@@ -10,21 +10,30 @@ export const Products = styled.div`
     &::-webkit-scrollbar { 
       display: none;
     }
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     } 
+    @media (max-width: 320px) {
+        gap: 10px;
+    }
 `
 
+
 export const ProductImage = styled.img`
-    /* min-width: 95%;   
-    height: 100%; */
     height: 340px;
-    width: 328px; 
+    width: 328px;  
+    @media (max-width: 320px) {
+        width: 98%;
+    }
     
 `
 
 export const DivProductImage = styled.div`
     width: 95%;
+    @media (max-width: 320px) {
+        min-width: 310px;
+    }
+    
 `
 
 export const DivSimilarProduct = styled.div`
@@ -40,6 +49,9 @@ export const DivSimilarProduct = styled.div`
     justify-content: center;
     bottom: 50px;
     left: 275px;
+    @media (max-width: 320px) {
+        left: 250px;
+    }
 `
 export const ImgSimilar = styled.img``
 
