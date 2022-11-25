@@ -13,16 +13,17 @@ type Props = {
     img: string;
     link: string;
     onClick: () => void;
+    alt: string;
 }
 
-export default function BottomSheetHome({ name, description, price, img, link, onClick }: Props) {
+export default function BottomSheetHome({ name, description, price, img, link, onClick, alt }: Props) {
     const navigate = useNavigate()
     return (
         <>
             <S.BottomSheetHomeDark onClick={onClick}></S.BottomSheetHomeDark>
             <S.BottomSheetHomeContainer>
                 <S.SheetHeader>
-                    <S.Img src={img} alt="" />
+                    <S.Img src={img} alt={alt} />
                     <S.ContentTitle>
                         <S.Title>{name}</S.Title>
                         <S.Description>{description}</S.Description>
@@ -30,12 +31,12 @@ export default function BottomSheetHome({ name, description, price, img, link, o
                     </S.ContentTitle>
                 </S.SheetHeader>
                 <S.AverageDiv>
-                    <S.ImgStar src={star} alt="" />
+                    <S.ImgStar src={star} alt="image of a star" />
                     <S.AverageContent>
                         <S.AverageTitle>Average Rating</S.AverageTitle>
                         <S.AverageParagraph>Average Rating</S.AverageParagraph>
                     </S.AverageContent>
-                    <S.Arrow src={arrow} alt="" />
+                    <S.Arrow src={arrow} alt="image of a right arrow" />
                 </S.AverageDiv>
                 <S.SelectSize>
                     <S.SizeContent>
@@ -51,7 +52,7 @@ export default function BottomSheetHome({ name, description, price, img, link, o
                 </S.SelectSize>
                 <S.Buttons>
                     <S.ImgPlaceHolderDiv onClick={() => navigate(link)}>
-                        <img src={placeholder} alt="" />
+                        <img src={placeholder} alt="image of a square to indicate product zoom" />
                     </S.ImgPlaceHolderDiv>
                     <ButtonAdd name={name} description={description} price={price} img={img} />
                 </S.Buttons>
