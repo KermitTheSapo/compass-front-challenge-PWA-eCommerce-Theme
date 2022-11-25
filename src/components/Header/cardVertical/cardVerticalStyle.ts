@@ -24,7 +24,7 @@ export const ProductDescription = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 100%;
+  height: 70%;
   gap: 5px;
   width: 40%;
 `
