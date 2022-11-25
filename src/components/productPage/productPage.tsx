@@ -51,7 +51,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 <S.ArrowRightMini src={arrowRightMini} alt="a small arrow to the right" />
                 <S.BreadCrumbRouteOn>Handbag</S.BreadCrumbRouteOn>
                 <S.ArrowRightMini src={arrowRightMini} alt="a small arrow to the right" />
-                <S.BreadCrumbRouteOff>Label</S.BreadCrumbRouteOff>
+                <S.BreadCrumbRouteOff>{name}</S.BreadCrumbRouteOff>
             </S.BreadCrumb>
             <S.PicsContent>
                 <S.ProductsPics>
