@@ -4,7 +4,7 @@ import { withRouter } from 'storybook-addon-react-router-v6';
 import { HeaderS } from "./header";
 
 export default {
-  title: 'HeaderAndFooters/Header',
+  title: 'Header And Footers/Header',
   component: HeaderS,
   decorators: [withRouter],
 } as ComponentMeta<typeof HeaderS>;
