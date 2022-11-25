@@ -10,14 +10,14 @@ export default function Categories() {
         <S.CategoriesContainer>
             <S.CategoriesTitle>Top Categories</S.CategoriesTitle>
             <S.CategoriesList>
-                <Item label={"Skincare"} icon={skinCare} alt={""} route={"/skincare"} />
-                <Item label={"Jewellery"} icon={Jewellery} alt={""} route={"/jewellery"} />
-                <Item label={"Handbags"} icon={Handbags} alt={""} route={"/handbags"} />
-                <Item label={"Watches"} icon={Watches} alt={""} route={"/watches"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/eyewear"} />
-                <Item label={"Apparels"} icon={skinCare} alt={""} route={"/apparels"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/eyewear"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={""} route={"/eyewear"} />
+                <Item label={"Skincare"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/skincare"} />
+                <Item label={"Jewellery"} icon={Jewellery} alt={"ring icon"} route={"/jewellery"} />
+                <Item label={"Handbags"} icon={Handbags} alt={"handbag icon"} route={"/handbags"} />
+                <Item label={"Watches"} icon={Watches} alt={"clock icon"} route={"/watches"} />
+                <Item label={"Eyewear"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/eyewear"} />
+                <Item label={"Apparels"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/apparels"} />
+                <Item label={"Eyewear"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/eyewear"} />
+                <Item label={"Eyewear"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/eyewear"} />
             </S.CategoriesList>
         </S.CategoriesContainer>
     )
