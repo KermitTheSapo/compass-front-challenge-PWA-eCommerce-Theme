@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Handpicked from "./handpicked";
 
 export default {
-  title: 'MiscellaneousElements/Handpicked',
+  title: 'Cards/Handpicked',
   component: Handpicked
 } as ComponentMeta<typeof Handpicked>;
 
