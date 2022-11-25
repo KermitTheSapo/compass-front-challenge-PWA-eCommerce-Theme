@@ -42,6 +42,9 @@ export const ProductValues = styled.div`
         justify-content: space-between;
         width: 60%;
     }
+    @media (max-width: 320px) {
+        width: 70%;
+    }
 `
 export const ProductPrice = styled.h2`
     font-size: 1.25rem;
@@ -79,6 +82,15 @@ export const ProductAverage = styled.div`
     justify-content: space-between;
     height: 8vh;
     width: 70%;
+    @media (max-width: 768px) {
+        width: 35%;
+    }
+    @media (max-width: 425px) {
+        width: 70%;
+    }
+    @media (max-width: 320px) {
+        width: 90%;
+    }
 `
 
 export const ValueRating = styled.h3`
@@ -96,14 +108,14 @@ export const StarDiv = styled.div`
     width: 74px;
     border-radius: 4px;
     background-color: var(--Accent);
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `
 export const RatingDiv = styled.div`
     display: flex;
     flex-direction: column;
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
         display: none;
     }
 `
@@ -113,6 +125,9 @@ export const Ratings = styled.div`
     align-items: center;
     width: 50%;
     justify-content: space-between;
+    @media (min-width: 1024px) {
+        width: 65%;
+    }
     @media (max-width: 768px) {
         display: none;
     }
@@ -167,6 +182,9 @@ export const Coupon = styled.div`
     border-radius: 8px;
     border: 1px solid var(--Primary);
     padding: 0 12px;
+    @media (max-width: 320px) {
+        min-width: 270px;
+    }
 `
 export const CouponInfo = styled.div`
     display: flex;
