@@ -8,7 +8,7 @@ export default function Quantity() {
     return (
         <S.Quantity>
             <S.QuantityTitle>Quantity:</S.QuantityTitle>
-            <QuantityCounter />
+            <QuantityCounter  />
         </S.Quantity>
     )
 }
