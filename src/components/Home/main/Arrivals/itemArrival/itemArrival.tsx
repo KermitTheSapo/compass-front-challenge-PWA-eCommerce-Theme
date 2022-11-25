@@ -12,16 +12,17 @@ type Props = {
     Description: string;
     Price: number;
     safe?: string;
-    discount?: string;
+    discount?: number;
     onClick?: () => void;
     link: string;
     state?: boolean;
     setState?: () => void;
     star?: string;
-    ratings?: string;
-    link2?: string;
+    ratings?: number;
+    link2: string;
+    information: boolean;
 };
-export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, onClick, link, state, setState, safe, discount, star, ratings, link2 }: Props) {
+export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, onClick, link, state, setState, safe, discount, star, ratings, link2, information }: Props) {
     const navigate = useNavigate();
     const [heartStatus, setHeartStatus] = useState(true)
     return (
@@ -32,23 +33,25 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
                     <S.InformationDiv >
                         <S.NameHeart>
                             <S.ItemName>{itemName}</S.ItemName>
-                            <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heart : heartFill} alt="" />
+                            <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heart : heartFill} alt="a heart icon" />
                         </S.NameHeart>
                         <S.ItemDescription>{Description}</S.ItemDescription>
-                        <S.DivStar>
-                            <S.Star src={star} alt="" />
-                            <S.Ratings>{ratings}</S.Ratings>
-                        </S.DivStar>
+                        {information &&
+                            <S.DivStar>
+                                <S.Star src={star} alt="a star icon" />
+                                <S.Ratings>{ratings} Ratings</S.Ratings>
+                            </S.DivStar>}
                         <S.DivInfoItem>
-                            <S.ItemPrice>${Price}</S.ItemPrice>
+                            <S.ItemPrice>${Price.toFixed(2)}</S.ItemPrice>
                             <S.ItemSafe>{safe}</S.ItemSafe>
-                            <S.ItemDiscount>{discount}</S.ItemDiscount>
+                            {information &&
+                                <S.ItemDiscount>{discount}%OFF</S.ItemDiscount>}
                         </S.DivInfoItem>
                     </S.InformationDiv>
                 </S.ItemArrival>
             </S.ItemLink>
             {state && <>
-                <BottomSheetHome name={itemName} onClick={setState} description={Description} price={Price} img={ImgSrc} link={link} />
+                <BottomSheetHome name={itemName} onClick={setState} description={Description} price={Price} img={ImgSrc} link={link} alt={ImgAlt} />
             </>}
         </>
     )
