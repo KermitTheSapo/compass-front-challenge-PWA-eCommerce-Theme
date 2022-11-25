@@ -43,7 +43,7 @@ export default function ProductDescriptionDesktop({ productDescription }: Props)
             <S.DescriptionContent>
                 {tabColorOne === "#1B4B66" && <S.Paragraph>{productDescription}</S.Paragraph>}
                 {tabColorTwo === "#1B4B66" && <S.DivAlsoLike>
-                    <AlsoLikeItem />
+                    <AlsoLikeItem value={false} />
                 </S.DivAlsoLike>}
                 {tabColorThree === "#1B4B66" && <S.Paragraph>Ratings & Reviews</S.Paragraph>}
             </S.DescriptionContent>
