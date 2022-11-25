@@ -17,6 +17,7 @@ export const AlsoLike = styled.div`
 `
 export const AlsoLikeTitle = styled.h3`
     font-weight: 600;
+    padding-top: 15px;
 `
 export const AlsoLikeProductsList = styled.div`
     display: flex;

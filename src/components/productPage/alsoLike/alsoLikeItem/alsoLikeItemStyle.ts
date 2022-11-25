@@ -12,6 +12,7 @@ export const AlsoLikeProducts = styled.div`
         width: 98vw;
         gap: 50px;
         height:35vh;
+        align-items: center;
         &::-webkit-scrollbar { 
             display: none;
         }
