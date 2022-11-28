@@ -15,6 +15,11 @@ import Error from "./components/error/error"
 import GrandeItem from "./components/grandeItem/grandeItem"
 import Home from "./components/Home/Home"
 import Remus from "./components/remus/remus"
+import AddReview from "./components/productPage/addReview/addReview"
+import Bag from "./components/bag/bag"
+import Order from "./components/order/order"
+import NewAddress from "./components/newAddress/newAddress"
+import Payments from "./components/payments/payments"
 
 export default function App() {
   return (
@@ -35,6 +40,11 @@ export default function App() {
         <Route path="/apparels" element={<Apparels />} />
         <Route path="/collosal" element={<Collosal />} />
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/addReview" element={<AddReview />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/bag" element={<Bag />} />
+        <Route path="/new-address" element={<NewAddress />} />
+        <Route path="/Payments" element={<Payments />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
