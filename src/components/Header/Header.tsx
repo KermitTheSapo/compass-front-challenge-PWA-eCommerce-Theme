@@ -2,6 +2,7 @@ import * as S from "./HeaderStyle";
 import menu from "@/assets/imgs/header/menu.svg"
 import add from "@/assets/imgs/header/add.svg"
 import notification from "@/assets/imgs/header/notification.svg"
+import notificationOn from "@/assets/imgs/header/notification-on.svg"
 import search from "@/assets/imgs/header/search.svg"
 import imgLogo from "@/assets/imgs/header/imgLogo.svg"
 import heart from "@/assets/imgs/header/heart.svg"
@@ -103,11 +104,11 @@ export default function Header() {
                 <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImgMobile src={add} alt="icon of a square with a plus in the middle" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/error")}>
-                    <S.IconImgMobile src={notification} alt="bell icon" />
-                </S.LinkCategory>
                 <S.LinkCategory onClick={() => inputSearchClick ? setInputSearchClick(false) : setInputSearchClick(true)}>
                     <S.IconImgMobile src={search} alt="magnifying glass icon" />
+                </S.LinkCategory>
+                <S.LinkCategory onClick={() => navigate("/error")}>
+                    <S.IconImgMobile src={bagInfoParse === null ? notification : notificationOn} alt="bell icon" />
                 </S.LinkCategory>
                 {inputSearchClick && <S.DivInputSearch>
                     <S.InputSearch type="text" placeholder="Search for products or brands..." />

@@ -1,3 +1,4 @@
+import Reviews from "./components/productPage/reviews/reviews"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Reset } from "./assets/styles/reset"
 import Boker from "./components/boker/boker"
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/boker" element={<Boker />} />
         <Route path="/apparels" element={<Apparels />} />
         <Route path="/collosal" element={<Collosal />} />
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
