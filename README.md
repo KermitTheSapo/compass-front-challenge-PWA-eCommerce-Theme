@@ -25,7 +25,7 @@
   </a>
 
 <h4 align="center"> 
-	 Status: Done
+	 Status: Doing
 </h4>
 
 <p align="center">
@@ -75,7 +75,42 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [X] structure
     - [X] styling
     - [X] quantity logic and increase value based on quantity
-
+- [ ] search
+     - [ ] structure and styling
+     - [ ] filter
+     - [ ] search history
+     - [ ] search error
+- [ ] reviews
+     - [ ] structure and styling
+     - [ ] consume all reviews
+     - [ ] and show all reviews
+     - [ ] add review
+     - [ ] image upload
+- [ ] my bag mobile
+     - [ ] structure and styling
+     - [ ] consume LocalStorage
+     - [ ] bag empty
+- [ ] order summary
+     - [ ] select address
+     - [ ] receive items
+     - [ ] receive items
+     - [ ] add address
+- [ ] Address
+     - [ ] address sheet and edit
+     - [ ] mask
+- [ ] add new address
+     - [ ] use post office api
+     - [ ] structure and styling
+     - [ ] able to edit address
+- [ ] payments
+     - [ ] product details
+     - [ ] card verification
+- [ ] confirmed page
+     - [ ] structure and styling
+- [ ] categories
+     - [ ] sort categories
+- [ ] filters
+     - [ ] filter logic
 
 - [X] storybook
     - [X] Header and Footers
