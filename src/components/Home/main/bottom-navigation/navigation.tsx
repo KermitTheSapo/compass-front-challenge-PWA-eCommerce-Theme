@@ -40,7 +40,7 @@ export default function Navigation() {
                     <S.Name></S.Name>
                 </S.NavTab>
             </S.LinkNavTab>
-            <S.LinkNavTab onClick={() => navigate("/error")} onMouseEnter={() => setActiveBag(true)} onMouseLeave={() => setActiveBag(false)}>
+            <S.LinkNavTab onClick={() => navigate("/bag")} onMouseEnter={() => setActiveBag(true)} onMouseLeave={() => setActiveBag(false)}>
                 <S.NavTab>
                     <S.Img src={activeBag ? bagFill : bag} alt="a bag icon" />
                     <S.Name></S.Name>
