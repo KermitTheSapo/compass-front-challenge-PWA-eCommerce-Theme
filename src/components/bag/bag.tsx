@@ -4,12 +4,16 @@ import back from "@/assets/imgs/bag/back.svg"
 import { useNavigate } from "react-router-dom"
 import Card from "./card/card"
 import bag from "@/assets/imgs/bag/bag.svg"
+import { Helmet } from "react-helmet"
 export default function Bag() {
     const navigate = useNavigate()
     const bagInfo = localStorage.getItem("items")
     const bagInfoParse = JSON.parse(bagInfo)
     return (
         <S.BagContainer>
+            <Helmet>
+                <title>Coral'l | Bag</title>
+            </Helmet>
             <S.BagHeaderNav>
                 <S.ImgBack onClick={() => navigate(-1)} src={bagInfoParse === null ? back : cross} alt="" />
                 <S.BagTitle>My Bag</S.BagTitle>
