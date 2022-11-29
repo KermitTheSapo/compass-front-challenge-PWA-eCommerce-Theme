@@ -3,11 +3,15 @@ import cross from "@/assets/imgs/productPage/reviews/cross.svg"
 import upload from "@/assets/imgs/productPage/reviews/upload.svg"
 import { useNavigate } from "react-router-dom";
 import Ratings from "./star/star";
+import { Helmet } from "react-helmet";
 
 export default function AddReview() {
     const navigate = useNavigate();
     return (
         <S.AddReviewContainer>
+            <Helmet>
+                <title>Coral'l | Add Review</title>
+            </Helmet>
             <S.HeaderNav>
                 <S.ImgClose onClick={() => navigate(-1)} src={cross} alt="" />
                 <S.HeaderNavTitle>Add Review</S.HeaderNavTitle>
@@ -16,7 +20,7 @@ export default function AddReview() {
                 <S.ProductRatingTitle>Product Rating</S.ProductRatingTitle>
                 <Ratings />
                 <S.DeliveryPinCode>
-                    <S.DeliveryInput type="text" placeholder="Enter Valid Pincode" />
+                    <S.DeliveryInput type="text" placeholder="Enter Valid PinCode" />
                     <S.DeliveryBtn>Check</S.DeliveryBtn>
                 </S.DeliveryPinCode>
             </S.ProductRatingDiv>
