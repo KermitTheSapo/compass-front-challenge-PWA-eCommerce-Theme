@@ -15,6 +15,7 @@ export const Header = styled.header`
     position: fixed;
     top: 0;
     width: 100%;
+    justify-content: space-between;
     @media (min-width: 769px) {
         display: none;
     }
@@ -252,7 +253,7 @@ export const BottomSheetDark = styled.div`
 
 export const BottomSheetContent = styled.div`
     background-color: var(--Bright);
-    height: 256px;
+    height: 300px;
     width: 100vw;
     position: fixed;
     bottom: 0;
@@ -312,4 +313,15 @@ export const DivPage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+`
+
+export const LeadingIcon = styled.div`
+    display: flex;
+    align-items: center;
+`
+export const TrailingIcon = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
 `
