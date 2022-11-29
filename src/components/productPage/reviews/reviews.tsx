@@ -4,6 +4,7 @@ import arrowLeft from "@/assets/imgs/productPage/reviews/arrowLeft.svg"
 import { useNavigate } from "react-router-dom";
 import Head from "./head/head";
 import Ratings from "./ratings/ratings";
+import { Helmet } from "react-helmet";
 
 
 
@@ -12,6 +13,9 @@ export default function Reviews() {
 
     return (
         <S.ReviewsContainer>
+            <Helmet>
+                <title>Coral'l | Reviews</title>
+            </Helmet>
             <S.HeaderNav>
                 <S.ImgNavArrow onClick={() => navigate(-1)} src={arrowLeft} alt="" />
             </S.HeaderNav>
