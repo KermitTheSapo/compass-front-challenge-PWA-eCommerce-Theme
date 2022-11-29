@@ -16,7 +16,6 @@ import CardVertical from "./cardVertical/cardVertical";
 
 export default function Header() {
     const [listCategory, setListCategory] = useState(false)
-    const [inputSearchClick, setInputSearchClick] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
     const [price, setPrice] = useState(0)
     const [tax, setTax] = useState(2)
@@ -104,15 +103,12 @@ export default function Header() {
                 <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImgMobile src={add} alt="icon of a square with a plus in the middle" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => inputSearchClick ? setInputSearchClick(false) : setInputSearchClick(true)}>
+                <S.LinkCategory onClick={() => navigate("/search")}>
                     <S.IconImgMobile src={search} alt="magnifying glass icon" />
                 </S.LinkCategory>
                 <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImgMobile src={bagInfoParse === null ? notification : notificationOn} alt="bell icon" />
                 </S.LinkCategory>
-                {inputSearchClick && <S.DivInputSearch>
-                    <S.InputSearch type="text" placeholder="Search for products or brands..." />
-                </S.DivInputSearch>}
             </S.TrailingIconsContainer>
             {showCartInfo && <S.CartInfoContainer>
                 <S.CartInfoDiv>
@@ -149,7 +145,7 @@ export default function Header() {
                             <S.ButtonCheck>Check</S.ButtonCheck>
                         </S.CouponDiv>
                         <S.ButtonsDiv>
-                            <S.PlaceOrderBtn>Place Order</S.PlaceOrderBtn>
+                            <S.PlaceOrderBtn onClick={() => navigate("/myCart")}>Place Order</S.PlaceOrderBtn>
                             <S.LinkContinue onClick={() => setShowCartInfo(false)}>
                                 <S.ParagraphContinue >Continue Shopping</S.ParagraphContinue>
                             </S.LinkContinue>
