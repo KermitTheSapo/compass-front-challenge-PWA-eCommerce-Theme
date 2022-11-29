@@ -79,5 +79,6 @@ export const Reset = createGlobalStyle`
     --Separator: #0000001F;
     --SeparatorStorybook: #D8D8D8;
     --ParagraphDateOrderCard: #7E7E7E;
+    --BorderCardPaymentMethod: #E3E3E3;
   }
 `
