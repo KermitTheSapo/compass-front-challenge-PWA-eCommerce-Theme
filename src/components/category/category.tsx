@@ -9,6 +9,10 @@ import sortImg from "@/assets/imgs/category/sort.svg"
 import filter from "@/assets/imgs/category/handbags/filter.svg"
 import stars from "@/assets/imgs/home/main/arrivals/stars.svg"
 
+import wishlist from "@/assets/imgs/category/wishlist.svg"
+import bag from "@/assets/imgs/category/bag.svg"
+import search from "@/assets/imgs/category/search.svg"
+
 import ItemArrival from "../Home/main/Arrivals/itemArrival/itemArrival"
 import { useNavigate } from "react-router-dom"
 import Header from "../Header/Header"
@@ -17,7 +21,6 @@ import { useState } from "react"
 import PageNumberTab from "./pageNumberTab/pageNumberTab"
 
 import ProductsItem from "../../products/products.json"
-
 type Props = {
     name: string;
 };
@@ -25,7 +28,6 @@ type Props = {
 export default function Category({ name }: Props) {
     const navigate = useNavigate();
     const [ShowBottomSheet, setShowBottomSheet] = useState(false)
-
     const [isGridActive, setIsGridActive] = useState(true)
     const [isSortActive, setIsSortActive] = useState(false)
     const [priceLowToHigh, setPriceLowToHigh] = useState(false)
@@ -75,8 +77,15 @@ export default function Category({ name }: Props) {
         <S.CategoryContainer>
             <Header />
             <S.Header>
-                <S.LinkArrow onClick={() => navigate("/")}><S.ImgArrow src={arrow} alt="a blue left arrow" /></S.LinkArrow>
-                <S.Title>{name}</S.Title>
+                <S.LeadingIcon>
+                    <S.LinkArrow onClick={() => navigate("/")}><S.ImgArrow src={arrow} alt="a blue left arrow" /></S.LinkArrow>
+                    <S.Title>{name}</S.Title>
+                </S.LeadingIcon>
+                <S.TrailingIcon>
+                    <img onClick={() => navigate("/wishlist")} src={wishlist} alt="" />
+                    <img src={search} alt="" />
+                    <img src={bag} alt="" />
+                </S.TrailingIcon>
             </S.Header>
             <S.Poster>
                 <S.ImgPoster src={hero} alt="an image of a black bag with a black tag written black friday on a white background with a written title saying 70% off black friday" />
@@ -157,7 +166,7 @@ export default function Category({ name }: Props) {
                     <S.ImgIcon src={sort} alt="a list icon with a down arrow, indicating sort" />
                     <S.FooterName>Sort</S.FooterName>
                 </S.BtnDiv>
-                <S.BtnDiv>
+                <S.BtnDiv onClick={() => navigate("/filters")}>
                     <S.ImgIcon src={filter} alt="an icon of a funnel" />
                     <S.FooterName>Filter</S.FooterName>
                 </S.BtnDiv>
@@ -170,9 +179,17 @@ export default function Category({ name }: Props) {
                         <S.Separator></S.Separator>
                     </S.BottomSheetHeader>
                     <S.BottomSheetBody>
+                        <S.RadioDiv>
+                            <S.InputRadio type="radio" name="sort" id="customer" />
+                            <S.LabelBottomSheet htmlFor="customer">Popular Products</S.LabelBottomSheet>
+                        </S.RadioDiv>
+                        <S.RadioDiv onClick={() => { setPriceLowToHigh(false); setPriceHighToLow(false); setInicialProducts(false); setPopularity(true) }}>
+                            <S.InputRadio type="radio" name="sort" id="popularity" />
+                            <S.LabelBottomSheet htmlFor="popularity">Relevance</S.LabelBottomSheet>
+                        </S.RadioDiv>
                         <S.RadioDiv onClick={() => { setInicialProducts(true); setPriceHighToLow(false); setPriceLowToHigh(false) }}>
                             <S.InputRadio type="radio" name="sort" id="latest" />
-                            <S.LabelBottomSheet htmlFor="latest">Latest Products</S.LabelBottomSheet>
+                            <S.LabelBottomSheet htmlFor="latest">What's New</S.LabelBottomSheet>
                         </S.RadioDiv>
                         <S.RadioDiv onClick={() => { setPriceLowToHigh(true); setPriceHighToLow(false); setInicialProducts(false) }}>
                             <S.InputRadio type="radio" name="sort" id="priceLow" />
@@ -182,13 +199,9 @@ export default function Category({ name }: Props) {
                             <S.InputRadio type="radio" name="sort" id="priceHigh" />
                             <S.LabelBottomSheet htmlFor="priceHigh">Price- High to Low</S.LabelBottomSheet>
                         </S.RadioDiv>
-                        <S.RadioDiv onClick={() => { setPriceLowToHigh(false); setPriceHighToLow(false); setInicialProducts(false); setPopularity(true) }}>
-                            <S.InputRadio type="radio" name="sort" id="popularity" />
-                            <S.LabelBottomSheet htmlFor="popularity">Popularity</S.LabelBottomSheet>
-                        </S.RadioDiv>
                         <S.RadioDiv>
                             <S.InputRadio type="radio" name="sort" id="customer" />
-                            <S.LabelBottomSheet htmlFor="customer">Customer Ratings</S.LabelBottomSheet>
+                            <S.LabelBottomSheet htmlFor="customer">On Sale</S.LabelBottomSheet>
                         </S.RadioDiv>
                     </S.BottomSheetBody>
                 </S.BottomSheetContent>
