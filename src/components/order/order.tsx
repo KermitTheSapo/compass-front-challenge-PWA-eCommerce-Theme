@@ -1,10 +1,11 @@
 import * as S from "./orderStyle"
 import arrow from "@/assets/imgs/bag/back.svg"
 import { useNavigate } from "react-router-dom"
-import pencilBtn from "@/assets/imgs/order/pencil-btn.svg"
 import DeliveryCard from "./deliveryCard/deliveryCard"
 import { useState } from "react"
 import BottomSheetAddress from "./bottomSheetAddress/bottomSheetAddress"
+import Address from "./address/address"
+import { Helmet } from "react-helmet"
 
 
 export default function Order() {
@@ -12,20 +13,14 @@ export default function Order() {
     const [sheetEditAddress, setSheetEditAddress] = useState(false)
     return (
         <S.OrderContainer>
+            <Helmet>
+                <title>Coral'l | Order</title>
+            </Helmet>
             <S.OrderHeader>
                 <S.ImgArrowBack onClick={() => navigate(-1)} src={arrow} alt="" />
                 <S.OrderTitle>Order Summary</S.OrderTitle>
             </S.OrderHeader>
-            <S.AddressDiv>
-                <S.AddressTitle>Deliver To</S.AddressTitle>
-                <S.AddressInfo>
-                    <S.AddressContent>
-                        <S.AddressInfoTitle>Ruby S Snively</S.AddressInfoTitle>
-                        <S.AddressInfoDescription>1460 Jenric Lane, Ashmor Drive</S.AddressInfoDescription>
-                    </S.AddressContent>
-                    <S.AddressEditBtn onClick={() => setSheetEditAddress(!sheetEditAddress)} src={pencilBtn} alt="" />
-                </S.AddressInfo>
-            </S.AddressDiv>
+            <Address state={sheetEditAddress} setState={setSheetEditAddress} />
             <S.DeliveryDiv>
                 <S.DeliveryTitle>Expected Delivery</S.DeliveryTitle>
                 <DeliveryCard />

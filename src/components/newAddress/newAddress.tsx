@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import * as S from "./newAddressStyle";
 import arrow from "@/assets/imgs/newAddress/arrow.svg"
+import { Helmet } from "react-helmet";
 
 export default function NewAddress() {
 
@@ -8,6 +9,9 @@ export default function NewAddress() {
 
     return (
         <S.NewAddressContainer>
+            <Helmet>
+                <title>Coral'l | New Address</title>
+            </Helmet>
             <S.NewAddressHeader>
                 <S.ImgArrowLeft onClick={() => navigate(-1)} src={arrow} alt="" />
                 <S.NewAddressTitle>Add New Address</S.NewAddressTitle>
