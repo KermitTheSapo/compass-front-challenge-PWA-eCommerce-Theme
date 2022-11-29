@@ -20,6 +20,14 @@ import Bag from "./components/bag/bag"
 import Order from "./components/order/order"
 import NewAddress from "./components/newAddress/newAddress"
 import Payments from "./components/payments/payments"
+import Confirmed from "./components/confirmed/confirmed"
+import MyCart from "./components/myCart/myCart"
+import CheckoutInfo from "./components/checkoutInfo/checkoutInfo"
+import CheckoutPayment from "./components/checkoutPayment/checkoutPayment"
+import Wishlist from "./components/wishlist/wishlist"
+import Search from "./components/search/search"
+import SearchError from "./components/searchError/searchError"
+import Filters from "./components/category/filters/filters"
 
 export default function App() {
   return (
@@ -45,6 +53,14 @@ export default function App() {
         <Route path="/bag" element={<Bag />} />
         <Route path="/new-address" element={<NewAddress />} />
         <Route path="/Payments" element={<Payments />} />
+        <Route path="/confirmed" element={<Confirmed />} />
+        <Route path="/myCart" element={<MyCart />} />
+        <Route path="/checkout-info" element={<CheckoutInfo />} />
+        <Route path="/checkout-payment" element={<CheckoutPayment />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/searchError" element={<SearchError />} />
+        <Route path="/filters" element={<Filters />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
