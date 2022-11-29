@@ -42,7 +42,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
         <S.ProductPageContainer>
             <Header />
             <S.Header>
-                <S.LinkArrow onClick={() => navigate("/")}>
+                <S.LinkArrow onClick={() => navigate(-1)}>
                     <S.ImgArrow src={arrow} alt="left arrow icon" />
                 </S.LinkArrow>
             </S.Header>
