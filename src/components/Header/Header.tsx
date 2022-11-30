@@ -13,8 +13,10 @@ import bagNotification from "@/assets/imgs/header/bag-notification.svg"
 import { Key, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
+// import { getProducts } from "../../products/products";
 
 export default function Header() {
+    // const [productsList, setProductsList] = useState([{}])
     const [listCategory, setListCategory] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
     const [price, setPrice] = useState(0)
@@ -39,7 +41,10 @@ export default function Header() {
         bagInfoParse.map((item: { price: number; }) => { value = value + item.price });
         setPrice(value)
         value = 0;
+        // getProducts().then((res) => setProductsList(res))
     }
+
+
     return (
         <S.HeaderContainer>
             <S.MenuContainer>
