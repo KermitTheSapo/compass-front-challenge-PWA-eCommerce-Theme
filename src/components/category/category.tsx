@@ -17,10 +17,10 @@ import ItemArrival from "../Home/main/Arrivals/itemArrival/itemArrival"
 import { useNavigate } from "react-router-dom"
 import Header from "../Header/Header"
 import MenuSideNav from "./menuSideNav/menuSideNav"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import PageNumberTab from "./pageNumberTab/pageNumberTab"
 
-import ProductsItem from "../../products/products.json"
+import { getProducts } from "../../products/products"
 type Props = {
     name: string;
 };
@@ -39,6 +39,23 @@ export default function Category({ name }: Props) {
     const [pageThree, setPageThree] = useState(false)
     const [pageFour, setPageFour] = useState(false)
     const [pageFive, setPageFive] = useState(false)
+    const [productsList, setProductsList] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0
+    }])
+    useEffect(() => {
+        getProducts().then((res) => setProductsList(res))
+    }, [])
 
     const setSortValue = (e) => {
         if (e.target.value === "priceLowToHigh") {
@@ -110,7 +127,7 @@ export default function Category({ name }: Props) {
                                 <S.ImgGrid src={sortImg} alt="a list icon a square with a small square and a rectangle" />
                             </S.GridDiv>
                         </S.GridSort>
-                        <S.ParagraphShow>Showing 1 - {ProductsItem.length} of {ProductsItem.length} items</S.ParagraphShow>
+                        <S.ParagraphShow>Showing 1 - {productsList.length} of {productsList.length} items</S.ParagraphShow>
                         <S.ToShow>
                             <S.ToShowTitle>To Show:</S.ToShowTitle>
                             <S.SelectToShow name="" id="">
@@ -137,19 +154,19 @@ export default function Category({ name }: Props) {
                     </S.ListingOptions >
                     <S.Products>
                         {pageOne && <>
-                            {inicialProducts && ProductsItem.map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
+                            {inicialProducts && productsList.map((item, key) => (
+                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
                             ))}
                             {priceLowToHigh &&
-                                ProductsItem.sort(function (a, b) { return a.price - b.price }).map((item, key) => (
-                                    <ItemArrival key={key} ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
+                                productsList.sort(function (a, b) { return a.price - b.price }).map((item, key) => (
+                                    <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
                                 ))
                             }
-                            {priceHighToLow && ProductsItem.sort(function (a, b) { return b.price - a.price }).map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
+                            {priceHighToLow && productsList.sort(function (a, b) { return b.price - a.price }).map((item, key) => (
+                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
                             ))}
-                            {popularity && ProductsItem.sort(function (a, b) { return b.ratings - a.ratings }).map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.img} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
+                            {popularity && productsList.sort(function (a, b) { return b.ratings - a.ratings }).map((item, key) => (
+                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} link2={item.link} information={true} />
                             ))}</>}
                         {pageTwo && <S.DivPage><p>Page 2</p></S.DivPage>}
                         {pageThree && <S.DivPage><p>Page 3</p></S.DivPage>}
