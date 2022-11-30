@@ -11,25 +11,26 @@ type Props = {
     itemName: string;
     Description: string;
     Price: number;
-    safe?: string;
+    safe?: number;
     discount?: number;
-    onClick?: () => void;
     link: string;
-    state?: boolean;
-    setState?: () => void;
     star?: string;
     ratings?: number;
     link2: string;
     information: boolean;
 };
-export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, onClick, link, state, setState, safe, discount, star, ratings, link2, information }: Props) {
+export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, link, safe, discount, star, ratings, link2, information }: Props) {
     const navigate = useNavigate();
     const [heartStatus, setHeartStatus] = useState(true)
+    const changeLink = () => {
+        navigate(`/product?id=${link}`)
+    }
+    const [bottomSheetStatus, setBottomSheetStatus] = useState(false)
     return (
         <>
             <S.ItemLink>
-                <S.ItemArrival onClick={() => { window.screen.width > 768 ? navigate(link) : navigate(link2) }}>
-                    <S.ImgProduct onClick={onClick} src={ImgSrc} alt={ImgAlt} />
+                <S.ItemArrival onClick={() => { window.screen.width > 768 ? changeLink() : navigate(link2) }}>
+                    <S.ImgProduct onClick={() => setBottomSheetStatus(!bottomSheetStatus)} src={ImgSrc} alt={ImgAlt} />
                     <S.InformationDiv >
                         <S.NameHeart>
                             <S.ItemName>{itemName}</S.ItemName>
@@ -50,8 +51,8 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
                     </S.InformationDiv>
                 </S.ItemArrival>
             </S.ItemLink>
-            {state && <>
-                <BottomSheetHome name={itemName} onClick={setState} description={Description} price={Price} img={ImgSrc} link={link} alt={ImgAlt} />
+            {bottomSheetStatus && <>
+                <BottomSheetHome name={itemName} onClick={() => setBottomSheetStatus(!bottomSheetStatus)} description={Description} price={Price} img={ImgSrc} link={link} alt={ImgAlt} />
             </>}
         </>
     )
