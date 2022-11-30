@@ -3,7 +3,7 @@ import * as S from "./buttonAddStyle"
 type Props = {
     name: string;
     description: string;
-    price: string;
+    price: number;
     img: string;
 }
 
