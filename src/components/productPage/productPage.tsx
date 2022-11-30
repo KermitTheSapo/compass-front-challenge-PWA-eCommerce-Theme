@@ -24,7 +24,7 @@ type Props = {
     img: string;
     productDescription: string;
     productParagraph: string;
-    safe: string;
+    safe: number;
     discount: number;
     imgCarousel: string;
     ratings: number;
