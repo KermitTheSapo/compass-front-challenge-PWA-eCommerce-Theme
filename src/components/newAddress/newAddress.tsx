@@ -2,10 +2,61 @@ import { useNavigate } from "react-router-dom";
 import * as S from "./newAddressStyle";
 import arrow from "@/assets/imgs/newAddress/arrow.svg"
 import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function NewAddress() {
 
     const navigate = useNavigate();
+    const [phone, setPhone] = useState("");
+    const [text, setText] = useState("");
+    const [pinCode, setPinCode] = useState("")
+    const maskPhone = (value) => {
+        return value
+            .replace(/\D/g, "")
+            .replace(/(\d{5})(\d)/, "$1-$2")
+            .replace(/(-\d{4})(\d+?)$/, "$1");
+    };
+    const maskOnlyLetters = (value) => {
+        return value.replace(/[0-9!@#¨$%^&*)(+=._-]+/g, "");
+    };
+
+    const [address, setAddress] = useState({
+        pinCode: "",
+        complement: "",
+        street: "",
+        neighborhood: "",
+        uf: "",
+        city: ""
+    });
+    const Api = `https://viacep.com.br/ws/${pinCode}/json/`
+    function getCep() {
+        if (pinCode.length === 8) {
+            axios.get(Api).then((res) => {
+                setAddress({
+                    pinCode: res.data.cep,
+                    complement: res.data.complemento,
+                    street: res.data.logradouro,
+                    neighborhood: res.data.bairro,
+                    uf: res.data.uf,
+                    city: res.data.localidade
+                });
+            });
+        } else {
+            setAddress({
+                pinCode: "",
+                complement: "",
+                street: "",
+                neighborhood: "",
+                uf: "",
+                city: ""
+            });
+        }
+    }
+    useEffect(() => {
+        getCep()
+    }, [pinCode])
+    console.log(address)
 
     return (
         <S.NewAddressContainer>
@@ -20,10 +71,10 @@ export default function NewAddress() {
                 <S.ContactInfoTitle>Contact Information</S.ContactInfoTitle>
                 <S.Separator></S.Separator>
                 <S.ContactContent>
-                    <S.NameInput placeholder="Full Name" />
+                    <S.NameInput placeholder="Full Name" value={text} onChange={(e) => setText(maskOnlyLetters(e.target.value))} />
                     <S.DivInputNumber>
-                        <S.DDDInput type="number" placeholder="+11" />
-                        <S.NumberInput type="number" placeholder="Contact Number" />
+                        <S.DDDInput placeholder="+11" maxLength={2} />
+                        <S.NumberInput placeholder="Contact Number" value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} />
                     </S.DivInputNumber>
                 </S.ContactContent>
             </S.ContactInfo>
@@ -31,11 +82,11 @@ export default function NewAddress() {
                 <S.DeliveryInfoTitle>Delivery Information</S.DeliveryInfoTitle>
                 <S.Separator></S.Separator>
                 <S.DeliveryContent>
-                    <S.AddressInput placeholder="Pin Code" />
-                    <S.AddressInput placeholder="Street Address" />
-                    <S.AddressInput placeholder="City" />
+                    <S.AddressInput placeholder="Pin Code" value={pinCode} maxLength={8} onChange={(e) => { setPinCode(e.target.value) }} />
+                    <S.AddressInput placeholder="Street Address" value={address.street} />
+                    <S.AddressInput value={address.city} placeholder="City" />
                     <S.SelectState name="" id="">
-                        <option value="">State</option>
+                        <option value="">{address.uf}</option>
                     </S.SelectState>
                 </S.DeliveryContent>
                 <S.LocationDiv>
