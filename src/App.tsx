@@ -1,20 +1,14 @@
 import Reviews from "./components/productPage/reviews/reviews"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Reset } from "./assets/styles/reset"
-import Boker from "./components/boker/boker"
-import Boujee from "./components/boujee/boujee"
 import Apparels from "./components/category/apparels/apparels"
 import Eyewear from "./components/category/eyewear/eyewear"
 import Handbags from "./components/category/handbags/handbags"
 import Jewellery from "./components/category/jewellery/jewellery"
 import Skincare from "./components/category/skincare/skincare"
 import Watches from "./components/category/watches/watches"
-import Coach from "./components/coach/coach"
-import Collosal from "./components/collosal/collosal"
 import Error from "./components/error/error"
-import GrandeItem from "./components/grandeItem/grandeItem"
 import Home from "./components/Home/Home"
-import Remus from "./components/remus/remus"
 import AddReview from "./components/productPage/addReview/addReview"
 import Bag from "./components/bag/bag"
 import Order from "./components/order/order"
@@ -28,6 +22,7 @@ import Wishlist from "./components/wishlist/wishlist"
 import Search from "./components/search/search"
 import SearchError from "./components/searchError/searchError"
 import Filters from "./components/category/filters/filters"
+import Product from "./components/product/product"
 
 export default function App() {
   return (
@@ -40,13 +35,7 @@ export default function App() {
         <Route path="/jewellery" element={<Jewellery />} />
         <Route path="/skincare" element={<Skincare />} />
         <Route path="/watches" element={<Watches />} />
-        <Route path="/grande" element={<GrandeItem />} />
-        <Route path="/coach" element={<Coach />} />
-        <Route path="/remus" element={<Remus />} />
-        <Route path="/boujee" element={<Boujee />} />
-        <Route path="/boker" element={<Boker />} />
         <Route path="/apparels" element={<Apparels />} />
-        <Route path="/collosal" element={<Collosal />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/addReview" element={<AddReview />} />
         <Route path="/order" element={<Order />} />
@@ -61,6 +50,7 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/searchError" element={<SearchError />} />
         <Route path="/filters" element={<Filters />} />
+        <Route path="/product" element={<Product />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
