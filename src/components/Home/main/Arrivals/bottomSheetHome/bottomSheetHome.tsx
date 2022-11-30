@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom"
 type Props = {
     name: string;
     description: string;
-    price: string;
+    price: number;
     img: string;
     link: string;
     onClick: () => void;
@@ -51,7 +51,7 @@ export default function BottomSheetHome({ name, description, price, img, link, o
                     </S.SizeTabs>
                 </S.SelectSize>
                 <S.Buttons>
-                    <S.ImgPlaceHolderDiv onClick={() => navigate(link)}>
+                    <S.ImgPlaceHolderDiv onClick={() => navigate(`/product?id=${link}`)}>
                         <img src={placeholder} alt="image of a square to indicate product zoom" />
                     </S.ImgPlaceHolderDiv>
                     <ButtonAdd name={name} description={description} price={price} img={img} />
