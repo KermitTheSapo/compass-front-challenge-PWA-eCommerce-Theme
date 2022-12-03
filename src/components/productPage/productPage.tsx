@@ -18,6 +18,7 @@ import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescri
 import Footer from "../footer/footer"
 import { useNavigate } from "react-router-dom"
 import { getBag, postBag } from "../../products/bag"
+import { useState } from "react"
 
 type Props = {
     name: string;
@@ -32,7 +33,7 @@ type Props = {
 }
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel, ratings }: Props) {
-    const addToLocalStorage = () => {
+    const addToApiStorage = (counter: number) => {
         const product = {
             name: name,
             paragraph: productDescription,
@@ -43,12 +44,14 @@ export default function ProductPage({ img, name, productDescription, value, prod
             link: "asdf",
             imgAlt: "asdfasd",
             image: img,
-            ratings: ratings
+            ratings: ratings,
+            quantity: counter
         }
         postBag(product).then((res) => { console.log(res) })
         alert("Item added to cart")
     }
     const navigate = useNavigate()
+    const [counter, setCounter] = useState(1)
     return (
         <S.ProductPageContainer>
             <Header />
@@ -84,10 +87,10 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 </S.ProductsPics>
                 <S.Content>
                     <Products imgCarousel={imgCarousel} />
-                    <ProductInfo name={name} value={value} productParagraph={productParagraph} safe={safe} discount={discount} ratings={ratings} />
+                    <ProductInfo name={name} value={value * counter} productParagraph={productParagraph} safe={safe} discount={discount} ratings={ratings} />
                     <DeliveryDetails />
-                    <Quantity />
-                    <Buttons onClick={() => addToLocalStorage()} />
+                    <Quantity state={counter} setState={setCounter} />
+                    <Buttons onClick={() => addToApiStorage(counter)} />
                     <S.Separator></S.Separator>
                     <ProductDescription />
                     <S.Separator></S.Separator>
@@ -104,7 +107,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 <S.heartDiv>
                     <S.ImgHeart src={heart} alt="heart icon" />
                 </S.heartDiv>
-                <S.ButtonAdd onClick={() => addToLocalStorage()}>Add to Bag</S.ButtonAdd>
+                <S.ButtonAdd onClick={() => addToApiStorage(counter)}>Add to Bag</S.ButtonAdd>
             </S.FooterNav>
         </S.ProductPageContainer>
     )
