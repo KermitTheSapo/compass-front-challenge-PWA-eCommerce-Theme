@@ -10,18 +10,38 @@ import { getBag } from "../../products/bag"
 
 export default function Bag() {
     const navigate = useNavigate()
-    const [productsList, setProductsList] = useState([{}])
+    const [quantity, setQuantity] = useState(1)
+    const [productsList, setProductsList] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0
+    }])
     const [priceValue, setPriceValue] = useState(0)
+    const [subTotalValue, setSubTotalValue] = useState(0)
     useEffect(() => {
         getBag().then((res) => setProductsList(res))
     }, [])
     useEffect(() => {
-        let price = 0
+        let total = 0
         productsList.map((product) => {
-            price = price + product.price
+            total = total + (product.price * quantity)
         })
-        setPriceValue(price)
-    }, [productsList])
+        setPriceValue(total)
+        let subTotal = 0
+        productsList.map((product) => {
+            subTotal = subTotal + product.price
+        })
+        setSubTotalValue(subTotal)
+    }, [productsList, quantity])
 
     return (
         <S.BagContainer>
@@ -42,7 +62,7 @@ export default function Bag() {
                 <>
                     <S.CardsContainers>
                         {productsList && productsList.map((item: any, key: string | number | symbol) => (
-                            <Card productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} safe={item.safe} discount={item.discount} id={item._id} setState={setProductsList} />
+                            <Card productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} safe={item.safe} discount={item.discount} id={item._id} setState={setProductsList} state={quantity} setQuantity={setQuantity} />
                         ))}
                     </S.CardsContainers>
                     <S.CouponDiv>
@@ -54,7 +74,7 @@ export default function Bag() {
                         <S.Summary>
                             <S.DivList>
                                 <S.ListTitle>Sub Total</S.ListTitle>
-                                <S.ListPrice>${priceValue}</S.ListPrice>
+                                <S.ListPrice>${subTotalValue.toFixed(2)}</S.ListPrice>
                             </S.DivList>
                             <S.DivList>
                                 <S.ListTitle>Discount</S.ListTitle>
@@ -66,7 +86,7 @@ export default function Bag() {
                             </S.DivList>
                             <S.DivList>
                                 <S.ListResult>Grand Total</S.ListResult>
-                                <S.ListResultValue>${priceValue}</S.ListResultValue>
+                                <S.ListResultValue>${priceValue.toFixed(2)}</S.ListResultValue>
                             </S.DivList>
                         </S.Summary>
                         <S.ButtonDiv>
