@@ -66,7 +66,7 @@ export default function Main() {
             <Brands />
             <Makeup />
             <Trending />
-            <Navigation />
+            <Navigation homeTrue={true} categoriesTrue={false} profileTrue={false} bagTrue={false} />
         </S.MainContainer>
     )
 }
