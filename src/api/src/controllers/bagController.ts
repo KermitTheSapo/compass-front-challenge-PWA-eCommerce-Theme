@@ -26,7 +26,7 @@ class bagController {
   static postBag = async (req, res) => {
     const newBag = new Bag(req.body)
     newBag.save()
-    return res.status(200).send({ message: "cadastrado" })
+    return res.status(200).send({ message: "registered item" })
   }
   // @ts-ignore
   static putBag = (req, res) => {

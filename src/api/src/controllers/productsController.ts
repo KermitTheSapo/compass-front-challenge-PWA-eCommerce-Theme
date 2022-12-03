@@ -7,7 +7,7 @@ class ProductController {
       res.status(200).json(product)
     })
   }
-// @ts-ignore
+  // @ts-ignore
   static getProductById = (req, res) => {
     const id = req.params.id
     // @ts-ignore
@@ -25,7 +25,7 @@ class ProductController {
   static postProduct = (req, res) => {
     // @ts-ignore
     let product = new product(req.body)
-// @ts-ignore
+    // @ts-ignore
     product.save((err) => {
       if (err) {
         res.status(500).send({ message: `Error registering product: ${err}` })
@@ -34,7 +34,7 @@ class ProductController {
       }
     })
   }
-// @ts-ignore
+  // @ts-ignore
   static putProduct = (req, res) => {
     const id = req.params.id
     // @ts-ignore
@@ -46,7 +46,7 @@ class ProductController {
       }
     })
   }
-// @ts-ignore
+  // @ts-ignore
   static deleteProduct = (req, res) => {
     const id = req.params.id
     // @ts-ignore
