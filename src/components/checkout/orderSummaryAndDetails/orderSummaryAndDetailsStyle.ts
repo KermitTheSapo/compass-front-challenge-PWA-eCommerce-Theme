@@ -23,8 +23,13 @@ export const OrderSummaryTitle = styled.h2`
 export const OrderSummaryContent = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 30vh;
+    justify-content: flex-start;
+    height: 35vh;
+    overflow: auto;
+    gap: 15px;
+    &::-webkit-scrollbar { 
+      display: none;
+    }
 `
 
 
