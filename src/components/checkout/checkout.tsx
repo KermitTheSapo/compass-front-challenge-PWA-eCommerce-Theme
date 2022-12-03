@@ -108,7 +108,7 @@ export default function Checkout() {
                                     <S.InputDiv>
                                         <S.InputTitle>Mobile Number</S.InputTitle>
                                         <S.InputsNumber>
-                                            <S.InputDDD type="number" placeholder="+11" />
+                                            <S.InputDDD placeholder="+11" maxLength={2} />
                                             <S.InputNumber value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} placeholder="Enter Number" />
                                         </S.InputsNumber>
                                     </S.InputDiv>
