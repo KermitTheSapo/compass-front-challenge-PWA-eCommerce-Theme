@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./itemArrivalStyle"
 import heart from "@/assets/imgs/home/main/arrivals/heart.svg"
 import heartFill from "@/assets/imgs/home/main/arrivals/heartFill.svg"
 import BottomSheetHome from "../bottomSheetHome/bottomSheetHome";
+import { postBag } from "../../../../../products/bag";
+import { deleteWishlist, postWishlist } from "../../../../../products/wishlist";
 
 type Props = {
     ImgSrc: string;
@@ -16,15 +18,54 @@ type Props = {
     link: string;
     star?: string;
     ratings: number;
-    link2: string;
     information: boolean;
+    isButtonAddTrue: boolean;
 };
-export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, link, safe, discount, star, ratings, link2, information }: Props) {
+export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, link, safe, discount, star, ratings, information, isButtonAddTrue }: Props) {
     const navigate = useNavigate();
     const [heartStatus, setHeartStatus] = useState(true)
     const changeLink = () => {
         navigate(`/product?id=${link}`)
     }
+    const addItemToBag = () => {
+        const product = {
+            name: itemName,
+            paragraph: Description,
+            description: Description,
+            price: Price,
+            safe: safe,
+            discount: discount,
+            link: "asdf",
+            imgAlt: ImgAlt,
+            image: ImgSrc,
+            ratings: ratings,
+            quantity: 1
+        }
+        postBag(product).then((res) => { console.log(res) })
+        alert("Item added to cart")
+    }
+    console.log(link)
+    useEffect(() => {
+        const product = {
+            name: itemName,
+            paragraph: Description,
+            description: Description,
+            price: Price,
+            safe: safe,
+            discount: discount,
+            link: link,
+            imgAlt: ImgAlt,
+            image: ImgSrc,
+            ratings: ratings,
+            quantity: 1
+        }
+        if (heartStatus) {
+            deleteWishlist(link).then((res) => { console.log(res) })
+        } else {
+            postWishlist(product).then((res) => { console.log(res) })
+            alert("Item added to wishlist")
+        }
+    }, [heartStatus])
     const [bottomSheetStatus, setBottomSheetStatus] = useState(false)
     return (
         <>
@@ -50,6 +91,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
                         </S.DivInfoItem>
                     </S.InformationDiv>
                 </S.ItemArrival>
+                {isButtonAddTrue && <S.ButtonAddToBag onClick={() => { addItemToBag() }}>Add to bag</S.ButtonAddToBag>}
             </S.ItemLink>
             {bottomSheetStatus && <>
                 <BottomSheetHome name={itemName} onClick={() => setBottomSheetStatus(!bottomSheetStatus)} description={Description} price={Price} img={ImgSrc} link={link} alt={ImgAlt} safe={safe} discount={discount} ratings={ratings} />
