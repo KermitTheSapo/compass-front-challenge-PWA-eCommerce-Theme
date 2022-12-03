@@ -14,9 +14,12 @@ type Props = {
     link: string;
     onClick: () => void;
     alt: string;
+    safe: number;
+    discount: number;
+    ratings: number;
 }
 
-export default function BottomSheetHome({ name, description, price, img, link, onClick, alt }: Props) {
+export default function BottomSheetHome({ name, description, price, img, link, onClick, alt, safe, discount, ratings }: Props) {
     const navigate = useNavigate()
     return (
         <>
@@ -54,7 +57,7 @@ export default function BottomSheetHome({ name, description, price, img, link, o
                     <S.ImgPlaceHolderDiv onClick={() => navigate(`/product?id=${link}`)}>
                         <img src={placeholder} alt="image of a square to indicate product zoom" />
                     </S.ImgPlaceHolderDiv>
-                    <ButtonAdd name={name} description={description} price={price} img={img} />
+                    <ButtonAdd name={name} description={description} price={price} img={img} safe={safe} discount={discount} ratings={ratings} />
                 </S.Buttons>
             </S.BottomSheetHomeContainer>
         </>
