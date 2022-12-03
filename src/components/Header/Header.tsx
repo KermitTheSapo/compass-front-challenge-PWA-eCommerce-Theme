@@ -10,20 +10,21 @@ import profile from "@/assets/imgs/header/profile.svg"
 import arrowLeft from "@/assets/imgs/header/arrowLeft.svg"
 import bag from "@/assets/imgs/header/bag.svg"
 import bagNotification from "@/assets/imgs/header/bag-notification.svg"
-import { Key, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
-// import { getProducts } from "../../products/products";
+import SearchBar from "./searchBar/searchBar";
+import { getBag } from "../../products/bag";
 
 export default function Header() {
-    // const [productsList, setProductsList] = useState([{}])
+    const [productsList, setProductsList] = useState([{}])
+    const [input, setInput] = useState("")
     const [listCategory, setListCategory] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
     const [price, setPrice] = useState(0)
+    const [searchMenu, setSearchMenu] = useState(false)
     const [tax, setTax] = useState(2)
     const navigate = useNavigate();
-    const bagInfo = localStorage.getItem("items")
-    const bagInfoParse = JSON.parse(bagInfo)
     const openCartInfo = () => {
         if (showCartInfo) {
             setShowCartInfo(false)
@@ -32,18 +33,22 @@ export default function Header() {
             setPrice(0)
             setTax(0)
         }
-        const bagInfo = localStorage.getItem("items")
-        const bagInfoParse = JSON.parse(bagInfo)
-        if (bagInfoParse !== null) {
+        if (productsList.length === 0) {
             setTax(2)
         }
         let value = 0
-        bagInfoParse.map((item: { price: number; }) => { value = value + item.price });
+        productsList.map((item) => { value = value + item.price });
         setPrice(value)
         value = 0;
-        // getProducts().then((res) => setProductsList(res))
+        getBag().then((res) => setProductsList(res))
     }
-
+    useEffect(() => {
+        if (input.length > 0) {
+            setSearchMenu(true)
+        } else {
+            setSearchMenu(false)
+        }
+    }, [input])
 
     return (
         <S.HeaderContainer>
@@ -93,7 +98,10 @@ export default function Header() {
                 </S.UlCategory>
             </S.NavCategory>
             <S.IconsContainer>
-                <S.Input type="text" placeholder="Search for products or brands..." />
+                <S.Input type="text" placeholder="Search for products or brands..." value={input} onChange={(e) => setInput(e.target.value)} />
+                {searchMenu && <S.SearchDiv>
+                    <SearchBar input={input} />
+                </S.SearchDiv>}
                 <S.LinkCategory onClick={() => navigate("/error")}>
                     <S.IconImg src={heart} alt="unfilled heart symbol" />
                 </S.LinkCategory>
@@ -101,7 +109,7 @@ export default function Header() {
                     <S.IconImg src={profile} alt="icon of a person's head and shoulder" />
                 </S.LinkCategory>
                 <S.LinkCategory >
-                    <S.IconImg onClick={() => openCartInfo()} src={bagInfoParse === null ? bag : bagNotification} alt="a bag icon" />
+                    <S.IconImg onClick={() => openCartInfo()} src={productsList.length === 1 ? bagNotification : bag} alt="a bag icon" />
                 </S.LinkCategory>
             </S.IconsContainer>
             <S.TrailingIconsContainer>
@@ -112,7 +120,7 @@ export default function Header() {
                     <S.IconImgMobile src={search} alt="magnifying glass icon" />
                 </S.LinkCategory>
                 <S.LinkCategory onClick={() => navigate("/error")}>
-                    <S.IconImgMobile src={bagInfoParse === null ? notification : notificationOn} alt="bell icon" />
+                    <S.IconImgMobile src={productsList.length === 0 ? notification : notificationOn} alt="bell icon" />
                 </S.LinkCategory>
             </S.TrailingIconsContainer>
             {showCartInfo && <S.CartInfoContainer>
@@ -123,10 +131,10 @@ export default function Header() {
                     </S.AppBar>
                     <S.CardVerticalContainer>
                         <S.DivCardProducts>
-                            {bagInfoParse === null && <S.DivBagEmpty><p>The Bag is empty :(</p></S.DivBagEmpty>}
-                            {bagInfoParse && bagInfoParse.map((item: any, key: Key | null | undefined) => (
+                            {productsList.length === 0 && <S.DivBagEmpty><p>The Bag is empty :(</p></S.DivBagEmpty>}
+                            {productsList && productsList.map((item: any, key: Key | null | undefined) => (
                                 <div key={key}>
-                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.img} />
+                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} />
                                     <S.Separator></S.Separator>
                                 </div>
                             ))}
