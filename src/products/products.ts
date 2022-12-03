@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const Api = `http://localhost:3000/product/`
-export function getProducts() {
+const Api = `http://localhost:4000/product`
+export const getProducts = async () => {
     return axios.get(Api).then((res) => {
         let data = res.data
         return data;
