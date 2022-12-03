@@ -1,3 +1,5 @@
+import { postWishlist } from "../../../products/wishlist";
+import { deleteBag, getBag } from "../../../products/bag";
 import * as S from "./productStyle"
 
 type Props = {
@@ -5,9 +7,52 @@ type Props = {
     productParagraph: string;
     productPrice: number;
     img: string;
+    quantity: number;
+    id: string;
+    safe: number;
+    discount: number;
+    ratings: number;
+    setState: React.Dispatch<React.SetStateAction<{
+        _id: string;
+        name: string;
+        price: number;
+        category: string;
+        image: string;
+        description: string;
+        imgAlt: string;
+        paragraph: string;
+        link: string;
+        ratings: number;
+        discount: number;
+        safe: number;
+        quantity: number;
+    }[]>>;
 }
 
-export default function Product({ productTitle, productParagraph, productPrice, img }: Props) {
+export default function Product({ productTitle, productParagraph, productPrice, img, quantity, id, setState, safe, discount, ratings }: Props) {
+    const removeProduct = () => {
+        getBag().then((res) => setState(res))
+        deleteBag(id).then((res) => { console.log(res) })
+        getBag().then((res) => setState(res))
+        alert("deleted")
+    }
+    const moveToWishlist = () => {
+        const product = {
+            name: productTitle,
+            paragraph: productParagraph,
+            description: productParagraph,
+            price: productPrice,
+            safe: safe,
+            discount: discount,
+            link: "asasas",
+            imgAlt: "sdfasd",
+            image: img,
+            ratings: ratings,
+            quantity: 1
+        }
+        postWishlist(product).then((res) => { console.log(res) })
+        alert("moved")
+    }
     return (
         <S.ProductContainer>
             <S.ImgProduct src={img} alt="" />
@@ -16,15 +61,15 @@ export default function Product({ productTitle, productParagraph, productPrice, 
                     <S.ProductName>{productTitle}</S.ProductName>
                     <S.ProductValues>
                         <S.ProductPrice>${productPrice}</S.ProductPrice>
-                        <S.ProductQuantity>1</S.ProductQuantity>
-                        <S.ProductSubtotal>${productPrice}</S.ProductSubtotal>
+                        <S.ProductQuantity>{quantity}</S.ProductQuantity>
+                        <S.ProductSubtotal>${(productPrice * quantity).toFixed(2)}</S.ProductSubtotal>
                     </S.ProductValues>
                 </S.ProductInformation>
                 <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
-                <S.ProductQuantity>Qty- 1</S.ProductQuantity>
+                <S.ProductQuantity>Qty- {quantity.toFixed(2)}</S.ProductQuantity>
                 <S.ButtonsAction>
-                    <S.WishlistParagraph>Move to Wishlist</S.WishlistParagraph>
-                    <S.RemoveParagraph>Remove</S.RemoveParagraph>
+                    <S.WishlistParagraph onClick={() => { moveToWishlist() }}>Move to Wishlist</S.WishlistParagraph>
+                    <S.RemoveParagraph onClick={() => removeProduct()}>Remove</S.RemoveParagraph>
                 </S.ButtonsAction>
             </S.ProductContent>
         </S.ProductContainer>

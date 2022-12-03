@@ -12,11 +12,38 @@ import { getBag } from "../../products/bag"
 
 export default function MyCart() {
     const [showCoupon, setShowCoupon] = useState(false)
-    const [productsList, setProductsList] = useState([{}])
+    const [productsList, setProductsList] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0,
+        quantity: 0
+    }])
+    const [allPrice, setAllPrice] = useState(0)
+    const [subTotal, setSubTotal] = useState(0)
     const navigate = useNavigate()
     useEffect(() => {
         getBag().then((res) => setProductsList(res))
-    }, [])
+        let Total = 0
+        productsList.map((product) => {
+            Total = Total + (product.price * product.quantity)
+        })
+        setAllPrice(Total)
+        let subTotal = 0
+        productsList.map((product) => {
+            subTotal = subTotal + product.price
+        })
+        setSubTotal(subTotal)
+    }, [productsList])
+
     return (
         <>
             <Helmet>
@@ -49,7 +76,7 @@ export default function MyCart() {
 
                             {productsList && productsList.map((item: any, key: Key | null | undefined) => (
                                 <div key={key}>
-                                    <Product productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} />
+                                    <Product productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} quantity={item.quantity} id={item._id} setState={setProductsList} safe={item.safe} discount={item.discount} ratings={item.ratings}/>
                                 </div>
                             ))}
                         </S.ProductsDiv>
@@ -61,11 +88,11 @@ export default function MyCart() {
                             <S.Summary>
                                 <S.ListSummary>
                                     <S.SummaryLabel>Sub Total</S.SummaryLabel>
-                                    <S.SummaryPrice>$119.69</S.SummaryPrice>
+                                    <S.SummaryPrice>${subTotal.toFixed(2)}</S.SummaryPrice>
                                 </S.ListSummary>
                                 <S.ListSummary>
                                     <S.SummaryLabel>Discount</S.SummaryLabel>
-                                    <S.SummaryPrice>-$13.40</S.SummaryPrice>
+                                    <S.SummaryPrice>-$0.00</S.SummaryPrice>
                                 </S.ListSummary>
                                 <S.ListSummary>
                                     <S.SummaryLabel>Delivery Fee</S.SummaryLabel>
@@ -73,7 +100,7 @@ export default function MyCart() {
                                 </S.ListSummary>
                                 <S.ListSummary>
                                     <S.SummaryTotal>Grand Total</S.SummaryTotal>
-                                    <S.SummaryPriceTotal>$106.29</S.SummaryPriceTotal>
+                                    <S.SummaryPriceTotal>${allPrice.toFixed(2)}</S.SummaryPriceTotal>
                                 </S.ListSummary>
                             </S.Summary>
                             <S.ButtonsActions>
