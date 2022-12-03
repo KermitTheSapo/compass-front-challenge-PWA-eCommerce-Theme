@@ -1,15 +1,17 @@
-import { useState } from "react"
 import QuantityCounter from "./quantityCounter/quantityCounter"
 import * as S from "./quantityStyle"
 
+type Props = {
+    state: number;
+    setState: React.Dispatch<React.SetStateAction<number>>;
+}
 
-export default function Quantity() {
-    const [counter, setCounter] = useState(1)
+export default function Quantity({ state, setState }: Props) {
 
     return (
         <S.Quantity>
             <S.QuantityTitle>Quantity:</S.QuantityTitle>
-            <QuantityCounter setState={setCounter} state={counter} />
+            <QuantityCounter setState={setState} state={state} />
         </S.Quantity>
     )
 }
