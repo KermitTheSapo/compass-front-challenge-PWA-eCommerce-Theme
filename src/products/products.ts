@@ -7,3 +7,11 @@ export const getProducts = async () => {
         return data;
     });
 }
+
+export function getProductsById(id) {
+    let apiId = `${Api}/${id}`
+    return axios.get(apiId).then((res) => {
+        let data = res.data
+        return data;
+    });
+}
