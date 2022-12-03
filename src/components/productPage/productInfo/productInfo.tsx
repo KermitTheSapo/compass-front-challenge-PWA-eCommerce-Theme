@@ -6,7 +6,7 @@ import starOff from "@/assets/imgs/productPage/star-off.svg"
 type Props = {
     name: string;
     value: number;
-    safe: string;
+    safe: number;
     discount: number;
     productParagraph: string;
     ratings: number;
