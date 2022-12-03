@@ -1,7 +1,7 @@
 import ProductPage from "../productPage/productPage";
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
-import { getProductsById } from "../../products/productsById";
+import { getProductsById } from "../../products/products";
 import { useLocation } from 'react-router-dom';
 
 
@@ -26,7 +26,7 @@ export default function Product() {
     useEffect(() => {
         getProductsById(id).then((res) => setProductsList([res]))
     }, [location])
-    
+
     return (
         <>
             {productsList && productsList.map((item, key) => (
