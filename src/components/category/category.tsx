@@ -11,6 +11,7 @@ import stars from "@/assets/imgs/home/main/arrivals/stars.svg"
 
 import wishlist from "@/assets/imgs/category/wishlist.svg"
 import bag from "@/assets/imgs/category/bag.svg"
+import bagNotification from "@/assets/imgs/header/bag-notification.svg"
 import search from "@/assets/imgs/category/search.svg"
 
 import ItemArrival from "../Home/main/Arrivals/itemArrival/itemArrival"
@@ -21,6 +22,7 @@ import { useEffect, useState } from "react"
 import PageNumberTab from "./pageNumberTab/pageNumberTab"
 
 import { getProducts } from "../../products/products"
+import { getBag } from "../../products/bag"
 type Props = {
     name: string;
 };
@@ -39,6 +41,20 @@ export default function Category({ name }: Props) {
     const [pageThree, setPageThree] = useState(false)
     const [pageFour, setPageFour] = useState(false)
     const [pageFive, setPageFive] = useState(false)
+    const [bagList, setBagList] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0
+    }])
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -55,6 +71,7 @@ export default function Category({ name }: Props) {
     }])
     useEffect(() => {
         getProducts().then((res) => setProductsList(res))
+        getBag().then((res) => setBagList(res))
     }, [])
 
     const setSortValue = (e) => {
@@ -89,7 +106,6 @@ export default function Category({ name }: Props) {
         setIsSortActive(true)
         setIsGridActive(false)
     }
-
     return (
         <S.CategoryContainer>
             <Header />
@@ -100,8 +116,8 @@ export default function Category({ name }: Props) {
                 </S.LeadingIcon>
                 <S.TrailingIcon>
                     <img onClick={() => navigate("/wishlist")} src={wishlist} alt="" />
-                    <img src={search} alt="" />
-                    <img src={bag} alt="" />
+                    <img src={search} onClick={() => navigate("/search")} alt="" />
+                    <img src={bagList.length === 1 ? bagNotification : bag} alt="" onClick={() => navigate("/bag")} />
                 </S.TrailingIcon>
             </S.Header>
             <S.Poster>
