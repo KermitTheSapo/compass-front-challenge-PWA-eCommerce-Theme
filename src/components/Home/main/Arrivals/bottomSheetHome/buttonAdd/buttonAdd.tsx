@@ -12,7 +12,7 @@ type Props = {
 }
 
 export default function ButtonAdd({ name, description, price, img, safe, discount, ratings }: Props) {
-    const addItemLocalStorage = () => {
+    const addToApiStorage = () => {
         const product = {
             name: name,
             paragraph: description,
@@ -23,12 +23,13 @@ export default function ButtonAdd({ name, description, price, img, safe, discoun
             link: "asdf",
             imgAlt: "asdfasd",
             image: img,
-            ratings: ratings
+            ratings: ratings,
+            quantity: 1
         }
         postBag(product).then((res) => { console.log(res) })
         alert("Item added to cart")
     }
     return (
-        <S.ButtonAdd onClick={() => { addItemLocalStorage() }}>Add to Bag</S.ButtonAdd>
+        <S.ButtonAdd onClick={() => { addToApiStorage() }}>Add to Bag</S.ButtonAdd>
     )
 }
