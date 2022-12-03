@@ -12,11 +12,14 @@ export const ImgProduct = styled.img`
 export const ProductContent = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
 `
 export const ProductName = styled.p`
     font-weight: 500;
     font-size: 1rem;
     color: var(--TypeHighEmphasis);
+    text-transform: capitalize;
 `
 export const ProductDescription = styled.p`
     font-weight: 400;
