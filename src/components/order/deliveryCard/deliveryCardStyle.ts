@@ -24,6 +24,8 @@ export const ProductName = styled.p`
     font-weight: 500;
     font-size: 0.75rem;
     color: var(--TypeLowEmphasis);
+    text-transform: capitalize;
+
 `
 export const ProductParagraph = styled.p`
     font-weight: 500;
