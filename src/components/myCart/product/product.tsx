@@ -1,19 +1,26 @@
 import * as S from "./productStyle"
-import img from "@/assets/imgs/myCart/image.png"
-export default function Product() {
+
+type Props = {
+    productTitle: string;
+    productParagraph: string;
+    productPrice: number;
+    img: string;
+}
+
+export default function Product({ productTitle, productParagraph, productPrice, img }: Props) {
     return (
         <S.ProductContainer>
             <S.ImgProduct src={img} alt="" />
             <S.ProductContent>
                 <S.ProductInformation>
-                    <S.ProductName>Coach</S.ProductName>
+                    <S.ProductName>{productTitle}</S.ProductName>
                     <S.ProductValues>
-                        <S.ProductPrice>$54.69</S.ProductPrice>
+                        <S.ProductPrice>${productPrice}</S.ProductPrice>
                         <S.ProductQuantity>1</S.ProductQuantity>
-                        <S.ProductSubtotal>$54.69</S.ProductSubtotal>
+                        <S.ProductSubtotal>${productPrice}</S.ProductSubtotal>
                     </S.ProductValues>
                 </S.ProductInformation>
-                <S.ProductParagraph>Leather Coach Bag</S.ProductParagraph>
+                <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
                 <S.ProductQuantity>Qty- 1</S.ProductQuantity>
                 <S.ButtonsAction>
                     <S.WishlistParagraph>Move to Wishlist</S.WishlistParagraph>
