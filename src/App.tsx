@@ -16,13 +16,14 @@ import NewAddress from "./components/newAddress/newAddress"
 import Payments from "./components/payments/payments"
 import Confirmed from "./components/confirmed/confirmed"
 import MyCart from "./components/myCart/myCart"
-import CheckoutInfo from "./components/checkoutInfo/checkoutInfo"
-import CheckoutPayment from "./components/checkoutPayment/checkoutPayment"
+import Checkout from "./components/checkout/checkout"
 import Wishlist from "./components/wishlist/wishlist"
 import Search from "./components/search/search"
 import SearchError from "./components/searchError/searchError"
 import Filters from "./components/category/filters/filters"
 import Product from "./components/product/product"
+import Profile from "./components/profile/profile"
+import SingUp from "./components/singup/singUp"
 
 export default function App() {
   return (
@@ -44,13 +45,14 @@ export default function App() {
         <Route path="/Payments" element={<Payments />} />
         <Route path="/confirmed" element={<Confirmed />} />
         <Route path="/myCart" element={<MyCart />} />
-        <Route path="/checkout-info" element={<CheckoutInfo />} />
-        <Route path="/checkout-payment" element={<CheckoutPayment />} />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/address" element={<Wishlist />} />
         <Route path="/search" element={<Search />} />
         <Route path="/searchError" element={<SearchError />} />
         <Route path="/filters" element={<Filters />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/singUp" element={<SingUp />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
