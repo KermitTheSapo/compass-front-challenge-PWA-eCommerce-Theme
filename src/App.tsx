@@ -17,7 +17,7 @@ import Payments from "./components/payments/payments"
 import Confirmed from "./components/confirmed/confirmed"
 import MyCart from "./components/myCart/myCart"
 import Checkout from "./components/checkout/checkout"
-import Wishlist from "./components/wishlist/wishlist"
+import Address from "./components/address/address"
 import Search from "./components/search/search"
 import SearchError from "./components/searchError/searchError"
 import Filters from "./components/category/filters/filters"
@@ -46,7 +46,7 @@ export default function App() {
         <Route path="/confirmed" element={<Confirmed />} />
         <Route path="/myCart" element={<MyCart />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/address" element={<Wishlist />} />
+        <Route path="/address" element={<Address />} />
         <Route path="/search" element={<Search />} />
         <Route path="/searchError" element={<SearchError />} />
         <Route path="/filters" element={<Filters />} />
