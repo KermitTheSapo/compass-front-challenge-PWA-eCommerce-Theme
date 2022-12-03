@@ -47,6 +47,7 @@ export const Title = styled.h1`
     font-weight: 600;
     font-size: 1.25rem;
     color: var(--Primary);
+    text-transform: capitalize;
     @media (min-width: 768px) {
         font-size: 2.125rem;
     }
