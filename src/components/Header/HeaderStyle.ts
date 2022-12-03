@@ -349,3 +349,7 @@ export const DivBagEmpty = styled.div`
   align-items: center;
   justify-content: center;
 `
+
+export const SearchDiv = styled.div`
+  background-color: var(--Bright);
+`
