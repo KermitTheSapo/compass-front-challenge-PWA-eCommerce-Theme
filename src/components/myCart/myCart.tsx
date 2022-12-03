@@ -5,15 +5,18 @@ import * as S from "./myCartStyle"
 import Product from "./product/product"
 import arrowDown from "@/assets/imgs/myCart/arrowDown.svg"
 import arrowUp from "@/assets/imgs/payments/arrow-up.svg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
-
-
+import { getBag } from "../../products/bag"
 
 export default function MyCart() {
     const [showCoupon, setShowCoupon] = useState(false)
+    const [productsList, setProductsList] = useState([{}])
     const navigate = useNavigate()
+    useEffect(() => {
+        getBag().then((res) => setProductsList(res))
+    }, [])
     return (
         <>
             <Helmet>
@@ -43,8 +46,12 @@ export default function MyCart() {
                             <S.Separator></S.Separator>
                         </S.TableHeading>
                         <S.ProductsDiv>
-                            <Product />
-                            <Product />
+
+                            {productsList && productsList.map((item: any, key: Key | null | undefined) => (
+                                <div key={key}>
+                                    <Product productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} />
+                                </div>
+                            ))}
                         </S.ProductsDiv>
                     </S.ProductDetails>
                     <S.OrderSummary>
@@ -70,8 +77,8 @@ export default function MyCart() {
                                 </S.ListSummary>
                             </S.Summary>
                             <S.ButtonsActions>
-                                <S.BtnOrder onClick={() => navigate("/checkout-info")}>Place Order</S.BtnOrder>
-                                <S.BtnContinue>Continue Shopping</S.BtnContinue>
+                                <S.BtnOrder onClick={() => navigate("/checkout")}>Place Order</S.BtnOrder>
+                                <S.BtnContinue onClick={() => navigate("/")}>Continue Shopping</S.BtnContinue>
                             </S.ButtonsActions>
                         </S.OrderSummaryContent>
                     </S.OrderSummary>
