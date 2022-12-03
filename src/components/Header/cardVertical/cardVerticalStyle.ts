@@ -46,6 +46,7 @@ export const ProductTitle = styled.h2`
   font-weight: 500;
   font-size: 1rem;
   color: var(--TypeHighEmphasis);
+  text-transform: capitalize;
 `
 export const ProductParagraph = styled.p`
   font-weight: 400;
