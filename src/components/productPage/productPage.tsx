@@ -17,6 +17,7 @@ import Buttons from "./buttons/buttons"
 import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescriptionDesktop"
 import Footer from "../footer/footer"
 import { useNavigate } from "react-router-dom"
+import { getBag, postBag } from "../../products/bag"
 
 type Props = {
     name: string;
@@ -31,10 +32,20 @@ type Props = {
 }
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel, ratings }: Props) {
-    const addToLocalStorage = (name, description, price, img) => {
-        let items = JSON.parse(localStorage.getItem('items')) || [];
-        items.push({ name, description, price, img })
-        localStorage.setItem('items', JSON.stringify(items))
+    const addToLocalStorage = () => {
+        const product = {
+            name: name,
+            paragraph: productDescription,
+            description: productParagraph,
+            price: value,
+            safe: safe,
+            discount: discount,
+            link: "asdf",
+            imgAlt: "asdfasd",
+            image: img,
+            ratings: ratings
+        }
+        postBag(product).then((res) => { console.log(res) })
         alert("Item added to cart")
     }
     const navigate = useNavigate()
@@ -76,7 +87,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                     <ProductInfo name={name} value={value} productParagraph={productParagraph} safe={safe} discount={discount} ratings={ratings} />
                     <DeliveryDetails />
                     <Quantity />
-                    <Buttons onClick={() => addToLocalStorage(name, productParagraph, value, img)} />
+                    <Buttons onClick={() => addToLocalStorage()} />
                     <S.Separator></S.Separator>
                     <ProductDescription />
                     <S.Separator></S.Separator>
@@ -93,7 +104,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 <S.heartDiv>
                     <S.ImgHeart src={heart} alt="heart icon" />
                 </S.heartDiv>
-                <S.ButtonAdd onClick={() => addToLocalStorage(name, productParagraph, value, img)}>Add to Bag</S.ButtonAdd>
+                <S.ButtonAdd onClick={() => addToLocalStorage()}>Add to Bag</S.ButtonAdd>
             </S.FooterNav>
         </S.ProductPageContainer>
     )
