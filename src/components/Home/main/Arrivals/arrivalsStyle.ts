@@ -37,7 +37,7 @@ export const ArrivalList = styled.ul`
   justify-content: flex-start;
   min-width: 100%;
   overflow: auto;
-  height: 30vh;
+  height: 32vh;
   gap: 25px;
   &::-webkit-scrollbar { 
   display: none;
