@@ -78,7 +78,7 @@ export const GridSort = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`
+`   
 export const ParagraphShow = styled.p`
     font-weight: 500;
     font-size: 1rem;
