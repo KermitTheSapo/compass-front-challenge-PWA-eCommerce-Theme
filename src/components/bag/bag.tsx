@@ -5,21 +5,35 @@ import { useNavigate } from "react-router-dom"
 import Card from "./card/card"
 import bag from "@/assets/imgs/bag/bag.svg"
 import { Helmet } from "react-helmet"
+import { useEffect, useState } from "react"
+import { getBag } from "../../products/bag"
+
 export default function Bag() {
     const navigate = useNavigate()
-    const bagInfo = localStorage.getItem("items")
-    const bagInfoParse = JSON.parse(bagInfo)
+    const [productsList, setProductsList] = useState([{}])
+    const [priceValue, setPriceValue] = useState(0)
+    useEffect(() => {
+        getBag().then((res) => setProductsList(res))
+    }, [])
+    useEffect(() => {
+        let price = 0
+        productsList.map((product) => {
+            price = price + product.price
+        })
+        setPriceValue(price)
+    }, [productsList])
+
     return (
         <S.BagContainer>
             <Helmet>
                 <title>Coral'l | Bag</title>
             </Helmet>
             <S.BagHeaderNav>
-                <S.ImgBack onClick={() => navigate(-1)} src={bagInfoParse === null ? back : cross} alt="" />
+                <S.ImgBack onClick={() => navigate(-1)} src={productsList.length === 0 ? back : cross} alt="" />
                 <S.BagTitle>My Bag</S.BagTitle>
             </S.BagHeaderNav>
 
-            {bagInfoParse === null ? <S.DivBagEmpty>
+            {productsList.length === 0 ? <S.DivBagEmpty>
                 <S.ImgBag src={bag} alt="" />
                 <S.DivBagTitle>Uh Oh....!</S.DivBagTitle>
                 <S.DivBagParagraph>You haven’t added any any items. Start shopping to make your bag bloom</S.DivBagParagraph>
@@ -27,9 +41,9 @@ export default function Bag() {
             </S.DivBagEmpty> :
                 <>
                     <S.CardsContainers>
-                        <Card />
-                        <Card />
-                        <Card />
+                        {productsList && productsList.map((item: any, key: string | number | symbol) => (
+                            <Card productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} safe={item.safe} discount={item.discount} id={item._id} setState={setProductsList} />
+                        ))}
                     </S.CardsContainers>
                     <S.CouponDiv>
                         <S.InputCode type="text" placeholder="Apply Coupon Code" />
@@ -40,11 +54,11 @@ export default function Bag() {
                         <S.Summary>
                             <S.DivList>
                                 <S.ListTitle>Sub Total</S.ListTitle>
-                                <S.ListPrice>$119.69</S.ListPrice>
+                                <S.ListPrice>${priceValue}</S.ListPrice>
                             </S.DivList>
                             <S.DivList>
                                 <S.ListTitle>Discount</S.ListTitle>
-                                <S.ListPrice>-$13.40</S.ListPrice>
+                                <S.ListPrice>-$0.00</S.ListPrice>
                             </S.DivList>
                             <S.DivList>
                                 <S.ListTitle>Delivery Fee</S.ListTitle>
@@ -52,13 +66,13 @@ export default function Bag() {
                             </S.DivList>
                             <S.DivList>
                                 <S.ListResult>Grand Total</S.ListResult>
-                                <S.ListResultValue>$106.29</S.ListResultValue>
+                                <S.ListResultValue>${priceValue}</S.ListResultValue>
                             </S.DivList>
                         </S.Summary>
                         <S.ButtonDiv>
                             <S.TotalBag>
                                 <S.TotalTitle>Total Bag Amount</S.TotalTitle>
-                                <S.TotalPrice>$106.29</S.TotalPrice>
+                                <S.TotalPrice>${priceValue}</S.TotalPrice>
                             </S.TotalBag>
                             <S.ButtonPlaceOrder onClick={() => navigate("/order")}>Place Order</S.ButtonPlaceOrder>
                         </S.ButtonDiv>
