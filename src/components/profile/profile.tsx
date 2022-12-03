@@ -1,0 +1,41 @@
+import * as S from "./profileStyle"
+
+import imgProfile from "@/assets/imgs/profile/imgProfile.png"
+import arrowRightGrey from "@/assets/imgs/profile/arrowRightGrey.svg"
+import SideNavigation from "./sideNavigation/sideNavigation"
+import Navigation from "../../components/Home/main/bottom-navigation/navigation"
+
+
+export default function Profile() {
+    return (
+        <S.ProfileContainer>
+            <S.ProfileHeader>
+                <S.ProfileTitle>Profile</S.ProfileTitle>
+            </S.ProfileHeader>
+            <S.ProfileBanner>
+                <S.ImgProfile src={imgProfile} alt="" />
+                <S.ProfileContent>
+                    <S.ProfileName>Tina Vargayee</S.ProfileName>
+                    <S.ProfileEmail>tinavar@vinho.com</S.ProfileEmail>
+                    <S.ProfileNumber>+85-5478564</S.ProfileNumber>
+                </S.ProfileContent>
+                <S.ImgArrow src={arrowRightGrey} alt="" />
+            </S.ProfileBanner>
+            <S.NavigationOptions>
+                <SideNavigation path={"/error"} name={"Personal Information"} />
+                <SideNavigation path={"/error"} name={"Refer and Earn"} />
+                <SideNavigation path={"/error"} name={"My Orders"} />
+                <SideNavigation path={"/error"} name={"My Wishlist"} />
+                <SideNavigation path={"/error"} name={"My Reviews"} />
+                <SideNavigation path={"/address"} name={"My Address Book"} />
+                <SideNavigation path={"/error"} name={"My Saved Cards"} />
+            </S.NavigationOptions>
+            <S.BtnLogoutDiv>
+                <S.BtnLogout>Logout</S.BtnLogout>
+            </S.BtnLogoutDiv>
+            <S.BottomNavigation>
+                <Navigation homeTrue={false} categoriesTrue={false} profileTrue={true} bagTrue={false} />
+            </S.BottomNavigation>
+        </S.ProfileContainer>
+    )
+}
