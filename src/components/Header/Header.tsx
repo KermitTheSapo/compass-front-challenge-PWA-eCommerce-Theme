@@ -17,14 +17,38 @@ import SearchBar from "./searchBar/searchBar";
 import { getBag } from "../../products/bag";
 
 export default function Header() {
-    const [productsList, setProductsList] = useState([{}])
+    const [productsList, setProductsList] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0,
+        quantity: 0
+    }])
     const [input, setInput] = useState("")
     const [listCategory, setListCategory] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
     const [price, setPrice] = useState(0)
+    // const [total, setTotal] = useState(0)
     const [searchMenu, setSearchMenu] = useState(false)
     const [tax, setTax] = useState(2)
     const navigate = useNavigate();
+    useEffect(() => {
+        getBag().then((res) => setProductsList(res))
+    }, [productsList])
+    useEffect(() => {
+        let value = 0
+        productsList.map((item) => { value = value + item.price });
+        setPrice(value)
+        value = 0;
+    })
     const openCartInfo = () => {
         if (showCartInfo) {
             setShowCartInfo(false)
@@ -40,7 +64,10 @@ export default function Header() {
         productsList.map((item) => { value = value + item.price });
         setPrice(value)
         value = 0;
-        getBag().then((res) => setProductsList(res))
+        // let total = 0
+        // productsList.map((item) => { total = total + item.price });
+        // setTotal(total)
+        // total = 0;
     }
     useEffect(() => {
         if (input.length > 0) {
@@ -134,7 +161,7 @@ export default function Header() {
                             {productsList.length === 0 && <S.DivBagEmpty><p>The Bag is empty :(</p></S.DivBagEmpty>}
                             {productsList && productsList.map((item: any, key: Key | null | undefined) => (
                                 <div key={key}>
-                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} />
+                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} setState={setProductsList} id={item._id} quantity={item.quantity} />
                                     <S.Separator></S.Separator>
                                 </div>
                             ))}
