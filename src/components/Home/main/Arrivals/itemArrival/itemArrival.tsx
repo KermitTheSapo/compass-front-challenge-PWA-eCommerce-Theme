@@ -11,11 +11,11 @@ type Props = {
     itemName: string;
     Description: string;
     Price: number;
-    safe?: number;
-    discount?: number;
+    safe: number;
+    discount: number;
     link: string;
     star?: string;
-    ratings?: number;
+    ratings: number;
     link2: string;
     information: boolean;
 };
@@ -29,7 +29,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
     return (
         <>
             <S.ItemLink>
-                <S.ItemArrival onClick={() => { window.screen.width > 768 ? changeLink() : navigate(link2) }}>
+                <S.ItemArrival onClick={() => { window.screen.width > 768 ? changeLink() : "" }}>
                     <S.ImgProduct onClick={() => setBottomSheetStatus(!bottomSheetStatus)} src={ImgSrc} alt={ImgAlt} />
                     <S.InformationDiv >
                         <S.NameHeart>
@@ -52,7 +52,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
                 </S.ItemArrival>
             </S.ItemLink>
             {bottomSheetStatus && <>
-                <BottomSheetHome name={itemName} onClick={() => setBottomSheetStatus(!bottomSheetStatus)} description={Description} price={Price} img={ImgSrc} link={link} alt={ImgAlt} />
+                <BottomSheetHome name={itemName} onClick={() => setBottomSheetStatus(!bottomSheetStatus)} description={Description} price={Price} img={ImgSrc} link={link} alt={ImgAlt} safe={safe} discount={discount} ratings={ratings} />
             </>}
         </>
     )

@@ -49,6 +49,7 @@ export const ItemName = styled.h3`
   font-weight: 600;
   font-size: 0.75rem;
   color: var(--TypeHighEmphasis);
+  text-transform: capitalize;
   @media (min-width: 768px) {
     font-weight: 500;
     font-size: 1rem;
