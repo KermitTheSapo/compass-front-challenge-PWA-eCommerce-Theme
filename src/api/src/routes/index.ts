@@ -1,6 +1,8 @@
 import express from 'express'
 import product from './productRoutes'
 import bag from './bagRoutes'
+import wishlist from './wishlistRoutes'
+import coupon from './couponRoutes'
 // @ts-ignore
 const routes = (app) => {
   // @ts-ignore
@@ -15,6 +17,14 @@ const routes = (app) => {
   app.use(
     express.json(),
     bag
+  )
+  app.use(
+    express.json(),
+    wishlist
+  )
+  app.use(
+    express.json(),
+    coupon
   )
 
 }
