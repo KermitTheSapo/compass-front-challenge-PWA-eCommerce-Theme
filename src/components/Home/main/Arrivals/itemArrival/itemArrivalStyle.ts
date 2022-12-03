@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import bagIcon from "@/assets/imgs/category/bagIcon.svg"
 
 export const ItemArrival = styled.div`
   display: flex;
@@ -127,5 +128,24 @@ export const Ratings = styled.p`
   @media (max-width: 768px) {
     font-weight: 500;
     font-size: 0.625rem;
+  }
+`
+
+export const ButtonAddToBag = styled.button`
+  width: 100%;
+  height: 36px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid var(--Primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--Primary);
+  cursor: pointer;
+  background-image: url(${bagIcon});
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 24px;
+  @media (min-width: 768px) {
+      display: none;
   }
 `
