@@ -16,7 +16,9 @@ export default function Arrivals() {
         imgAlt: "",
         paragraph: "",
         link: "",
-        ratings: 0
+        ratings: 0,
+        safe: 0,
+        discount: 0
     }])
     useEffect(() => {
         getProducts().then((res) => setProductsList(res))
@@ -31,7 +33,7 @@ export default function Arrivals() {
             </S.ArrivalHeader>
             <S.ArrivalList>
                 {productsList && productsList.map((item, key) => (
-                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} link2={""} information={false} />
+                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
                 ))}
             </S.ArrivalList>
         </S.ArrivalsSection>
