@@ -36,7 +36,7 @@ export default function Bag() {
             total = total + (product.price * quantity)
         })
         setPriceValue(total)
-        let subTotal = 0
+        let subTotal = 0    
         productsList.map((product) => {
             subTotal = subTotal + product.price
         })
