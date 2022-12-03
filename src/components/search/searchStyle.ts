@@ -77,7 +77,7 @@ export const NewArrivalsList = styled.div`
     min-width: 100%;
     overflow: auto;
     gap: 50px;
-    height: 30vh;
+    height: 32vh;
     &::-webkit-scrollbar { 
       display: none;
     }
