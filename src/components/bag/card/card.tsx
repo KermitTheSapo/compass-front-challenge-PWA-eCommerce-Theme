@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import * as S from "./cardStyle"
 import { deleteBag, getBag } from "../../../products/bag";
 
@@ -10,11 +9,26 @@ type Props = {
     safe: number;
     discount: number;
     id: string;
-    setState: React.Dispatch<React.SetStateAction<{}[]>>;
-}
-export default function Card({ productTitle, productParagraph, productPrice, img, safe, discount, id, setState }: Props) {
-    const [quantity, setQuantity] = useState("")
+    setState: React.Dispatch<React.SetStateAction<{
+        _id: string;
+        name: string;
+        price: number;
+        category: string;
+        image: string;
+        description: string;
+        imgAlt: string;
+        paragraph: string;
+        link: string;
+        ratings: number;
+        discount: number;
+        safe: number;
+    }[]>>
+    ;
+    state: number;
+    setQuantity: React.Dispatch<React.SetStateAction<number>>;
 
+}
+export default function Card({ productTitle, productParagraph, productPrice, img, safe, discount, id, setState, state, setQuantity }: Props) {
     const deleteProduct = () => {
         getBag().then((res) => setState(res))
         deleteBag(id).then((res) => { console.log(res) })
@@ -39,7 +53,7 @@ export default function Card({ productTitle, productParagraph, productPrice, img
                         </S.SelectOptions>
                     </S.DivQuantity>
                     <S.Values>
-                        <S.Price>${productPrice}</S.Price>
+                        <S.Price>${(productPrice * state).toFixed(2)}</S.Price>
                         <S.Safe>${safe}</S.Safe>
                         <S.Discount>{discount}% OFF</S.Discount>
                     </S.Values>
