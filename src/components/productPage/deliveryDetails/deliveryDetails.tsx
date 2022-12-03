@@ -8,7 +8,7 @@ export default function DeliveryDetails() {
                 <S.DeliveryParagraph>Check estimated delivery date/pickup option.</S.DeliveryParagraph>
             </S.DeliveryContent>
             <S.DeliveryPinCode>
-                <S.DeliveryInput type="text" placeholder="Enter Valid Pincode" />
+                <S.DeliveryInput type="text" placeholder="Enter Valid PinCode" />
                 <S.DeliveryBtn>Check</S.DeliveryBtn>
             </S.DeliveryPinCode>
         </S.DeliveryDetails>
