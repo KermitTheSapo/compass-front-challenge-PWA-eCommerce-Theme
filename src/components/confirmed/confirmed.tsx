@@ -20,8 +20,8 @@ export default function Confirmed() {
                 <S.ConfirmedAdviseText>The order has been placed. Thanks for shopping with us. You’ll soon receive the tracking details</S.ConfirmedAdviseText>
             </S.ConfirmedAdvise>
             <S.BtnActionsDiv>
-                <S.btnView>View Order</S.btnView>
-                <S.btnContinue>Continue Shopping</S.btnContinue>
+                <S.btnView onClick={() => navigate("/bag")}>View Order</S.btnView>
+                <S.btnContinue onClick={() => navigate("/")}>Continue Shopping</S.btnContinue>
             </S.BtnActionsDiv>
         </S.ConfirmedContainer>
     )
