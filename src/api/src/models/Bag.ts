@@ -11,7 +11,8 @@ const BagSchema = new mongoose.Schema({
   link: { type: String, required: true },
   imgAlt: { type: String, required: true },
   image: { type: String, required: true },
-  ratings: { type: Number, required: true }
+  ratings: { type: Number, required: true },
+  quantity: { type: Number, required: true }
 })
 
 const Bag = mongoose.model('bag', BagSchema)
