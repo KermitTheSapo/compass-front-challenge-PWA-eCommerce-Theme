@@ -3,6 +3,8 @@ import db from './config/dbConnect'
 import routes from './routes/index'
 import product from "./routes/productRoutes"
 import bag from "./routes/bagRoutes"
+import wishlist from "./routes/wishlistRoutes"
+import coupon from "./routes/couponRoutes"
 import cors from 'cors'
 const PORT = process.env.PORT || 4000
 const HOSTNAME = process.env.HOSTNAME || 'http://localhost'
@@ -20,10 +22,12 @@ const options: cors.CorsOptions = {
 app.use(cors(options))
 app.use(express.json())
 app.get('/', (req, res) => {
-  res.send('Bem-vindo!')
+  res.send('welcome to home!')
 })
 app.use("/product", product)
 app.use("/bag", bag)
+app.use("/wishlist", wishlist)
+app.use("/coupon", coupon)
 
 app.use((req, res) => {
   res.status(404)
