@@ -10,6 +10,21 @@ import { getProducts } from "../../products/products";
 export default function Search() {
     const navigate = useNavigate()
     const [input, setInput] = useState("")
+    const [loading, setLoading] = useState(true)
+    const [arrayFiltrado, setArrayFiltrado] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0
+    }])
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -20,11 +35,27 @@ export default function Search() {
         imgAlt: "",
         paragraph: "",
         link: "",
-        ratings: 0
+        ratings: 0,
+        discount: 0,
+        safe: 0
     }])
+
     useEffect(() => {
-        getProducts().then((res) => setProductsList(res))
+        getProducts().then((res) => { setProductsList(res); setLoading(false) })
     }, [])
+    //                 if (arrayFiltrado.length === 0){ console.log("asss")    }
+
+    useEffect(() => {
+        if (productsList.length !== 0) {
+            if (input) {
+                setArrayFiltrado(productsList.filter((item) => item.name.includes(input.toLowerCase())))
+            } else {
+                setArrayFiltrado(productsList)
+
+            }
+        }
+    }, [input, productsList])
+
     return (
         <S.SearchContainer>
             <Helmet>
@@ -47,9 +78,10 @@ export default function Search() {
             <S.NewArrivals>
                 <S.NewArrivalsTitle>New Arrivals</S.NewArrivalsTitle>
                 <S.NewArrivalsList>
-                    {productsList && productsList.map((item, key) => (
-                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} link2={""} information={false} />
-                    ))}
+                    {loading && <h1>Loading...</h1>}
+                    {!loading ? arrayFiltrado.map((item, key) => (
+                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} link2={""} information={false} safe={0} discount={0} />
+                    )) : null}
                 </S.NewArrivalsList>
             </S.NewArrivals>
         </S.SearchContainer>
