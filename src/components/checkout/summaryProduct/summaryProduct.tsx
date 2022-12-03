@@ -1,13 +1,19 @@
 import * as S from "./summaryProductStyle"
-import img from "@/assets/imgs/checkout/image.png"
-export default function SummaryProduct() {
+
+type Props = {
+    productTitle: string;
+    productParagraph: string;
+    img: string;
+    quantity: number;
+}
+export default function SummaryProduct({ productTitle, productParagraph,  img, quantity }: Props) {
     return (
         <S.ProductContainer>
             <S.ImgProduct src={img} alt="" />
             <S.ProductContent>
-                <S.ProductName>Coach</S.ProductName>
-                <S.ProductDescription>Leather Coach Bag</S.ProductDescription>
-                <S.ProductQuantity>Qty- 1</S.ProductQuantity>
+                <S.ProductName>{productTitle}</S.ProductName>
+                <S.ProductDescription>{productParagraph}</S.ProductDescription>
+                <S.ProductQuantity>Qty- {quantity}</S.ProductQuantity>
             </S.ProductContent>
         </S.ProductContainer>
     )
