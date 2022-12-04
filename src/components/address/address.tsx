@@ -8,10 +8,10 @@ export default function Address() {
     return (
         <S.ConfirmedContainer>
             <Helmet>
-                <title>Coral'l | WishList</title>
+                <title>Coral'l | Address</title>
             </Helmet>
             <S.ConfirmedHeader>
-                <S.ImgBack src={arrowBack} alt="" onClick={() => navigate(-1)} />
+                <S.ImgBack src={arrowBack} alt="an arrow to the left" onClick={() => navigate(-1)} />
                 <S.ConfirmedTitle>My Address Book</S.ConfirmedTitle>
             </S.ConfirmedHeader>
             <S.ConfirmedAdvise>
