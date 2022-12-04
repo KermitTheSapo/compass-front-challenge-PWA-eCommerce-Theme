@@ -43,7 +43,6 @@ export default function MyCart() {
         })
         setSubTotal(subTotal)
     }, [productsList])
-
     return (
         <>
             <Helmet>
@@ -79,6 +78,10 @@ export default function MyCart() {
                                     <Product productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} quantity={item.quantity} id={item._id} setState={setProductsList} safe={item.safe} discount={item.discount} ratings={item.ratings} />
                                 </div>
                             ))}
+                            {productsList.length === 0 && <S.EmptyCart>
+                                <S.EmptyTitle>Uh Oh....!</S.EmptyTitle>
+                                <S.EmptyParagraph>You haven’t added any items. Start shopping to make your bag bloom</S.EmptyParagraph>
+                            </S.EmptyCart>}
                         </S.ProductsDiv>
                     </S.ProductDetails>
                     <S.OrderSummary>
