@@ -84,7 +84,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
                             </S.DivStar>}
                         <S.DivInfoItem>
                             <S.ItemPrice>${Price.toFixed(2)}</S.ItemPrice>
-                            <S.ItemSafe>{safe}</S.ItemSafe>
+                            {information && <S.ItemSafe>{safe}</S.ItemSafe>}
                             {information &&
                                 <S.ItemDiscount>{discount}%OFF</S.ItemDiscount>}
                         </S.DivInfoItem>
