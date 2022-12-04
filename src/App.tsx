@@ -19,11 +19,16 @@ import MyCart from "./components/myCart/myCart"
 import Checkout from "./components/checkout/checkout"
 import Address from "./components/address/address"
 import Search from "./components/search/search"
-import SearchError from "./components/searchError/searchError"
 import Filters from "./components/category/filters/filters"
 import Product from "./components/product/product"
 import Profile from "./components/profile/profile"
 import SingUp from "./components/singup/singUp"
+import { Notification } from "./components/notification/notification"
+import Wishlist from "./components/wishlist/wishlist"
+import Categories from "./components/categories/categories"
+import MyReviews from "./components/myReviews/myReviews"
+import Refer from "./components/refer/refer"
+import About from "./components/about/about"
 
 export default function App() {
   return (
@@ -48,11 +53,16 @@ export default function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/address" element={<Address />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/searchError" element={<SearchError />} />
         <Route path="/filters" element={<Filters />} />
         <Route path="/product" element={<Product />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/singUp" element={<SingUp />} />
+        <Route path="/notification" element={<Notification />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/myReviews" element={<MyReviews />} />
+        <Route path="/refer" element={<Refer />} />
+        <Route path="/about" element={<About />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>
