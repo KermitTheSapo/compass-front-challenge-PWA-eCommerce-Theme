@@ -32,7 +32,7 @@ type Props = {
 export default function Product({ productTitle, productParagraph, productPrice, img, quantity, id, setState, safe, discount, ratings }: Props) {
     const removeProduct = () => {
         getBag().then((res) => setState(res))
-        deleteBag(id).then((res) => { console.log(res) })
+        deleteBag(id)
         getBag().then((res) => setState(res))
         alert("deleted")
     }
@@ -50,7 +50,7 @@ export default function Product({ productTitle, productParagraph, productPrice, 
             ratings: ratings,
             quantity: 1
         }
-        postWishlist(product).then((res) => { console.log(res) })
+        postWishlist(product)
         alert("moved")
     }
     return (
