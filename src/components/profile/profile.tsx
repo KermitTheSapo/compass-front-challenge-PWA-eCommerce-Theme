@@ -4,11 +4,15 @@ import imgProfile from "@/assets/imgs/profile/imgProfile.png"
 import arrowRightGrey from "@/assets/imgs/profile/arrowRightGrey.svg"
 import SideNavigation from "./sideNavigation/sideNavigation"
 import Navigation from "../../components/Home/main/bottom-navigation/navigation"
+import { Helmet } from "react-helmet"
 
 
 export default function Profile() {
     return (
         <S.ProfileContainer>
+            <Helmet>
+                <title>Coral'l | Profile</title>
+            </Helmet>
             <S.ProfileHeader>
                 <S.ProfileTitle>Profile</S.ProfileTitle>
             </S.ProfileHeader>
