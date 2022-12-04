@@ -111,3 +111,28 @@ export const ImgArrowModal = styled.img`
     height: 24px;
     width: 24px;
 `
+
+
+export const InputUpiId = styled.input`
+    width: 287px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: var(--Bright);
+    border: 1px solid var(--PrimaryTint);
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--LightText);
+`
+export const ParagraphExample = styled.p`
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--paragraphExample);
+`
+export const InputCheckbox = styled.input`
+
+`
+export const LabelCheckbox = styled.label`
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--TypeLowEmphasis);
+`
