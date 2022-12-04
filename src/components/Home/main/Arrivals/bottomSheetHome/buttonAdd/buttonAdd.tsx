@@ -26,7 +26,7 @@ export default function ButtonAdd({ name, description, price, img, safe, discoun
             ratings: ratings,
             quantity: 1
         }
-        postBag(product).then((res) => { console.log(res) })
+        postBag(product)
         alert("Item added to cart")
     }
     return (
