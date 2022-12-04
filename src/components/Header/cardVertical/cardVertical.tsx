@@ -40,7 +40,7 @@ export default function CardVertical({ productTitle, productParagraph, productPr
 
     const deleteProduct = () => {
         getBag().then((res) => setState(res))
-        deleteBag(id).then((res) => { console.log(res) })
+        deleteBag(id)
         getBag().then((res) => setState(res))
         alert("deleted")
     }
