@@ -13,6 +13,7 @@ import { useState } from "react"
 export default function CheckoutPayments() {
     const [showPayments, setShowPayments] = useState(true)
     const [activePaymentMethod, setActivePaymentMethod] = useState(false)
+    const [showUpi, setShowUpi] = useState(false)
     return (
         <S.CheckoutContent>
             <S.ContactAndPayments>
@@ -45,24 +46,29 @@ export default function CheckoutPayments() {
                         </S.CardMethod>
                     </S.PaymentMethods>}
                     {activePaymentMethod && <S.ActivePaymentMethod>
-                        <S.MethodItem>
+                        <S.MethodItem onClick={() => setShowUpi(!showUpi)}>
                             <S.ImgTitleItem>
                                 <S.ImgMethod src={googlePlay} alt="google pay icon" />
                                 <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
                             </S.ImgTitleItem>
                             <S.InputRadioMethod type="radio" />
                         </S.MethodItem>
+                        {showUpi && <div>
+                            <S.InputUpiId type="text" placeholder="Enter your UPI Id"/>
+                            <S.ParagraphExample>Eg: 1234567890@ybl</S.ParagraphExample>
+                            <S.InputCheckbox type="checkbox" name="" id="save" />
+                            <S.LabelCheckbox htmlFor="save">Save this for future transactions</S.LabelCheckbox></div>}
                         <S.MethodItem>
                             <S.ImgTitleItem>
-                                <S.ImgMethod src={phonePe} alt="google pay icon" />
-                                <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
+                                <S.ImgMethod src={phonePe} alt="Phone Pe icon" />
+                                <S.MethodItemTitle>Phone Pe</S.MethodItemTitle>
                             </S.ImgTitleItem>
                             <S.InputRadioMethod type="radio" />
                         </S.MethodItem>
                         <S.MethodItem>
                             <S.ImgTitleItem>
-                                <S.ImgMethod src={paytm} alt="google pay icon" />
-                                <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
+                                <S.ImgMethod src={paytm} alt="Paytm icon" />
+                                <S.MethodItemTitle>Paytm</S.MethodItemTitle>
                             </S.ImgTitleItem>
                             <S.InputRadioMethod type="radio" />
                         </S.MethodItem>
