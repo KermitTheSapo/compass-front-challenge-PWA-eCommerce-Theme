@@ -35,7 +35,7 @@ export const ProductParagraph = styled.p`
 export const ProductValues = styled.div`
     display: flex;
     width: 50%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 5vh;
     order: 4;
@@ -85,6 +85,7 @@ export const ProductAverage = styled.div`
     width: 70%;
     @media (max-width: 768px) {
         width: 35%;
+        order: 5;
     }
     @media (max-width: 425px) {
         width: 70%;
