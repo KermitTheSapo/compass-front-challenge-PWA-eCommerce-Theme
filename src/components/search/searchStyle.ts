@@ -88,3 +88,64 @@ export const Div = styled.div`
     display: flex;
     width: 154px;
 `
+
+
+export const ConfirmedAdvise = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 45vh;
+    position: fixed;
+    top: 30%;
+    left: 0;
+`
+export const ImgConfirmed = styled.img``
+export const ConfirmedAdviseTitle = styled.h2`
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--Dark);
+`
+export const ConfirmedAdviseText = styled.p`
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--Dark);
+    text-align: center;
+    width: 70%;
+`
+
+export const BtnActionsDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 10vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+`
+
+export const btnView = styled.button`
+    width: 90%;
+    height: 44px;
+    border-radius: 8px;
+    border: 2px solid var(--Primary);
+    background-color: transparent;
+    color: var(--Primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+`
+export const btnContinue = styled.button`
+    width: 90%;
+    height: 44px;
+    border-radius: 8px;
+    background-color: var(--Primary);
+    color: var(--Bright);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+
+`
