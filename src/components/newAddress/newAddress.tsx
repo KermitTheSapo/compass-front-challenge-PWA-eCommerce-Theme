@@ -11,6 +11,8 @@ export default function NewAddress() {
     const [phone, setPhone] = useState("");
     const [text, setText] = useState("");
     const [pinCode, setPinCode] = useState("")
+    const [isCorrectInfo, setIsCorrectInfo] = useState(false)
+    const [ddd, setDdd] = useState("")
     const maskPhone = (value) => {
         return value
             .replace(/\D/g, "")
@@ -56,8 +58,17 @@ export default function NewAddress() {
     useEffect(() => {
         getCep()
     }, [pinCode])
-    console.log(address)
 
+    const saveAddress = () => {
+        if (text.length > 5 && ddd.length === 2 && phone.length > 8 && pinCode.length === 8) {
+            setIsCorrectInfo(false)
+            navigate(-1)
+            alert("Address successfully saved!")
+        } else {
+            setIsCorrectInfo(true)
+            alert("Fill in all fields")
+        }
+    }
     return (
         <S.NewAddressContainer>
             <Helmet>
@@ -73,7 +84,7 @@ export default function NewAddress() {
                 <S.ContactContent>
                     <S.NameInput placeholder="Full Name" value={text} onChange={(e) => setText(maskOnlyLetters(e.target.value))} />
                     <S.DivInputNumber>
-                        <S.DDDInput placeholder="+11" maxLength={2} />
+                        <S.DDDInput placeholder="+11" maxLength={2} value={ddd} onChange={(e) => { setDdd(e.target.value) }} />
                         <S.NumberInput placeholder="Contact Number" value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} />
                     </S.DivInputNumber>
                 </S.ContactContent>
@@ -100,7 +111,7 @@ export default function NewAddress() {
                 <S.LabelCheckbox htmlFor="deliveryAddress">Use as default delivery address.</S.LabelCheckbox>
             </S.DefaultAddressDiv>
             <S.SaveBtnDiv>
-                <S.SaveButton>Save Address</S.SaveButton>
+                <S.SaveButton onClick={() => saveAddress()}>Save Address</S.SaveButton>
             </S.SaveBtnDiv>
         </S.NewAddressContainer>
     )
