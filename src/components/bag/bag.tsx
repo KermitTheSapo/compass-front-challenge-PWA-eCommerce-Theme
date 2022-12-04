@@ -92,7 +92,7 @@ export default function Bag() {
                         <S.ButtonDiv>
                             <S.TotalBag>
                                 <S.TotalTitle>Total Bag Amount</S.TotalTitle>
-                                <S.TotalPrice>${priceValue}</S.TotalPrice>
+                                <S.TotalPrice>${priceValue.toFixed(2)}</S.TotalPrice>
                             </S.TotalBag>
                             <S.ButtonPlaceOrder onClick={() => navigate("/order")}>Place Order</S.ButtonPlaceOrder>
                         </S.ButtonDiv>
