@@ -3,6 +3,7 @@ import cross from "@/assets/imgs/bag/cross.svg"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
+import FilterOption from "./filterOption/filterOption"
 export default function Filters() {
     const [sizeOption, setSizeOption] = useState(true)
     const [colorOption, setColorOption] = useState(false)
@@ -69,18 +70,14 @@ export default function Filters() {
                 </S.Filters>
                 <S.FiltersOptions>
                     {sizeOption && <S.OptionsList>
-                        <S.OptionItem>
-                            <S.InputCheckbox type="checkbox" />
-                            <S.Label htmlFor="">Blue</S.Label>
-                        </S.OptionItem>
-                        <S.OptionItem>
-                            <S.InputCheckbox type="checkbox" />
-                            <S.Label htmlFor="">Blue</S.Label>
-                        </S.OptionItem>
-                        <S.OptionItem>
-                            <S.InputCheckbox type="checkbox" />
-                            <S.Label htmlFor="">Blue</S.Label>
-                        </S.OptionItem>
+                        <FilterOption name={"blue"} id={"blue"} />
+                        <FilterOption name={"Maroon Red"} id={"MaroonRed"} />
+                        <FilterOption name={"Crimson Red"} id={"CrimsonRed"} />
+                        <FilterOption name={"Seinna Pink"} id={"SeinnaPink"} />
+                        <FilterOption name={"Teal"} id={"Teal"} />
+                        <FilterOption name={"Aquamarine"} id={"Aquamarine"} />
+                        <FilterOption name={"Off-White"} id={"OffWhite"} />
+                        <FilterOption name={"Muave Orange"} id={"MuaveOrange"} />
                     </S.OptionsList>}
                     {colorOption && <h2>2222222</h2>}
                     {brandOption && <h2>333333</h2>}
