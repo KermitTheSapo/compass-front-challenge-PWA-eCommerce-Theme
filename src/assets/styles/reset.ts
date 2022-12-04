@@ -80,5 +80,6 @@ export const Reset = createGlobalStyle`
     --SeparatorStorybook: #D8D8D8;
     --ParagraphDateOrderCard: #7E7E7E;
     --BorderCardPaymentMethod: #E3E3E3;
+    --paragraphExample: #A7A7A7;
   }
 `
