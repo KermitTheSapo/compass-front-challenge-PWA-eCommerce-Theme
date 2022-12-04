@@ -84,7 +84,7 @@ export default function Checkout() {
             <S.CheckoutInfoContainer>
                 <S.Breadcrumbs>
                     <S.Label color="#1B4B66">Home</S.Label>
-                    <img src={arrowBreadcrumbs} alt="" />
+                    <img src={arrowBreadcrumbs} alt="an arrow icon" />
                     <S.Label color="#626262">Checkout</S.Label>
                 </S.Breadcrumbs>
                 <S.TitlePageDiv>
@@ -95,7 +95,7 @@ export default function Checkout() {
                         <S.NewAddressDiv>
                             <S.NewAddressHeader>
                                 <S.NewAddressTitle>Add New Address</S.NewAddressTitle>
-                                <S.ArrowImgModal src={showAddress ? arrowDown : arrowUp} alt="" onClick={() => setShowAddress(!showAddress)} />
+                                <S.ArrowImgModal src={showAddress ? arrowDown : arrowUp} alt="an arrow icon" onClick={() => setShowAddress(!showAddress)} />
                             </S.NewAddressHeader>
                             <S.Separator></S.Separator>
                             {showAddress && <S.NewAddressContent>

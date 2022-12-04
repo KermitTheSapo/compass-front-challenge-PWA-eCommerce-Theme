@@ -47,7 +47,7 @@ export default function Filters() {
             </Helmet>
             <S.FilterHeader>
                 <S.FilterTitle>Filters</S.FilterTitle>
-                <img src={cross} alt="" onClick={() => navigate(-1)} />
+                <img src={cross} alt="icon of an X" onClick={() => navigate(-1)} />
             </S.FilterHeader>
             <S.FilterBody>
                 <S.Filters>

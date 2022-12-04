@@ -53,7 +53,7 @@ export default function MyCart() {
             <S.MyCartContainer>
                 <S.BreadCrumbs>
                     <S.LabelBreadCrumbOn>Home</S.LabelBreadCrumbOn>
-                    <img src={ArrowRight} alt="" />
+                    <img src={ArrowRight} alt="left arrow icon" />
                     <S.LabelBreadCrumbOff>My Cart</S.LabelBreadCrumbOff>
                 </S.BreadCrumbs>
                 <S.PageTitleDiv>
@@ -76,7 +76,7 @@ export default function MyCart() {
 
                             {productsList && productsList.map((item: any, key: Key | null | undefined) => (
                                 <div key={key}>
-                                    <Product productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} quantity={item.quantity} id={item._id} setState={setProductsList} safe={item.safe} discount={item.discount} ratings={item.ratings}/>
+                                    <Product productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} quantity={item.quantity} id={item._id} setState={setProductsList} safe={item.safe} discount={item.discount} ratings={item.ratings} />
                                 </div>
                             ))}
                         </S.ProductsDiv>
@@ -113,7 +113,7 @@ export default function MyCart() {
                 <S.ApplyCoupon>
                     <S.ApplyHeader>
                         <S.ApplyCouponTitle>Apply Coupon</S.ApplyCouponTitle>
-                        <S.ArrowModal src={showCoupon ? arrowUp : arrowDown} alt="" onClick={() => setShowCoupon(!showCoupon)} />
+                        <S.ArrowModal src={showCoupon ? arrowUp : arrowDown} alt="down or up arrow icon" onClick={() => setShowCoupon(!showCoupon)} />
                     </S.ApplyHeader>
                     <S.Separator></S.Separator>
                     {showCoupon && <S.CouponDiv>

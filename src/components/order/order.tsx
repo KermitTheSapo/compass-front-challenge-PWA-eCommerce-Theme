@@ -48,7 +48,7 @@ export default function Order() {
                 <title>Coral'l | Order</title>
             </Helmet>
             <S.OrderHeader>
-                <S.ImgArrowBack onClick={() => navigate(-1)} src={arrow} alt="" />
+                <S.ImgArrowBack onClick={() => navigate(-1)} src={arrow} alt="arrow icon" />
                 <S.OrderTitle>Order Summary</S.OrderTitle>
             </S.OrderHeader>
             <Address state={sheetEditAddress} setState={setSheetEditAddress} />

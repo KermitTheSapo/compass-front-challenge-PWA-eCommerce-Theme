@@ -13,7 +13,7 @@ export default function Head() {
             <S.Ratings>
                 <S.AverageRatings>
                     <S.AverageRatingsNumber>4.5</S.AverageRatingsNumber>
-                    <S.AverageRatingsStar src={star} alt="" />
+                    <S.AverageRatingsStar src={star} alt="star icon" />
                     <S.AverageTitle>Average Rating</S.AverageTitle>
                 </S.AverageRatings>
                 <Stats />
@@ -21,13 +21,13 @@ export default function Head() {
             <S.Photos>
                 <S.PhotosTitle>Customer Photos</S.PhotosTitle>
                 <S.PhotoCarousel>
-                    <S.ImgCarousel src={img} alt="" />
-                    <S.ImgCarousel src={img} alt="" />
-                    <S.ImgCarousel src={img} alt="" />
-                    <S.ImgCarousel src={img} alt="" />
-                    <S.ImgCarousel src={img} alt="" />
-                    <S.ImgCarousel src={img} alt="" />
-                    <S.ImgCarousel src={img} alt="" />
+                    <S.ImgCarousel src={img} alt="product img" />
+                    <S.ImgCarousel src={img} alt="product img" />
+                    <S.ImgCarousel src={img} alt="product img" />
+                    <S.ImgCarousel src={img} alt="product img" />
+                    <S.ImgCarousel src={img} alt="product img" />
+                    <S.ImgCarousel src={img} alt="product img" />
+                    <S.ImgCarousel src={img} alt="product img" />
                 </S.PhotoCarousel>
             </S.Photos>
         </S.HeadContainer>

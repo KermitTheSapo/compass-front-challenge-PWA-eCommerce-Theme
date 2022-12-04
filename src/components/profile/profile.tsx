@@ -17,13 +17,13 @@ export default function Profile() {
                 <S.ProfileTitle>Profile</S.ProfileTitle>
             </S.ProfileHeader>
             <S.ProfileBanner>
-                <S.ImgProfile src={imgProfile} alt="" />
+                <S.ImgProfile src={imgProfile} alt="profile img" />
                 <S.ProfileContent>
                     <S.ProfileName>Tina Vargayee</S.ProfileName>
                     <S.ProfileEmail>tinavar@vinho.com</S.ProfileEmail>
                     <S.ProfileNumber>+85-5478564</S.ProfileNumber>
                 </S.ProfileContent>
-                <S.ImgArrow src={arrowRightGrey} alt="" />
+                <S.ImgArrow src={arrowRightGrey} alt="right arrow" />
             </S.ProfileBanner>
             <S.NavigationOptions>
                 <SideNavigation path={"/error"} name={"Personal Information"} />

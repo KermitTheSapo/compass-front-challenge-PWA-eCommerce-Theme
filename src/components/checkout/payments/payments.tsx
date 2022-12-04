@@ -19,49 +19,49 @@ export default function CheckoutPayments() {
                 <S.PaymentsDiv>
                     <S.PaymentsHeader>
                         <S.PaymentsTitle>Payments</S.PaymentsTitle>
-                        <S.ImgArrowModal src={showPayments ? arrowDown : arrowUp} alt="" onClick={() => setShowPayments(!showPayments)} />
+                        <S.ImgArrowModal src={showPayments ? arrowDown : arrowUp} alt="up or down arrow icon" onClick={() => setShowPayments(!showPayments)} />
                     </S.PaymentsHeader>
                     <S.Separator></S.Separator>
                     {showPayments && <S.PaymentMethods>
                         <S.CardMethod onClick={() => setActivePaymentMethod(!activePaymentMethod)}>
                             <S.InputRadioMethod type="radio" />
-                            <S.ImgCardMethod src={upi} alt="" />
+                            <S.ImgCardMethod src={upi} alt="UPI logo icon" />
                             <S.CardMethodName>UPI</S.CardMethodName>
                         </S.CardMethod>
                         <S.CardMethod>
                             <S.InputRadioMethod type="radio" />
-                            <S.ImgCardMethod src={creditCard} alt="" />
+                            <S.ImgCardMethod src={creditCard} alt="credit card icon" />
                             <S.CardMethodName>Credit/Debit Card</S.CardMethodName>
                         </S.CardMethod>
                         <S.CardMethod>
                             <S.InputRadioMethod type="radio" />
-                            <S.ImgCardMethod src={apple} alt="" />
+                            <S.ImgCardMethod src={apple} alt="apple pay icon" />
                             <S.CardMethodName>Apple Pay</S.CardMethodName>
                         </S.CardMethod>
                         <S.CardMethod>
                             <S.InputRadioMethod type="radio" />
-                            <S.ImgCardMethod src={amazon} alt="" />
+                            <S.ImgCardMethod src={amazon} alt="amazon pay icon" />
                             <S.CardMethodName>Amazon Pay</S.CardMethodName>
                         </S.CardMethod>
                     </S.PaymentMethods>}
                     {activePaymentMethod && <S.ActivePaymentMethod>
                         <S.MethodItem>
                             <S.ImgTitleItem>
-                                <S.ImgMethod src={googlePlay} alt="" />
+                                <S.ImgMethod src={googlePlay} alt="google pay icon" />
                                 <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
                             </S.ImgTitleItem>
                             <S.InputRadioMethod type="radio" />
                         </S.MethodItem>
                         <S.MethodItem>
                             <S.ImgTitleItem>
-                                <S.ImgMethod src={phonePe} alt="" />
+                                <S.ImgMethod src={phonePe} alt="google pay icon" />
                                 <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
                             </S.ImgTitleItem>
                             <S.InputRadioMethod type="radio" />
                         </S.MethodItem>
                         <S.MethodItem>
                             <S.ImgTitleItem>
-                                <S.ImgMethod src={paytm} alt="" />
+                                <S.ImgMethod src={paytm} alt="google pay icon" />
                                 <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
                             </S.ImgTitleItem>
                             <S.InputRadioMethod type="radio" />

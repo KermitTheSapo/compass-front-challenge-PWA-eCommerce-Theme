@@ -49,11 +49,11 @@ export default function Ratings() {
     }
     return (
         <S.RatingsContainer>
-            <S.ImgStar onClick={() => levelOne()} src={numberOneColor} alt="" />
-            <S.ImgStar onClick={() => levelTwo()} src={numberTwoColor} alt="" />
-            <S.ImgStar onClick={() => levelThree()} src={numberThreeColor} alt="" />
-            <S.ImgStar onClick={() => levelFour()} src={numberFourColor} alt="" />
-            <S.ImgStar onClick={() => levelFive()} src={numberFiveColor} alt="" />
+            <S.ImgStar onClick={() => levelOne()} src={numberOneColor} alt="star icon" />
+            <S.ImgStar onClick={() => levelTwo()} src={numberTwoColor} alt="star icon" />
+            <S.ImgStar onClick={() => levelThree()} src={numberThreeColor} alt="star icon" />
+            <S.ImgStar onClick={() => levelFour()} src={numberFourColor} alt="star icon" />
+            <S.ImgStar onClick={() => levelFive()} src={numberFiveColor} alt="star icon" />
         </S.RatingsContainer>
     )
 }

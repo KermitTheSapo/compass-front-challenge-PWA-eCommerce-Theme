@@ -30,20 +30,20 @@ export default function Payments() {
                 <title>Coral'l | Payments</title>
             </Helmet>
             <S.PaymentsHeader>
-                <S.ImgArrowBack src={arrow} alt="" onClick={() => navigate(-1)} />
+                <S.ImgArrowBack src={arrow} alt="arrow icon" onClick={() => navigate(-1)} />
                 <S.PaymentsTitle>Payments</S.PaymentsTitle>
             </S.PaymentsHeader>
             <Address state={sheetEditAddress} setState={setSheetEditAddress} />
             <S.Separator></S.Separator>
             <S.ProductDetails>
                 <S.ProductDetailsTitle>Product Details</S.ProductDetailsTitle>
-                <S.ImgArrow src={arrowDown} alt="" />
+                <S.ImgArrow src={arrowDown} alt="down arrow icon" />
             </S.ProductDetails>
             <S.Separator></S.Separator>
             <S.PaymentMethod>
                 <S.PaymentHeader>
                     <S.PaymentMethodTitle>Payment Method</S.PaymentMethodTitle>
-                    <S.ImgArrow onClick={() => setShowPaymentMethod(!showPaymentMethod)} src={showPaymentMethod ? arrowUp : arrowDown} alt="" />
+                    <S.ImgArrow onClick={() => setShowPaymentMethod(!showPaymentMethod)} src={showPaymentMethod ? arrowUp : arrowDown} alt="down or up arrow icon" />
                 </S.PaymentHeader>
                 {showPaymentMethod && <PaymentMethod state={upiText} setState={setUpiText} stateCorrectInfo={correctInfo} />}
             </S.PaymentMethod>

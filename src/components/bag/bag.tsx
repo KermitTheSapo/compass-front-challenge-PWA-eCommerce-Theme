@@ -36,7 +36,7 @@ export default function Bag() {
             total = total + (product.price * quantity)
         })
         setPriceValue(total)
-        let subTotal = 0    
+        let subTotal = 0
         productsList.map((product) => {
             subTotal = subTotal + product.price
         })
@@ -49,12 +49,12 @@ export default function Bag() {
                 <title>Coral'l | Bag</title>
             </Helmet>
             <S.BagHeaderNav>
-                <S.ImgBack onClick={() => navigate(-1)} src={productsList.length === 0 ? back : cross} alt="" />
+                <S.ImgBack onClick={() => navigate(-1)} src={productsList.length === 0 ? back : cross} alt="a left arrow icon or a cross" />
                 <S.BagTitle>My Bag</S.BagTitle>
             </S.BagHeaderNav>
 
             {productsList.length === 0 ? <S.DivBagEmpty>
-                <S.ImgBag src={bag} alt="" />
+                <S.ImgBag src={bag} alt="icon of a bag with a circle with an exclamation mark in the middle" />
                 <S.DivBagTitle>Uh Oh....!</S.DivBagTitle>
                 <S.DivBagParagraph>You haven’t added any any items. Start shopping to make your bag bloom</S.DivBagParagraph>
                 <S.ButtonContinue onClick={() => navigate(-1)} >Continue Shopping</S.ButtonContinue>

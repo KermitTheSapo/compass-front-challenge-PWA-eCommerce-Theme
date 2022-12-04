@@ -75,7 +75,7 @@ export default function NewAddress() {
                 <title>Coral'l | New Address</title>
             </Helmet>
             <S.NewAddressHeader>
-                <S.ImgArrowLeft onClick={() => navigate(-1)} src={arrow} alt="" />
+                <S.ImgArrowLeft onClick={() => navigate(-1)} src={arrow} alt="arrow icon" />
                 <S.NewAddressTitle>Add New Address</S.NewAddressTitle>
             </S.NewAddressHeader>
             <S.ContactInfo>

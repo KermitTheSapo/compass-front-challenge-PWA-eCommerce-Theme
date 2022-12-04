@@ -15,13 +15,13 @@ export default function SearchError() {
             </Helmet>
             <S.ConfirmedHeader>
                 <S.LeadingIcon>
-                    <S.ImgBack src={arrowBack} alt="" onClick={() => navigate(-1)} />
+                    <S.ImgBack src={arrowBack} alt="left arrow icon" onClick={() => navigate(-1)} />
                     <S.ConfirmedTitle>Search results</S.ConfirmedTitle>
                 </S.LeadingIcon>
-                <img src={options} alt="" />
+                <img src={options} alt="3 dots in vertical" />
             </S.ConfirmedHeader>
             <S.ConfirmedAdvise>
-                <S.ImgConfirmed src={art} alt="" />
+                <S.ImgConfirmed src={art} alt="search magnifying glass icon" />
                 <S.ConfirmedAdviseTitle>Whoops!</S.ConfirmedAdviseTitle>
                 <S.ConfirmedAdviseText>We couldn't find what you’re looking for. Try something else.</S.ConfirmedAdviseText>
             </S.ConfirmedAdvise>

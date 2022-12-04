@@ -6,10 +6,10 @@ type Props = {
     img: string;
     quantity: number;
 }
-export default function SummaryProduct({ productTitle, productParagraph,  img, quantity }: Props) {
+export default function SummaryProduct({ productTitle, productParagraph, img, quantity }: Props) {
     return (
         <S.ProductContainer>
-            <S.ImgProduct src={img} alt="" />
+            <S.ImgProduct src={img} alt="image of a product" />
             <S.ProductContent>
                 <S.ProductName>{productTitle}</S.ProductName>
                 <S.ProductDescription>{productParagraph}</S.ProductDescription>

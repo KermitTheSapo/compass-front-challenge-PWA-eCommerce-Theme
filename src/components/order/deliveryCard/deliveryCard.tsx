@@ -9,7 +9,7 @@ type Props = {
 export default function DeliveryCard({ name, paragraph, img }: Props) {
     return (
         <S.DeliveryCardContainer>
-            <S.ImgProduct src={img} alt="" />
+            <S.ImgProduct src={img} alt="product image" />
             <S.ProductContent>
                 <S.ProductDate>08 Dec</S.ProductDate>
                 <S.ProductName>{name}</S.ProductName>

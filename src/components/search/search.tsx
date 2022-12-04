@@ -62,7 +62,7 @@ export default function Search() {
                 <title>Coral'l | Search</title>
             </Helmet>
             <S.SearchHeader>
-                <S.ArrowBack onClick={() => { navigate(-1) }} src={arrowBack} alt="" />
+                <S.ArrowBack onClick={() => { navigate(-1) }} src={arrowBack} alt="left arrow icon" />
                 <S.InputSearch type="text" placeholder="Search" value={input} onChange={(e) => setInput(e.target.value)} />
             </S.SearchHeader>
             <S.RecentSearch>

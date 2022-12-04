@@ -13,7 +13,7 @@ export default function SideNavigation({ name, path }: Props) {
     return (
         <S.SideNavigationContainer>
             <S.Label>{name}</S.Label>
-            <S.ImgArrow onClick={() => { navigate(path) }} src={arrowRight} alt="" />
+            <S.ImgArrow onClick={() => { navigate(path) }} src={arrowRight} alt="right arrow icon" />
         </S.SideNavigationContainer>
     )
 }

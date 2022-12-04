@@ -17,7 +17,7 @@ export default function BottomSheetAddress({ state, setState }: Props) {
                 <S.SelectAddressHeader>
                     <S.AddressTitle>Select Delivery Address</S.AddressTitle>
                     <S.AddAddressDiv>
-                        <S.ImgAdd src={plus} alt="" />
+                        <S.ImgAdd src={plus} alt="plus icon" />
                         <S.HeaderParagraph onClick={() => navigate("/new-address")}>Add Address</S.HeaderParagraph>
                     </S.AddAddressDiv>
                 </S.SelectAddressHeader>

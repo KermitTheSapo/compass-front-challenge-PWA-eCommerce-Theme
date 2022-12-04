@@ -38,7 +38,7 @@ export default function Card({ productTitle, productParagraph, productPrice, img
     return (
         <S.CardContainer>
             <S.CardInfo>
-                <S.ImgProduct src={img} alt="" />
+                <S.ImgProduct src={img} alt="image of a product" />
                 <S.Information>
                     <S.ProductTitle>{productTitle}</S.ProductTitle>
                     <S.ProductParagraph>{productParagraph}</S.ProductParagraph>

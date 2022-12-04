@@ -55,7 +55,7 @@ export default function Product({ productTitle, productParagraph, productPrice, 
     }
     return (
         <S.ProductContainer>
-            <S.ImgProduct src={img} alt="" />
+            <S.ImgProduct src={img} alt="image of a product" />
             <S.ProductContent>
                 <S.ProductInformation>
                     <S.ProductName>{productTitle}</S.ProductName>

@@ -17,34 +17,34 @@ export default function PaymentMethod({ state, setState, stateCorrectInfo }: Pro
             <S.PaymentOption>
                 <S.PaymentHeader>
                     <S.PaymentMethodTitle>Debit Card/Credit Card</S.PaymentMethodTitle>
-                    <S.ImgModal src={plus} alt="" />
+                    <S.ImgModal src={plus} alt="plus icon" />
                 </S.PaymentHeader>
             </S.PaymentOption>
             <S.PaymentOption>
                 <S.PaymentHeader>
                     <S.PaymentMethodTitle>UPI</S.PaymentMethodTitle>
-                    <S.ImgModal onClick={() => setShowUpi(!showUpi)} src={showUpi ? minus : plus} alt="" />
+                    <S.ImgModal onClick={() => setShowUpi(!showUpi)} src={showUpi ? minus : plus} alt="minus or plus icon" />
                 </S.PaymentHeader>
                 {showUpi &&
                     <>
                         <S.MethodList>
                             <S.MethodItem>
                                 <S.Label htmlFor="">
-                                    <S.ImgPayment src={googlePlay} alt="" />
+                                    <S.ImgPayment src={googlePlay} alt="google pay logo icon" />
                                     <S.NamePayment>Google Pay</S.NamePayment>
                                 </S.Label>
                                 <S.InputRadio type="radio" name="upi" />
                             </S.MethodItem>
                             <S.MethodItem>
                                 <S.Label htmlFor="">
-                                    <S.ImgPayment src={phonePe} alt="" />
+                                    <S.ImgPayment src={phonePe} alt="phonePe logo icon" />
                                     <S.NamePayment>Phone Pe</S.NamePayment>
                                 </S.Label>
                                 <S.InputRadio type="radio" name="upi" />
                             </S.MethodItem>
                             <S.MethodItem>
                                 <S.Label htmlFor="">
-                                    <S.ImgPayment src={paytm} alt="" />
+                                    <S.ImgPayment src={paytm} alt="Paytm logo Icon" />
                                     <S.NamePayment>Paytm</S.NamePayment>
                                 </S.Label>
                                 <S.InputRadio type="radio" name="upi" />

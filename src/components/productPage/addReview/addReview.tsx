@@ -13,7 +13,7 @@ export default function AddReview() {
                 <title>Coral'l | Add Review</title>
             </Helmet>
             <S.HeaderNav>
-                <S.ImgClose onClick={() => navigate(-1)} src={cross} alt="" />
+                <S.ImgClose onClick={() => navigate(-1)} src={cross} alt="A cross icon" />
                 <S.HeaderNavTitle>Add Review</S.HeaderNavTitle>
             </S.HeaderNav>
             <S.ProductRatingDiv>
@@ -31,7 +31,7 @@ export default function AddReview() {
             <S.UploadDiv>
                 <S.UploadTitle>Upload Product Images</S.UploadTitle>
                 <S.LabelUpload htmlFor="upload">
-                    <S.ImgUpload src={upload} alt="" />
+                    <S.ImgUpload src={upload} alt="arrow icon" />
                 </S.LabelUpload>
                 <S.InputUploadImg id="upload" type="file" />
             </S.UploadDiv>

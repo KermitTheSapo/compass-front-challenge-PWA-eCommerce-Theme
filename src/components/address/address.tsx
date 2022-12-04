@@ -15,7 +15,7 @@ export default function Address() {
                 <S.ConfirmedTitle>My Address Book</S.ConfirmedTitle>
             </S.ConfirmedHeader>
             <S.ConfirmedAdvise>
-                <S.ImgConfirmed src={wishlist} alt="" />
+                <S.ImgConfirmed src={wishlist} alt="icon of a location point with a circle indicating error" />
                 <S.ConfirmedAdviseTitle>No Address</S.ConfirmedAdviseTitle>
                 <S.ConfirmedAdviseText>It seems you have not updated your address yet.</S.ConfirmedAdviseText>
             </S.ConfirmedAdvise>

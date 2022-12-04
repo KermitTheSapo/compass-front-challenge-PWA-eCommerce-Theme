@@ -116,9 +116,9 @@ export default function Category({ name }: Props) {
                     <S.Title>{name}</S.Title>
                 </S.LeadingIcon>
                 <S.TrailingIcon>
-                    <img onClick={() => navigate("/wishlist")} src={wishlist} alt="" />
-                    <img src={search} onClick={() => navigate("/search")} alt="" />
-                    <img src={bagList.length === 1 ? bagNotification : bag} alt="" onClick={() => navigate("/bag")} />
+                    <img onClick={() => navigate("/wishlist")} src={wishlist} alt="heart icon" />
+                    <img src={search} onClick={() => navigate("/search")} alt="search magnifying glass icon" />
+                    <img src={bagList.length === 1 ? bagNotification : bag} alt="icon of a bag" onClick={() => navigate("/bag")} />
                 </S.TrailingIcon>
             </S.Header>
             <S.Poster>

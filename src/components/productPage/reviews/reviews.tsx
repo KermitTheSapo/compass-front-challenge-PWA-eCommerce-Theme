@@ -17,7 +17,7 @@ export default function Reviews() {
                 <title>Coral'l | Reviews</title>
             </Helmet>
             <S.HeaderNav>
-                <S.ImgNavArrow onClick={() => navigate(-1)} src={arrowLeft} alt="" />
+                <S.ImgNavArrow onClick={() => navigate(-1)} src={arrowLeft} alt="left arrow icon" />
             </S.HeaderNav>
             <Head />
             <S.Separator></S.Separator>

@@ -7,7 +7,7 @@ export default function Ratings() {
             <S.HeaderInformation>
                 <S.RatingsPill>
                     <S.RatingNumber>4.0</S.RatingNumber>
-                    <S.StarImg src={star} alt="" />
+                    <S.StarImg src={star} alt="star icon" />
                 </S.RatingsPill>
                 <S.RatingsPersonInfo>
                     <S.RatingsPersonName>John Doe</S.RatingsPersonName>
@@ -19,12 +19,12 @@ export default function Ratings() {
                 <S.RatingsDescription>Totally amazing! I loved the material and the quality. It has a jolly vibe in it which makes me feel happy every time I put it on.</S.RatingsDescription>
             </S.Content>
             <S.ImgsCarousel>
-                <S.ImgCarousel src={img} alt="" />
-                <S.ImgCarousel src={img} alt="" />
-                <S.ImgCarousel src={img} alt="" />
-                <S.ImgCarousel src={img} alt="" />
-                <S.ImgCarousel src={img} alt="" />
-                <S.ImgCarousel src={img} alt="" />
+                <S.ImgCarousel src={img} alt="product img" />
+                <S.ImgCarousel src={img} alt="product img" />
+                <S.ImgCarousel src={img} alt="product img" />
+                <S.ImgCarousel src={img} alt="product img" />
+                <S.ImgCarousel src={img} alt="product img" />
+                <S.ImgCarousel src={img} alt="product img" />
             </S.ImgsCarousel>
         </S.RatingsContainer>
     )

@@ -15,7 +15,7 @@ export default function Address({state, setState}: Props) {
                     <S.AddressInfoTitle>Ruby S Snively</S.AddressInfoTitle>
                     <S.AddressInfoDescription>1460 Jenric Lane, Ashmor Drive</S.AddressInfoDescription>
                 </S.AddressContent>
-                <S.AddressEditBtn onClick={() => setState(!state)} src={pencilBtn} alt="" />
+                <S.AddressEditBtn onClick={() => setState(!state)} src={pencilBtn} alt="icon of a pencil" />
             </S.AddressInfo>
         </S.AddressDiv>
     )
