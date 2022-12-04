@@ -47,7 +47,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
             ratings: ratings,
             quantity: counter
         }
-        postBag(product).then((res) => { console.log(res) })
+        postBag(product)
         alert("Item added to cart")
     }
     const navigate = useNavigate()
