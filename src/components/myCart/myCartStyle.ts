@@ -211,3 +211,21 @@ export const ButtonCheck = styled.button`
   background-color: var(--Grey);
   border-radius: 0px 4px 4px 0px;
 `
+
+export const EmptyCart = styled.div`
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+`
+export const EmptyTitle = styled.h2`
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--Dark);
+`
+export const EmptyParagraph = styled.p`
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--Dark);
+`
