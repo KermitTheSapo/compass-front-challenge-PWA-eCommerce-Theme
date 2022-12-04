@@ -83,6 +83,7 @@ export const InputUpi = styled.input`
     font-size: 1rem;
     color: var(--TypeLowEmphasis);
     padding: 0 16px;
+    border: 2px solid ${p => p.color};
 `
 export const UpiExample = styled.p`
     font-weight: 500;
@@ -96,4 +97,10 @@ export const LabelCheckbox = styled.label`
     font-weight: 500;
     font-size: 0.875rem;
     color: var(--TypeLowEmphasis);
+`
+
+export const ParagraphError = styled.p`
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--Error);
 `
