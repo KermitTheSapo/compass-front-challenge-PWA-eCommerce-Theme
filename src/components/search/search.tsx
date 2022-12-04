@@ -6,11 +6,14 @@ import ItemArrival from "../../components/Home/main/Arrivals/itemArrival/itemArr
 import { Helmet } from "react-helmet"
 import { useEffect, useState } from "react"
 import { getProducts } from "../../products/products";
+import art from "@/assets/imgs/searchError/searchArt.svg"
+
 
 export default function Search() {
     const navigate = useNavigate()
     const [input, setInput] = useState("")
     const [loading, setLoading] = useState(true)
+    const [noResult, setNoResult] = useState(false)
     const [arrayFiltrado, setArrayFiltrado] = useState([{
         _id: "",
         name: "",
@@ -43,15 +46,13 @@ export default function Search() {
     useEffect(() => {
         getProducts().then((res) => { setProductsList(res); setLoading(false) })
     }, [])
-    //                 if (arrayFiltrado.length === 0){ console.log("asss")    }
-
     useEffect(() => {
         if (productsList.length !== 0) {
             if (input) {
                 setArrayFiltrado(productsList.filter((item) => item.name.includes(input.toLowerCase())))
+                productsList.filter((item) => item.name.includes(input.toLowerCase())).length === 0 ? setNoResult(true) : setNoResult(false)
             } else {
                 setArrayFiltrado(productsList)
-
             }
         }
     }, [input, productsList])
@@ -84,6 +85,17 @@ export default function Search() {
                     )) : null}
                 </S.NewArrivalsList>
             </S.NewArrivals>
+            {noResult && <>
+                <S.ConfirmedAdvise>
+                    <S.ImgConfirmed src={art} alt="search magnifying glass icon" />
+                    <S.ConfirmedAdviseTitle>Whoops!</S.ConfirmedAdviseTitle>
+                    <S.ConfirmedAdviseText>We couldn't find what you’re looking for. Try something else.</S.ConfirmedAdviseText>
+                </S.ConfirmedAdvise>
+                <S.BtnActionsDiv>
+                    <S.btnContinue onClick={() => navigate("/")}>Back to home</S.btnContinue>
+                </S.BtnActionsDiv>
+            </>}
+
         </S.SearchContainer>
     )
 }
