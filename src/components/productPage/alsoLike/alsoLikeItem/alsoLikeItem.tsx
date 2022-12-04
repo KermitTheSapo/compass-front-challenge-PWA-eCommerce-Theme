@@ -24,7 +24,6 @@ export default function AlsoLikeItem({ value }: Props) {
     useEffect(() => {
         getProducts().then((res) => setProductsList(res))
     }, [])
-    console.log(productsList)
     return (
         <S.AlsoLikeProducts>
             {productsList && productsList.map((item, key) => (
