@@ -75,21 +75,21 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [X] structure
     - [X] styling
     - [X] quantity logic and increase value based on quantity
-- [ ] search
-     - [ ] structure and styling
-     - [ ] filter
+- [X] search
+     - [X] structure and styling
+     - [X] filter
      - [ ] search history
-     - [ ] search error
+     - [X] search error
 - [ ] reviews
-     - [ ] structure and styling
+     - [X] structure and styling
      - [ ] consume all reviews
      - [ ] and show all reviews
      - [ ] add review
      - [ ] image upload
-- [ ] my bag mobile
-     - [ ] structure and styling
-     - [ ] consume LocalStorage
-     - [ ] bag empty
+- [X] my bag mobile
+     - [X] structure and styling
+     - [X] consume LocalStorage
+     - [X] bag empty
 - [ ] order summary
      - [ ] select address
      - [ ] receive items
@@ -97,16 +97,16 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [ ] add address
 - [ ] Address
      - [ ] address sheet and edit
-     - [ ] mask
+     - [X] mask
 - [ ] add new address
      - [ ] use post office api
-     - [ ] structure and styling
+     - [X] structure and styling
      - [ ] able to edit address
 - [ ] payments
      - [ ] product details
      - [ ] card verification
-- [ ] confirmed page
-     - [ ] structure and styling
+- [X] confirmed page
+     - [X] structure and styling
 - [ ] categories
      - [ ] sort categories
 - [ ] filters
