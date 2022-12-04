@@ -5,7 +5,12 @@ import phonePe from "@/assets/imgs/payments/phonePe.svg"
 import paytm from "@/assets/imgs/payments/paytm.svg"
 import minus from "@/assets/imgs/payments/minus.svg"
 import { useState } from "react"
-export default function PaymentMethod() {
+type Props = {
+    state: string;
+    setState: React.Dispatch<React.SetStateAction<string>>;
+    stateCorrectInfo: boolean;
+}
+export default function PaymentMethod({ state, setState, stateCorrectInfo }: Props) {
     const [showUpi, setShowUpi] = useState(false)
     return (
         <S.PaymentMethodContainer>
@@ -47,7 +52,8 @@ export default function PaymentMethod() {
                         </S.MethodList>
                         <S.UpiID>
                             <S.InputDiv>
-                                <S.InputUpi type="text" placeholder="Enter your UPI Id" />
+                                <S.InputUpi type="text" placeholder="Enter your UPI Id" onChange={(e) => setState(e.target.value)} color={stateCorrectInfo ? "red" : "transparent"} />
+                                {stateCorrectInfo && <S.ParagraphError>Please fill in the field correctly!</S.ParagraphError>}
                                 <S.UpiExample>Eg: 1234567890@ybl</S.UpiExample>
                             </S.InputDiv>
                             <S.SaveBtn>
