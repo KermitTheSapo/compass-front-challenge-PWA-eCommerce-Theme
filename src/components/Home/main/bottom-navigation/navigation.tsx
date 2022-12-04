@@ -29,7 +29,7 @@ export default function Navigation({ homeTrue, categoriesTrue, profileTrue, bagT
                     <S.Name>{homeTrue ? "Home" : ""}</S.Name>
                 </S.NavTab>
             </S.LinkNavTab>
-            <S.LinkNavTab onClick={() => navigate("/error")}>
+            <S.LinkNavTab onClick={() => navigate("/categories")}>
                 <S.NavTab>
                     <S.Img src={categoriesTrue ? categoriesFill : categories} alt="4 balls icon" />
                     <S.Name>{categoriesTrue ? "categories" : ""}</S.Name>
