@@ -33,7 +33,7 @@ export default function Product() {
                 <ProductPage name={item.name} img={item.image} discount={item.discount} productDescription="Experience comfortable and easy traveling like never before with this coach bag. It features a zip closure, removable straps and multiple organization compartments to keep your valuables safe. Crafted from premium material, it is durable and lasts long." productParagraph={item.paragraph} safe={item.safe} value={item.price} imgCarousel={item.image} ratings={item.ratings} />
             ))}
             <Helmet>
-                <title>Coral'l | Boker</title>
+                <title>Coral'l | Product</title>
             </Helmet>
         </>
     )
