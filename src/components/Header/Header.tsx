@@ -15,8 +15,10 @@ import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
 import SearchBar from "./searchBar/searchBar";
 import { getBag } from "../../products/bag";
+import Drawer from "./drawer/drawer";
 
 export default function Header() {
+    const [showDrawer, setShowDrawer] = useState(false)
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -36,6 +38,7 @@ export default function Header() {
     const [listCategory, setListCategory] = useState(false)
     const [showCartInfo, setShowCartInfo] = useState(false)
     const [price, setPrice] = useState(0)
+
     // const [total, setTotal] = useState(0)
     const [searchMenu, setSearchMenu] = useState(false)
     const [tax, setTax] = useState(2)
@@ -80,28 +83,10 @@ export default function Header() {
     return (
         <S.HeaderContainer>
             <S.MenuContainer>
-                <S.MenuImg src={menu} alt="a hamburger menu with three lines" onClick={() => listCategory === true ? setListCategory(false) : setListCategory(true)} />
+                <S.MenuImg src={menu} alt="a hamburger menu with three lines" onClick={() => { setShowDrawer(true) }} />
                 <S.TitlePage>Home</S.TitlePage>
             </S.MenuContainer>
-            {listCategory && <S.NavList>
-                <S.ListUl>
-                    <S.LinkCategory onClick={() => navigate("/handbags")}>
-                        <S.LiCategory>Handbags</S.LiCategory>
-                    </S.LinkCategory>
-                    <S.LinkCategory onClick={() => navigate("/watches")}>
-                        <S.LiCategory>Watches</S.LiCategory>
-                    </S.LinkCategory>
-                    <S.LinkCategory onClick={() => navigate("/skincare")}>
-                        <S.LiCategory>Skincare</S.LiCategory>
-                    </S.LinkCategory>
-                    <S.LinkCategory onClick={() => navigate("/jewellery")}>
-                        <S.LiCategory>Jewellery</S.LiCategory>
-                    </S.LinkCategory>
-                    <S.LinkCategory onClick={() => navigate("/apparels")}>
-                        <S.LiCategory>Apparels</S.LiCategory>
-                    </S.LinkCategory>
-                </S.ListUl>
-            </S.NavList>}
+            {showDrawer && <Drawer setState={setShowDrawer} />}
             <S.NavCategory>
                 <S.LinkCategory onClick={() => navigate("/")}>
                     <S.ImgLogo src={imgLogo} alt="mark written Coral with a different font" />
@@ -129,7 +114,7 @@ export default function Header() {
                 {searchMenu && <S.SearchDiv>
                     <SearchBar input={input} />
                 </S.SearchDiv>}
-                <S.LinkCategory onClick={() => navigate("/error")}>
+                <S.LinkCategory onClick={() => navigate("/wishlist")}>
                     <S.IconImg src={heart} alt="unfilled heart symbol" />
                 </S.LinkCategory>
                 <S.LinkCategory onClick={() => navigate("/error")}>
@@ -146,7 +131,7 @@ export default function Header() {
                 <S.LinkCategory onClick={() => navigate("/search")}>
                     <S.IconImgMobile src={search} alt="magnifying glass icon" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/error")}>
+                <S.LinkCategory onClick={() => navigate("/notification")}>
                     <S.IconImgMobile src={productsList.length === 0 ? notification : notificationOn} alt="bell icon" />
                 </S.LinkCategory>
             </S.TrailingIconsContainer>
