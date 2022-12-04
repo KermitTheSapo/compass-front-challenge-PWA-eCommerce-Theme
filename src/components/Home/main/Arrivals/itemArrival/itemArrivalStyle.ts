@@ -17,6 +17,7 @@ export const ItemArrival = styled.div`
 export const ImgProduct = styled.img`
 height: 138px;
 width: 136px;
+border-radius: 10px;
   @media (min-width: 769px) {
     height: 286px;
     width: 286px;

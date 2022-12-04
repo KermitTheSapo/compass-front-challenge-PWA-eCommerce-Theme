@@ -41,10 +41,9 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
             ratings: ratings,
             quantity: 1
         }
-        postBag(product).then((res) => { console.log(res) })
+        postBag(product)
         alert("Item added to cart")
     }
-    console.log(link)
     useEffect(() => {
         const product = {
             name: itemName,
@@ -60,9 +59,9 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
             quantity: 1
         }
         if (heartStatus) {
-            deleteWishlist(link).then((res) => { console.log(res) })
+            deleteWishlist(link)
         } else {
-            postWishlist(product).then((res) => { console.log(res) })
+            postWishlist(product)
             alert("Item added to wishlist")
         }
     }, [heartStatus])
