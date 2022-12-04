@@ -45,6 +45,10 @@ export default function OrderSummaryAndDetails() {
                     {productsList.map((item) => (
                         <SummaryProduct productTitle={item.name} productParagraph={item.description} img={item.image} quantity={item.quantity} />
                     ))}
+                    {productsList.length === 0 && <S.EmptyCart>
+                        <S.EmptyTitle>Uh Oh....!</S.EmptyTitle>
+                        <S.EmptyParagraph>You haven’t added any items. Start shopping to make your bag bloom</S.EmptyParagraph>
+                    </S.EmptyCart>}
                 </S.OrderSummaryContent>
             </S.OrderSummaryDiv>
             <S.OrderDetailsDiv>
