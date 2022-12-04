@@ -14,6 +14,7 @@ import CheckoutPayments from "./payments/payments"
 
 export default function Checkout() {
     const [showAddress, setShowAddress] = useState(true)
+    const [ddd, setDdd] = useState("")
     const navigate = useNavigate()
     const [phone, setPhone] = useState("");
     const [pinCode, setPinCode] = useState("")
@@ -66,10 +67,18 @@ export default function Checkout() {
     const maskOnlyLetters = (value) => {
         return value.replace(/[0-9!@#¨$%^&*)(+=._-]+/g, "");
     };
+
+    const Next = () => {
+        if (text.length > 5 && phone.length > 7 && pinCode.length > 7 && ddd.length === 2) {
+            navigate("/")
+        } else {
+            alert("Fill in all fields")
+        }
+    }
     return (
         <>
             <Helmet>
-                <title>Coral'l | Checkout - Information</title>
+                <title>Coral'l | Checkout</title>
             </Helmet>
             <Header />
             <S.CheckoutInfoContainer>
@@ -108,7 +117,7 @@ export default function Checkout() {
                                     <S.InputDiv>
                                         <S.InputTitle>Mobile Number</S.InputTitle>
                                         <S.InputsNumber>
-                                            <S.InputDDD placeholder="+11" maxLength={2} />
+                                            <S.InputDDD placeholder="+11" maxLength={2} value={ddd} onChange={(e) => setDdd(e.target.value)} />
                                             <S.InputNumber value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} placeholder="Enter Number" />
                                         </S.InputsNumber>
                                     </S.InputDiv>
@@ -129,7 +138,7 @@ export default function Checkout() {
                 </S.CheckoutContent>
                 <S.ButtonsActions>
                     <S.ButtonBack>Back to Cart</S.ButtonBack>
-                    <S.ButtonNext onClick={() => navigate("/")}>Next</S.ButtonNext>
+                    <S.ButtonNext onClick={() => Next()}>Next</S.ButtonNext>
                 </S.ButtonsActions>
             </S.CheckoutInfoContainer>
             <Footer />
