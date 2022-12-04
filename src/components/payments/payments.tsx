@@ -12,7 +12,18 @@ import { Helmet } from "react-helmet"
 export default function Payments() {
     const [sheetEditAddress, setSheetEditAddress] = useState(false)
     const [showPaymentMethod, setShowPaymentMethod] = useState(false)
+    const [upiText, setUpiText] = useState("")
+    const [correctInfo, setCorrectInfo] = useState(false)
     const navigate = useNavigate()
+
+    const checkInformation = () => {
+        if (upiText.length > 7) {
+            navigate("/confirmed")
+            setCorrectInfo(false)
+        } else {
+            setCorrectInfo(true)
+        }
+    }
     return (
         <S.PaymentsContainer>
             <Helmet>
@@ -34,10 +45,10 @@ export default function Payments() {
                     <S.PaymentMethodTitle>Payment Method</S.PaymentMethodTitle>
                     <S.ImgArrow onClick={() => setShowPaymentMethod(!showPaymentMethod)} src={showPaymentMethod ? arrowUp : arrowDown} alt="" />
                 </S.PaymentHeader>
-                {showPaymentMethod && <PaymentMethod />}
+                {showPaymentMethod && <PaymentMethod state={upiText} setState={setUpiText} stateCorrectInfo={correctInfo} />}
             </S.PaymentMethod>
             <S.BtnPayNowDiv>
-                <S.BtnPay onClick={() => navigate("/confirmed")}>Pay Now</S.BtnPay>
+                <S.BtnPay onClick={() => { checkInformation() }}>Pay Now</S.BtnPay>
             </S.BtnPayNowDiv>
             {sheetEditAddress && <BottomSheetAddress state={sheetEditAddress} setState={setSheetEditAddress} />}
         </S.PaymentsContainer>
