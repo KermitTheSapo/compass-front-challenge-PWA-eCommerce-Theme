@@ -33,7 +33,7 @@ app.use((req, res) => {
   res.status(404)
 })
 app.listen(PORT, () => {
-  console.log(`Servidor rodando com sucesso ${HOSTNAME}:${PORT}`)
+  console.log(`Server running successfully ${HOSTNAME}:${PORT}`)
 })
 
 
