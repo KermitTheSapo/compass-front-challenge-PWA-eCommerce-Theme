@@ -12,6 +12,7 @@ export const ProductName = styled.h1`
     display: flex;
     align-items: center;
     height: 4vh;
+    text-transform: capitalize;
     @media (min-width: 768px) {
         font-weight: 600;
         font-size: 2.125rem;
