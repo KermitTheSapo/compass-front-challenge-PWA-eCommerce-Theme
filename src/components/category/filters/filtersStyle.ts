@@ -46,16 +46,10 @@ export const FiltersOptions = styled.div`
 export const OptionsList = styled.div`
     display: flex;
     flex-direction: column;
+    height: 40vh;
+    justify-content: space-between;
 `
 
-export const OptionItem = styled.div``
-export const InputCheckbox = styled.input``
-
-export const Label = styled.label`
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--TypeLowEmphasis);
-`
 
 export const FilterBtnActions = styled.div`
     display: flex;
