@@ -10,6 +10,8 @@ import OrderSummaryAndDetails from "./orderSummaryAndDetails/orderSummaryAndDeta
 import { Helmet } from "react-helmet"
 import axios from "axios";
 import CheckoutPayments from "./payments/payments"
+import { postAddress } from "../../products/address"
+import { postContact } from "../../products/contact"
 
 
 export default function Checkout() {
@@ -70,7 +72,20 @@ export default function Checkout() {
 
     const Next = () => {
         if (text.length > 5 && phone.length > 7 && pinCode.length > 7 && ddd.length === 2) {
-            navigate("/")
+            const Address = {
+                streetAddress: address.street,
+                city: address.city,
+                uf: address.uf,
+                pinCode: pinCode,
+            }
+            const Contact = {
+                name: text,
+                ddd: ddd,
+                phone: phone
+            }
+            postAddress(Address)
+            postContact(Contact)
+            alert("saved address and contact")
         } else {
             alert("Fill in all fields")
         }
