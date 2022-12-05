@@ -1,5 +1,7 @@
 import * as S from "./cardStyle"
 import { deleteBag, getBag } from "../../../products/bag";
+import { useEffect, useState } from "react";
+import { postWishlist } from "../../../products/wishlist";
 
 type Props = {
     productTitle: string;
@@ -24,17 +26,61 @@ type Props = {
         safe: number;
     }[]>>
     ;
-    state: number;
-    setQuantity: React.Dispatch<React.SetStateAction<number>>;
-
+    ratings: number;
+    setTotalValue: React.Dispatch<React.SetStateAction<{}[]>>;
+    totalValue: {}[];
+    stateProductList: {
+        _id: string;
+        name: string;
+        price: number;
+        category: string;
+        image: string;
+        description: string;
+        imgAlt: string;
+        paragraph: string;
+        link: string;
+        ratings: number;
+        discount: number;
+        safe: number;
+    }[];
 }
-export default function Card({ productTitle, productParagraph, productPrice, img, safe, discount, id, setState, state, setQuantity }: Props) {
+export default function Card({ productTitle, productParagraph, productPrice, img, safe, discount, id, setState, ratings, setTotalValue, totalValue, stateProductList }: Props) {
+    const [quantityValue, setQuantityValue] = useState(1)
+    const [ProductValue, setProductValue] = useState(0)
     const deleteProduct = () => {
         getBag().then((res) => setState(res))
         deleteBag(id)
         getBag().then((res) => setState(res))
         alert("deleted")
     }
+    const moveToWishlist = () => {
+        const product = {
+            name: productTitle,
+            paragraph: productParagraph,
+            description: productParagraph,
+            price: productPrice,
+            safe: safe,
+            discount: discount,
+            link: "asasas",
+            imgAlt: "sdfasd",
+            image: img,
+            ratings: ratings,
+            quantity: 1
+        }
+        postWishlist(product)
+        alert("moved")
+    }
+
+    useEffect(() => {
+        setTotalValue([...totalValue, { ProductValue }])
+    }, [quantityValue, stateProductList])
+
+    useEffect(() => {
+        setProductValue(productPrice * quantityValue)
+    }, [quantityValue, stateProductList])
+
+
+    console.log(totalValue)
     return (
         <S.CardContainer>
             <S.CardInfo>
@@ -44,7 +90,7 @@ export default function Card({ productTitle, productParagraph, productPrice, img
                     <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
                     <S.DivQuantity>
                         <S.QntParagraph>Qty:</S.QntParagraph>
-                        <S.SelectOptions name="" id="" onChange={(e) => { setQuantity(e.target.value) }}>
+                        <S.SelectOptions name="" id="" onChange={(e) => { setQuantityValue(e.target.value) }}>
                             <option value="1">{1}</option>
                             <option value="2">{2}</option>
                             <option value="3">{3}</option>
@@ -53,7 +99,7 @@ export default function Card({ productTitle, productParagraph, productPrice, img
                         </S.SelectOptions>
                     </S.DivQuantity>
                     <S.Values>
-                        <S.Price>${(productPrice * state).toFixed(2)}</S.Price>
+                        <S.Price>${ProductValue.toFixed(2)}</S.Price>
                         <S.Safe>${safe}</S.Safe>
                         <S.Discount>{discount}% OFF</S.Discount>
                     </S.Values>
@@ -61,7 +107,7 @@ export default function Card({ productTitle, productParagraph, productPrice, img
             </S.CardInfo>
             <S.Separator></S.Separator>
             <S.Actions>
-                <S.ActionText>Move to Wishlist</S.ActionText>
+                <S.ActionText onClick={() => moveToWishlist()}>Move to Wishlist</S.ActionText>
                 <S.VerticalSeparator></S.VerticalSeparator>
                 <S.ActionText onClick={() => deleteProduct()}>Remove</S.ActionText>
             </S.Actions>

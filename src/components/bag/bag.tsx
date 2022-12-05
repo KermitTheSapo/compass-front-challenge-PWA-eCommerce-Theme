@@ -10,7 +10,6 @@ import { getBag } from "../../products/bag"
 
 export default function Bag() {
     const navigate = useNavigate()
-    const [quantity, setQuantity] = useState(1)
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -26,6 +25,7 @@ export default function Bag() {
         safe: 0
     }])
     const [priceValue, setPriceValue] = useState(0)
+    const [totalValue, setTotalValue] = useState([{}])
     const [subTotalValue, setSubTotalValue] = useState(0)
     useEffect(() => {
         getBag().then((res) => setProductsList(res))
@@ -33,7 +33,7 @@ export default function Bag() {
     useEffect(() => {
         let total = 0
         productsList.map((product) => {
-            total = total + (product.price * quantity)
+            total = total + product.price
         })
         setPriceValue(total)
         let subTotal = 0
@@ -41,8 +41,8 @@ export default function Bag() {
             subTotal = subTotal + product.price
         })
         setSubTotalValue(subTotal)
-    }, [productsList, quantity])
-
+    }, [productsList])
+    console.log(totalValue)
     return (
         <S.BagContainer>
             <Helmet>
@@ -62,7 +62,7 @@ export default function Bag() {
                 <>
                     <S.CardsContainers>
                         {productsList && productsList.map((item: any, key: string | number | symbol) => (
-                            <Card productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} safe={item.safe} discount={item.discount} id={item._id} setState={setProductsList} state={quantity} setQuantity={setQuantity} />
+                            <Card productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} safe={item.safe} discount={item.discount} id={item._id} setState={setProductsList} stateProductList={productsList} ratings={item.ratings} setTotalValue={setTotalValue} totalValue={totalValue} />
                         ))}
                     </S.CardsContainers>
                     <S.CouponDiv>
