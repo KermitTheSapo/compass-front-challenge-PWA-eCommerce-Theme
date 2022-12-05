@@ -18,7 +18,7 @@ import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescri
 import Footer from "../footer/footer"
 import { useNavigate } from "react-router-dom"
 import { getBag, postBag } from "../../products/bag"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 type Props = {
     name: string;
@@ -33,6 +33,7 @@ type Props = {
 }
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel, ratings }: Props) {
+    const [id, setId] = useState("")
     const addToApiStorage = (counter: number) => {
         const product = {
             name: name,
@@ -50,6 +51,14 @@ export default function ProductPage({ img, name, productDescription, value, prod
         postBag(product)
         alert("Item added to cart")
     }
+    const getId = () => {
+        let params = new URL(document.location).searchParams;
+        setId(params.get("id"))
+    }
+    useEffect(() => {
+        getId()
+        console.log(id)
+    }, [id])
     const navigate = useNavigate()
     const [counter, setCounter] = useState(1)
     return (
