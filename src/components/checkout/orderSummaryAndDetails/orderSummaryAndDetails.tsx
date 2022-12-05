@@ -71,7 +71,7 @@ export default function OrderSummaryAndDetails() {
                     </S.OrderDetailsList>
                     <S.OrderDetailsList>
                         <S.OrderResult>Grand Total</S.OrderResult>
-                        <S.OrderResult>${allPrice}</S.OrderResult>
+                        <S.OrderResult>${allPrice.toFixed(2)}</S.OrderResult>
                     </S.OrderDetailsList>
                 </S.OrderDetailsContent>
             </S.OrderDetailsDiv>
