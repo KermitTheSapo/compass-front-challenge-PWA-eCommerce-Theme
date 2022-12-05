@@ -4,6 +4,8 @@ import arrow from "@/assets/imgs/newAddress/arrow.svg"
 import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { postAddress } from "../../products/address";
+import { postContact } from "../../products/contact";
 
 export default function NewAddress() {
 
@@ -11,7 +13,6 @@ export default function NewAddress() {
     const [phone, setPhone] = useState("");
     const [text, setText] = useState("");
     const [pinCode, setPinCode] = useState("")
-    const [isCorrectInfo, setIsCorrectInfo] = useState(false)
     const [ddd, setDdd] = useState("")
     const maskPhone = (value) => {
         return value
@@ -61,11 +62,22 @@ export default function NewAddress() {
 
     const saveAddress = () => {
         if (text.length > 5 && ddd.length === 2 && phone.length > 8 && pinCode.length === 8) {
-            setIsCorrectInfo(false)
             navigate(-1)
+            const Address = {
+                streetAddress: address.street,
+                city: address.city,
+                uf: address.uf,
+                pinCode: pinCode,
+            }
+            const Contact = {
+                name: text,
+                ddd: ddd,
+                phone: phone
+            }
+            postAddress(Address)
+            postContact(Contact)
             alert("Address successfully saved!")
         } else {
-            setIsCorrectInfo(true)
             alert("Fill in all fields")
         }
     }
