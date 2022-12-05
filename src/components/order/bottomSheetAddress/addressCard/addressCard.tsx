@@ -1,14 +1,20 @@
 import * as S from "./addressCardStyle"
-export default function AddressCard() {
+type Props = {
+    streetAddress: string;
+    city: string;
+    uf: string;
+    pinCode: Number;
+}
+export default function AddressCard({ streetAddress, city, uf, pinCode }: Props) {
     return (
         <S.AddressCardContainer>
             <S.CardContent>
                 <S.InputRadio type="radio" name="address" id="home" />
                 <S.Label htmlFor="home">
                     <S.AddressCardName>Vincent Lobo</S.AddressCardName>
-                    <S.AddressCardAddress>3068  Woodlawn Drive</S.AddressCardAddress>
-                    <S.AddressCardCity>Milwaukee</S.AddressCardCity>
-                    <S.AddressCardPhone>414-672-5388</S.AddressCardPhone>
+                    <S.AddressCardAddress>{streetAddress}</S.AddressCardAddress>
+                    <S.AddressCardCity>{city} - {uf}</S.AddressCardCity>
+                    <S.AddressCardPhone>{pinCode}</S.AddressCardPhone>
                 </S.Label>
             </S.CardContent>
             <S.EditAddress>Edit</S.EditAddress>
