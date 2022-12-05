@@ -5,6 +5,8 @@ import product from "./routes/productRoutes"
 import bag from "./routes/bagRoutes"
 import wishlist from "./routes/wishlistRoutes"
 import coupon from "./routes/couponRoutes"
+import address from "./routes/addressRoutes"
+import contact from "./routes/contactRoutes"
 import cors from 'cors'
 const PORT = process.env.PORT || 4000
 const HOSTNAME = process.env.HOSTNAME || 'http://localhost'
@@ -28,6 +30,8 @@ app.use("/product", product)
 app.use("/bag", bag)
 app.use("/wishlist", wishlist)
 app.use("/coupon", coupon)
+app.use("/address", address)
+app.use("/contact", contact)
 
 app.use((req, res) => {
   res.status(404)
