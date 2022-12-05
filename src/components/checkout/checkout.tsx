@@ -10,6 +10,8 @@ import OrderSummaryAndDetails from "./orderSummaryAndDetails/orderSummaryAndDeta
 import { Helmet } from "react-helmet"
 import axios from "axios";
 import CheckoutPayments from "./payments/payments"
+import { postAddress } from "../../products/address"
+import { postContact } from "../../products/contact"
 
 
 export default function Checkout() {
@@ -18,7 +20,9 @@ export default function Checkout() {
     const navigate = useNavigate()
     const [phone, setPhone] = useState("");
     const [pinCode, setPinCode] = useState("")
+    const [cepMask, setCepMask] = useState("")
     const [text, setText] = useState("");
+    const [upiText, setUpiText] = useState("")
     const [address, setAddress] = useState({
         pinCode: "",
         complement: "",
@@ -31,14 +35,18 @@ export default function Checkout() {
     function getCep() {
         if (pinCode.length === 8) {
             axios.get(Api).then((res) => {
-                setAddress({
-                    pinCode: res.data.cep,
-                    complement: res.data.complemento,
-                    street: res.data.logradouro,
-                    neighborhood: res.data.bairro,
-                    uf: res.data.uf,
-                    city: res.data.localidade
-                });
+                if (res.data.erro === true) {
+                    alert("incorrect zip code")
+                } else {
+                    setAddress({
+                        pinCode: res.data.cep,
+                        complement: res.data.complemento,
+                        street: res.data.logradouro,
+                        neighborhood: res.data.bairro,
+                        uf: res.data.uf,
+                        city: res.data.localidade
+                    });
+                }
             });
         } else {
             setAddress({
@@ -61,6 +69,7 @@ export default function Checkout() {
     const maskPhone = (value) => {
         return value
             .replace(/\D/g, "")
+            .replace(/(\d{2})(\d)/, "($1) $2")
             .replace(/(\d{5})(\d)/, "$1-$2")
             .replace(/(-\d{4})(\d+?)$/, "$1");
     };
@@ -69,8 +78,21 @@ export default function Checkout() {
     };
 
     const Next = () => {
-        if (text.length > 5 && phone.length > 7 && pinCode.length > 7 && ddd.length === 2) {
-            navigate("/")
+        if (text.length > 5 && phone.length > 7 && pinCode.length > 7 && ddd.length === 2 && upiText.length > 5) {
+            const Address = {
+                streetAddress: address.street,
+                city: address.city,
+                uf: address.uf,
+                pinCode: pinCode,
+            }
+            const Contact = {
+                name: text,
+                ddd: ddd,
+                phone: phone
+            }
+            postAddress(Address)
+            postContact(Contact)
+            alert("successful order")
         } else {
             alert("Fill in all fields")
         }
@@ -127,12 +149,12 @@ export default function Checkout() {
                                     </S.InputDiv>
                                     <S.InputDiv>
                                         <S.InputTitle>Pin Code</S.InputTitle>
-                                        <S.InputAddressRight type="text" placeholder="Enter Pin Code" value={pinCode} onChange={(e) => { setPinCode(e.target.value) }} />
+                                        <S.InputAddressRight type="text" placeholder="Enter Pin Code" value={cepMask} onChange={(e) => { setPinCode(e.target.value); setCepMask(maskCEP(e.target.value)) }} />
                                     </S.InputDiv>
                                 </S.InputsRight>
                             </S.NewAddressContent>}
                         </S.NewAddressDiv>
-                        <CheckoutPayments />
+                        <CheckoutPayments state={upiText} setState={setUpiText} />
                     </S.AddressAndPayment>
                     <OrderSummaryAndDetails />
                 </S.CheckoutContent>
