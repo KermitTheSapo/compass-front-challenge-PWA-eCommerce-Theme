@@ -162,7 +162,7 @@ export default function Header() {
                             </S.OrderDetails>
                             <S.OrderDetails>
                                 <S.OrderResultTitle>Total:</S.OrderResultTitle>
-                                <S.OrderResultValue>${price + tax}</S.OrderResultValue>
+                                <S.OrderResultValue>${(price + tax).toFixed(2)}</S.OrderResultValue>
                             </S.OrderDetails>
                         </S.OrderDetailsDiv>
                         <S.CouponDiv>
