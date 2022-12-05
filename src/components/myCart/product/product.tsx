@@ -66,7 +66,7 @@ export default function Product({ productTitle, productParagraph, productPrice, 
                     </S.ProductValues>
                 </S.ProductInformation>
                 <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
-                <S.ProductQuantity>Qty- {quantity.toFixed(2)}</S.ProductQuantity>
+                <S.ProductQuantity>Qty- {quantity}</S.ProductQuantity>
                 <S.ButtonsAction>
                     <S.WishlistParagraph onClick={() => { moveToWishlist() }}>Move to Wishlist</S.WishlistParagraph>
                     <S.RemoveParagraph onClick={() => removeProduct()}>Remove</S.RemoveParagraph>
