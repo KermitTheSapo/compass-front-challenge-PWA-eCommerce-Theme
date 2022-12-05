@@ -13,10 +13,15 @@ export default function NewAddress() {
     const [phone, setPhone] = useState("");
     const [text, setText] = useState("");
     const [pinCode, setPinCode] = useState("")
+    const [mask, setMask] = useState("")
     const [ddd, setDdd] = useState("")
+    const maskCEP = (value) => {
+        return value.replace(/\D/g, "").replace(/^(\d{5})(\d{3})+?$/, "$1-$2");
+    };
     const maskPhone = (value) => {
         return value
             .replace(/\D/g, "")
+            .replace(/(\d{2})(\d)/, "($1) $2")
             .replace(/(\d{5})(\d)/, "$1-$2")
             .replace(/(-\d{4})(\d+?)$/, "$1");
     };
@@ -62,7 +67,6 @@ export default function NewAddress() {
 
     const saveAddress = () => {
         if (text.length > 5 && ddd.length === 2 && phone.length > 8 && pinCode.length === 8) {
-            navigate(-1)
             const Address = {
                 streetAddress: address.street,
                 city: address.city,
@@ -77,6 +81,7 @@ export default function NewAddress() {
             postAddress(Address)
             postContact(Contact)
             alert("Address successfully saved!")
+            navigate(-1)
         } else {
             alert("Fill in all fields")
         }
@@ -105,7 +110,7 @@ export default function NewAddress() {
                 <S.DeliveryInfoTitle>Delivery Information</S.DeliveryInfoTitle>
                 <S.Separator></S.Separator>
                 <S.DeliveryContent>
-                    <S.AddressInput placeholder="Pin Code" value={pinCode} maxLength={8} onChange={(e) => { setPinCode(e.target.value) }} />
+                    <S.AddressInput placeholder="Pin Code" value={mask} maxLength={8} onChange={(e) => { setPinCode(e.target.value); setMask(maskCEP(e.target.value)) }} />
                     <S.AddressInput placeholder="Street Address" value={address.street} />
                     <S.AddressInput value={address.city} placeholder="City" />
                     <S.SelectState name="" id="">
