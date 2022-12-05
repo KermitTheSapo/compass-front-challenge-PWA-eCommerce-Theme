@@ -3,13 +3,14 @@ import product from './productRoutes'
 import bag from './bagRoutes'
 import wishlist from './wishlistRoutes'
 import coupon from './couponRoutes'
+import address from './addressRoutes'
+import contact from './contactRoutes'
 // @ts-ignore
 const routes = (app) => {
   // @ts-ignore
   app.route('/').get((req, res) => {
     res.status(200).send({ titulo: 'product' })
   })
-
   app.use(
     express.json(),
     product
@@ -26,7 +27,14 @@ const routes = (app) => {
     express.json(),
     coupon
   )
-
+  app.use(
+    express.json(),
+    address
+  )
+  app.use(
+    express.json(),
+    contact
+  )
 }
 
 
