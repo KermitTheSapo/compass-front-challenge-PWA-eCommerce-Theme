@@ -3,12 +3,15 @@ import logoutIcon from "@/assets/imgs/profile/logoutBtn.svg"
 export const ProfileContainer = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 0 16px;
 `
 export const ProfileHeader = styled.div`
     display: flex;
     align-items: center;
     height: 8vh;
+    padding: 0 16px;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const ProfileTitle = styled.h1`
     font-weight: 600;
@@ -23,6 +26,9 @@ export const ProfileBanner = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 
 export const ProfileContent = styled.div`
@@ -56,6 +62,10 @@ export const ImgArrow = styled.img`
 export const NavigationOptions = styled.div`
     display: flex;
     flex-direction: column;
+    padding: 0 16px;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 
 export const BtnLogoutDiv = styled.div`
@@ -64,6 +74,10 @@ export const BtnLogoutDiv = styled.div`
     justify-content: center;
     width: 100%;
     height: 17vh;
+    padding: 0 16px;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const BtnLogout = styled.button`
     height: 44px;
