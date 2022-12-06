@@ -5,9 +5,26 @@ import arrowRightGrey from "@/assets/imgs/profile/arrowRightGrey.svg"
 import SideNavigation from "./sideNavigation/sideNavigation"
 import Navigation from "../../components/Home/main/bottom-navigation/navigation"
 import { Helmet } from "react-helmet"
+import UserProfile from "./userProfile/userProfile"
+import { useEffect, useState } from "react"
 
 
 export default function Profile() {
+    const [size, setSize] = useState(false)
+    useEffect(() => {
+        if (window.screen.width > 768) {
+            setSize(true)
+        } else {
+            setSize(false)
+        }
+        window.addEventListener('resize', () => {
+            if (window.screen.width > 768) {
+                setSize(true)
+            } else {
+                setSize(false)
+            }
+        })
+    }, [size])
     return (
         <S.ProfileContainer>
             <Helmet>
@@ -40,6 +57,8 @@ export default function Profile() {
             <S.BottomNavigation>
                 <Navigation homeTrue={false} categoriesTrue={false} profileTrue={true} bagTrue={false} />
             </S.BottomNavigation>
+            {size && <UserProfile />}
+
         </S.ProfileContainer>
     )
 }
