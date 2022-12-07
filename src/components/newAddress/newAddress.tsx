@@ -15,20 +15,23 @@ export default function NewAddress() {
     const [pinCode, setPinCode] = useState("")
     const [mask, setMask] = useState("")
     const [ddd, setDdd] = useState("")
-    const maskCEP = (value) => {
+    const [DDDValue, setDDDValue] = useState("")
+    const maskCEP = (value: string) => {
         return value.replace(/\D/g, "").replace(/^(\d{5})(\d{3})+?$/, "$1-$2");
     };
-    const maskPhone = (value) => {
+    const maskPhone = (value: string) => {
         return value
             .replace(/\D/g, "")
             .replace(/(\d{2})(\d)/, "($1) $2")
             .replace(/(\d{5})(\d)/, "$1-$2")
             .replace(/(-\d{4})(\d+?)$/, "$1");
     };
-    const maskOnlyLetters = (value) => {
+    const maskOnlyLetters = (value: string) => {
         return value.replace(/[0-9!@#¨$%^&*)(+=._-]+/g, "");
     };
-
+    const maskDDD = (value: string) => {
+        return value.replace(/(\d{2})/, '+$1')
+    }
     const [address, setAddress] = useState({
         pinCode: "",
         complement: "",
@@ -41,14 +44,18 @@ export default function NewAddress() {
     function getCep() {
         if (pinCode.length === 8) {
             axios.get(Api).then((res) => {
-                setAddress({
-                    pinCode: res.data.cep,
-                    complement: res.data.complemento,
-                    street: res.data.logradouro,
-                    neighborhood: res.data.bairro,
-                    uf: res.data.uf,
-                    city: res.data.localidade
-                });
+                if (res.data.erro === true) {
+                    alert("incorrect zip code")
+                } else {
+                    setAddress({
+                        pinCode: res.data.cep,
+                        complement: res.data.complemento,
+                        street: res.data.logradouro,
+                        neighborhood: res.data.bairro,
+                        uf: res.data.uf,
+                        city: res.data.localidade
+                    });
+                }
             });
         } else {
             setAddress({
@@ -66,7 +73,7 @@ export default function NewAddress() {
     }, [pinCode])
 
     const saveAddress = () => {
-        if (text.length > 5 && ddd.length === 2 && phone.length > 8 && pinCode.length === 8) {
+        if (text.length > 5 && DDDValue.length === 2 && phone.length > 8 && pinCode.length === 8) {
             const Address = {
                 streetAddress: address.street,
                 city: address.city,
@@ -101,7 +108,7 @@ export default function NewAddress() {
                 <S.ContactContent>
                     <S.NameInput placeholder="Full Name" value={text} onChange={(e) => setText(maskOnlyLetters(e.target.value))} />
                     <S.DivInputNumber>
-                        <S.DDDInput placeholder="+11" maxLength={2} value={ddd} onChange={(e) => { setDdd(e.target.value) }} />
+                        <S.DDDInput placeholder="+11" maxLength={2} value={ddd} onChange={(e) => { setDdd(maskDDD(e.target.value)); setDDDValue(e.target.value) }} />
                         <S.NumberInput placeholder="Contact Number" value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} />
                     </S.DivInputNumber>
                 </S.ContactContent>
