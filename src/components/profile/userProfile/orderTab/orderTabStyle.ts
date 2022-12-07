@@ -53,4 +53,10 @@ export const Separator = styled.div`
     background-color: var(--Separator);
 `
 
-export const OrderProducts = styled.div``
+export const OrderProducts = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    margin-top: 24px;
+    height: 60vh;
+`
