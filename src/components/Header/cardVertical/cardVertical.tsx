@@ -26,24 +26,39 @@ type Props = {
     }[]>>;
     id: string;
     quantity: number;
+    index: number;
+    setTotalValue: React.Dispatch<React.SetStateAction<never[]>>;
+    stateProductList: {
+        _id: string;
+        name: string;
+        price: number;
+        category: string;
+        image: string;
+        description: string;
+        imgAlt: string;
+        paragraph: string;
+        link: string;
+        ratings: number;
+        discount: number;
+        safe: number;
+    }[];
 }
 
-export default function CardVertical({ productTitle, productParagraph, productPrice, img, setState, id, quantity }: Props) {
-    const [quantityMultiply, setQuantityMultiply] = useState(quantity)
-    const [valueMultiply, setValueMultiply] = useState(productPrice * quantityMultiply)
-    const multiply = () => {
-        setValueMultiply(productPrice * quantityMultiply)
-    }
-    useEffect(() => {
-        multiply()
-    }, [quantityMultiply])
-
+export default function CardVertical({ productTitle, productParagraph, productPrice, img, setState, id, index, setTotalValue, stateProductList }: Props) {
+    const [quantityValue, setQuantityValue] = useState(1)
+    const [ProductValue, setProductValue] = useState(0)
     const deleteProduct = () => {
         getBag().then((res) => setState(res))
         deleteBag(id)
         getBag().then((res) => setState(res))
         alert("deleted")
     }
+    useEffect(() => {
+        setProductValue(productPrice * quantityValue)
+    }, [quantityValue, stateProductList])
+    useEffect(() => {
+        setTotalValue((item) => item.map((price, idx) => idx === index ? +(quantityValue * productPrice).toFixed(2) : price))
+    }, [quantityValue])
     return (
         <S.CardVertical>
             <S.CardVerticalImgDiv>
@@ -52,11 +67,11 @@ export default function CardVertical({ productTitle, productParagraph, productPr
             <S.ProductDescription>
                 <S.ProductTitle>{productTitle}</S.ProductTitle>
                 <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
-                <QuantityCounter setState={setQuantityMultiply} state={quantityMultiply} />
+                <QuantityCounter setState={setQuantityValue} state={quantityValue} />
             </S.ProductDescription>
             <S.PriceDeleteDiv>
                 <S.BtnDelete src={deleteImg} alt="an X icon" onClick={() => { deleteProduct() }} />
-                <S.PriceText>{valueMultiply.toFixed(2)}</S.PriceText>
+                <S.PriceText>{ProductValue.toFixed(2)}</S.PriceText>
             </S.PriceDeleteDiv>
         </S.CardVertical>
     )
