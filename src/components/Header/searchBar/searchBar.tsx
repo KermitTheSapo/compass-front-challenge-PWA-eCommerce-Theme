@@ -9,6 +9,8 @@ type Props = {
 
 export default function SearchBar({ input }: Props) {
     const [loading, setLoading] = useState(true)
+    const [noResult, setNoResult] = useState(false)
+
     const [arrayFiltrado, setArrayFiltrado] = useState([{
         _id: "",
         name: "",
@@ -46,6 +48,7 @@ export default function SearchBar({ input }: Props) {
         if (productsList.length !== 0) {
             if (input) {
                 setArrayFiltrado(productsList.filter((item) => item.name.includes(input.toLowerCase())))
+                productsList.filter((item) => item.name.includes(input.toLowerCase())).length === 0 ? setNoResult(true) : setNoResult(false)
             } else {
                 setArrayFiltrado(productsList)
             }
@@ -56,8 +59,17 @@ export default function SearchBar({ input }: Props) {
         <S.SearchBar>
             {loading && <h1>Loading...</h1>}
             {!loading ? arrayFiltrado.map((item, key) => (
-                <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
-            )) : null}
+                <S.ProductDiv>
+                    <S.ImgProduct src={item.image} alt="" />
+                    <S.ProductInfo>
+                        <S.ProductName>{item.name}</S.ProductName>
+                        <S.ProductParagraph>{item.paragraph}</S.ProductParagraph>
+                        <S.ProductPrice>${item.price.toFixed(2)}</S.ProductPrice>
+                    </S.ProductInfo>
+                </S.ProductDiv>)) : null}
+            {
+                noResult && <S.ParagraphError>Whoops! We couldn't find what you’re looking for. Try something else.</S.ParagraphError>
+            }
         </S.SearchBar>
     )
 }
