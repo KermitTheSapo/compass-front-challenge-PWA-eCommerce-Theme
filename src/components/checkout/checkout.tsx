@@ -17,6 +17,7 @@ import { postContact } from "../../products/contact"
 export default function Checkout() {
     const [showAddress, setShowAddress] = useState(true)
     const [ddd, setDdd] = useState("")
+    const [DDDValue, setDDDValue] = useState("")
     const navigate = useNavigate()
     const [phone, setPhone] = useState("");
     const [pinCode, setPinCode] = useState("")
@@ -62,23 +63,25 @@ export default function Checkout() {
     useEffect(() => {
         getCep()
     }, [pinCode])
-
-    const maskCEP = (value) => {
+    const maskDDD = (value: string) => {
+        return value.replace(/(\d{2})/, '+$1')
+    }
+    const maskCEP = (value: string) => {
         return value.replace(/\D/g, "").replace(/^(\d{5})(\d{3})+?$/, "$1-$2");
     };
-    const maskPhone = (value) => {
+    const maskPhone = (value: string) => {
         return value
             .replace(/\D/g, "")
             .replace(/(\d{2})(\d)/, "($1) $2")
             .replace(/(\d{5})(\d)/, "$1-$2")
             .replace(/(-\d{4})(\d+?)$/, "$1");
     };
-    const maskOnlyLetters = (value) => {
+    const maskOnlyLetters = (value: string) => {
         return value.replace(/[0-9!@#¨$%^&*)(+=._-]+/g, "");
     };
 
     const Next = () => {
-        if (text.length > 5 && phone.length > 7 && pinCode.length > 7 && ddd.length === 2 && upiText.length > 5) {
+        if (text.length > 5 && phone.length > 7 && pinCode.length > 7 && DDDValue.length === 2 && upiText.length > 5) {
             const Address = {
                 streetAddress: address.street,
                 city: address.city,
@@ -88,7 +91,8 @@ export default function Checkout() {
             const Contact = {
                 name: text,
                 ddd: ddd,
-                phone: phone
+                phone: phone,
+                cardCode: upiText
             }
             postAddress(Address)
             postContact(Contact)
@@ -139,7 +143,7 @@ export default function Checkout() {
                                     <S.InputDiv>
                                         <S.InputTitle>Mobile Number</S.InputTitle>
                                         <S.InputsNumber>
-                                            <S.InputDDD placeholder="+11" maxLength={2} value={ddd} onChange={(e) => setDdd(e.target.value)} />
+                                            <S.InputDDD placeholder="+11" maxLength={2} value={ddd} onChange={(e) => { setDdd(maskDDD(e.target.value)); setDDDValue(e.target.value) }} />
                                             <S.InputNumber value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} placeholder="Enter Number" />
                                         </S.InputsNumber>
                                     </S.InputDiv>
