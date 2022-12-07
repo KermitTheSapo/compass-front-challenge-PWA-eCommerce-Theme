@@ -2,8 +2,8 @@ import * as S from "./referStyle"
 
 import arrow from "@/assets/imgs/refer/arrow.svg"
 import art from "@/assets/imgs/refer/art.svg"
-
 export default function Refer() {
+
     return (
         <S.ReferContainer>
             <S.ReferHeader>
