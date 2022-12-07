@@ -61,5 +61,4 @@ export const ParagraphError = styled.p`
     font-size: 0.875rem;
     color: var(--Dark);
     text-align: center;
-
 `
