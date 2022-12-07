@@ -10,7 +10,7 @@ import profile from "@/assets/imgs/header/profile.svg"
 import arrowLeft from "@/assets/imgs/header/arrowLeft.svg"
 import bag from "@/assets/imgs/header/bag.svg"
 import bagNotification from "@/assets/imgs/header/bag-notification.svg"
-import { Key, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardVertical from "./cardVertical/cardVertical";
 import SearchBar from "./searchBar/searchBar";
@@ -35,23 +35,25 @@ export default function Header() {
         quantity: 0
     }])
     const [input, setInput] = useState("")
-    const [listCategory, setListCategory] = useState(false)
+    // const [listCategory, setListCategory] = useState(false)
+    const [totalValue, setTotalValue] = useState([])
     const [showCartInfo, setShowCartInfo] = useState(false)
+    const [priceValue, setPriceValue] = useState(0)
     const [price, setPrice] = useState(0)
 
-    // const [total, setTotal] = useState(0)
     const [searchMenu, setSearchMenu] = useState(false)
     const [tax, setTax] = useState(2)
     const navigate = useNavigate();
     useEffect(() => {
-        getBag().then((res) => setProductsList(res))
-    }, [productsList])
+        getBag().then((res) => { setProductsList(res); let value = res.map(item => item.price); setTotalValue(value) })
+    }, [])
     useEffect(() => {
+        setPriceValue(totalValue.reduce((a, b) => a + b, 0))
         let value = 0
         productsList.map((item) => { value = value + item.price });
         setPrice(value)
         value = 0;
-    })
+    }, [productsList, totalValue])
     const openCartInfo = () => {
         if (showCartInfo) {
             setShowCartInfo(false)
@@ -67,10 +69,6 @@ export default function Header() {
         productsList.map((item) => { value = value + item.price });
         setPrice(value)
         value = 0;
-        // let total = 0
-        // productsList.map((item) => { total = total + item.price });
-        // setTotal(total)
-        // total = 0;
     }
     useEffect(() => {
         if (input.length > 0) {
@@ -79,6 +77,7 @@ export default function Header() {
             setSearchMenu(false)
         }
     }, [input])
+    // console.log(totalValue)
 
     return (
         <S.HeaderContainer>
@@ -144,9 +143,9 @@ export default function Header() {
                     <S.CardVerticalContainer>
                         <S.DivCardProducts>
                             {productsList.length === 0 && <S.DivBagEmpty><p>The Bag is empty :(</p></S.DivBagEmpty>}
-                            {productsList && productsList.map((item: any, key: Key | null | undefined) => (
-                                <div key={key}>
-                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} setState={setProductsList} id={item._id} quantity={item.quantity} />
+                            {productsList && productsList.map((item: any, index: number) => (
+                                <div>
+                                    < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} setState={setProductsList} id={item._id} quantity={item.quantity} index={index} setTotalValue={setTotalValue} stateProductList={productsList} />
                                     <S.Separator></S.Separator>
                                 </div>
                             ))}
@@ -162,7 +161,7 @@ export default function Header() {
                             </S.OrderDetails>
                             <S.OrderDetails>
                                 <S.OrderResultTitle>Total:</S.OrderResultTitle>
-                                <S.OrderResultValue>${(price + tax).toFixed(2)}</S.OrderResultValue>
+                                <S.OrderResultValue>${priceValue.toFixed(2)}</S.OrderResultValue>
                             </S.OrderDetails>
                         </S.OrderDetailsDiv>
                         <S.CouponDiv>
