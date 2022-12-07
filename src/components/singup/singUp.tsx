@@ -11,7 +11,7 @@ export default function SingUp() {
             </Helmet>
             <S.SingUpContent>
                 <S.SingUpTitle>The shopping destination you need</S.SingUpTitle>
-                <S.BtnGetStarted>Get Started</S.BtnGetStarted>
+                <S.BtnGetStarted onClick={() => { navigate("/phone-number") }}>Get Started</S.BtnGetStarted>
                 <S.Paragraph onClick={() => { navigate("/phone-number") }}>I already have an account</S.Paragraph>
             </S.SingUpContent>
         </S.SingUpContainer>
