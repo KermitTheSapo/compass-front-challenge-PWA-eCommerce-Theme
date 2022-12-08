@@ -17,6 +17,7 @@ export const ProductHeadTitle = styled.h1`
     font-weight: 500;
     font-size: 1rem;
     color: var(--TypeHighEmphasis);
+    text-transform: capitalize;
 `
 export const ProductHeadSubTitle = styled.p`
     font-weight: 500;
