@@ -45,7 +45,7 @@ export default function Payments() {
                     <S.PaymentMethodTitle>Payment Method</S.PaymentMethodTitle>
                     <S.ImgArrow onClick={() => setShowPaymentMethod(!showPaymentMethod)} src={showPaymentMethod ? arrowUp : arrowDown} alt="down or up arrow icon" />
                 </S.PaymentHeader>
-                {showPaymentMethod && <PaymentMethod state={upiText} setState={setUpiText} stateCorrectInfo={correctInfo} />}
+                {showPaymentMethod && <PaymentMethod setState={setUpiText} stateCorrectInfo={correctInfo} />}
             </S.PaymentMethod>
             <S.BtnPayNowDiv>
                 <S.BtnPay onClick={() => { checkInformation() }}>Pay Now</S.BtnPay>
