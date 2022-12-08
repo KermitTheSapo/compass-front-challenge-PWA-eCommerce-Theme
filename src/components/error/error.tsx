@@ -8,7 +8,7 @@ export default function Error() {
         <S.ErrorContainer>
             <S.Title>404 Error</S.Title>
             <S.Paragraph>Not found</S.Paragraph>
-            <S.Button onClick={() => navigate("/")}>Back to home</S.Button>
+            <S.Button onClick={() => navigate(-1)}>Back to home</S.Button>
             <Helmet>
                 <title>Coral'l | Error 404</title>
             </Helmet>

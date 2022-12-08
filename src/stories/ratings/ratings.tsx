@@ -51,6 +51,7 @@ export default function Ratings() {
     }
     return (
         <S.RatingsContainer>
+            <Reset />   
             <S.ImgStar onClick={() => levelOne()} src={numberOneColor} alt="" />
             <S.ImgStar onClick={() => levelTwo()} src={numberTwoColor} alt="" />
             <S.ImgStar onClick={() => levelThree()} src={numberThreeColor} alt="" />

@@ -56,7 +56,7 @@ export default function Footer() {
                         <S.AboutList>
                             <S.AboutItem><S.LinkItem onClick={() => navigate("/error")}>Contact Us</S.LinkItem></S.AboutItem>
                             <S.Border></S.Border>
-                            <S.AboutItem><S.LinkItem onClick={() => navigate("/error")}>About Us</S.LinkItem></S.AboutItem>
+                            <S.AboutItem><S.LinkItem onClick={() => navigate("/about")}>About Us</S.LinkItem></S.AboutItem>
                             <S.Border></S.Border>
                             <S.AboutItem><S.LinkItem onClick={() => navigate("/error")}>Careers</S.LinkItem></S.AboutItem>
                             <S.Border></S.Border>

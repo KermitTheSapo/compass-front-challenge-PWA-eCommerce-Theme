@@ -8,6 +8,7 @@ import useState from 'storybook-addon-state';
 
 export default function HorizontalCards() {
     const [quantity, setQuantity] = useState("0", 1);
+    // @ts-ignore
     const [price, setPrice] = useState("1", 54.69);
     return (
         <div>

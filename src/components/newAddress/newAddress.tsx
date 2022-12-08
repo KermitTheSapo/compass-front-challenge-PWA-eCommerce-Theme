@@ -13,17 +13,25 @@ export default function NewAddress() {
     const [phone, setPhone] = useState("");
     const [text, setText] = useState("");
     const [pinCode, setPinCode] = useState("")
+    const [mask, setMask] = useState("")
     const [ddd, setDdd] = useState("")
-    const maskPhone = (value) => {
+    const [DDDValue, setDDDValue] = useState("")
+    const maskCEP = (value: string) => {
+        return value.replace(/\D/g, "").replace(/^(\d{5})(\d{3})+?$/, "$1-$2");
+    };
+    const maskPhone = (value: string) => {
         return value
             .replace(/\D/g, "")
+            .replace(/(\d{2})(\d)/, "($1) $2")
             .replace(/(\d{5})(\d)/, "$1-$2")
             .replace(/(-\d{4})(\d+?)$/, "$1");
     };
-    const maskOnlyLetters = (value) => {
+    const maskOnlyLetters = (value: string) => {
         return value.replace(/[0-9!@#¨$%^&*)(+=._-]+/g, "");
     };
-
+    const maskDDD = (value: string) => {
+        return value.replace(/(\d{2})/, '+$1')
+    }
     const [address, setAddress] = useState({
         pinCode: "",
         complement: "",
@@ -36,14 +44,18 @@ export default function NewAddress() {
     function getCep() {
         if (pinCode.length === 8) {
             axios.get(Api).then((res) => {
-                setAddress({
-                    pinCode: res.data.cep,
-                    complement: res.data.complemento,
-                    street: res.data.logradouro,
-                    neighborhood: res.data.bairro,
-                    uf: res.data.uf,
-                    city: res.data.localidade
-                });
+                if (res.data.erro === true) {
+                    alert("incorrect zip code")
+                } else {
+                    setAddress({
+                        pinCode: res.data.cep,
+                        complement: res.data.complemento,
+                        street: res.data.logradouro,
+                        neighborhood: res.data.bairro,
+                        uf: res.data.uf,
+                        city: res.data.localidade
+                    });
+                }
             });
         } else {
             setAddress({
@@ -61,8 +73,7 @@ export default function NewAddress() {
     }, [pinCode])
 
     const saveAddress = () => {
-        if (text.length > 5 && ddd.length === 2 && phone.length > 8 && pinCode.length === 8) {
-            navigate(-1)
+        if (text.length > 5 && DDDValue.length === 2 && phone.length > 8 && pinCode.length === 8) {
             const Address = {
                 streetAddress: address.street,
                 city: address.city,
@@ -77,6 +88,7 @@ export default function NewAddress() {
             postAddress(Address)
             postContact(Contact)
             alert("Address successfully saved!")
+            navigate(-1)
         } else {
             alert("Fill in all fields")
         }
@@ -96,7 +108,7 @@ export default function NewAddress() {
                 <S.ContactContent>
                     <S.NameInput placeholder="Full Name" value={text} onChange={(e) => setText(maskOnlyLetters(e.target.value))} />
                     <S.DivInputNumber>
-                        <S.DDDInput placeholder="+11" maxLength={2} value={ddd} onChange={(e) => { setDdd(e.target.value) }} />
+                        <S.DDDInput placeholder="+11" maxLength={2} value={ddd} onChange={(e) => { setDdd(maskDDD(e.target.value)); setDDDValue(e.target.value) }} />
                         <S.NumberInput placeholder="Contact Number" value={phone} onChange={(e) => setPhone(maskPhone(e.target.value))} />
                     </S.DivInputNumber>
                 </S.ContactContent>
@@ -105,7 +117,7 @@ export default function NewAddress() {
                 <S.DeliveryInfoTitle>Delivery Information</S.DeliveryInfoTitle>
                 <S.Separator></S.Separator>
                 <S.DeliveryContent>
-                    <S.AddressInput placeholder="Pin Code" value={pinCode} maxLength={8} onChange={(e) => { setPinCode(e.target.value) }} />
+                    <S.AddressInput placeholder="Pin Code" value={mask} maxLength={8} onChange={(e) => { setPinCode(e.target.value); setMask(maskCEP(e.target.value)) }} />
                     <S.AddressInput placeholder="Street Address" value={address.street} />
                     <S.AddressInput value={address.city} placeholder="City" />
                     <S.SelectState name="" id="">

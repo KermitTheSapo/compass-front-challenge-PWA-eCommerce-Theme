@@ -1,6 +1,6 @@
 import * as S from "./addressStyle"
 import arrowBack from "@/assets/imgs/bag/back.svg"
-import wishlist from "@/assets/imgs/wishlist/art.svg"
+import wishlist from "@/assets/imgs/wishlist/art.png"
 import { useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
 export default function Address() {

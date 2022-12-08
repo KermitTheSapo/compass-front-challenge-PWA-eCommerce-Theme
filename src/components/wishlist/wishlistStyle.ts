@@ -33,4 +33,5 @@ export const WishlistContent = styled.div`
 export const WishlistProducts = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 `

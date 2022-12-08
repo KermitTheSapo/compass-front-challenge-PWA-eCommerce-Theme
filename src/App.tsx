@@ -29,6 +29,15 @@ import Categories from "./components/categories/categories"
 import MyReviews from "./components/myReviews/myReviews"
 import Refer from "./components/refer/refer"
 import About from "./components/about/about"
+import PhoneNumber from "./components/phoneNumber/phoneNumber"
+import EnterOtp from "./components/enterOtp/enterOtp"
+import MyOrders from "./components/myOrders/myOrders"
+import ItemsOrdered from "./components/itemsOrdered/itemsOrdered"
+import Invoice from "./components/invoice/invoice"
+import PersonalInfo from "./components/profile/userProfile/personalInfo/personalInfo"
+import OrderTab from "./components/profile/userProfile/orderTab/orderTab"
+import OrderList from "./components/profile/userProfile/orderTab/orderList/orderList"
+import OrderDetail from "./components/profile/userProfile/orderDetail/orderDetail"
 
 export default function App() {
   return (
@@ -55,7 +64,19 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/filters" element={<Filters />} />
         <Route path="/product" element={<Product />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />}>
+          <Route index element={<PersonalInfo />} />
+          <Route path="refer" element={<h3>refer</h3>} />
+          <Route path="orders" element={<OrderTab />}>
+            <Route index element={<OrderList />} />
+            <Route path="product" element={<OrderDetail />} />
+          </Route>
+          <Route path="wishlist" element={<h3>wishlist</h3>} />
+          <Route path="review" element={<h3>review</h3>} />
+          <Route path="address" element={<h3>address</h3>} />
+          <Route path="saved" element={<h3>saved</h3>} />
+          <Route path="*" element={<h3>Error</h3>} />
+        </Route>
         <Route path="/singUp" element={<SingUp />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/wishlist" element={<Wishlist />} />
@@ -63,6 +84,11 @@ export default function App() {
         <Route path="/myReviews" element={<MyReviews />} />
         <Route path="/refer" element={<Refer />} />
         <Route path="/about" element={<About />} />
+        <Route path="/phone-number" element={<PhoneNumber />} />
+        <Route path="/enter-otp" element={<EnterOtp />} />
+        <Route path="/my-orders" element={<MyOrders />} />
+        <Route path="/itemsOrdered" element={<ItemsOrdered />} />
+        <Route path="/invoices" element={<Invoice />} />
         <Route path="/*" element={<Error />} />
       </Routes>
     </BrowserRouter>

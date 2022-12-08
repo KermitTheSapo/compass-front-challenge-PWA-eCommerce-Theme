@@ -73,7 +73,7 @@ export default function Category({ name }: Props) {
         getProducts().then((res) => setProductsList(res))
         getBag().then((res) => setBagList(res))
     }, [])
-
+    // @ts-ignore
     const setSortValue = (e) => {
         if (e.target.value === "priceLowToHigh") {
             setPriceLowToHigh(true)

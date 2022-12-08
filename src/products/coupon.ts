@@ -7,13 +7,14 @@ export const getCoupon = async () => {
         return data;
     });
 }
-
+// @ts-ignore
 export const postCoupon = async (value) => {
     return axios.post(Api, value).then((res) => {
         let data = res.data
         return data;
     });
 }
+// @ts-ignore
 export const deleteCoupon = async (value) => {
     return axios.delete(`${Api}/${value}`).then((res) => {
         let data = res.data

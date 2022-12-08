@@ -27,8 +27,7 @@ type Props = {
     }[]>>
     ;
     ratings: number;
-    setTotalValue: React.Dispatch<React.SetStateAction<{}[]>>;
-    totalValue: {}[];
+    setTotalValue: React.Dispatch<React.SetStateAction<never[]>>;
     stateProductList: {
         _id: string;
         name: string;
@@ -43,8 +42,9 @@ type Props = {
         discount: number;
         safe: number;
     }[];
+    index: number;
 }
-export default function Card({ productTitle, productParagraph, productPrice, img, safe, discount, id, setState, ratings, setTotalValue, totalValue, stateProductList }: Props) {
+export default function Card({ productTitle, productParagraph, productPrice, img, safe, discount, id, setState, ratings, setTotalValue, stateProductList, index }: Props) {
     const [quantityValue, setQuantityValue] = useState(1)
     const [ProductValue, setProductValue] = useState(0)
     const deleteProduct = () => {
@@ -70,17 +70,14 @@ export default function Card({ productTitle, productParagraph, productPrice, img
         postWishlist(product)
         alert("moved")
     }
-
-    useEffect(() => {
-        setTotalValue([...totalValue, { ProductValue }])
-    }, [quantityValue, stateProductList])
-
     useEffect(() => {
         setProductValue(productPrice * quantityValue)
     }, [quantityValue, stateProductList])
-
-
-    console.log(totalValue)
+    const handleTotalPrice = (value: string) => {
+        setQuantityValue(Number(value))
+        // @ts-ignore
+        setTotalValue((item) => item.map((price, idx) => idx === index ? +(value * productPrice).toFixed(2) : price))
+    }
     return (
         <S.CardContainer>
             <S.CardInfo>
@@ -90,7 +87,7 @@ export default function Card({ productTitle, productParagraph, productPrice, img
                     <S.ProductParagraph>{productParagraph}</S.ProductParagraph>
                     <S.DivQuantity>
                         <S.QntParagraph>Qty:</S.QntParagraph>
-                        <S.SelectOptions name="" id="" onChange={(e) => { setQuantityValue(e.target.value) }}>
+                        <S.SelectOptions name="" id="" onChange={(e) => handleTotalPrice(e.target.value)}>
                             <option value="1">{1}</option>
                             <option value="2">{2}</option>
                             <option value="3">{3}</option>
@@ -111,6 +108,6 @@ export default function Card({ productTitle, productParagraph, productPrice, img
                 <S.VerticalSeparator></S.VerticalSeparator>
                 <S.ActionText onClick={() => deleteProduct()}>Remove</S.ActionText>
             </S.Actions>
-        </S.CardContainer>
+        </S.CardContainer >
     )
 }

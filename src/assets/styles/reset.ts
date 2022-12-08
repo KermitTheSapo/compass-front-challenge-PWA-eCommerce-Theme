@@ -81,5 +81,6 @@ export const Reset = createGlobalStyle`
     --ParagraphDateOrderCard: #7E7E7E;
     --BorderCardPaymentMethod: #E3E3E3;
     --paragraphExample: #A7A7A7;
+    --Selector: #17494D;
   }
 `

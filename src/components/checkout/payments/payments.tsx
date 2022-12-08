@@ -10,10 +10,17 @@ import phonePe from "@/assets/imgs/checkout/phonePe.svg"
 import paytm from "@/assets/imgs/checkout/paytm.svg"
 import { useState } from "react"
 
-export default function CheckoutPayments() {
+type Props = {
+    state: string;
+    setState: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function CheckoutPayments({ state, setState }: Props) {
     const [showPayments, setShowPayments] = useState(true)
     const [activePaymentMethod, setActivePaymentMethod] = useState(false)
     const [showUpi, setShowUpi] = useState(false)
+
+
     return (
         <S.CheckoutContent>
             <S.ContactAndPayments>
@@ -47,30 +54,36 @@ export default function CheckoutPayments() {
                     </S.PaymentMethods>}
                     {activePaymentMethod && <S.ActivePaymentMethod>
                         <S.MethodItem onClick={() => setShowUpi(!showUpi)}>
-                            <S.ImgTitleItem>
-                                <S.ImgMethod src={googlePlay} alt="google pay icon" />
-                                <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
-                            </S.ImgTitleItem>
-                            <S.InputRadioMethod type="radio" />
+                            <label htmlFor="google">
+                                <S.ImgTitleItem>
+                                    <S.ImgMethod src={googlePlay} alt="google pay icon" />
+                                    <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
+                                </S.ImgTitleItem>
+                            </label>
+                            <S.InputRadioMethod type="radio" id="google" name="card" />
                         </S.MethodItem>
                         {showUpi && <div>
-                            <S.InputUpiId type="text" placeholder="Enter your UPI Id"/>
+                            <S.InputUpiId type="text" placeholder="Enter your UPI Id" value={state} onChange={(e) => { setState(e.target.value) }} />
                             <S.ParagraphExample>Eg: 1234567890@ybl</S.ParagraphExample>
                             <S.InputCheckbox type="checkbox" name="" id="save" />
                             <S.LabelCheckbox htmlFor="save">Save this for future transactions</S.LabelCheckbox></div>}
                         <S.MethodItem>
-                            <S.ImgTitleItem>
-                                <S.ImgMethod src={phonePe} alt="Phone Pe icon" />
-                                <S.MethodItemTitle>Phone Pe</S.MethodItemTitle>
-                            </S.ImgTitleItem>
-                            <S.InputRadioMethod type="radio" />
+                            <label htmlFor="phone">
+                                <S.ImgTitleItem>
+                                    <S.ImgMethod src={phonePe} alt="Phone Pe icon" />
+                                    <S.MethodItemTitle>Phone Pe</S.MethodItemTitle>
+                                </S.ImgTitleItem>
+                            </label>
+                            <S.InputRadioMethod type="radio" id="phone" name="card" />
                         </S.MethodItem>
                         <S.MethodItem>
-                            <S.ImgTitleItem>
-                                <S.ImgMethod src={paytm} alt="Paytm icon" />
-                                <S.MethodItemTitle>Paytm</S.MethodItemTitle>
-                            </S.ImgTitleItem>
-                            <S.InputRadioMethod type="radio" />
+                            <label htmlFor="paytm">
+                                <S.ImgTitleItem>
+                                    <S.ImgMethod src={paytm} alt="Paytm icon" />
+                                    <S.MethodItemTitle>Paytm</S.MethodItemTitle>
+                                </S.ImgTitleItem>
+                            </label>
+                            <S.InputRadioMethod type="radio" id="paytm" name="card" />
                         </S.MethodItem>
                     </S.ActivePaymentMethod>}
                 </S.PaymentsDiv>
