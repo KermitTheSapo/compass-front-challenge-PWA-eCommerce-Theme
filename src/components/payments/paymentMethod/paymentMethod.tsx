@@ -6,11 +6,10 @@ import paytm from "@/assets/imgs/payments/paytm.svg"
 import minus from "@/assets/imgs/payments/minus.svg"
 import { useState } from "react"
 type Props = {
-    state: string;
     setState: React.Dispatch<React.SetStateAction<string>>;
     stateCorrectInfo: boolean;
 }
-export default function PaymentMethod({ state, setState, stateCorrectInfo }: Props) {
+export default function PaymentMethod({setState, stateCorrectInfo }: Props) {
     const [showUpi, setShowUpi] = useState(false)
     return (
         <S.PaymentMethodContainer>
