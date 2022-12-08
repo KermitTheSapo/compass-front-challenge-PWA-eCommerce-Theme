@@ -20,8 +20,8 @@ export default function ButtonAdd({ name, description, price, img, safe, discoun
             price: price,
             safe: safe,
             discount: discount,
-            link: "asdf",
-            imgAlt: "asdfasd",
+            link: "Link",
+            imgAlt: "imgAlt",
             image: img,
             ratings: ratings,
             quantity: 1
