@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as S from "./itemArrivalStyle"
 import heart from "@/assets/imgs/home/main/arrivals/heart.svg"
@@ -23,7 +23,7 @@ type Props = {
 };
 export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemName, link, safe, discount, star, ratings, information, isButtonAddTrue }: Props) {
     const navigate = useNavigate();
-    const [heartStatus, setHeartStatus] = useState(true)
+    const [heartStatus, setHeartStatus] = useState(false)
     const changeLink = () => {
         navigate(`/product?id=${link}`)
     }
@@ -44,8 +44,9 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
         postBag(product)
         alert("Item added to cart")
     }
-    useEffect(() => {
+    const AddToWishlist = () => {
         const product = {
+            _id: `${link}`,
             name: itemName,
             paragraph: Description,
             description: Description,
@@ -58,13 +59,16 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
             ratings: ratings,
             quantity: 1
         }
-        if (heartStatus) {
+        if (heartStatus === true) {
+            setHeartStatus(false)
             deleteWishlist(link)
-        } else {
+            alert("successfully deleted item")
+        } else if (heartStatus === false) {
+            setHeartStatus(true)
             postWishlist(product)
             alert("Item added to wishlist")
         }
-    }, [heartStatus])
+    }
     const [bottomSheetStatus, setBottomSheetStatus] = useState(false)
     return (
         <>
@@ -74,7 +78,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
                     <S.InformationDiv >
                         <S.NameHeart>
                             <S.ItemName>{itemName}</S.ItemName>
-                            <S.Heart onClick={() => heartStatus ? setHeartStatus(false) : setHeartStatus(true)} src={heartStatus === true ? heart : heartFill} alt="a heart icon" />
+                            <S.Heart onClick={() => AddToWishlist()} src={heartStatus === true ? heartFill : heart} alt="a heart icon" />
                         </S.NameHeart>
                         <S.ItemDescription>{Description}</S.ItemDescription>
                         {information &&
