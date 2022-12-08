@@ -1,4 +1,3 @@
-import ItemArrival from "../../../components/Home/main/Arrivals/itemArrival/itemArrival";
 import { useEffect, useState } from "react"
 import { getProducts } from "../../../products/products";
 import * as S from "./searchBarStyle"
@@ -57,9 +56,9 @@ export default function SearchBar({ input }: Props) {
 
     return (
         <S.SearchBar>
-            {loading && <h1>Loading...</h1>}
+            {loading && <p>Loading...</p>}
             {!loading ? arrayFiltrado.map((item, key) => (
-                <S.ProductDiv>
+                <S.ProductDiv key={key}>
                     <S.ImgProduct src={item.image} alt="" />
                     <S.ProductInfo>
                         <S.ProductName>{item.name}</S.ProductName>
