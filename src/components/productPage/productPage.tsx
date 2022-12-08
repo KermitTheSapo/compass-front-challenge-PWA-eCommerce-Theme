@@ -59,7 +59,6 @@ export default function ProductPage({ img, name, productDescription, value, prod
     }
     useEffect(() => {
         getId()
-        console.log(id)
     }, [id])
     const navigate = useNavigate()
     const [counter, setCounter] = useState(1)
@@ -105,7 +104,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                     <S.Separator></S.Separator>
                     <ProductDescription />
                     <S.Separator></S.Separator>
-                    <RatingReviews />
+                    <RatingReviews id={id} />
                     <S.Separator></S.Separator>
                     <InviteFriends />
                     <S.Separator></S.Separator>
