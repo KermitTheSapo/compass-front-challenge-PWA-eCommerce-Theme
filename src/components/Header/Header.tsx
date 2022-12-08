@@ -45,6 +45,7 @@ export default function Header() {
     const [tax, setTax] = useState(2)
     const navigate = useNavigate();
     useEffect(() => {
+        // @ts-ignore
         getBag().then((res) => { setProductsList(res); let value = res.map(item => item.price); setTotalValue(value) })
     }, [])
     useEffect(() => {
