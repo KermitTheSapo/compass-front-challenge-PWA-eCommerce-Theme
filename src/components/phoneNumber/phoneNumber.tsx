@@ -7,7 +7,7 @@ export default function PhoneNumber() {
     const [phone, setPhone] = useState<string>("")
     const [ddd, setDdd] = useState<string>("")
     const navigate = useNavigate()
-    const maskPhone = (value) => {
+    const maskPhone = (value: string) => {
         return value
             .replace(/\D/g, "")
             .replace(/(\d{2})(\d)/, "($1) $2")
