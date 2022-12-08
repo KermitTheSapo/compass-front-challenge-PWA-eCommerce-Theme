@@ -73,8 +73,9 @@ export default function Card({ productTitle, productParagraph, productPrice, img
     useEffect(() => {
         setProductValue(productPrice * quantityValue)
     }, [quantityValue, stateProductList])
-    const handleTotalPrice = (value) => {
-        setQuantityValue(value)
+    const handleTotalPrice = (value: string) => {
+        setQuantityValue(Number(value))
+        // @ts-ignore
         setTotalValue((item) => item.map((price, idx) => idx === index ? +(value * productPrice).toFixed(2) : price))
     }
     return (
