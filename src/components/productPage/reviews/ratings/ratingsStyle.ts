@@ -10,7 +10,7 @@ export const HeaderInformation = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 45%;
-    padding: 32px 0px 12px 16px;
+    padding: 15px 0px 0px 16px;
 `
 export const RatingsPill = styled.div`
     display: flex;
@@ -30,8 +30,9 @@ export const StarImg = styled.img`
 
 export const RatingsPersonInfo = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-direction: column;
+    height: 5vh;
 `
 export const RatingsPersonName = styled.h3`
     font-weight: 600;
@@ -50,15 +51,17 @@ export const Content = styled.div`
     padding: 0 16px;
     height: 10vh;
 `
-export const RatingsTitle = styled.div`
+export const RatingsTitle = styled.h3`
     font-weight: 600;
     font-size: 0.875rem;
     color: var(--TypeHighEmphasis);
+    text-transform: capitalize;
 `
-export const RatingsDescription = styled.div`
+export const RatingsDescription = styled.p`
     font-weight: 500;
     font-size: 0.875rem;
     color: var(--TypeLowEmphasis);
+    text-transform: capitalize;
 `
 export const ImgsCarousel = styled.div`
     display: flex;
