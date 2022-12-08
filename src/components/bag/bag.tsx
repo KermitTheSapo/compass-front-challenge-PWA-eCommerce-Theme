@@ -28,6 +28,7 @@ export default function Bag() {
     const [totalValue, setTotalValue] = useState([])
     const [subTotalValue, setSubTotalValue] = useState(0)
     useEffect(() => {
+        // @ts-ignore
         getBag().then((res) => { setProductsList(res); let value = res.map(item => item.price); setTotalValue(value) })
     }, [])
     useEffect(() => {
