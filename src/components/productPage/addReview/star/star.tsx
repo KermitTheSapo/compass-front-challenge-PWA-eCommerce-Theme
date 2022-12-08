@@ -3,7 +3,11 @@ import starOn from "@/assets/imgs/productPage/reviews/starOn.svg"
 import starOff from "@/assets/imgs/productPage/reviews/starOff.svg"
 import { useState } from "react"
 
-export default function Ratings() {
+type Props = {
+    setState: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function Ratings({ setState }: Props) {
     const [numberOneColor, setNumberOneColor] = useState(starOff)
     const [numberTwoColor, setNumberTwoColor] = useState(starOff)
     const [numberThreeColor, setNumberThreeColor] = useState(starOff)
@@ -20,17 +24,20 @@ export default function Ratings() {
     const levelOne = () => {
         resetStar()
         setNumberOneColor(starOn)
+        setState(1)
     }
     const levelTwo = () => {
         resetStar()
         setNumberOneColor(starOn)
         setNumberTwoColor(starOn)
+        setState(2)
     }
     const levelThree = () => {
         resetStar()
         setNumberOneColor(starOn)
         setNumberTwoColor(starOn)
         setNumberThreeColor(starOn)
+        setState(3)
     }
     const levelFour = () => {
         resetStar()
@@ -38,6 +45,7 @@ export default function Ratings() {
         setNumberTwoColor(starOn)
         setNumberThreeColor(starOn)
         setNumberFourColor(starOn)
+        setState(4)
     }
     const levelFive = () => {
         resetStar()
@@ -46,6 +54,7 @@ export default function Ratings() {
         setNumberThreeColor(starOn)
         setNumberFourColor(starOn)
         setNumberFiveColor(starOn)
+        setState(5)
     }
     return (
         <S.RatingsContainer>
