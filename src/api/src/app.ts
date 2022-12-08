@@ -23,7 +23,7 @@ const options: cors.CorsOptions = {
 };
 app.use(cors(options))
 app.use(express.json())
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.send('welcome to home!')
 })
 app.use("/product", product)
@@ -33,7 +33,7 @@ app.use("/coupon", coupon)
 app.use("/address", address)
 app.use("/contact", contact)
 
-app.use((req, res) => {
+app.use((_, res) => {
   res.status(404)
 })
 app.listen(PORT, () => {
