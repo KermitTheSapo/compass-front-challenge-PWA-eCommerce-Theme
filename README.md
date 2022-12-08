@@ -43,6 +43,7 @@ Thiago decided to enter the e-commerce sector (online sales), in addition, he de
 
 "npm install" for install the dependences
 "Npm run dev" for localhost
+"Npm run dev" for back-end Api
 "npm run storybook" for storybook
 
 Currently working for mobile screens: 420px and desktop: 1440px.
@@ -94,7 +95,7 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [ ] select address
      - [ ] receive items
      - [ ] receive items
-     - [ ] add address
+     - [X] add address
 - [ ] Address
      - [ ] address sheet and edit
      - [X] mask
@@ -111,6 +112,42 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [ ] sort categories
 - [ ] filters
      - [ ] filter logic
+- [ ] filters
+      - [ ] filter logic
+- [ ] singup
+    - [X] enter otp - structure and styling
+    - [X] enter your phone - structure and styling
+    - [X] home - structure and styling
+- [ ] profile
+    - [X] structure and styling
+    - [ ] api no contact
+- [ ] my orders
+    - [X] structure
+    - [X] styling
+    - [ ] api
+- [ ] items ordered
+    - [X] structure
+    - [X] styling
+    - [X] bottom sheet
+    - [ ] api
+- [X] invoice
+    - [X] structure
+    - [X] styling
+    - [ ] api
+- [X] drawer
+    - [X] structure
+    - [X] styling
+- [X] notification
+    - [X] structure
+    - [X] styling
+- [X] wish list
+    - [X] styling
+    - [X] structure
+    - [X] error when there is nothing
+    - [X] show items in wishlist api
+- [X] categories
+    - [X] structure
+    - [X] styling
 
 - [X] storybook
     - [X] Header and Footers
@@ -140,6 +177,9 @@ Currently working for mobile screens: 420px and desktop: 1440px.
     - [X] cards
         - [X] Miscellaneous Elements
         - [X] Horizontal Cards
+
+
+
   
 ---
 
