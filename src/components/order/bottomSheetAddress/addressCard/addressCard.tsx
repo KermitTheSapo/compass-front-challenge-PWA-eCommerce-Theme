@@ -14,7 +14,7 @@ export default function AddressCard({ streetAddress, city, uf, pinCode }: Props)
                     <S.AddressCardName>Vincent Lobo</S.AddressCardName>
                     <S.AddressCardAddress>{streetAddress}</S.AddressCardAddress>
                     <S.AddressCardCity>{city} - {uf}</S.AddressCardCity>
-                    <S.AddressCardPhone>{pinCode}</S.AddressCardPhone>
+                    <S.AddressCardPhone>{`${pinCode}`}</S.AddressCardPhone>
                 </S.Label>
             </S.CardContent>
             <S.EditAddress>Edit</S.EditAddress>
