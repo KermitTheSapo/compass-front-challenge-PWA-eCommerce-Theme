@@ -5,7 +5,6 @@ import arrowBreadcrumbs from "@/assets/imgs/myCart/chevron-right-small.svg"
 import arrowUp from "@/assets/imgs/checkout/chevron-up.svg"
 import arrowDown from "@/assets/imgs/checkout/chevron-bottom.svg"
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import OrderSummaryAndDetails from "./orderSummaryAndDetails/orderSummaryAndDetails"
 import { Helmet } from "react-helmet"
 import axios from "axios";
@@ -18,7 +17,6 @@ export default function Checkout() {
     const [showAddress, setShowAddress] = useState(true)
     const [ddd, setDdd] = useState("")
     const [DDDValue, setDDDValue] = useState("")
-    const navigate = useNavigate()
     const [phone, setPhone] = useState("");
     const [pinCode, setPinCode] = useState("")
     const [cepMask, setCepMask] = useState("")
