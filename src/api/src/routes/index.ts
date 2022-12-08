@@ -5,6 +5,8 @@ import wishlist from './wishlistRoutes'
 import coupon from './couponRoutes'
 import address from './addressRoutes'
 import contact from './contactRoutes'
+import review from './reviewRoutes'
+import order from './orderRoutes'
 // @ts-ignore
 const routes = (app) => {
   // @ts-ignore
@@ -35,7 +37,13 @@ const routes = (app) => {
     express.json(),
     contact
   )
+  app.use(
+    express.json(),
+    review
+  )
+  app.use(
+    express.json(),
+    order
+  )
 }
-
-
 export default routes
