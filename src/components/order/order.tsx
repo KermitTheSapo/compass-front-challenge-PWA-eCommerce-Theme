@@ -7,11 +7,23 @@ import BottomSheetAddress from "./bottomSheetAddress/bottomSheetAddress"
 import Address from "./address/address"
 import { Helmet } from "react-helmet"
 import { getBag } from "../../products/bag"
+import { getAddress } from "../../products/address"
 
 
 export default function Order() {
     const navigate = useNavigate()
     const [sheetEditAddress, setSheetEditAddress] = useState(false)
+    const [addressList, setAddressList] = useState([{
+        _id: "",
+        streetAddress: "",
+        city: "",
+        uf: "",
+        pinCode: 0,
+    }])
+
+    useEffect(() => {
+        getAddress().then((res) => setAddressList(res))
+    }, [])
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -80,9 +92,9 @@ export default function Order() {
                 </S.Summary>
             </S.OrderDetails>
             <S.DivBtnFooter>
-                <S.ButtonPayments onClick={() => navigate("/payments")} >Proceed to Payments</S.ButtonPayments>
+                <S.ButtonPayments onClick={() => navigate(`/payments?total=${allPrice.toFixed(2)}&subtotal=${subTotal.toFixed(2)}`)} >Proceed to Payments</S.ButtonPayments>
             </S.DivBtnFooter>
-            {sheetEditAddress && <BottomSheetAddress state={sheetEditAddress} setState={setSheetEditAddress} />}
+            {sheetEditAddress && <BottomSheetAddress state={sheetEditAddress} setState={setSheetEditAddress} stateAddress={addressList} />}
         </S.OrderContainer>
     )
 }
