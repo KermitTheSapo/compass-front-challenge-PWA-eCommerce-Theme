@@ -57,6 +57,7 @@ export default function CardVertical({ productTitle, productParagraph, productPr
         setProductValue(productPrice * quantityValue)
     }, [quantityValue, stateProductList])
     useEffect(() => {
+        // @ts-ignore
         setTotalValue((item) => item.map((price, idx) => idx === index ? +(quantityValue * productPrice).toFixed(2) : price))
     }, [quantityValue])
     return (
