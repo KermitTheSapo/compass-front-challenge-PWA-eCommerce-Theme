@@ -51,3 +51,9 @@ export const ButtonAddText = styled.button`
     background-position:  110px center;
     background-size: 25px;
 `
+
+export const ReviewDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 100px;
+`
