@@ -7,13 +7,14 @@ export const getBag = async () => {
         return data;
     });
 }
-
+// @ts-ignore
 export const postBag = async (value) => {
     return axios.post(Api, value).then((res) => {
         let data = res.data
         return data;
     });
 }
+// @ts-ignore
 export const deleteBag = async (value) => {
     return axios.delete(`${Api}/${value}`).then((res) => {
         let data = res.data

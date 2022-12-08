@@ -7,13 +7,14 @@ export const getAddress = async () => {
         return data;
     });
 }
-
+// @ts-ignore
 export const postAddress = async (value) => {
     return axios.post(Api, value).then((res) => {
         let data = res.data
         return data;
     });
 }
+// @ts-ignore
 export const deleteAddress = async (value) => {
     return axios.delete(`${Api}/${value}`).then((res) => {
         let data = res.data
