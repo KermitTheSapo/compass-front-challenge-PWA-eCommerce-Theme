@@ -17,7 +17,7 @@ import Buttons from "./buttons/buttons"
 import ProductDescriptionDesktop from "./productDescriptionDesktop/productDescriptionDesktop"
 import Footer from "../footer/footer"
 import { useNavigate } from "react-router-dom"
-import { getBag, postBag } from "../../products/bag"
+import { postBag } from "../../products/bag"
 import { useEffect, useState } from "react"
 
 type Props = {
@@ -52,7 +52,9 @@ export default function ProductPage({ img, name, productDescription, value, prod
         alert("Item added to cart")
     }
     const getId = () => {
+        // @ts-ignore
         let params = new URL(document.location).searchParams;
+        // @ts-ignore
         setId(params.get("id"))
     }
     useEffect(() => {
