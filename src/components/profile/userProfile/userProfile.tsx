@@ -6,8 +6,7 @@ import * as S from "./userProfileStyle"
 import imgArrowRightMini from "@/assets/imgs/userProfile/imgArrowRightMini.svg"
 import arrowLeft from "@/assets/imgs/userProfile/arrowLeft.svg"
 import OptionNavigation from "./optionNavigation/optionNavigation"
-import PersonalInfo from "./personalInfo/personalInfo"
-import OrderTab from "./orderTab/orderTab"
+import { Outlet } from "react-router-dom"
 
 export default function UserProfile() {
     const [size, setSize] = useState(false)
@@ -96,36 +95,16 @@ export default function UserProfile() {
                     </S.DivTitleAndLogout>
                     <S.UserProfileContent>
                         <S.SideNavigation>
-                            <OptionNavigation name={"Personal Information"} click={() => showPersonal()} state={personal} />
-                            <OptionNavigation name={"Refer and Earn"} click={() => showRefer()} state={refer} />
-                            <OptionNavigation name={"My Orders"} click={() => showOrder()} state={order} />
-                            <OptionNavigation name={"My Wishlist"} click={() => showWishlist()} state={wishlist} />
-                            <OptionNavigation name={"My Reviews"} click={() => showReviews()} state={reviews} />
-                            <OptionNavigation name={"My Address Book"} click={() => showAddress()} state={address} />
-                            <OptionNavigation name={"My Saved Cards"} click={() => showSaved()} state={saved} />
+                            <OptionNavigation name={"Personal Information"} click={() => showPersonal()} state={personal} link={"/profile/"} />
+                            <OptionNavigation name={"Refer and Earn"} click={() => showRefer()} state={refer} link={"/profile/refer"} />
+                            <OptionNavigation name={"My Orders"} click={() => showOrder()} state={order} link={"/profile/orders"} />
+                            <OptionNavigation name={"My Wishlist"} click={() => showWishlist()} state={wishlist} link={"/profile/wishlist"} />
+                            <OptionNavigation name={"My Reviews"} click={() => showReviews()} state={reviews} link={"/profile/review"} />
+                            <OptionNavigation name={"My Address Book"} click={() => showAddress()} state={address} link={"/profile/address"} />
+                            <OptionNavigation name={"My Saved Cards"} click={() => showSaved()} state={saved} link={"/profile/saved"} />
                         </S.SideNavigation>
                         <S.PersonInformation>
-                            {
-                                personal && <PersonalInfo />
-                            }
-                            {
-                                refer && <h3>Refer</h3>
-                            }
-                            {
-                                order && <OrderTab />
-                            }
-                            {
-                                wishlist && <h3>Wishlist</h3>
-                            }
-                            {
-                                reviews && <h3>Reviews</h3>
-                            }
-                            {
-                                address && <h3>Address</h3>
-                            }
-                            {
-                                saved && <h3>Saved</h3>
-                            }
+                            <Outlet />
                         </S.PersonInformation>
                     </S.UserProfileContent>
                 </S.UserProfileContainer>
