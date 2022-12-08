@@ -1,5 +1,4 @@
 import { Reset } from "../../assets/styles/reset"
-import * as S from "./radioButtonsStyle"
 
 export default function RadioButtons() {
     return (
