@@ -1,6 +1,7 @@
 import * as S from "./orderItemStyle"
 
 import arrowRight from "@/assets/imgs/userProfile/arrowRight.svg"
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     id: string;
@@ -10,6 +11,7 @@ type Props = {
 }
 
 export default function OrderItem({ id, date, price, status }: Props) {
+    const navigate = useNavigate();
     return (
         <S.OrderItemContainer>
             <S.OrderId>
@@ -26,7 +28,7 @@ export default function OrderItem({ id, date, price, status }: Props) {
                 <S.StatusParagraph>{status}</S.StatusParagraph>
             </S.StatusDiv>
             <S.ArrowDiv>
-                <S.ImgArrow src={arrowRight} alt="" />
+                <S.ImgArrow src={arrowRight} alt="" onClick={() => navigate("/profile/orders/product")} />
             </S.ArrowDiv>
         </S.OrderItemContainer>
     )
