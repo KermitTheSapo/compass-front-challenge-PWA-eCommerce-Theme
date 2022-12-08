@@ -2,27 +2,23 @@ import * as S from "./bottomSheetAddressStyle"
 import plus from "@/assets/imgs/order/plus.svg"
 import AddressCard from "./addressCard/addressCard"
 import { useNavigate } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { getAddress } from "../../../products/address"
+
 type Props = {
     state: boolean
     setState: (state: boolean) => void
+    stateAddress: {
+        _id: string;
+        streetAddress: string;
+        city: string;
+        uf: string;
+        pinCode: number;
+    }[];
 }
 
 
-export default function BottomSheetAddress({ state, setState }: Props) {
+export default function BottomSheetAddress({ state, setState, stateAddress }: Props) {
     const navigate = useNavigate()
-    const [addressList, setAddressList] = useState([{
-        _id: "",
-        streetAddress: "",
-        city: "",
-        uf: "",
-        pinCode: 0,
-    }])
 
-    useEffect(() => {
-        getAddress().then((res) => setAddressList(res))
-    }, [])
     return (
         <>
             <S.AddressDark onClick={() => setState(!state)}></S.AddressDark>
@@ -36,7 +32,7 @@ export default function BottomSheetAddress({ state, setState }: Props) {
                 </S.SelectAddressHeader>
                 <S.Separator></S.Separator>
                 <S.SelectAddressContent>
-                    {addressList.map((item) => (
+                    {stateAddress.map((item) => (
                         <AddressCard streetAddress={item.streetAddress} city={item.city} uf={item.uf} pinCode={item.pinCode} />
                     ))}
                 </S.SelectAddressContent>
