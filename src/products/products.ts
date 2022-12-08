@@ -8,7 +8,7 @@ export const getProducts = async () => {
     });
 }
 // @ts-ignore
-export function getProductsById(id) {
+export const getProductsById = async (id) => {
     let apiId = `${Api}/${id}`
     return axios.get(apiId).then((res) => {
         let data = res.data
