@@ -1,14 +1,20 @@
 import * as S from "./addressDetailsStyle"
 
-export default function AddressDetails() {
+type Props = {
+    pinCode: number;
+    streetAddress: string;
+    city: string;
+    name: string;
+}
+export default function AddressDetails({ pinCode, streetAddress, city, name }: Props) {
     return (
         <S.AddressDetailsContainer>
             <S.AddressDetailsTitle>Address Details</S.AddressDetailsTitle>
             <S.AddressDetailsContent>
-                <S.AddressDetailsLabel>Vincent Lobo</S.AddressDetailsLabel>
-                <S.AddressDetailsLabel>3068  Woodlawn Drive</S.AddressDetailsLabel>
-                <S.AddressDetailsLabel>Milwaukee</S.AddressDetailsLabel>
-                <S.AddressDetailsLabel>414-672-5388</S.AddressDetailsLabel>
+                <S.AddressDetailsLabel>{name}</S.AddressDetailsLabel>
+                <S.AddressDetailsLabel>{streetAddress}</S.AddressDetailsLabel>
+                <S.AddressDetailsLabel>{city}</S.AddressDetailsLabel>
+                <S.AddressDetailsLabel>{`${pinCode}`}</S.AddressDetailsLabel>
             </S.AddressDetailsContent>
         </S.AddressDetailsContainer>
     )
