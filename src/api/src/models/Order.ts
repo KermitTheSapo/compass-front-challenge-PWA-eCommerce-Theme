@@ -10,6 +10,7 @@ const OrderSchema = new mongoose.Schema({
   upi: { type: String, required: true },
   addressList: { type: Object, required: true },
   product: { type: Array, required: true },
+  status: { type: String, required: true },
 })
 
 const Order = mongoose.model('order', OrderSchema)
