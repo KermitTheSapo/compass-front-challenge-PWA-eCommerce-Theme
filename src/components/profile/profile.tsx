@@ -47,7 +47,7 @@ export default function Profile() {
                 <SideNavigation path={"/refer"} name={"Refer and Earn"} />
                 <SideNavigation path={"/orders"} name={"My Orders"} />
                 <SideNavigation path={"/wishlist"} name={"My Wishlist"} />
-                <SideNavigation path={"/review"} name={"My Reviews"} />
+                <SideNavigation path={"/myReviews"} name={"My Reviews"} />
                 <SideNavigation path={"/address"} name={"My Address Book"} />
                 <SideNavigation path={"/savedCards"} name={"My Saved Cards"} />
             </S.NavigationOptions>
