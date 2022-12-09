@@ -27,13 +27,13 @@ export default function About() {
                     </S.DescriptionContent>
                     <S.ImgDescription src={bannerTwo} alt="" />
                 </S.Description>
-                <S.Description>
+                <S.DescriptionLeft>
                     <S.ImgDescription src={bannerThree} alt="" />
                     <S.DescriptionContent>
                         <S.DescriptionTitle>About</S.DescriptionTitle>
                         <S.DescriptionParagraph>Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. </S.DescriptionParagraph>
                     </S.DescriptionContent>
-                </S.Description>
+                </S.DescriptionLeft>
                 <S.Description>
                     <S.DescriptionContent>
                         <S.DescriptionTitle>About</S.DescriptionTitle>
