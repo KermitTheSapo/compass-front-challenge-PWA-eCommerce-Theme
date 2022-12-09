@@ -43,13 +43,13 @@ export default function Profile() {
                 <S.ImgArrow src={arrowRightGrey} alt="right arrow" />
             </S.ProfileBanner>
             <S.NavigationOptions>
-                <SideNavigation path={"/error"} name={"Personal Information"} />
-                <SideNavigation path={"/error"} name={"Refer and Earn"} />
-                <SideNavigation path={"/error"} name={"My Orders"} />
-                <SideNavigation path={"/error"} name={"My Wishlist"} />
-                <SideNavigation path={"/error"} name={"My Reviews"} />
+                <SideNavigation path={"/personal"} name={"Personal Information"} />
+                <SideNavigation path={"/refer"} name={"Refer and Earn"} />
+                <SideNavigation path={"/orders"} name={"My Orders"} />
+                <SideNavigation path={"/wishlist"} name={"My Wishlist"} />
+                <SideNavigation path={"/review"} name={"My Reviews"} />
                 <SideNavigation path={"/address"} name={"My Address Book"} />
-                <SideNavigation path={"/error"} name={"My Saved Cards"} />
+                <SideNavigation path={"/savedCards"} name={"My Saved Cards"} />
             </S.NavigationOptions>
             <S.BtnLogoutDiv>
                 <S.BtnLogout>Logout</S.BtnLogout>
@@ -58,7 +58,6 @@ export default function Profile() {
                 <Navigation homeTrue={false} categoriesTrue={false} profileTrue={true} bagTrue={false} />
             </S.BottomNavigation>
             {size && <UserProfile />}
-
         </S.ProfileContainer>
     )
 }
