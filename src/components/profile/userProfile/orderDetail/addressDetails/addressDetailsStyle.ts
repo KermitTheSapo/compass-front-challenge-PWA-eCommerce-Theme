@@ -6,6 +6,9 @@ export const AddressDetailsContainer = styled.div`
     height: 15vh;
     gap: 8px;
     width: 25%;
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 `
 export const AddressDetailsTitle = styled.h4`
     font-weight: 500;
