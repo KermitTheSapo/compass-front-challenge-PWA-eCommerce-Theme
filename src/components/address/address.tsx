@@ -1,6 +1,6 @@
 import * as S from "./addressStyle"
 import arrowBack from "@/assets/imgs/bag/back.svg"
-import wishlist from "@/assets/imgs/wishlist/art.png"
+import address from "@/assets/imgs/address/art.svg"
 import { useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
 export default function Address() {
@@ -15,7 +15,7 @@ export default function Address() {
                 <S.ConfirmedTitle>My Address Book</S.ConfirmedTitle>
             </S.ConfirmedHeader>
             <S.ConfirmedAdvise>
-                <S.ImgConfirmed src={wishlist} alt="icon of a location point with a circle indicating error" />
+                <S.ImgConfirmed src={address} alt="icon of a location point with a circle indicating error" />
                 <S.ConfirmedAdviseTitle>No Address</S.ConfirmedAdviseTitle>
                 <S.ConfirmedAdviseText>It seems you have not updated your address yet.</S.ConfirmedAdviseText>
             </S.ConfirmedAdvise>
