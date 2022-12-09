@@ -2,7 +2,10 @@ import * as S from "./orderListStyle"
 import { useEffect, useState } from "react"
 import OrderItem from "../orderItem/orderItem"
 import { getOrder } from "../../../../../products/order"
+import arrow from "@/assets/imgs/userProfile/arrowLeft.svg"
+import { useNavigate } from "react-router-dom"
 export default function OrderList() {
+    const navigate = useNavigate()
     const [completed, setCompleted] = useState(true)
     const [processing, setProcessing] = useState(false)
     const [cancelled, setCancelled] = useState(false)
@@ -61,6 +64,10 @@ export default function OrderList() {
     }, [])
     return (
         <>
+            <S.OrderNav>
+                <img src={arrow} alt="" onClick={() => navigate(-1)} />
+                <S.OrderTitle>Orders</S.OrderTitle>
+            </S.OrderNav>
             <S.OrderTabs>
                 <S.OrderItem color={completed ? "#1B4B66" : "transparent"} onClick={() => completedTab()}>
                     <S.OrderItemLabel color={completed ? "#FFFFFF" : "#626262"}>Completed</S.OrderItemLabel>
