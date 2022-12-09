@@ -114,10 +114,10 @@ export default function Header() {
                 {searchMenu && <S.SearchDiv>
                     <SearchBar input={input} />
                 </S.SearchDiv>}
-                <S.LinkCategory onClick={() => navigate("/wishlist")}>
+                <S.LinkCategory onClick={() => navigate("/profile/wishlist")}>
                     <S.IconImg src={heart} alt="unfilled heart symbol" />
                 </S.LinkCategory>
-                <S.LinkCategory onClick={() => navigate("/error")}>
+                <S.LinkCategory onClick={() => navigate("/profile")}>
                     <S.IconImg src={profile} alt="icon of a person's head and shoulder" />
                 </S.LinkCategory>
                 <S.LinkCategory >
