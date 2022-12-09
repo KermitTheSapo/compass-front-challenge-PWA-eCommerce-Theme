@@ -21,3 +21,11 @@ export const deleteOrder = async (value) => {
         return data;
     });
 }
+
+export const getOrderById = async (id) => {
+    let apiId = `${Api}/${id}`
+    return axios.get(apiId).then((res) => {
+        let data = res.data
+        return data;
+    });
+}
