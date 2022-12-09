@@ -6,7 +6,7 @@ import arrow from "@/assets/imgs/newAddress/arrow.svg"
 import arrowDown from "@/assets/imgs/payments/arrow-down.svg"
 import arrowUp from "@/assets/imgs/payments/arrow-up.svg"
 import PaymentMethod from "./paymentMethod/paymentMethod"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import { getAddress } from "../../products/address"
 import { getBag } from "../../products/bag"
@@ -29,6 +29,7 @@ export default function Payments() {
         imgAlt: "",
         paragraph: "",
         link: "",
+        subTotal: 0,
         ratings: 0,
         discount: 0,
         safe: 0,
@@ -50,6 +51,13 @@ export default function Payments() {
     useEffect(() => {
         getAddress().then((res) => setAddressList(res))
         getBag().then((res) => setProductsList(res))
+        let now = new Date
+        const day = (now.getDate()).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false
+        })
+        let monName = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+        setDate(`${monName[now.getMonth()]} ${day}, ${now.getFullYear()}`)
     }, [])
     const checkInformation = () => {
         if (upiText.length > 7) {
@@ -58,12 +66,6 @@ export default function Payments() {
                 minimumIntegerDigits: 9,
                 useGrouping: false
             })
-            let now = new Date
-            const day = (now.getDate()).toLocaleString('en-US', {
-                minimumIntegerDigits: 2,
-                useGrouping: false
-            })
-            setDate(`${day}/${now.getMonth() + 1}/${now.getFullYear()}`)
             const Order = {
                 name: "Robert J.",
                 orderId: orderId,
@@ -72,11 +74,12 @@ export default function Payments() {
                 upi: upiText,
                 addressList: addressList[0],
                 product: productsList,
-                orderDate: date
+                orderDate: date,
+                status: "Paid"
             }
             postOrder(Order)
             alert("successful purchase")
-            // navigate("/confirmed")
+            navigate("/confirmed")
         } else {
             alert("write your upi")
             setCorrectInfo(true)
