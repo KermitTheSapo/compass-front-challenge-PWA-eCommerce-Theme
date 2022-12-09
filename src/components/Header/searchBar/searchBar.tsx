@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import { getProducts } from "../../../products/products";
 import * as S from "./searchBarStyle"
 
@@ -9,7 +10,7 @@ type Props = {
 export default function SearchBar({ input }: Props) {
     const [loading, setLoading] = useState(true)
     const [noResult, setNoResult] = useState(false)
-
+    const navigate = useNavigate();
     const [arrayFiltrado, setArrayFiltrado] = useState([{
         _id: "",
         name: "",
@@ -58,7 +59,7 @@ export default function SearchBar({ input }: Props) {
         <S.SearchBar>
             {loading && <p>Loading...</p>}
             {!loading ? arrayFiltrado.map((item, key) => (
-                <S.ProductDiv key={key}>
+                <S.ProductDiv key={key} onClick={() => navigate(`/product?id=${item._id}`)}>
                     <S.ImgProduct src={item.image} alt="" />
                     <S.ProductInfo>
                         <S.ProductName>{item.name}</S.ProductName>
