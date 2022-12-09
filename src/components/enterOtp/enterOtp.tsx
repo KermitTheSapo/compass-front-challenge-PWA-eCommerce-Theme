@@ -13,7 +13,7 @@ export default function EnterOtp() {
     const next = () => {
         let number = numberOne + numberTwo + numberThree + numberFour
         if (number === "1234") {
-            navigate("/my-orders")
+            navigate("/profile")
         } else {
             alert("Incorrect code, please enter the correct code!")
         }
