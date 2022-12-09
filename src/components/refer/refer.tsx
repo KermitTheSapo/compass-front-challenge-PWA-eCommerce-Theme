@@ -2,12 +2,13 @@ import * as S from "./referStyle"
 
 import arrow from "@/assets/imgs/refer/arrow.svg"
 import art from "@/assets/imgs/refer/art.svg"
+import { useNavigate } from "react-router-dom";
 export default function Refer() {
-
+    const navigate = useNavigate();
     return (
         <S.ReferContainer>
             <S.ReferHeader>
-                <S.ImgArrow src={arrow} alt="" />
+                <S.ImgArrow src={arrow} alt="" onClick={() => navigate(-1)} />
                 <S.ReferTitle>Refer & Earn</S.ReferTitle>
             </S.ReferHeader>
             <S.ReferBody>
