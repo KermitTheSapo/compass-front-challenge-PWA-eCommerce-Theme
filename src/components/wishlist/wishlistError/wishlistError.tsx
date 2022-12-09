@@ -1,5 +1,5 @@
 import * as S from "./wishlistErrorStyle"
-import Img from "@/assets/imgs/wishlist/art.png"
+import Img from "@/assets/imgs/wishlist/art.svg"
 export default function WishlistError() {
     return (
         <S.WishlistErrorContainer>
