@@ -11,9 +11,13 @@ import axios from "axios";
 import CheckoutPayments from "./payments/payments"
 import { postAddress } from "../../products/address"
 import { postContact } from "../../products/contact"
+import { postOrder } from "../../products/order"
+import { getBag } from "../../products/bag"
+import { useNavigate } from "react-router-dom"
 
 
 export default function Checkout() {
+    const navigate = useNavigate()
     const [showAddress, setShowAddress] = useState(true)
     const [ddd, setDdd] = useState("")
     const [DDDValue, setDDDValue] = useState("")
@@ -22,6 +26,7 @@ export default function Checkout() {
     const [cepMask, setCepMask] = useState("")
     const [text, setText] = useState("");
     const [upiText, setUpiText] = useState("")
+    const [date, setDate] = useState("")
     const [address, setAddress] = useState({
         pinCode: "",
         complement: "",
@@ -30,6 +35,39 @@ export default function Checkout() {
         uf: "",
         city: ""
     });
+    const [productsList, setProductsList] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0,
+        quantity: 0
+    }])
+    const [allPrice, setAllPrice] = useState(0)
+    const [subTotal, setSubTotal] = useState(0)
+    useEffect(() => {
+        getBag().then((res) => setProductsList(res))
+        let Total = 0
+        productsList.map((product) => {
+            Total = Total + (product.price * product.quantity)
+        })
+        setAllPrice(Total)
+        let subTotal = 0
+        productsList.map((product) => {
+            subTotal = subTotal + product.price
+        })
+        setSubTotal(subTotal)
+    }, [productsList])
+    useEffect(() => {
+        getBag().then((res) => setProductsList(res))
+    }, [productsList])
     const Api = `https://viacep.com.br/ws/${pinCode}/json/`
     function getCep() {
         if (pinCode.length === 8) {
@@ -58,6 +96,15 @@ export default function Checkout() {
             });
         }
     }
+    useEffect(() => {
+        let now = new Date
+        const day = (now.getDate()).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false
+        })
+        let monName = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+        setDate(`${monName[now.getMonth()]} ${day}, ${now.getFullYear()}`)
+    }, [])
     useEffect(() => {
         getCep()
     }, [pinCode])
@@ -92,9 +139,26 @@ export default function Checkout() {
                 phone: phone,
                 cardCode: upiText
             }
+            let orderId = (Math.floor(Math.random() * 1000000000)).toLocaleString('en-US', {
+                minimumIntegerDigits: 9,
+                useGrouping: false
+            })
+            const Order = {
+                name: text,
+                orderId: orderId,
+                total: allPrice,
+                subTotal: subTotal,
+                upi: upiText,
+                addressList: address,
+                product: productsList,
+                orderDate: date,
+                status: "Paid"
+            }
             postAddress(Address)
             postContact(Contact)
+            postOrder(Order)
             alert("successful order")
+            navigate("/profile/orders")
         } else {
             alert("Fill in all fields")
         }
@@ -158,7 +222,7 @@ export default function Checkout() {
                         </S.NewAddressDiv>
                         <CheckoutPayments state={upiText} setState={setUpiText} />
                     </S.AddressAndPayment>
-                    <OrderSummaryAndDetails />
+                    <OrderSummaryAndDetails productListState={productsList} subTotal={subTotal} allPrice={allPrice} />
                 </S.CheckoutContent>
                 <S.ButtonsActions>
                     <S.ButtonBack>Back to Cart</S.ButtonBack>
