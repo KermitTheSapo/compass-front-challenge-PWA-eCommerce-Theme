@@ -2,10 +2,15 @@ import mongoose from 'mongoose'
 
 const ContactSchema = new mongoose.Schema({
   id: { type: String },
-  name: { type: String, required: true },
-  ddd: { type: String, required: true },
-  phone: { type: String, required: true },
-  cardCode: { type: String, required: true }
+  name: { type: String },
+  ddd: { type: String },
+  phone: { type: String },
+  cardCode: { type: String },
+  firstName: { type: String },
+  LastName: { type: String },
+  email: { type: String },
+  dateBirth: { type: String },
+  password: { type: String }
 })
 
 const Contact = mongoose.model('contact', ContactSchema)
