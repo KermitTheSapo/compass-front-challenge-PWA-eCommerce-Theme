@@ -1,11 +1,43 @@
 import * as S from "./orderListStyle"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import OrderItem from "../orderItem/orderItem"
-
+import { getOrder } from "../../../../../products/order"
 export default function OrderList() {
     const [completed, setCompleted] = useState(true)
     const [processing, setProcessing] = useState(false)
     const [cancelled, setCancelled] = useState(false)
+    const [order, setOrder] = useState([{
+        _id: "",
+        orderId: "",
+        orderDate: "",
+        name: "",
+        total: "",
+        subTotal: "",
+        upi: "",
+        addressList: {
+            _id: "",
+            pinCode: 0,
+            streetAddress: "",
+            city: "",
+            uf: ""
+        },
+        product: [
+            {
+                _id: "",
+                name: "",
+                paragraph: "",
+                description: "",
+                price: 0,
+                safe: 0,
+                subTotal: 0,
+                discount: 0,
+                image: "",
+                ratings: 0,
+                quantity: 0,
+            }
+        ],
+        status: "",
+    }])
 
     const resetTab = () => {
         setCompleted(false)
@@ -24,9 +56,11 @@ export default function OrderList() {
         resetTab()
         setCancelled(true)
     }
+    useEffect(() => {
+        getOrder().then(res => setOrder(res))
+    }, [])
     return (
         <>
-
             <S.OrderTabs>
                 <S.OrderItem color={completed ? "#1B4B66" : "transparent"} onClick={() => completedTab()}>
                     <S.OrderItemLabel color={completed ? "#FFFFFF" : "#626262"}>Completed</S.OrderItemLabel>
@@ -47,15 +81,18 @@ export default function OrderList() {
                 </S.OrderHeader>
                 <S.Separator></S.Separator>
                 <S.OrderProducts>
-                    {
+                    {order && order.map((item) => (
+                        <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                    ))}
+                    {/* {
                         completed && <OrderItem id={"#874522648"} date={"September 5, 2020"} price={"$218.50"} status={"Paid"} />
-                    }
-                    {
+                    } */}
+                    {/* {
                         processing && <OrderItem id={"#874522648"} date={"September 5, 2020"} price={"$218.50"} status={"Processing"} />
                     }
                     {
                         cancelled && <OrderItem id={"#874522648"} date={"September 5, 2020"} price={"$218.50"} status={"Cancelled"} />
-                    }
+                    } */}
                 </S.OrderProducts>
             </S.OrderList>
         </>
