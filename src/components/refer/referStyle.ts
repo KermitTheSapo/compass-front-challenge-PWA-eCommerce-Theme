@@ -14,6 +14,9 @@ export const ReferHeader = styled.div`
 `
 export const ImgArrow = styled.img`
     margin-right: 20px;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const ReferTitle = styled.h1`
     font-weight: 600;
@@ -104,4 +107,7 @@ export const InviteBtn = styled.button`
     position: fixed;
     bottom: 2%;
     left: 5%;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `

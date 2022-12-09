@@ -11,11 +11,19 @@ export const InfoHeader = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 4vh;
+    @media (max-width: 768px) {
+        justify-content: space-evenly;
+        height: 8vh;
+        padding: 0 0 0 16px;
+    }
 `
 export const InfoTitle = styled.h2`
     font-weight: 600;
     font-size: 1.25rem;
     color: var(--Dark);
+    @media (max-width: 768px) {
+        padding: 0 0 0 16px;
+    }
 `
 export const Separator = styled.div`
     height: 1px;
@@ -33,6 +41,10 @@ export const ProfilePicture = styled.div`
     justify-content: space-between;
     width: 40%;
     height: 13vh;
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0 16px 0 16px;
+    }
 `
 export const ImgProfile = styled.img`
     height: 80px;
@@ -68,7 +80,6 @@ export const BtnDelete = styled.button`
 `
 
 export const FormInformation = styled.div`
-
 `
 
 export const DivName = styled.div`
@@ -77,11 +88,22 @@ export const DivName = styled.div`
     justify-content: space-between;
     width: 60%;
     height: 12vh;
+    @media (max-width: 768px) {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        height: 20vh;
+    }
 `
 export const FirstNameDiv = styled.div`
     display: flex;
     flex-direction: column;
     width: 45%;
+    @media (max-width: 768px) {
+        width: 90%;
+        padding: 0 0 0 16px;
+    }
 `
 export const Label = styled.label`
     font-weight: 500;
@@ -105,6 +127,9 @@ export const DivEmail = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     height: 12vh;
+    @media (max-width: 768px) {
+        padding: 0 0 0 16px;
+    }
 `
 
 export const InputEmail = styled.input`
@@ -117,6 +142,9 @@ export const InputEmail = styled.input`
     font-weight: 500;
     font-size: 1rem;
     color: var(--TypeLowEmphasis);
+    @media (max-width: 768px) {
+        width: 90%;   
+    }
 `
 
 export const DivPhone = styled.div`
@@ -125,6 +153,10 @@ export const DivPhone = styled.div`
     width: 40%;
     justify-content: space-evenly;
     height: 12vh;
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0 16px 0 16px;
+    }
 `
 
 export const DivNumbers = styled.div`
@@ -163,6 +195,10 @@ export const DateDiv = styled.div`
     justify-content: space-evenly;
     height: 12vh;
     width: 20%;
+    @media (max-width: 768px) {
+        width: 95%;
+        padding: 0 0 0 16px;
+    }
 `
 
 export const InputDate = styled.input`
@@ -174,6 +210,7 @@ export const InputDate = styled.input`
     font-weight: 500;
     font-size: 1rem;
     color: var(--TypeLowEmphasis);
+    
 `
 
 export const ChangePassword = styled.div`
@@ -185,6 +222,11 @@ export const ChangeHeader = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     height: 5vh;
+    @media (max-width: 768px) {
+        height: 8vh;
+        justify-content: space-evenly;
+        padding: 0 0 0 16px;
+    }
 `
 export const ChangeTitle = styled.h2`
     font-weight: 600;
@@ -203,6 +245,10 @@ export const DivInputPassword = styled.div`
     width: 30%;
     height: 12vh;
     justify-content: space-evenly;
+    @media (max-width: 768px) {
+        padding: 0 0 0 16px;
+        width: 90%;
+    }
 `
 
 export const InputPassword = styled.input`
@@ -244,4 +290,18 @@ export const ImgEye = styled.img`
 export const InputPasswordShow = styled.div`
     display: flex;
     align-items: center;
+`
+
+export const ImgArrowLeft = styled.img`
+    height: 24px;
+    width: 24px;
+    @media (min-width: 768px) {
+        display: none;
+    }
+`
+
+export const ArrowTitleDiv = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
 `

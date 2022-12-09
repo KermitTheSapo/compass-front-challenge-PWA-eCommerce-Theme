@@ -5,6 +5,10 @@ export const PaymentsDetailsContainer = styled.div`
     flex-direction: column;
     gap: 12px;
     height: 15vh;
+    @media (max-width: 768px) {
+        width: 90%;
+        height: auto;
+    }
 `
 
 export const PaymentsDetailsTitle = styled.div`

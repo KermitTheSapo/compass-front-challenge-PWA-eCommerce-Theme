@@ -9,6 +9,9 @@ export const OrderTabs = styled.div`
     height: 10vh;
     gap: 24px;
     padding: 0px 12px;
+    @media (max-width: 768px) {
+        height: 8vh;
+    }
 `
 export const OrderItem = styled.div`
     display: flex;
@@ -55,4 +58,25 @@ export const OrderProducts = styled.div`
     gap: 17px;
     margin-top: 24px;
     height: 60vh;
+`
+export const OrderTitle = styled.h3`
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    @media (min-width: 768px) {
+        display: none;
+    }
+`
+export const OrderNav = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 16px;
+    height: 8vh;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `

@@ -5,6 +5,9 @@ export const OrderDetailsContainer = styled.div`
     flex-direction: column;
     width: 20%;
     gap: 12px;
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 `
 
 export const OrderTitle = styled.h4`

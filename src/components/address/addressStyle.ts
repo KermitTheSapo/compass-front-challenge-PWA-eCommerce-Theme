@@ -15,6 +15,9 @@ export const ConfirmedHeader = styled.div`
 `
 export const ImgBack = styled.img`
     margin-right: 20px;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const ConfirmedTitle = styled.h1`
     font-weight: 600;
@@ -73,4 +76,10 @@ export const btnContinue = styled.button`
     cursor: pointer;
     border: none;
 
+`
+
+export const AddressList = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 98%;
 `

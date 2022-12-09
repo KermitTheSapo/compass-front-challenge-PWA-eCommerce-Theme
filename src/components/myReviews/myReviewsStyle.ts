@@ -20,7 +20,9 @@ export const TrailingIcon = styled.div`
     width: 40%;
 `
 export const ImgArrow = styled.img`
-
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const ReviewsTitle = styled.h1`
     font-weight: 600;

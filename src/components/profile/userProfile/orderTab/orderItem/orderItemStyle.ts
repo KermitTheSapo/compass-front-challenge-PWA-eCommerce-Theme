@@ -9,6 +9,9 @@ export const OrderItemContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 24px;
+    @media (max-width: 768px) {
+        padding: 0;
+    }
 `
 
 export const OrderId = styled.div`
@@ -22,6 +25,9 @@ export const Label = styled.p`
     font-weight: 500;
     font-size: 1rem;
     color: var(--TypeHighEmphasis);
+    @media (max-width: 768px) {
+        font-size: 0.875rem;
+    }
 `
 export const DateDiv = styled.div`
 

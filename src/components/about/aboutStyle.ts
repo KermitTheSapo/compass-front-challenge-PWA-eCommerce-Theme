@@ -26,6 +26,10 @@ export const BannerContent = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    @media (max-width: 768px) {
+        width: 100%;
+        align-items: flex-end;
+    }
 `
 
 export const BannerTitle = styled.h1`
@@ -42,6 +46,9 @@ export const BannerParagraph = styled.p`
     color: var(--TypeLowEmphasis);
     width: 65%;
     line-height: 20px;
+    @media (max-width: 768px) {
+        text-align: right;
+    }
 `
 
 export const AboutDiv = styled.div`
@@ -51,12 +58,21 @@ export const AboutDiv = styled.div`
     justify-content: center;
     flex-direction: column;
     height: 15vh;
+    @media (max-width: 768px) {
+        height: 30vh;
+        width: 100%;
+        align-items: center;
+    }
 `
 
 export const AboutTitle = styled.h2`
     font-weight: 600;
     font-size: 1.25rem;
     color: var(--TypeHighEmphasis);
+    @media (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+    }
 `
 export const AboutParagraph = styled.p`
     font-weight: 400;
@@ -64,14 +80,33 @@ export const AboutParagraph = styled.p`
     text-align: center;
     line-height: 20px;
     color: var(--TypeLowEmphasis);
+    @media (max-width: 768px) {
+        text-align: left;
+        width: 90%;
+    }
 `
 
+export const DescriptionLeft = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    height:40vh;
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+`
 export const Description = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
     height:40vh;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
 `
 export const DescriptionContent = styled.div`
     display: flex;
@@ -88,7 +123,12 @@ export const DescriptionParagraph = styled.p`
     font-size: 1rem;
     color: var(--TypeLowEmphasis);
     width: 85%;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 export const ImgDescription = styled.img`
-
+    @media (max-width: 768px) {
+        width: 95%;
+    }
 `
