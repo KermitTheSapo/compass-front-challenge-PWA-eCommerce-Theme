@@ -5,18 +5,19 @@ import { useNavigate } from "react-router-dom";
 
 type Props = {
     id: string;
+    orderId: string;
     date: string;
     price: string;
     status: string;
 }
 
-export default function OrderItem({ id, date, price, status }: Props) {
+export default function OrderItem({ id, orderId, date, price, status }: Props) {
     const navigate = useNavigate();
     return (
         <S.OrderItemContainer>
             <S.OrderId>
                 <S.InputCheckbox type="checkbox" name="" id="" />
-                <S.Label>{id}</S.Label>
+                <S.Label>#{orderId}</S.Label>
             </S.OrderId>
             <S.DateDiv>
                 <S.Label>{date}</S.Label>
@@ -28,7 +29,7 @@ export default function OrderItem({ id, date, price, status }: Props) {
                 <S.StatusParagraph>{status}</S.StatusParagraph>
             </S.StatusDiv>
             <S.ArrowDiv>
-                <S.ImgArrow src={arrowRight} alt="" onClick={() => navigate("/profile/orders/product")} />
+                <S.ImgArrow src={arrowRight} alt="" onClick={() => navigate(`/profile/orders/product?id=${id}`)} />
             </S.ArrowDiv>
         </S.OrderItemContainer>
     )
