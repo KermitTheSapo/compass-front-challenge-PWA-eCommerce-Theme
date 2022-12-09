@@ -1,39 +1,28 @@
-import { getBag } from "../../../products/bag"
-import { useEffect, useState } from "react"
 import SummaryProduct from "../summaryProduct/summaryProduct"
 import * as S from "./orderSummaryAndDetailsStyle"
 
-export default function OrderSummaryAndDetails() {
-    const [productsList, setProductsList] = useState([{
-        _id: "",
-        name: "",
-        price: 0,
-        category: "",
-        image: "",
-        description: "",
-        imgAlt: "",
-        paragraph: "",
-        link: "",
-        ratings: 0,
-        discount: 0,
-        safe: 0,
-        quantity: 0
-    }])
-    const [allPrice, setAllPrice] = useState(0)
-    const [subTotal, setSubTotal] = useState(0)
-    useEffect(() => {
-        getBag().then((res) => setProductsList(res))
-        let Total = 0
-        productsList.map((product) => {
-            Total = Total + (product.price * product.quantity)
-        })
-        setAllPrice(Total)
-        let subTotal = 0
-        productsList.map((product) => {
-            subTotal = subTotal + product.price
-        })
-        setSubTotal(subTotal)
-    }, [productsList])
+type Props = {
+    productListState: {
+        _id: string;
+        name: string;
+        price: number;
+        category: string;
+        image: string;
+        description: string;
+        imgAlt: string;
+        paragraph: string;
+        link: string;
+        ratings: number;
+        discount: number;
+        safe: number;
+        quantity: number;
+    }[],
+    subTotal: number,
+    allPrice: number
+}
+
+export default function OrderSummaryAndDetails({ productListState, subTotal, allPrice }: Props) {
+
     return (
         <S.SummaryAndDetails>
             <S.OrderSummaryDiv>
@@ -42,10 +31,10 @@ export default function OrderSummaryAndDetails() {
                 </S.OrderSummaryHeader>
                 <S.Separator></S.Separator>
                 <S.OrderSummaryContent>
-                    {productsList.map((item) => (
+                    {productListState.map((item) => (
                         <SummaryProduct productTitle={item.name} productParagraph={item.description} img={item.image} quantity={item.quantity} />
                     ))}
-                    {productsList.length === 0 && <S.EmptyCart>
+                    {productListState.length === 0 && <S.EmptyCart>
                         <S.EmptyTitle>Uh Oh....!</S.EmptyTitle>
                         <S.EmptyParagraph>You haven’t added any items. Start shopping to make your bag bloom</S.EmptyParagraph>
                     </S.EmptyCart>}
