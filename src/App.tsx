@@ -38,6 +38,8 @@ import PersonalInfo from "./components/profile/userProfile/personalInfo/personal
 import OrderTab from "./components/profile/userProfile/orderTab/orderTab"
 import OrderList from "./components/profile/userProfile/orderTab/orderList/orderList"
 import OrderDetail from "./components/profile/userProfile/orderDetail/orderDetail"
+import WishlistPage from "./components/profile/userProfile/wishlist/wishlist"
+import SavedCards from "./components/profile/userProfile/savedCards/savedCards"
 
 export default function App() {
   return (
@@ -64,18 +66,21 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/filters" element={<Filters />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/personal" element={<PersonalInfo />} />
+        <Route path="/orders" element={<OrderList />} />
+        <Route path="/orderProduct" element={<OrderDetail />} />
         <Route path="/profile" element={<Profile />}>
           <Route index element={<PersonalInfo />} />
-          <Route path="refer" element={<h3>refer</h3>} />
+          <Route path="refer" element={<Refer />} />
           <Route path="orders" element={<OrderTab />}>
             <Route index element={<OrderList />} />
             <Route path="product" element={<OrderDetail />} />
           </Route>
-          <Route path="wishlist" element={<h3>wishlist</h3>} />
-          <Route path="review" element={<h3>review</h3>} />
-          <Route path="address" element={<h3>address</h3>} />
-          <Route path="saved" element={<h3>saved</h3>} />
-          <Route path="*" element={<h3>Error</h3>} />
+          <Route path="wishlist" element={<WishlistPage />} />
+          <Route path="review" element={<MyReviews />} />
+          <Route path="address" element={<Address />} />
+          <Route path="saved" element={<SavedCards />} />
+          <Route path="*" element={<SavedCards />} />
         </Route>
         <Route path="/singUp" element={<SingUp />} />
         <Route path="/notification" element={<Notification />} />
