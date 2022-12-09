@@ -3,6 +3,8 @@ import profile from "@/assets/imgs/userProfile/profilePicture.png"
 import eye from "@/assets/imgs/userProfile/eye.svg"
 import { useState } from "react";
 import { postContact } from "../../../../products/contact";
+import { useNavigate } from "react-router-dom";
+import arrow from "@/assets/imgs/userProfile/arrowLeft.svg"
 
 export default function PersonalInfo() {
     const [phone, setPhone] = useState("")
@@ -19,6 +21,7 @@ export default function PersonalInfo() {
     const [date, setDate] = useState("")
     const [currentPassword, setCurrentPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
+    const navigate = useNavigate()
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
     const maskPhone = (value: string) => {
         return value
@@ -75,7 +78,10 @@ export default function PersonalInfo() {
     return (
         <S.PersonalInfoContainer>
             <S.InfoHeader>
-                <S.InfoTitle>Personal Information</S.InfoTitle>
+                <S.ArrowTitleDiv>
+                    <S.ImgArrowLeft src={arrow} alt="" onClick={() => navigate(-1)} />
+                    <S.InfoTitle>Personal Information</S.InfoTitle>
+                </S.ArrowTitleDiv>
                 <S.Separator></S.Separator>
             </S.InfoHeader>
             <S.InfoContent>
