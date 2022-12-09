@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { getOrderById } from "../../../../products/order"
+import { useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 import AddressDetails from "./addressDetails/addressDetails"
 import OrderDetails from "./orderDetails/orderDetails"
 import * as S from "./orderDetailStyle"
@@ -9,7 +11,40 @@ export default function OrderDetail() {
     const [completed, setCompleted] = useState(true)
     const [processing, setProcessing] = useState(false)
     const [cancelled, setCancelled] = useState(false)
-
+    const [id, setId] = useState("")
+    const [orderProduct, setOrderProduct] = useState({
+        _id: "",
+        orderId: "",
+        orderDate: "",
+        name: "",
+        total: "",
+        subTotal: "",
+        upi: "",
+        addressList: {
+            _id: "",
+            pinCode: 0,
+            streetAddress: "",
+            city: "",
+            uf: "",
+        },
+        product: [
+            {
+                _id: "",
+                name: "",
+                paragraph: "",
+                description: "",
+                price: 0,
+                subTotal: 0,
+                safe: 0,
+                discount: 0,
+                image: "",
+                ratings: 0,
+                quantity: 0,
+            }
+        ],
+        status: "",
+    })
+    const location = useLocation();
     const resetTab = () => {
         setCompleted(false)
         setProcessing(false)
@@ -27,6 +62,15 @@ export default function OrderDetail() {
         resetTab()
         setCancelled(true)
     }
+    useEffect(() => {
+        // @ts-ignore
+        let params = new URL(document.location).searchParams;
+        // @ts-ignore
+        setId(params.get("id"))
+    }, [])
+    useEffect(() => {
+        getOrderById(id).then(res => setOrderProduct(res))
+    }, [id])
     return (
         <S.OrderDetailContainer>
             <S.OrderTabs>
@@ -52,9 +96,9 @@ export default function OrderDetail() {
             </S.ProductInformation>
             <S.Separator></S.Separator>
             <S.ProductList>
-                <ProductCardVertical />
-                <ProductCardVertical />
-                <ProductCardVertical />
+                {orderProduct.product && orderProduct.product.map((item => (
+                    <ProductCardVertical id={item._id} name={item.name} paragraph={item.paragraph} price={item.price} image={item.image} quantity={item.quantity} />
+                )))}
             </S.ProductList>
             <S.OrderInformation>
                 <S.OrderInfoHeader>
@@ -62,9 +106,9 @@ export default function OrderDetail() {
                     <S.Separator></S.Separator>
                 </S.OrderInfoHeader>
                 <S.OrderInfoContent>
-                    <OrderDetails />
-                    <PaymentsDetails />
-                    <AddressDetails />
+                    <OrderDetails subTotal={orderProduct.subTotal} discount={0.00} total={orderProduct.total} />
+                    <PaymentsDetails payment={orderProduct.upi} />
+                    <AddressDetails pinCode={orderProduct.addressList && orderProduct.addressList.pinCode} streetAddress={orderProduct.addressList && orderProduct.addressList.streetAddress} city={orderProduct.addressList && orderProduct.addressList.city} name={orderProduct.addressList && orderProduct.name} />
                 </S.OrderInfoContent>
             </S.OrderInformation>
             <S.ButtonsNavigation>
