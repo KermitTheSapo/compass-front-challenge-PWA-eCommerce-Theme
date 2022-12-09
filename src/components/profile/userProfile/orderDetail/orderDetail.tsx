@@ -1,13 +1,15 @@
 import { getOrderById } from "../../../../products/order"
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import AddressDetails from "./addressDetails/addressDetails"
 import OrderDetails from "./orderDetails/orderDetails"
 import * as S from "./orderDetailStyle"
 import PaymentsDetails from "./paymentsDetails/paymentsDetails"
 import ProductCardVertical from "./productCardVertical/productCardVertical"
+import arrow from "@/assets/imgs/userProfile/arrowLeft.svg"
 
 export default function OrderDetail() {
+    const navigate = useNavigate()
     const [completed, setCompleted] = useState(true)
     const [processing, setProcessing] = useState(false)
     const [cancelled, setCancelled] = useState(false)
@@ -73,6 +75,10 @@ export default function OrderDetail() {
     }, [id])
     return (
         <S.OrderDetailContainer>
+            <S.OrderHeader>
+                <img src={arrow} alt="" onClick={() => navigate(-1)} />
+                <S.OrderTitle>Order Details</S.OrderTitle>
+            </S.OrderHeader>
             <S.OrderTabs>
                 <S.OrderItem color={completed ? "#1B4B66" : "transparent"} onClick={() => completedTab()}>
                     <S.OrderItemLabel color={completed ? "#FFFFFF" : "#626262"}>Items Ordered</S.OrderItemLabel>
