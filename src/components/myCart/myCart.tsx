@@ -108,7 +108,7 @@ export default function MyCart() {
                             </S.Summary>
                             <S.ButtonsActions>
                                 <S.BtnOrder onClick={() => navigate("/checkout")}>Place Order</S.BtnOrder>
-                                <S.BtnContinue onClick={() => navigate("/")}>Continue Shopping</S.BtnContinue>
+                                <S.BtnContinue onClick={() => navigate("/home")}>Continue Shopping</S.BtnContinue>
                             </S.ButtonsActions>
                         </S.OrderSummaryContent>
                     </S.OrderSummary>

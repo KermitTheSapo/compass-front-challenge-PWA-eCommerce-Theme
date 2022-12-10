@@ -112,7 +112,7 @@ export default function Category({ name }: Props) {
             <Header />
             <S.Header>
                 <S.LeadingIcon>
-                    <S.LinkArrow onClick={() => navigate("/")}><S.ImgArrow src={arrow} alt="a blue left arrow" /></S.LinkArrow>
+                    <S.LinkArrow onClick={() => navigate("/home")}><S.ImgArrow src={arrow} alt="a blue left arrow" /></S.LinkArrow>
                     <S.Title>{name}</S.Title>
                 </S.LeadingIcon>
                 <S.TrailingIcon>

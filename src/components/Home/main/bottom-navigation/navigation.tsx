@@ -23,7 +23,7 @@ export default function Navigation({ homeTrue, categoriesTrue, profileTrue, bagT
 
     return (
         <S.Navigation>
-            <S.LinkNavTab onClick={() => navigate("/")}>
+            <S.LinkNavTab onClick={() => navigate("/home")}>
                 <S.NavTab>
                     <S.Img src={homeTrue ? HomeFill : Home} alt="icon of a house" />
                     <S.Name>{homeTrue ? "Home" : ""}</S.Name>
