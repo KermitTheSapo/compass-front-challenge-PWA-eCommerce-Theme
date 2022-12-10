@@ -24,10 +24,14 @@ const options: cors.CorsOptions = {
   origin: allowedOrigins
 };
 app.use(cors(options))
-app.use(express.json())
+// app.use(express.json())
+// @ts-ignore
+app.use(express.json({ limit: "10mb", extended: true }))
+app.use(express.urlencoded({ limit: "10mb", extended: true, parameterLimit: 50000 }))
 app.get('/', (_, res) => {
   res.send('welcome to home!')
 })
+
 app.use("/product", product)
 app.use("/bag", bag)
 app.use("/wishlist", wishlist)
