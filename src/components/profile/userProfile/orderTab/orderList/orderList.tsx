@@ -4,6 +4,7 @@ import OrderItem from "../orderItem/orderItem"
 import { getOrder } from "../../../../../products/order"
 import arrow from "@/assets/imgs/userProfile/arrowLeft.svg"
 import { useNavigate } from "react-router-dom"
+import bag from "@/assets/imgs/my-orders/bag.svg"
 export default function OrderList() {
     const navigate = useNavigate()
     const [completed, setCompleted] = useState(true)
@@ -65,8 +66,11 @@ export default function OrderList() {
     return (
         <>
             <S.OrderNav>
-                <img src={arrow} alt="left arrow image" onClick={() => navigate(-1)} />
-                <S.OrderTitle>Orders</S.OrderTitle>
+                <S.OrderDiv>
+                    <img src={arrow} alt="left arrow image" onClick={() => navigate(-1)} />
+                    <S.OrderTitle>My Orders</S.OrderTitle>
+                </S.OrderDiv>
+                <img src={bag} alt="" onClick={() => navigate("/bag")} />
             </S.OrderNav>
             <S.OrderTabs>
                 <S.OrderItem color={completed ? "#1B4B66" : "transparent"} onClick={() => completedTab()}>
@@ -79,6 +83,7 @@ export default function OrderList() {
                     <S.OrderItemLabel color={cancelled ? "#FFFFFF" : "#626262"}>Cancelled</S.OrderItemLabel>
                 </S.OrderItem>
             </S.OrderTabs>
+
             <S.OrderList>
                 <S.OrderHeader>
                     <S.OrderHeaderLabel>Order ID</S.OrderHeaderLabel>
@@ -86,8 +91,11 @@ export default function OrderList() {
                     <S.OrderHeaderLabel>Price</S.OrderHeaderLabel>
                     <S.OrderHeaderLabel>Status</S.OrderHeaderLabel>
                 </S.OrderHeader>
+
                 <S.Separator></S.Separator>
+
                 <S.OrderProducts>
+                    <S.OrderQuantity>{order.length} Order(s)</S.OrderQuantity>
                     {order && order.map((item) => (
                         <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
                     ))}
