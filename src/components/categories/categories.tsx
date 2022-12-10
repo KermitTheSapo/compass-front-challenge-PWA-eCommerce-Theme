@@ -15,11 +15,11 @@ export default function Categories() {
                 <S.CategoriesTitle>Categories</S.CategoriesTitle>
             </S.CategoriesHeader>
             <S.CategoriesOptions>
-                <CategoriesOptions img={skincare} link={"/skincare"} />
-                <CategoriesOptions img={fragrance} link={"/fragrance"} />
-                <CategoriesOptions img={handbags} link={"/handbags"} />
-                <CategoriesOptions img={eyewear} link={"/eyewear"} />
-                <CategoriesOptions img={apparels} link={"/apparels"} />
+                <CategoriesOptions img={skincare} link={"/skincare"} alt="different skin products" />
+                <CategoriesOptions img={fragrance} link={"/fragrance"} alt="pink perfume with rose petals" />
+                <CategoriesOptions img={handbags} link={"/handbags"} alt="orange handbag" />
+                <CategoriesOptions img={eyewear} link={"/eyewear"} alt="two glasses" />
+                <CategoriesOptions img={apparels} link={"/apparels"} alt="clothes thrown on a table" />
             </S.CategoriesOptions>
             <Navigation homeTrue={false} categoriesTrue={true} profileTrue={false} bagTrue={false} />
         </S.CategoriesContainer>

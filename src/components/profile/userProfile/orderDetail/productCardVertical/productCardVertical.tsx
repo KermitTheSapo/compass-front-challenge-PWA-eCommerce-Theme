@@ -13,7 +13,7 @@ export default function ProductCardVertical({ name, paragraph, price, image, qua
     return (
         <S.ProductCardVerticalContainer>
             <S.ProductNameDiv>
-                <S.ProductImg src={image} alt="" />
+                <S.ProductImg src={image} alt="product img" />
                 <S.ProductNameInfo>
                     <S.ProductName>{name}</S.ProductName>
                     <S.ProductDescription>{paragraph}</S.ProductDescription>

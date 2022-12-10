@@ -11,7 +11,7 @@ export default function OrderCard() {
                 <S.PriceText>$218.50</S.PriceText>
             </S.CardContent>
             <S.CardImg>
-                <S.ImgArrow src={arrowRight} alt="" />
+                <S.ImgArrow src={arrowRight} alt="left arrow image" />
             </S.CardImg>
         </S.OrderCardContainer>
     )

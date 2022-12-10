@@ -14,10 +14,10 @@ export default function ItemsOrdered() {
         <S.ItemsOrderedContainer>
             <S.ItemsOrderedHeader>
                 <S.DivContent>
-                    <S.ImgArrow src={imgArrowLeft} alt="" onClick={() => navigate(-1)} />
+                    <S.ImgArrow src={imgArrowLeft} alt="left arrow icon" onClick={() => navigate(-1)} />
                     <S.ItemsOrderedTitle>Items Ordered</S.ItemsOrderedTitle>
                 </S.DivContent>
-                <S.ImgOptions src={imgOptions} alt="" onClick={() => setShowBottomSheetOrder(true)} />
+                <S.ImgOptions src={imgOptions} alt="icon of 3 vertically aligned dots" onClick={() => setShowBottomSheetOrder(true)} />
             </S.ItemsOrderedHeader>
             <S.OrderDescription>
                 <S.OrderDetails>

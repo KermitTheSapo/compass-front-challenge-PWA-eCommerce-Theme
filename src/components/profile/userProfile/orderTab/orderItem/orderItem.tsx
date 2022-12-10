@@ -29,7 +29,7 @@ export default function OrderItem({ id, orderId, date, price, status }: Props) {
                 <S.StatusParagraph>{status}</S.StatusParagraph>
             </S.StatusDiv>
             <S.ArrowDiv>
-                <S.ImgArrow src={arrowRight} alt="" onClick={() => navigate(window.screen.width > 768 ? `/profile/orders/product?id=${id}` : `/orderProduct?id=${id}`)} />
+                <S.ImgArrow src={arrowRight} alt="right arrow" onClick={() => navigate(window.screen.width > 768 ? `/profile/orders/product?id=${id}` : `/orderProduct?id=${id}`)} />
             </S.ArrowDiv>
         </S.OrderItemContainer>
     )

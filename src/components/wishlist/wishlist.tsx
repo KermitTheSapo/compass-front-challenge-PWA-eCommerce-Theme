@@ -31,7 +31,7 @@ export default function Wishlist() {
     return (
         <S.WishlistContainer>
             <S.WishlistHeader>
-                <S.ImgArrow src={arrow} alt="" onClick={() => { navigate(-1) }} />
+                <S.ImgArrow src={arrow} alt="left arrow" onClick={() => { navigate(-1) }} />
                 <S.WishlistTitle>My Wishlist</S.WishlistTitle>
             </S.WishlistHeader>
             <S.WishlistContent>

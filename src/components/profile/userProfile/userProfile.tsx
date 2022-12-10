@@ -83,13 +83,13 @@ export default function UserProfile() {
                 <S.UserProfileContainer>
                     <S.BreadCrumb>
                         <S.Label>Home</S.Label>
-                        <S.ImgArrow src={imgArrowRightMini} alt="" />
+                        <S.ImgArrow src={imgArrowRightMini} alt="left arrow image" />
                         <S.LabelPrincipal>User Profile</S.LabelPrincipal>
                     </S.BreadCrumb>
                     <S.DivTitleAndLogout>
                         <S.TitlePage> {order ? "My Orders" : "Personal Information"}</S.TitlePage>
                         {order ? <S.SearchBar>
-                            <S.ImgArrowLeft src={arrowLeft} alt="" />
+                            <S.ImgArrowLeft src={arrowLeft} alt="left arrow icon" />
                             <S.InputSearch type="text" placeholder="Search" />
                         </S.SearchBar> : <S.ButtonLogout>Logout</S.ButtonLogout>}
                     </S.DivTitleAndLogout>

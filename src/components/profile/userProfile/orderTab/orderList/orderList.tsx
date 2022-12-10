@@ -65,7 +65,7 @@ export default function OrderList() {
     return (
         <>
             <S.OrderNav>
-                <img src={arrow} alt="" onClick={() => navigate(-1)} />
+                <img src={arrow} alt="left arrow image" onClick={() => navigate(-1)} />
                 <S.OrderTitle>Orders</S.OrderTitle>
             </S.OrderNav>
             <S.OrderTabs>

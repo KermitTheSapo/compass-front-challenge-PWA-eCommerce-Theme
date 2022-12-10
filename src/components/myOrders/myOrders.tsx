@@ -32,10 +32,10 @@ export default function MyOrders() {
         <S.MyOrdersContainer>
             <S.MyOrderHeader>
                 <S.HeaderContent>
-                    <S.ImgArrow src={arrow} alt="" onClick={() => { navigate(-1) }} />
+                    <S.ImgArrow src={arrow} alt="left arrow image" onClick={() => { navigate(-1) }} />
                     <S.Title>My Orders</S.Title>
                 </S.HeaderContent>
-                <S.ImgBag src={bag} alt="" />
+                <S.ImgBag src={bag} alt="a bag icon" />
             </S.MyOrderHeader>
             <S.Tabs>
                 <S.Tab onClick={() => showCompleted()} color={completedTab ? "#1B4B66" : "transparent"}>

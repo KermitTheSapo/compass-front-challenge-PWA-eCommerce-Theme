@@ -10,17 +10,17 @@ export default function ReviewCard() {
             <S.ReviewCardContent>
                 <S.Date>12 August 2020</S.Date>
                 <S.StarDiv>
-                    <img src={starOn} alt="" />
-                    <img src={starOn} alt="" />
-                    <img src={starOn} alt="" />
-                    <img src={starOn} alt="" />
-                    <img src={starOff} alt="" />
+                    <img src={starOn} alt="yellow star icon" />
+                    <img src={starOn} alt="yellow star icon" />
+                    <img src={starOn} alt="yellow star icon" />
+                    <img src={starOn} alt="yellow star icon" />
+                    <img src={starOff} alt="star off icon" />
                 </S.StarDiv>
                 <S.Title>GUCCI Colbar Handbag</S.Title>
                 <S.Paragraph>Quality product with awesome accessories</S.Paragraph>
                 <S.Description>Quality product with awesome accessories Quality product accessories ......</S.Description>
             </S.ReviewCardContent>
-            <S.ImgArrow src={arrowOn} alt="" />
+            <S.ImgArrow src={arrowOn} alt="right arrow" />
         </S.ReviewCard>
     )
 }

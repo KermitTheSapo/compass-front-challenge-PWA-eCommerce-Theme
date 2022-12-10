@@ -76,7 +76,7 @@ export default function OrderDetail() {
     return (
         <S.OrderDetailContainer>
             <S.OrderHeader>
-                <img src={arrow} alt="" onClick={() => navigate(-1)} />
+                <img src={arrow} alt="left arrow icon" onClick={() => navigate(-1)} />
                 <S.OrderTitle>Order Details</S.OrderTitle>
             </S.OrderHeader>
             <S.OrderTabs>

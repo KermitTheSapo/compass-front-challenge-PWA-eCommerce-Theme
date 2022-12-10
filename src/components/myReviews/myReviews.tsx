@@ -11,10 +11,10 @@ export default function MyReviews() {
         <S.MyReviewsContainer>
             <S.ReviewsHeader>
                 <S.TrailingIcon>
-                    <S.ImgArrow onClick={() => navigate(-1)} src={arrow} alt="" />
+                    <S.ImgArrow onClick={() => navigate(-1)} src={arrow} alt="left arrow image" />
                     <S.ReviewsTitle>My reviews</S.ReviewsTitle>
                 </S.TrailingIcon>
-                <S.ImgOptions src={options} alt="" />
+                <S.ImgOptions src={options} alt="icon of 3 vertically aligned dots" />
             </S.ReviewsHeader>
             <S.ReviewContent>
                 <ReviewCard />

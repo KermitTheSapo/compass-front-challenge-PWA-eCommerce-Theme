@@ -79,14 +79,14 @@ export default function PersonalInfo() {
         <S.PersonalInfoContainer>
             <S.InfoHeader>
                 <S.ArrowTitleDiv>
-                    <S.ImgArrowLeft src={arrow} alt="" onClick={() => navigate(-1)} />
+                    <S.ImgArrowLeft src={arrow} alt="left arrow" onClick={() => navigate(-1)} />
                     <S.InfoTitle>Personal Information</S.InfoTitle>
                 </S.ArrowTitleDiv>
                 <S.Separator></S.Separator>
             </S.InfoHeader>
             <S.InfoContent>
                 <S.ProfilePicture>
-                    <S.ImgProfile src={profile} alt="" />
+                    <S.ImgProfile src={profile} alt="profile user img" />
                     <S.BtnUpload>Upload</S.BtnUpload>
                     <S.BtnDelete>Delete</S.BtnDelete>
                 </S.ProfilePicture>
@@ -132,7 +132,7 @@ export default function PersonalInfo() {
                         <S.Label htmlFor="">New Password</S.Label>
                         <S.InputPasswordShow>
                             <S.InputPassword type={passwordType ? "password" : "text"} placeholder="******" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-                            <S.ImgEye src={eye} alt="" onClick={() => setPasswordType(!passwordType)} />
+                            <S.ImgEye src={eye} alt="one eye icon" onClick={() => setPasswordType(!passwordType)} />
                         </S.InputPasswordShow>
                     </S.DivInputPassword>
                     <S.DivInputPassword>

@@ -11,10 +11,10 @@ export default function Invoice() {
         <S.InvoiceContainer>
             <S.InvoiceHeader>
                 <S.InvoiceHeaderContent>
-                    <S.ImgArrow src={imgArrow} alt="" onClick={() => navigate(-1)} />
+                    <S.ImgArrow src={imgArrow} alt="left arrow icon" onClick={() => navigate(-1)} />
                     <S.Title>Invoice</S.Title>
                 </S.InvoiceHeaderContent>
-                <S.ImgOptions src={imgOptions} alt="" />
+                <S.ImgOptions src={imgOptions} alt="3 balls lined up vertically" />
             </S.InvoiceHeader>
             <S.OrderDescription>
                 <S.OrderDetailsTitle>#874522648</S.OrderDetailsTitle>

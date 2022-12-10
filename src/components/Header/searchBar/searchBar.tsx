@@ -60,7 +60,7 @@ export default function SearchBar({ input }: Props) {
             {loading && <p>Loading...</p>}
             {!loading ? arrayFiltrado.map((item, key) => (
                 <S.ProductDiv key={key} onClick={() => navigate(`/product?id=${item._id}`)}>
-                    <S.ImgProduct src={item.image} alt="" />
+                    <S.ImgProduct src={item.image} alt="image of a product" />
                     <S.ProductInfo>
                         <S.ProductName>{item.name}</S.ProductName>
                         <S.ProductParagraph>{item.paragraph}</S.ProductParagraph>

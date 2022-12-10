@@ -4,7 +4,7 @@ import img from "@/assets/imgs/itemsOrdered/img.png"
 export default function CardOrder() {
     return (
         <S.CardOrderContainer>
-            <S.ImgProduct src={img} alt="" />
+            <S.ImgProduct src={img} alt="image of a product" />
             <S.DivContent>
                 <S.ProductTitle>Coach</S.ProductTitle>
                 <S.ProductDescription>Leather Coach Bag</S.ProductDescription>

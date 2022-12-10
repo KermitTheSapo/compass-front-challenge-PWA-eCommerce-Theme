@@ -25,10 +25,10 @@ export default function About() {
                         <S.DescriptionTitle>About</S.DescriptionTitle>
                         <S.DescriptionParagraph>Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. </S.DescriptionParagraph>
                     </S.DescriptionContent>
-                    <S.ImgDescription src={bannerTwo} alt="" />
+                    <S.ImgDescription src={bannerTwo} alt="several bags stacked" />
                 </S.Description>
                 <S.DescriptionLeft>
-                    <S.ImgDescription src={bannerThree} alt="" />
+                    <S.ImgDescription src={bannerThree} alt="a person with a phone showing the time indicating 16:47" />
                     <S.DescriptionContent>
                         <S.DescriptionTitle>About</S.DescriptionTitle>
                         <S.DescriptionParagraph>Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. </S.DescriptionParagraph>
@@ -39,7 +39,7 @@ export default function About() {
                         <S.DescriptionTitle>About</S.DescriptionTitle>
                         <S.DescriptionParagraph>Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. </S.DescriptionParagraph>
                     </S.DescriptionContent>
-                    <S.ImgDescription src={bannerFour} alt="" />
+                    <S.ImgDescription src={bannerFour} alt="an open sunglasses on the floor" />
                 </S.Description>
             </S.AboutContainer>
             <Footer />

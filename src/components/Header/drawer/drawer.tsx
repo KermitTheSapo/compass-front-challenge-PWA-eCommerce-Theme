@@ -16,10 +16,10 @@ export default function Drawer({ setState }: Props) {
                 <S.DrawerHeader>
                     <S.Profile>
                         <S.ProfileContent>
-                            <S.ImgProfile src={imgProfile} alt="" />
+                            <S.ImgProfile src={imgProfile} alt="user image" />
                             <S.ProfileText>Hello, Tina</S.ProfileText>
                         </S.ProfileContent>
-                        <S.ImgArrow src={arrow} alt="" onClick={() => navigate("/profile")} />
+                        <S.ImgArrow src={arrow} alt="left arrow icon" onClick={() => navigate("/profile")} />
                     </S.Profile>
                 </S.DrawerHeader>
                 <S.Separator></S.Separator>

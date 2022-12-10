@@ -10,13 +10,13 @@ export function Notification() {
         <S.NotificationContainer>
             <S.NotificationHeader>
                 <S.LeadingIcon>
-                    <S.ImgArrow src={arrow} alt="" onClick={() => { navigate(-1) }} />
+                    <S.ImgArrow src={arrow} alt="left arrow image" onClick={() => { navigate(-1) }} />
                     <S.NotificationTitle>Notification</S.NotificationTitle>
                 </S.LeadingIcon>
-                <S.ImgOptions src={notification} alt="" />
+                <S.ImgOptions src={notification} alt="bell icon" />
             </S.NotificationHeader>
             <S.BannerContainer>
-                <S.ImgBanner src={bannerImg} alt="" />
+                <S.ImgBanner src={bannerImg} alt="banner img" />
                 <S.BannerTitle>Upto 50% OFF⚡⚡</S.BannerTitle>
                 <S.BannerParagraph>This winter gift your loved ones.</S.BannerParagraph>
                 <S.BannerBtn>Shop Now</S.BannerBtn>

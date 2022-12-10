@@ -8,12 +8,12 @@ export default function Refer() {
     return (
         <S.ReferContainer>
             <S.ReferHeader>
-                <S.ImgArrow src={arrow} alt="" onClick={() => navigate(-1)} />
+                <S.ImgArrow src={arrow} alt="left arrow" onClick={() => navigate(-1)} />
                 <S.ReferTitle>Refer & Earn</S.ReferTitle>
             </S.ReferHeader>
             <S.ReferBody>
                 <S.CodeContainer>
-                    <S.ImgArt src={art} alt="" />
+                    <S.ImgArt src={art} alt="icon of a receipt and an okay in the middle" />
                     <S.Paragraph>Invite your friend and earn $20 on every invite</S.Paragraph>
                     <S.DivCode>
                         <S.Code>IVN6374730</S.Code>

@@ -11,7 +11,7 @@ export default function CategoriesOption({ title }: Props) {
     return (
         <S.CategoriesOptionContainer>
             <S.CategoriesOptionTitle>{title}</S.CategoriesOptionTitle>
-            <img src={arrow} alt="" onClick={() => navigate(`/${title}`)} />
+            <img src={arrow} alt="left arrow icon" onClick={() => navigate(`/${title}`)} />
         </S.CategoriesOptionContainer>
     )
 }

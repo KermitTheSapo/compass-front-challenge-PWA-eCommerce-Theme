@@ -20,7 +20,7 @@ export default function OptionNavigation({ name, click, state, link }: Props) {
                 }
                 <S.NavigationLabel color={state ? "#1B4B66" : "#13101E"}>{name}</S.NavigationLabel>
             </S.SelectorLabel>
-            <S.ImgArrow src={state ? arrow : arrowOff} alt="" />
+            <S.ImgArrow src={state ? arrow : arrowOff} alt="arrow" />
         </S.OptionNavigation>
     )
 }
