@@ -51,7 +51,10 @@ export const ImgProfile = styled.img`
     width: 80px;
     border-radius: 50%;
 `
-export const BtnUpload = styled.button`
+export const BtnUpload = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 38px;
     width: 136px;
     border-radius: 8px;
@@ -304,4 +307,12 @@ export const ArrowTitleDiv = styled.div`
     display: flex;
     align-items: center;
     gap: 5px;
+`
+
+export const InputFile = styled.input`
+    display: none;
+`
+
+export const LabelInput = styled.label`
+
 `
