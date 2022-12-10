@@ -92,7 +92,7 @@ export default function Search() {
                     <S.ConfirmedAdviseText>We couldn't find what you’re looking for. Try something else.</S.ConfirmedAdviseText>
                 </S.ConfirmedAdvise>
                 <S.BtnActionsDiv>
-                    <S.btnContinue onClick={() => navigate("/")}>Back to home</S.btnContinue>
+                    <S.btnContinue onClick={() => navigate("/home")}>Back to home</S.btnContinue>
                 </S.BtnActionsDiv>
             </>}
 
