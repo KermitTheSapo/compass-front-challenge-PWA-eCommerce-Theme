@@ -88,7 +88,7 @@ export default function Header() {
             </S.MenuContainer>
             {showDrawer && <Drawer setState={setShowDrawer} />}
             <S.NavCategory>
-                <S.LinkCategory onClick={() => navigate("/")}>
+                <S.LinkCategory onClick={() => navigate("/home")}>
                     <S.ImgLogo src={imgLogo} alt="mark written Coral with a different font" />
                 </S.LinkCategory>
                 <S.UlCategory>
