@@ -21,7 +21,7 @@ export default function Confirmed() {
             </S.ConfirmedAdvise>
             <S.BtnActionsDiv>
                 <S.btnView onClick={() => navigate("/orders")}>View Order</S.btnView>
-                <S.btnContinue onClick={() => navigate("/")}>Continue Shopping</S.btnContinue>
+                <S.btnContinue onClick={() => navigate("/home")}>Continue Shopping</S.btnContinue>
             </S.BtnActionsDiv>
         </S.ConfirmedContainer>
     )
