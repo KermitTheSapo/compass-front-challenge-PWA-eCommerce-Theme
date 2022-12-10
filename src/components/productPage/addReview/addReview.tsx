@@ -14,6 +14,7 @@ export default function AddReview() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [date, setDate] = useState("")
+    const [image, setImage] = useState("")
     const getId = () => {
         // @ts-ignore
         let params = new URL(document.location).searchParams;
@@ -40,6 +41,7 @@ export default function AddReview() {
             date: date,
             rating: starValue,
             description: description,
+            image: image
         }
         if (starValue === 0) {
             alert("Please enter the note for the product")
@@ -51,6 +53,19 @@ export default function AddReview() {
             setDescription("")
             alert("Review Added successfully")
         }
+    }
+    // @ts-ignore
+    const getImage = (event) => {
+        const files = event.target.files[0]
+        const reader = new FileReader()
+        reader.onload = (eventReader) => {
+            // @ts-ignore
+            setImage(eventReader.target?.result)
+        }
+        reader.readAsDataURL(files)
+        setTimeout(() => {
+            event.target.value = ""
+        }, 500)
     }
     return (
         <S.AddReviewContainer>
@@ -74,14 +89,15 @@ export default function AddReview() {
             </S.ReviewDescriptionDiv>
             <S.UploadDiv>
                 <S.UploadTitle>Upload Product Images</S.UploadTitle>
-                <S.LabelUpload htmlFor="upload">
+                <S.LabelUpload htmlFor="image">
                     <S.ImgUpload src={upload} alt="arrow icon" />
                 </S.LabelUpload>
-                <S.InputUploadImg id="upload" type="file" />
+                <S.InputUploadImg id="image" type="file" onChange={(e) => getImage(e)} />
             </S.UploadDiv>
             <S.ButtonSubmitDiv>
                 <S.ButtonSubmit onClick={() => submitReview()}>Submit Review</S.ButtonSubmit>
             </S.ButtonSubmitDiv>
+            <img src={image} alt="" />
         </S.AddReviewContainer >
     )
 }
