@@ -7,6 +7,12 @@ export const PhoneNumberContainer = styled.div`
     height: 30vh;
     justify-content: space-between;
     margin-top: 32px;
+    @media (min-width: 768px) {
+        height: 60vh;
+        justify-content: center;
+        gap: 30px;
+    }
+    
 `
 export const Title = styled.h1`
     font-weight: 700;
@@ -14,12 +20,19 @@ export const Title = styled.h1`
     color: var(--Primary);
     line-height: 52px;
     width: 80%;
+    @media (min-width: 768px) {
+        width: 100%;
+        text-align: center;
+    }
 `
 export const InputsDiv = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
     gap: 12px;
+    @media (min-width: 768px) {
+        justify-content: center;
+    }
 `
 export const InputDdd = styled.input`
     height: 42px;
@@ -46,6 +59,9 @@ export const Paragraph = styled.p`
     font-weight: 500;
     font-size: 0.875rem;
     color: var(--TypeLowEmphasis);
+    @media (min-width: 768px) {
+        text-align: center;
+    }
 `
 export const ButtonNext = styled.button`
     height: 44px;
@@ -60,4 +76,9 @@ export const ButtonNext = styled.button`
     width: 90%;
     cursor: pointer;
     right: 5%;
+    @media (min-width: 768px) {
+        width: 30%;
+        left: 35%;
+        bottom: 45%;
+    }
 `

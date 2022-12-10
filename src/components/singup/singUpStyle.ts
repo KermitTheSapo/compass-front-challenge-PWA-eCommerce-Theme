@@ -23,6 +23,10 @@ export const SingUpContent = styled.div`
     flex-direction: column;
     background: linear-gradient(180deg, rgba(255, 244, 229, 0) 0%, rgba(255, 250, 244, 0.96) 51.9%);
     height: 30%;
+    @media (min-width: 768px) {
+        width: 100%;   
+    }
+    
 `
 export const SingUpTitle = styled.h1`
     font-weight:700;

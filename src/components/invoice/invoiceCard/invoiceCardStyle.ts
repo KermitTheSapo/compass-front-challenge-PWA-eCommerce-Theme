@@ -10,6 +10,7 @@ export const CardTitle = styled.h3`
     font-weight: 600;
     font-size: 0.75rem;
     color: var(--TypeHighEmphasis);
+    text-transform: capitalize;
 `
 export const CardParagraph = styled.p`
     font-weight: 500;

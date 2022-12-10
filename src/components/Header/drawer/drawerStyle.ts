@@ -8,6 +8,9 @@ export const DrawerDark = styled.div`
     top: 0;
     background-color: var(--DarkShadow);
     z-index: 2;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const DrawerContent = styled.div`
     height: 100vh;
@@ -17,6 +20,9 @@ export const DrawerContent = styled.div`
     left: 0;
     top: 0;
     z-index: 3;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 
 export const DrawerHeader = styled.div`
