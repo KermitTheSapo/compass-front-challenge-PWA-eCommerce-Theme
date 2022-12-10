@@ -1,6 +1,5 @@
 import * as S from "./ratingsStyle"
 import star from "@/assets/imgs/productPage/reviews/star.svg"
-import img from "@/assets/imgs/productPage/reviews/image.png"
 
 type Props = {
     date: string;
@@ -9,9 +8,10 @@ type Props = {
     rating: string;
     title: string;
     userName: string;
+    image: string;
 }
 
-export default function Ratings({ date, description, productId, rating, title, userName }: Props) {
+export default function Ratings({ date, description, productId, rating, title, userName, image }: Props) {
     return (
         <S.RatingsContainer>
             <S.HeaderInformation>
@@ -29,12 +29,7 @@ export default function Ratings({ date, description, productId, rating, title, u
                 <S.RatingsDescription>{description}</S.RatingsDescription>
             </S.Content>
             <S.ImgsCarousel>
-                <S.ImgCarousel src={img} alt="product img" />
-                <S.ImgCarousel src={img} alt="product img" />
-                <S.ImgCarousel src={img} alt="product img" />
-                <S.ImgCarousel src={img} alt="product img" />
-                <S.ImgCarousel src={img} alt="product img" />
-                <S.ImgCarousel src={img} alt="product img" />
+                <S.ImgCarousel src={image} alt="product img" />
             </S.ImgsCarousel>
         </S.RatingsContainer>
     )
