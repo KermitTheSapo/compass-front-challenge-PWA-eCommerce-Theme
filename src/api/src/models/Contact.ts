@@ -10,7 +10,8 @@ const ContactSchema = new mongoose.Schema({
   LastName: { type: String },
   email: { type: String },
   dateBirth: { type: String },
-  password: { type: String }
+  password: { type: String },
+  image: { type: String }
 })
 
 const Contact = mongoose.model('contact', ContactSchema)
