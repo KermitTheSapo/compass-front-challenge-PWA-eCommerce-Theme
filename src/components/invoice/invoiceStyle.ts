@@ -23,7 +23,9 @@ export const InvoiceHeaderContent = styled.div`
 `
 
 export const ImgArrow = styled.img`
-
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 
 export const Title = styled.h1` 
@@ -33,7 +35,9 @@ export const Title = styled.h1`
 `
 
 export const ImgOptions = styled.img`
-
+@media (min-width: 768px) {
+        display: none;
+    }
 `
 
 export const OrderDescription = styled.div`
@@ -97,6 +101,7 @@ export const OrderDetailsInfo = styled.div`
     justify-content: space-between;
     padding: 16px 16px;
     height: 15vh;
+    gap: 15px;
 `
 
 export const OrderDetailsInfoTitle = styled.h2`
@@ -144,6 +149,9 @@ export const DivButtonDownload = styled.div`
     height: 10vh;
     bottom: 0;
     left: 0;
+    @media (min-width: 768px) {
+        position: static;
+    }
 `
 export const ButtonDownload = styled.button`
     height: 44px;
