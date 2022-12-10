@@ -20,7 +20,8 @@ export default function Reviews() {
         productId: "",
         rating: "",
         title: "",
-        userName: ""
+        userName: "",
+        image: ""
     }])
     const [reviewFilterList, setReviewFilterList] = useState([{
         date: "",
@@ -28,7 +29,8 @@ export default function Reviews() {
         productId: "",
         rating: "",
         title: "",
-        userName: ""
+        userName: "",
+        image: ""
     }])
     useEffect(() => {
         getReview().then((res) => setReviewList(res))
@@ -50,7 +52,7 @@ export default function Reviews() {
             <S.Separator></S.Separator>
             <S.ReviewDiv>
                 {reviewFilterList && reviewFilterList.map((item) => (
-                    <Ratings date={item.date} description={item.description} productId={item.productId} rating={item.rating} title={item.title} userName={item.userName} />
+                    <Ratings date={item.date} description={item.description} productId={item.productId} rating={item.rating} title={item.title} userName={item.userName} image={item.image} />
                 ))}
             </S.ReviewDiv>
             <S.ButtonAdd>
