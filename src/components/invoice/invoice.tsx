@@ -4,9 +4,53 @@ import imgArrow from "@/assets/imgs/itemsOrdered/imgArrowLeft.svg"
 import imgOptions from "@/assets/imgs/itemsOrdered/imgOptions.svg"
 import { useNavigate } from "react-router-dom"
 import InvoiceCard from "./invoiceCard/invoiceCard"
+import { useEffect, useState } from "react"
+import { getOrderById } from "../../products/order"
 
 export default function Invoice() {
     const navigate = useNavigate()
+    const [orderProduct, setOrderProduct] = useState({
+        _id: "",
+        orderId: "",
+        orderDate: "",
+        name: "",
+        total: "",
+        subTotal: "",
+        upi: "",
+        addressList: {
+            _id: "",
+            pinCode: 0,
+            streetAddress: "",
+            city: "",
+            uf: "",
+        },
+        product: [
+            {
+                _id: "",
+                name: "",
+                paragraph: "",
+                description: "",
+                price: 0,
+                subTotal: 0,
+                safe: 0,
+                discount: 0,
+                image: "",
+                ratings: 0,
+                quantity: 0,
+            }
+        ],
+        status: "",
+    })
+    const [id, setId] = useState("")
+    useEffect(() => {
+        // @ts-ignore
+        let params = new URL(document.location).searchParams;
+        // @ts-ignore
+        setId(params.get("id"))
+    }, [])
+    useEffect(() => {
+        getOrderById(id).then(res => setOrderProduct(res))
+    }, [id])
     return (
         <S.InvoiceContainer>
             <S.InvoiceHeader>
@@ -17,28 +61,30 @@ export default function Invoice() {
                 <S.ImgOptions src={imgOptions} alt="3 balls lined up vertically" />
             </S.InvoiceHeader>
             <S.OrderDescription>
-                <S.OrderDetailsTitle>#874522648</S.OrderDetailsTitle>
+                <S.OrderDetailsTitle>#{orderProduct.orderId}</S.OrderDetailsTitle>
                 <S.OrderDateInfo>
                     <S.OrderParagraphInfo>Placed On</S.OrderParagraphInfo>
-                    <S.OrderDateText>September 5, 2020</S.OrderDateText>
+                    <S.OrderDateText>{orderProduct.orderDate}</S.OrderDateText>
                 </S.OrderDateInfo>
             </S.OrderDescription>
-            <S.ParagraphItems>3 Item(s)</S.ParagraphItems>
+            <S.ParagraphItems>{orderProduct.product && orderProduct.product.length} Item(s)</S.ParagraphItems>
             <S.InvoiceCards>
-                <InvoiceCard />
-                <InvoiceCard />
-                <InvoiceCard />
+                {
+                    orderProduct.product && orderProduct.product.map((item) => (
+                        <InvoiceCard name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
+                    ))
+                }
             </S.InvoiceCards>
             <S.Separator></S.Separator>
             <S.OrderDetailsInfo>
                 <S.OrderDetailsInfoTitle>Price Details</S.OrderDetailsInfoTitle>
                 <S.Summary>
                     <S.OrderDetailsInfoParagraph>Sub Total</S.OrderDetailsInfoParagraph>
-                    <S.OrderDetailsInfoPrice>$159.69</S.OrderDetailsInfoPrice>
+                    <S.OrderDetailsInfoPrice>${orderProduct.subTotal}</S.OrderDetailsInfoPrice>
                 </S.Summary>
                 <S.Summary>
                     <S.OrderDetailsInfoParagraph>Discount</S.OrderDetailsInfoParagraph>
-                    <S.OrderDetailsInfoPrice>-$13.40</S.OrderDetailsInfoPrice>
+                    <S.OrderDetailsInfoPrice>-$00.00</S.OrderDetailsInfoPrice>
                 </S.Summary>
                 <S.Summary>
                     <S.OrderDetailsInfoParagraph>Delivery Fee</S.OrderDetailsInfoParagraph>
@@ -46,7 +92,7 @@ export default function Invoice() {
                 </S.Summary>
                 <S.Summary>
                     <S.OrderDetailsInfoResult>Grand Total</S.OrderDetailsInfoResult>
-                    <S.OrderDetailsInfoPriceResult>$146.29</S.OrderDetailsInfoPriceResult>
+                    <S.OrderDetailsInfoPriceResult>${orderProduct.total}</S.OrderDetailsInfoPriceResult>
                 </S.Summary>
             </S.OrderDetailsInfo>
             <S.DivButtonDownload>
