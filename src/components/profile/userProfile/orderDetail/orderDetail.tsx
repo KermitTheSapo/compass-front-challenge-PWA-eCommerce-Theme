@@ -7,6 +7,10 @@ import * as S from "./orderDetailStyle"
 import PaymentsDetails from "./paymentsDetails/paymentsDetails"
 import ProductCardVertical from "./productCardVertical/productCardVertical"
 import arrow from "@/assets/imgs/userProfile/arrowLeft.svg"
+import options from "@/assets/imgs/itemsOrdered/imgOptions.svg"
+import CardOrder from "./cardOrder/cardOrder"
+import BottomSheetOrder from "./bottomSheetOrder/bottomSheetOrder"
+import Invoice from "../../../../components/invoice/invoice"
 
 export default function OrderDetail() {
     const navigate = useNavigate()
@@ -14,6 +18,7 @@ export default function OrderDetail() {
     const [processing, setProcessing] = useState(false)
     const [cancelled, setCancelled] = useState(false)
     const [id, setId] = useState("")
+    const [showBottomSheetOrder, setShowBottomSheetOrder] = useState(false)
     const [orderProduct, setOrderProduct] = useState({
         _id: "",
         orderId: "",
@@ -76,8 +81,11 @@ export default function OrderDetail() {
     return (
         <S.OrderDetailContainer>
             <S.OrderHeader>
-                <img src={arrow} alt="left arrow icon" onClick={() => navigate(-1)} />
-                <S.OrderTitle>Order Details</S.OrderTitle>
+                <S.OrderHeaderDiv>
+                    <img src={arrow} alt="left arrow icon" onClick={() => navigate(-1)} />
+                    <S.OrderTitle>Items Ordered</S.OrderTitle>
+                </S.OrderHeaderDiv>
+                <S.ImgOptions src={options} alt="" onClick={() => setShowBottomSheetOrder(true)} />
             </S.OrderHeader>
             <S.OrderTabs>
                 <S.OrderItem color={completed ? "#1B4B66" : "transparent"} onClick={() => completedTab()}>
@@ -90,30 +98,49 @@ export default function OrderDetail() {
                     <S.OrderItemLabel color={cancelled ? "#FFFFFF" : "#626262"}>Order Shipment</S.OrderItemLabel>
                 </S.OrderItem>
             </S.OrderTabs>
-            <S.ProductInformation>
-                <S.TableHeaders>
-                    <S.TableLabel>Product Name</S.TableLabel>
-                    <S.ValueInfo>
-                        <S.TableLabel>Price</S.TableLabel>
-                        <S.TableLabel>Qty</S.TableLabel>
-                        <S.TableLabel>Subtotal</S.TableLabel>
-                    </S.ValueInfo>
-                </S.TableHeaders>
-            </S.ProductInformation>
-            <S.Separator></S.Separator>
+
+            <S.ProductsParagraph>{orderProduct.product && orderProduct.product.length} Product(s)</S.ProductsParagraph>
             <S.ProductList>
-                {orderProduct.product && orderProduct.product.map((item => (
-                    <ProductCardVertical id={item._id} name={item.name} paragraph={item.paragraph} price={item.price} image={item.image} quantity={item.quantity} />
-                )))}
+                {
+                    completed && <>
+                        <S.ProductInformation>
+                            <S.TableHeaders>
+                                <S.TableLabel>Product Name</S.TableLabel>
+                                <S.ValueInfo>
+                                    <S.TableLabel>Price</S.TableLabel>
+                                    <S.TableLabel>Qty</S.TableLabel>
+                                    <S.TableLabel>Subtotal</S.TableLabel>
+                                </S.ValueInfo>
+                            </S.TableHeaders>
+                        </S.ProductInformation>
+                        <S.Separator></S.Separator>
+                        {orderProduct.product && orderProduct.product.map((item => (
+                            <ProductCardVertical id={item._id} name={item.name} paragraph={item.paragraph} price={item.price} image={item.image} quantity={item.quantity} />
+                        )))}
+                    </>
+                }
+                {
+                    processing && <>
+                        <Invoice />
+                    </>
+                }
             </S.ProductList>
+            <S.CardOrderDiv>
+                {orderProduct.product && orderProduct.product.map((item => (
+                    <CardOrder image={item.image} name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
+                )))}
+            </S.CardOrderDiv>
             <S.OrderInformation>
                 <S.OrderInfoHeader>
                     <S.OrderInfoTitle>Order Information</S.OrderInfoTitle>
                     <S.Separator></S.Separator>
                 </S.OrderInfoHeader>
                 <S.OrderInfoContent>
+                    <S.bigSeparator></S.bigSeparator>
                     <OrderDetails subTotal={orderProduct.subTotal} discount={0.00} total={orderProduct.total} />
+                    <S.bigSeparator></S.bigSeparator>
                     <PaymentsDetails payment={orderProduct.upi} />
+                    <S.bigSeparator></S.bigSeparator>
                     <AddressDetails pinCode={orderProduct.addressList && orderProduct.addressList.pinCode} streetAddress={orderProduct.addressList && orderProduct.addressList.streetAddress} city={orderProduct.addressList && orderProduct.addressList.city} name={orderProduct.addressList && orderProduct.name} />
                 </S.OrderInfoContent>
             </S.OrderInformation>
@@ -121,6 +148,9 @@ export default function OrderDetail() {
                 <S.ButtonReorder>Reorder</S.ButtonReorder>
                 <S.ButtonRating>Add Rating</S.ButtonRating>
             </S.ButtonsNavigation>
+            {
+                showBottomSheetOrder && <BottomSheetOrder setState={setShowBottomSheetOrder} id={orderProduct._id && orderProduct._id} />
+            }
         </S.OrderDetailContainer >
     )
 }
