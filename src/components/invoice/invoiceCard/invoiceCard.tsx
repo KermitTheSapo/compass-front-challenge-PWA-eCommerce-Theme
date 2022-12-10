@@ -1,12 +1,19 @@
 import * as S from "./invoiceCardStyle"
 
-export default function InvoiceCard() {
+type Props = {
+    name: string;
+    description: string;
+    price: number;
+    quantity: number;
+}
+
+export default function InvoiceCard({ name, description, price, quantity }: Props) {
     return (
         <S.InvoiceCardContainer>
-            <S.CardTitle>Coach</S.CardTitle>
-            <S.CardParagraph>Leather Coach Bag</S.CardParagraph>
-            <S.CardPrice>$54.69</S.CardPrice>
-            <S.CardQuantity>Qty- 1</S.CardQuantity>
+            <S.CardTitle>{name}</S.CardTitle>
+            <S.CardParagraph>{description}</S.CardParagraph>
+            <S.CardPrice>${price}</S.CardPrice>
+            <S.CardQuantity>Qty- {quantity}</S.CardQuantity>
             <S.Separator></S.Separator>
         </S.InvoiceCardContainer>
     )
