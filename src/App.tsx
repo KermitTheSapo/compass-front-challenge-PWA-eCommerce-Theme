@@ -32,7 +32,6 @@ import About from "./components/about/about"
 import PhoneNumber from "./components/phoneNumber/phoneNumber"
 import EnterOtp from "./components/enterOtp/enterOtp"
 import MyOrders from "./components/myOrders/myOrders"
-import ItemsOrdered from "./components/itemsOrdered/itemsOrdered"
 import Invoice from "./components/invoice/invoice"
 import PersonalInfo from "./components/profile/userProfile/personalInfo/personalInfo"
 import OrderTab from "./components/profile/userProfile/orderTab/orderTab"
@@ -46,7 +45,8 @@ export default function App() {
     <BrowserRouter>
       <Reset />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<SingUp />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/eyewear" element={<Eyewear />} />
         <Route path="/handbags" element={<Handbags />} />
         <Route path="/jewellery" element={<Jewellery />} />
@@ -82,7 +82,7 @@ export default function App() {
           <Route path="saved" element={<SavedCards />} />
           <Route path="*" element={<SavedCards />} />
         </Route>
-        <Route path="/singUp" element={<SingUp />} />
+
         <Route path="/notification" element={<Notification />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/categories" element={<Categories />} />
@@ -92,7 +92,6 @@ export default function App() {
         <Route path="/phone-number" element={<PhoneNumber />} />
         <Route path="/enter-otp" element={<EnterOtp />} />
         <Route path="/my-orders" element={<MyOrders />} />
-        <Route path="/itemsOrdered" element={<ItemsOrdered />} />
         <Route path="/invoices" element={<Invoice />} />
         <Route path="/*" element={<Error />} />
       </Routes>
