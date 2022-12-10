@@ -1,12 +1,13 @@
 import * as S from "./personalInfoStyle"
 import profile from "@/assets/imgs/userProfile/profilePicture.png"
 import eye from "@/assets/imgs/userProfile/eye.svg"
-import { useState } from "react";
-import { postContact } from "../../../../products/contact";
+import { useEffect, useState } from "react";
+import { getContact, postContact } from "../../../../products/contact";
 import { useNavigate } from "react-router-dom";
 import arrow from "@/assets/imgs/userProfile/arrowLeft.svg"
 
 export default function PersonalInfo() {
+    const [image, setImage] = useState(profile)
     const [phone, setPhone] = useState("")
     const [phoneMask, setPhoneMask] = useState("")
     const [passwordType, setPasswordType] = useState(true)
@@ -23,6 +24,17 @@ export default function PersonalInfo() {
     const [newPassword, setNewPassword] = useState("")
     const navigate = useNavigate()
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+    const [contact, setContact] = useState({
+        _id: "",
+        ddd: "",
+        phone: "",
+        firstName: "",
+        LastName: "",
+        email: "",
+        dateBirth: "",
+        password: "",
+        image: ""
+    })
     const maskPhone = (value: string) => {
         return value
             .replace(/\D/g, "")
@@ -36,6 +48,22 @@ export default function PersonalInfo() {
     const maskOnlyLetters = (value: string) => {
         return value.replace(/[0-9!@#¨$%^&*)(+=._-]+/g, "");
     };
+    useEffect(() => {
+        getContact().then(res => setContact(res[res.length - 1]))
+    }, [])
+    useEffect(() => {
+        setPhone(contact.phone)
+        setPhoneMask(maskPhone(contact.phone))
+        setFirstName(contact.firstName)
+        setFirstNameMask(maskOnlyLetters(contact.firstName))
+        setLastName(contact.LastName)
+        setLastNameMask(maskOnlyLetters(contact.LastName))
+        setEmail(contact.email)
+        setDDD(contact.ddd)
+        setDDDmask(maskDDD(contact.ddd))
+        setDate(contact.dateBirth.replace(/\//g, " ").split(" ").reverse().join("-"))
+        setImage(contact.image)
+    }, [contact])
     const saveInfo = () => {
         if (phone.length !== 16) {
             alert("Phone number is invalid")
@@ -61,6 +89,21 @@ export default function PersonalInfo() {
             alert("Date is invalid")
             return
         }
+        if (currentPassword.length > 0) {
+            if (currentPassword !== contact.password && currentPassword === "") {
+                alert("Current password is invalid")
+                return
+            }
+            if (newPassword.length < 6) {
+                alert("New password is invalid")
+                return
+            }
+            if (newPassword !== confirmPassword) {
+                alert("The new password and the confirm password have to be the same")
+                return
+            }
+            setCurrentPassword(newPassword)
+        }
         const info = {
             phone: phone,
             firstName: firstName,
@@ -71,9 +114,24 @@ export default function PersonalInfo() {
             dateBirth: date.replace(/-/g, " ").split(" ").reverse().join("/"),
             // currentPassword: currentPassword,
             // newPassword: newPassword
-            password: newPassword
+            password: newPassword,
+            image: image
         }
         postContact(info)
+        alert("Save")
+    }
+    // @ts-ignore
+    const getImage = (event) => {
+        const files = event.target.files[0]
+        const reader = new FileReader()
+        reader.onload = (eventReader) => {
+            // @ts-ignore
+            setImage(eventReader.target?.result)
+        }
+        reader.readAsDataURL(files)
+        setTimeout(() => {
+            event.target.value = ""
+        }, 500)
     }
     return (
         <S.PersonalInfoContainer>
@@ -86,9 +144,12 @@ export default function PersonalInfo() {
             </S.InfoHeader>
             <S.InfoContent>
                 <S.ProfilePicture>
-                    <S.ImgProfile src={profile} alt="profile user img" />
-                    <S.BtnUpload>Upload</S.BtnUpload>
-                    <S.BtnDelete>Delete</S.BtnDelete>
+                    <S.ImgProfile src={image} alt="profile user img" />
+                    <S.InputFile type="file" id="upload" onChange={(e) => getImage(e)} />
+                    <S.LabelInput htmlFor="upload">
+                        <S.BtnUpload>Upload</S.BtnUpload>
+                    </S.LabelInput>
+                    <S.BtnDelete onClick={() => setImage(profile)}>Delete</S.BtnDelete>
                 </S.ProfilePicture>
             </S.InfoContent>
             <S.FormInformation>
