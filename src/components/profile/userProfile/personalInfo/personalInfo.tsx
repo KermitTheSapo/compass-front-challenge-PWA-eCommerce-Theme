@@ -10,7 +10,9 @@ export default function PersonalInfo() {
     const [image, setImage] = useState(profile)
     const [phone, setPhone] = useState("")
     const [phoneMask, setPhoneMask] = useState("")
-    const [passwordType, setPasswordType] = useState(true)
+    const [passwordCurrentType, setPasswordCurrentType] = useState(false)
+    const [passwordNewType, setPasswordNewType] = useState(false)
+    const [passwordConfirmType, setPasswordConfirmType] = useState(false)
     const [firstName, setFirstName] = useState("")
     const [firstNameMask, setFirstNameMask] = useState("")
     const [lastName, setLastName] = useState("")
@@ -90,7 +92,7 @@ export default function PersonalInfo() {
             return
         }
         if (currentPassword.length > 0) {
-            if (currentPassword !== contact.password && currentPassword === "") {
+            if (currentPassword !== contact.password) {
                 alert("Current password is invalid")
                 return
             }
@@ -102,7 +104,6 @@ export default function PersonalInfo() {
                 alert("The new password and the confirm password have to be the same")
                 return
             }
-            setCurrentPassword(newPassword)
         }
         const info = {
             phone: phone,
@@ -110,10 +111,7 @@ export default function PersonalInfo() {
             LastName: lastName,
             email: email,
             ddd: ddd,
-            // confirmPassword: confirmPassword,
             dateBirth: date.replace(/-/g, " ").split(" ").reverse().join("/"),
-            // currentPassword: currentPassword,
-            // newPassword: newPassword
             password: newPassword,
             image: image
         }
@@ -125,8 +123,7 @@ export default function PersonalInfo() {
         const files = event.target.files[0]
         const reader = new FileReader()
         reader.onload = (eventReader) => {
-            // @ts-ignore
-            setImage(eventReader.target?.result)
+            setImage(eventReader.target?.result as string)
         }
         reader.readAsDataURL(files)
         setTimeout(() => {
@@ -187,18 +184,24 @@ export default function PersonalInfo() {
                 <S.ChangeContent>
                     <S.DivInputPassword>
                         <S.Label htmlFor="">Current Password</S.Label>
-                        <S.InputPassword type="password" placeholder="********" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
+                        <S.InputPasswordShow>
+                            <S.InputPassword type={passwordCurrentType ? "text" : "password"} placeholder="********" value={currentPassword} onChange={(e) => setCurrentPassword(e.target.value)} />
+                            <S.ImgEye src={eye} alt="one eye icon" onClick={() => setPasswordCurrentType(!passwordCurrentType)} />
+                        </S.InputPasswordShow>
                     </S.DivInputPassword>
                     <S.DivInputPassword>
                         <S.Label htmlFor="">New Password</S.Label>
                         <S.InputPasswordShow>
-                            <S.InputPassword type={passwordType ? "password" : "text"} placeholder="******" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
-                            <S.ImgEye src={eye} alt="one eye icon" onClick={() => setPasswordType(!passwordType)} />
+                            <S.InputPassword type={passwordNewType ? "text" : "password"} placeholder="******" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} />
+                            <S.ImgEye src={eye} alt="one eye icon" onClick={() => setPasswordNewType(!passwordNewType)} />
                         </S.InputPasswordShow>
                     </S.DivInputPassword>
                     <S.DivInputPassword>
                         <S.Label htmlFor="">Confirm Password</S.Label>
-                        <S.InputPassword type="password" placeholder="******" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                        <S.InputPasswordShow>
+                            <S.InputPassword type={passwordConfirmType ? "text" : "password"} placeholder="******" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                            <S.ImgEye src={eye} alt="one eye icon" onClick={() => setPasswordConfirmType(!passwordConfirmType)} />
+                        </S.InputPasswordShow>
                     </S.DivInputPassword>
                 </S.ChangeContent>
             </S.ChangePassword>
