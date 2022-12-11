@@ -42,8 +42,8 @@ export default function ProductPage({ img, name, productDescription, value, prod
             price: value,
             safe: safe,
             discount: discount,
-            link: "asdf",
-            imgAlt: "asdfasd",
+            link: "link",
+            imgAlt: "imgAlt",
             image: img,
             ratings: ratings,
             quantity: counter
@@ -54,8 +54,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
     const getId = () => {
         // @ts-ignore
         let params = new URL(document.location).searchParams;
-        // @ts-ignore
-        setId(params.get("id"))
+        setId(params.get("id") as string)
     }
     useEffect(() => {
         getId()

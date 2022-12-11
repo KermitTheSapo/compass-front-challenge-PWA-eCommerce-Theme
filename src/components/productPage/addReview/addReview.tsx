@@ -18,8 +18,7 @@ export default function AddReview() {
     const getId = () => {
         // @ts-ignore
         let params = new URL(document.location).searchParams;
-        // @ts-ignore
-        setId(params.get("id"))
+        setId(params.get("id") as string)
     }
     useEffect(() => {
         getId()
@@ -59,8 +58,7 @@ export default function AddReview() {
         const files = event.target.files[0]
         const reader = new FileReader()
         reader.onload = (eventReader) => {
-            // @ts-ignore
-            setImage(eventReader.target?.result)
+            setImage(eventReader.target?.result as string)
         }
         reader.readAsDataURL(files)
         setTimeout(() => {

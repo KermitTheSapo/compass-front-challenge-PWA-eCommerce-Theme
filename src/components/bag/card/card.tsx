@@ -61,8 +61,8 @@ export default function Card({ productTitle, productParagraph, productPrice, img
             price: productPrice,
             safe: safe,
             discount: discount,
-            link: "asasas",
-            imgAlt: "sdfasd",
+            link: "link",
+            imgAlt: "imgAlt",
             image: img,
             ratings: ratings,
             quantity: 1
