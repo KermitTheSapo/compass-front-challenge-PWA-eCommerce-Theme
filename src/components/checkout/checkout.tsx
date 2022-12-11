@@ -12,7 +12,7 @@ import CheckoutPayments from "./payments/payments"
 import { postAddress } from "../../products/address"
 import { postContact } from "../../products/contact"
 import { postOrder } from "../../products/order"
-import { getBag } from "../../products/bag"
+import { deleteBag, getBag } from "../../products/bag"
 import { useNavigate } from "react-router-dom"
 
 
@@ -157,6 +157,9 @@ export default function Checkout() {
             postAddress(Address)
             postContact(Contact)
             postOrder(Order)
+            productsList.map((product) => {
+                deleteBag(product._id)
+            })
             alert("successful order")
             navigate("/profile/orders")
         } else {
