@@ -6,7 +6,7 @@ export default function Skincare() {
             <Helmet>
                 <title>Coral'l | Skincare</title>
             </Helmet>
-            <Category name={"Skincare"} />
+            <Category categoryName={"skincare"} />
         </>
     )
 }

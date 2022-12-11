@@ -6,7 +6,7 @@ export default function Watches() {
             <Helmet>
                 <title>Coral'l | Watches</title>
             </Helmet>
-            <Category name={"Watches"} />
+            <Category categoryName={"watches"} />
         </>
     )
 }

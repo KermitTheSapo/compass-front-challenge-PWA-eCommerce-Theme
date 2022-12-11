@@ -4,7 +4,7 @@ import Category from "../category"
 export default function Jewellery() {
     return (
         <>
-            <Category name={"Jewellery"} />
+            <Category categoryName={"jewellery"} />
             <Helmet>
                 <title>Coral'l | Jewellery</title>
             </Helmet>

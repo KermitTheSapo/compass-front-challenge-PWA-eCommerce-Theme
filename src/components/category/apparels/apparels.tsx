@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 export default function Apparels() {
     return (
         <>
-            <Category name={"Apparels"} />
+            <Category categoryName={"apparels"} />
             <Helmet>
                 <title>Coral'l | Apparels</title>
             </Helmet>
