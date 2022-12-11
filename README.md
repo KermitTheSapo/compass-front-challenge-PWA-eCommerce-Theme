@@ -81,12 +81,12 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [X] filter
      - [ ] search history
      - [X] search error
-- [ ] reviews
+- [X] reviews
      - [X] structure and styling
-     - [ ] consume all reviews
-     - [ ] and show all reviews
-     - [ ] add review
-     - [ ] image upload
+     - [X] consume all reviews
+     - [X] and show all reviews
+     - [X] add review
+     - [X] image upload
 - [X] my bag mobile
      - [X] structure and styling
      - [X] consume LocalStorage
@@ -100,7 +100,7 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [ ] address sheet and edit
      - [X] mask
 - [ ] add new address
-     - [ ] use post office api
+     - [X] use post office api
      - [X] structure and styling
      - [ ] able to edit address
 - [ ] payments
@@ -112,28 +112,26 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [ ] sort categories
 - [ ] filters
      - [ ] filter logic
-- [ ] filters
-      - [ ] filter logic
-- [ ] singup
+- [X] singup
     - [X] enter otp - structure and styling
     - [X] enter your phone - structure and styling
     - [X] home - structure and styling
-- [ ] profile
+- [X] profile
     - [X] structure and styling
-    - [ ] api no contact
-- [ ] my orders
+    - [X] api no contact
+- [X] my orders
     - [X] structure
     - [X] styling
-    - [ ] api
-- [ ] items ordered
+    - [X] api
+- [X] items ordered
     - [X] structure
     - [X] styling
     - [X] bottom sheet
-    - [ ] api
+    - [X] api
 - [X] invoice
     - [X] structure
     - [X] styling
-    - [ ] api
+    - [X] api
 - [X] drawer
     - [X] structure
     - [X] styling
