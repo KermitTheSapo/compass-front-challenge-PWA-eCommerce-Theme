@@ -1,6 +1,6 @@
 import { getOrderById } from "../../../../products/order"
 import { useEffect, useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import AddressDetails from "./addressDetails/addressDetails"
 import OrderDetails from "./orderDetails/orderDetails"
 import * as S from "./orderDetailStyle"
@@ -51,7 +51,6 @@ export default function OrderDetail() {
         ],
         status: "",
     })
-    const location = useLocation();
     const resetTab = () => {
         setCompleted(false)
         setProcessing(false)
@@ -72,8 +71,7 @@ export default function OrderDetail() {
     useEffect(() => {
         // @ts-ignore
         let params = new URL(document.location).searchParams;
-        // @ts-ignore
-        setId(params.get("id"))
+        setId(params.get("id") as string)
     }, [])
     useEffect(() => {
         getOrderById(id).then(res => setOrderProduct(res))
