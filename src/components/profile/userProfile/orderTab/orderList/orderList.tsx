@@ -96,18 +96,27 @@ export default function OrderList() {
 
                 <S.OrderProducts>
                     <S.OrderQuantity>{order.length} Order(s)</S.OrderQuantity>
-                    {order && order.map((item) => (
-                        <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
-                    ))}
-                    {/* {
-                        completed && <OrderItem id={"#874522648"} date={"September 5, 2020"} price={"$218.50"} status={"Paid"} />
-                    } */}
-                    {/* {
-                        processing && <OrderItem id={"#874522648"} date={"September 5, 2020"} price={"$218.50"} status={"Processing"} />
+                    {
+                        completed && <>
+                            {order && order.map((item) => (
+                                <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                            ))}
+                        </>
                     }
                     {
-                        cancelled && <OrderItem id={"#874522648"} date={"September 5, 2020"} price={"$218.50"} status={"Cancelled"} />
-                    } */}
+                        processing && <>
+                            {order && order.map((item) => (
+                                <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                            ))}
+                        </>
+                    }
+                    {
+                        cancelled && <>
+                            {order && order.map((item) => (
+                                <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                            ))}
+                        </>
+                    }
                 </S.OrderProducts>
             </S.OrderList>
         </>
