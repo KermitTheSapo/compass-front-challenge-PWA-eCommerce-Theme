@@ -22,17 +22,10 @@ class ProductController {
     })
   }
   // @ts-ignore
-  static postProduct = (req, res) => {
-    // @ts-ignore
-    let product = new product(req.body)
-    // @ts-ignore
-    product.save((err) => {
-      if (err) {
-        res.status(500).send({ message: `Error registering product: ${err}` })
-      } else {
-        res.status(201).send(product.toJSON())
-      }
-    })
+  static postProduct = async (req, res) => {
+    const newProduct = new product(req.body)
+    newProduct.save()
+    return res.status(200).send({ message: "registered item" })
   }
   // @ts-ignore
   static putProduct = (req, res) => {
