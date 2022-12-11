@@ -76,6 +76,7 @@ export default function UserProfile() {
         resetOptions()
         setSaved(true)
     }
+
     return (
         <>
             {size && <>
@@ -91,7 +92,7 @@ export default function UserProfile() {
                         {order ? <S.SearchBar>
                             <S.ImgArrowLeft src={arrowLeft} alt="left arrow icon" />
                             <S.InputSearch type="text" placeholder="Search" />
-                        </S.SearchBar> : <S.ButtonLogout>Logout</S.ButtonLogout>}
+                        </S.SearchBar> : <S.ButtonLogout >Logout</S.ButtonLogout>}
                     </S.DivTitleAndLogout>
                     <S.UserProfileContent>
                         <S.SideNavigation>
