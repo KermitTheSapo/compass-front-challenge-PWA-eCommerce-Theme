@@ -6,6 +6,7 @@ import stars from "@/assets/imgs/home/main/arrivals/stars.svg"
 import { getWishlist } from "../../products/wishlist"
 import { useNavigate } from "react-router-dom"
 import WishlistError from "./wishlistError/wishlistError"
+import { Helmet } from "react-helmet"
 
 export default function Wishlist() {
     const navigate = useNavigate()
@@ -30,6 +31,9 @@ export default function Wishlist() {
 
     return (
         <S.WishlistContainer>
+            <Helmet>
+                <title>Coral'l | My Wishlist</title>
+            </Helmet>
             <S.WishlistHeader>
                 <S.ImgArrow src={arrow} alt="left arrow" onClick={() => { navigate(-1) }} />
                 <S.WishlistTitle>My Wishlist</S.WishlistTitle>

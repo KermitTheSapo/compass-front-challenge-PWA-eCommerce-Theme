@@ -7,10 +7,14 @@ import handbags from "@/assets/imgs/categories/handbags.png"
 import eyewear from "@/assets/imgs/categories/eyewear.png"
 import apparels from "@/assets/imgs/categories/apparels.png"
 import Navigation from "../../components/Home/main/bottom-navigation/navigation"
+import { Helmet } from "react-helmet"
 
 export default function Categories() {
     return (
         <S.CategoriesContainer>
+            <Helmet>
+                <title>Coral'l | Categories</title>
+            </Helmet>
             <S.CategoriesHeader>
                 <S.CategoriesTitle>Categories</S.CategoriesTitle>
             </S.CategoriesHeader>

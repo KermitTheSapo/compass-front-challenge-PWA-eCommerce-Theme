@@ -3,12 +3,16 @@ import arrow from "@/assets/imgs/myReviews/arrowLeft.svg"
 import options from "@/assets/imgs/myReviews/options.svg"
 import { useNavigate } from "react-router-dom"
 import ReviewCard from "./reviewCard/reviewCard";
+import { Helmet } from "react-helmet";
 
 
 export default function MyReviews() {
     const navigate = useNavigate();
     return (
         <S.MyReviewsContainer>
+            <Helmet>
+                <title>Coral'l | My Reviews</title>
+            </Helmet>
             <S.ReviewsHeader>
                 <S.TrailingIcon>
                     <S.ImgArrow onClick={() => navigate(-1)} src={arrow} alt="left arrow image" />

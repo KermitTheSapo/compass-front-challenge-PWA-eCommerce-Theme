@@ -4,10 +4,14 @@ import notification from "@/assets/imgs/notification/notification.svg"
 import bannerImg from "@/assets/imgs/notification/bannerImg.png"
 import { useNavigate } from "react-router-dom"
 import Feedback from "./feedback/feedback"
+import { Helmet } from "react-helmet"
 export function Notification() {
     const navigate = useNavigate()
     return (
         <S.NotificationContainer>
+            <Helmet>
+                <title>Coral'l | Notification</title>
+            </Helmet>
             <S.NotificationHeader>
                 <S.LeadingIcon>
                     <S.ImgArrow src={arrow} alt="left arrow image" onClick={() => { navigate(-1) }} />

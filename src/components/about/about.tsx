@@ -4,10 +4,14 @@ import bannerTwo from "@/assets/imgs/about/bannerTwo.png"
 import bannerThree from "@/assets/imgs/about/bannerThree.png"
 import bannerFour from "@/assets/imgs/about/bannerFour.png"
 import * as S from "./aboutStyle"
+import { Helmet } from "react-helmet"
 
 export default function About() {
     return (
         <>
+            <Helmet>
+                <title>Coral'l | About</title>
+            </Helmet>
             <Header />
             <S.AboutContainer>
                 <S.BannerDiv>

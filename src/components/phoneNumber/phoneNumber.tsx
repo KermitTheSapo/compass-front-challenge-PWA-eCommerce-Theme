@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import * as S from "./phoneNumberStyle"
 
@@ -25,6 +26,9 @@ export default function PhoneNumber() {
 
     return (
         <S.PhoneNumberContainer>
+            <Helmet>
+                <title>Coral'l | Phone Number</title>
+            </Helmet>
             <S.Title>Enter your phone number</S.Title>
             <S.InputsDiv>
                 <S.InputDdd type="text" placeholder="+09" value={ddd} onChange={(e) => setDdd(e.target.value)} maxLength={2} />
