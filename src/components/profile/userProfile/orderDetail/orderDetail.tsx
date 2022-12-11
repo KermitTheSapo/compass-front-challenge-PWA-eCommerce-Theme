@@ -30,7 +30,7 @@ export default function OrderDetail() {
         addressList: {
             _id: "",
             pinCode: 0,
-            streetAddress: "",
+            street: "",
             city: "",
             uf: "",
         },
@@ -76,6 +76,7 @@ export default function OrderDetail() {
     useEffect(() => {
         getOrderById(id).then(res => setOrderProduct(res))
     }, [id])
+    console.log(orderProduct)
     return (
         <S.OrderDetailContainer>
             <S.OrderHeader>
@@ -139,7 +140,7 @@ export default function OrderDetail() {
                     <S.bigSeparator></S.bigSeparator>
                     <PaymentsDetails payment={orderProduct.upi} />
                     <S.bigSeparator></S.bigSeparator>
-                    <AddressDetails pinCode={orderProduct.addressList && orderProduct.addressList.pinCode} streetAddress={orderProduct.addressList && orderProduct.addressList.streetAddress} city={orderProduct.addressList && orderProduct.addressList.city} name={orderProduct.addressList && orderProduct.name} />
+                    <AddressDetails pinCode={orderProduct.addressList && orderProduct.addressList.pinCode} streetAddress={orderProduct.addressList && orderProduct.addressList.street} city={orderProduct.addressList && orderProduct.addressList.city} name={orderProduct.addressList && orderProduct.name} />
                 </S.OrderInfoContent>
             </S.OrderInformation>
             <S.ButtonsNavigation>
