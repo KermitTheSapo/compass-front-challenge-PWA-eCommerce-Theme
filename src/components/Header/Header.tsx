@@ -35,7 +35,6 @@ export default function Header() {
         quantity: 0
     }])
     const [input, setInput] = useState("")
-    // const [listCategory, setListCategory] = useState(false)
     const [totalValue, setTotalValue] = useState([])
     const [showCartInfo, setShowCartInfo] = useState(false)
     const [priceValue, setPriceValue] = useState(0)
@@ -78,8 +77,6 @@ export default function Header() {
             setSearchMenu(false)
         }
     }, [input])
-    // console.log(totalValue)
-
     return (
         <S.HeaderContainer>
             <S.MenuContainer>
