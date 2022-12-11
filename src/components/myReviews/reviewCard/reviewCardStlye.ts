@@ -4,6 +4,7 @@ export const ReviewCard = styled.div`
     display: flex;
     align-items: center;
     height: 18vh;
+    justify-content: space-between;
 `
 export const ReviewCardContent = styled.div`
     display: flex;
