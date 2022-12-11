@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import InvoiceCard from "./invoiceCard/invoiceCard"
 import { useEffect, useState } from "react"
 import { getOrderById } from "../../products/order"
+import { Helmet } from "react-helmet"
 
 export default function Invoice() {
     const navigate = useNavigate()
@@ -45,14 +46,16 @@ export default function Invoice() {
     useEffect(() => {
         // @ts-ignore
         let params = new URL(document.location).searchParams;
-        // @ts-ignore
-        setId(params.get("id"))
+        setId(params.get("id") as string)
     }, [])
     useEffect(() => {
         getOrderById(id).then(res => setOrderProduct(res))
     }, [id])
     return (
         <S.InvoiceContainer>
+            <Helmet>
+                <title>Coral'l | Invoice</title>
+            </Helmet>
             <S.InvoiceHeader>
                 <S.InvoiceHeaderContent>
                     <S.ImgArrow src={imgArrow} alt="left arrow icon" onClick={() => navigate(-1)} />
