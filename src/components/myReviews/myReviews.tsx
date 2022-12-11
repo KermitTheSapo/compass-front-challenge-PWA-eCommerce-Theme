@@ -4,10 +4,22 @@ import options from "@/assets/imgs/myReviews/options.svg"
 import { useNavigate } from "react-router-dom"
 import ReviewCard from "./reviewCard/reviewCard";
 import { Helmet } from "react-helmet";
+import { useEffect, useState } from "react";
+import { getReview } from "../../products/review";
 
 
 export default function MyReviews() {
     const navigate = useNavigate();
+    const [review, setReview] = useState([{
+        date: "",
+        description: "",
+        rating: "",
+        title: "",
+        userName: ""
+    }])
+    useEffect(() => {
+        getReview().then(res => setReview(res))
+    }, [])
     return (
         <S.MyReviewsContainer>
             <Helmet>
@@ -21,12 +33,11 @@ export default function MyReviews() {
                 <S.ImgOptions src={options} alt="icon of 3 vertically aligned dots" />
             </S.ReviewsHeader>
             <S.ReviewContent>
-                <ReviewCard />
-                <ReviewCard />
-                <ReviewCard />
-                <ReviewCard />
-                <ReviewCard />
-                <ReviewCard />
+                {
+                    review && review.map((item) => (
+                        <ReviewCard date={item.date} title={item.title} paragraph={item.description} description={item.description} rating={item.rating} />
+                    ))
+                }
             </S.ReviewContent>
         </S.MyReviewsContainer>
     )
