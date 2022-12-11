@@ -24,7 +24,8 @@ export default function ButtonAdd({ name, description, price, img, safe, discoun
             imgAlt: "imgAlt",
             image: img,
             ratings: ratings,
-            quantity: 1
+            quantity: 1,
+            subTotal: price
         }
         postBag(product)
         alert("Item added to cart")
