@@ -37,7 +37,9 @@ export const ProfileContent = styled.div`
 `
 
 export const ImgProfile = styled.img`
-
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 `
 export const ProfileName = styled.h2`
     font-weight: 600;

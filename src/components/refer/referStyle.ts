@@ -111,3 +111,9 @@ export const InviteBtn = styled.button`
         display: none;
     }
 `
+
+export const AlertCopyMsg = styled.p`
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--TypeHighEmphasis);
+`

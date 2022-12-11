@@ -45,9 +45,13 @@ export const ProfileContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
 `
-export const ImgProfile = styled.img``
+export const ImgProfile = styled.img`
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+`
 export const ProfileText = styled.h2`
     font-weight: 500;
     font-size: 1rem;
