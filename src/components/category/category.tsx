@@ -24,10 +24,10 @@ import PageNumberTab from "./pageNumberTab/pageNumberTab"
 import { getProducts } from "../../products/products"
 import { getBag } from "../../products/bag"
 type Props = {
-    name: string;
+    categoryName: string;
 };
 
-export default function Category({ name }: Props) {
+export default function Category({ categoryName }: Props) {
     const navigate = useNavigate();
     const [ShowBottomSheet, setShowBottomSheet] = useState(false)
     const [isGridActive, setIsGridActive] = useState(true)
@@ -69,10 +69,29 @@ export default function Category({ name }: Props) {
         discount: 0,
         safe: 0
     }])
+    const [productsFilterList, setProductsFilterList] = useState([{
+        _id: "",
+        name: "",
+        price: 0,
+        category: "",
+        image: "",
+        description: "",
+        imgAlt: "",
+        paragraph: "",
+        link: "",
+        ratings: 0,
+        discount: 0,
+        safe: 0
+    }])
     useEffect(() => {
         getProducts().then((res) => setProductsList(res))
         getBag().then((res) => setBagList(res))
     }, [])
+    useEffect(() => {
+        if (productsList.length !== 0) {
+            setProductsFilterList(productsList.filter((item) => item.category.includes(categoryName)))
+        }
+    }, [productsList])
     // @ts-ignore
     const setSortValue = (e) => {
         if (e.target.value === "priceLowToHigh") {
@@ -113,7 +132,7 @@ export default function Category({ name }: Props) {
             <S.Header>
                 <S.LeadingIcon>
                     <S.LinkArrow onClick={() => navigate("/home")}><S.ImgArrow src={arrow} alt="a blue left arrow" /></S.LinkArrow>
-                    <S.Title>{name}</S.Title>
+                    <S.Title>{categoryName}</S.Title>
                 </S.LeadingIcon>
                 <S.TrailingIcon>
                     <img onClick={() => navigate("/wishlist")} src={wishlist} alt="heart icon" />
@@ -128,9 +147,9 @@ export default function Category({ name }: Props) {
                 <S.BreadcrumbHorizontal>
                     <S.Label>Home</S.Label>
                     <img src={arrowRightSmall} alt="a small black arrow to the right" />
-                    <S.LabelPage>{name}</S.LabelPage>
+                    <S.LabelPage>{categoryName}</S.LabelPage>
                 </S.BreadcrumbHorizontal>
-                <S.Title>{name}</S.Title>
+                <S.Title>{categoryName}</S.Title>
             </S.Breadcrumb>
             <S.CategoryDiv>
                 <MenuSideNav />
@@ -144,7 +163,7 @@ export default function Category({ name }: Props) {
                                 <S.ImgGrid src={sortImg} alt="a list icon a square with a small square and a rectangle" />
                             </S.GridDiv>
                         </S.GridSort>
-                        <S.ParagraphShow>Showing 1 - {productsList.length} of {productsList.length} items</S.ParagraphShow>
+                        <S.ParagraphShow>Showing 1 - {productsFilterList.length} of {productsFilterList.length} items</S.ParagraphShow>
                         <S.ToShow>
                             <S.ToShowTitle>To Show:</S.ToShowTitle>
                             <S.SelectToShow name="" id="">
@@ -171,18 +190,18 @@ export default function Category({ name }: Props) {
                     </S.ListingOptions >
                     <S.Products>
                         {pageOne && <>
-                            {inicialProducts && productsList.map((item, key) => (
+                            {inicialProducts && productsFilterList.map((item, key) => (
                                 <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                             ))}
                             {priceLowToHigh &&
-                                productsList.sort(function (a, b) { return a.price - b.price }).map((item, key) => (
+                                productsFilterList.sort(function (a, b) { return a.price - b.price }).map((item, key) => (
                                     <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                                 ))
                             }
-                            {priceHighToLow && productsList.sort(function (a, b) { return b.price - a.price }).map((item, key) => (
+                            {priceHighToLow && productsFilterList.sort(function (a, b) { return b.price - a.price }).map((item, key) => (
                                 <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                             ))}
-                            {popularity && productsList.sort(function (a, b) { return b.ratings - a.ratings }).map((item, key) => (
+                            {popularity && productsFilterList.sort(function (a, b) { return b.ratings - a.ratings }).map((item, key) => (
                                 <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                             ))}</>}
                         {pageTwo && <S.DivPage><p>Page 2</p></S.DivPage>}
