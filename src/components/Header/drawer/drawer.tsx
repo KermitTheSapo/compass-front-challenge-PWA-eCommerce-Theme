@@ -1,14 +1,29 @@
 import * as S from "./drawerStyle"
-import imgProfile from "@/assets/imgs/drawer/imgProfile.png"
 import arrow from "@/assets/imgs/drawer/arrowRight.svg"
 import CategoriesOption from "./categoriesOption/categoriesOption"
 import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { getContact } from "../../../products/contact"
 type Props = {
     setState: (value: React.SetStateAction<boolean>) => void
 }
 
 export default function Drawer({ setState }: Props) {
     const navigate = useNavigate()
+    const [contact, setContact] = useState({
+        _id: "",
+        ddd: "",
+        phone: "",
+        firstName: "",
+        LastName: "",
+        email: "",
+        dateBirth: "",
+        password: "",
+        image: ""
+    })
+    useEffect(() => {
+        getContact().then(res => setContact(res[res.length - 1]))
+    }, [])
     return (
         <>
             <S.DrawerDark onClick={() => setState(false)}></S.DrawerDark>
@@ -16,8 +31,8 @@ export default function Drawer({ setState }: Props) {
                 <S.DrawerHeader>
                     <S.Profile>
                         <S.ProfileContent>
-                            <S.ImgProfile src={imgProfile} alt="user image" />
-                            <S.ProfileText>Hello, Tina</S.ProfileText>
+                            <S.ImgProfile src={contact.image} alt="user image" />
+                            <S.ProfileText>Hello, {contact.firstName === "" ? "guest" : contact.firstName}!</S.ProfileText>
                         </S.ProfileContent>
                         <S.ImgArrow src={arrow} alt="left arrow icon" onClick={() => navigate("/profile")} />
                     </S.Profile>
