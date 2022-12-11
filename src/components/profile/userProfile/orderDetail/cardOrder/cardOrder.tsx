@@ -1,5 +1,4 @@
 import * as S from "./cardOrderStyle"
-import img from "@/assets/imgs/itemsOrdered/img.png"
 
 type Props = {
     image: string;
