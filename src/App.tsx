@@ -31,7 +31,6 @@ import Refer from "./components/refer/refer"
 import About from "./components/about/about"
 import PhoneNumber from "./components/phoneNumber/phoneNumber"
 import EnterOtp from "./components/enterOtp/enterOtp"
-import MyOrders from "./components/myOrders/myOrders"
 import Invoice from "./components/invoice/invoice"
 import PersonalInfo from "./components/profile/userProfile/personalInfo/personalInfo"
 import OrderTab from "./components/profile/userProfile/orderTab/orderTab"
@@ -91,7 +90,6 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/phone-number" element={<PhoneNumber />} />
         <Route path="/enter-otp" element={<EnterOtp />} />
-        <Route path="/my-orders" element={<MyOrders />} />
         <Route path="/invoices" element={<Invoice />} />
         <Route path="/*" element={<Error />} />
       </Routes>
