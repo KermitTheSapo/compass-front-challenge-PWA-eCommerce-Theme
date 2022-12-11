@@ -57,13 +57,15 @@ export default function PersonalInfo() {
         setPhone(contact.phone)
         setPhoneMask(maskPhone(contact.phone))
         setFirstName(contact.firstName)
-        setFirstNameMask(maskOnlyLetters(contact.firstName))
+        if (contact) {
+            setFirstNameMask(maskOnlyLetters(contact.firstName))
+            setLastNameMask(maskOnlyLetters(contact.LastName))
+            setDate(contact.dateBirth.replace(/\//g, " ").split(" ").reverse().join("-"))
+        }
         setLastName(contact.LastName)
-        setLastNameMask(maskOnlyLetters(contact.LastName))
         setEmail(contact.email)
         setDDD(contact.ddd)
         setDDDmask(maskDDD(contact.ddd))
-        setDate(contact.dateBirth.replace(/\//g, " ").split(" ").reverse().join("-"))
         setImage(contact.image)
     }, [contact])
     const saveInfo = () => {
@@ -130,6 +132,8 @@ export default function PersonalInfo() {
             event.target.value = ""
         }, 500)
     }
+
+    
     return (
         <S.PersonalInfoContainer>
             <S.InfoHeader>
