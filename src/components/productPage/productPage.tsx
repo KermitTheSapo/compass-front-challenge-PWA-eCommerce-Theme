@@ -40,6 +40,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
             paragraph: productDescription,
             description: productParagraph,
             price: value,
+            subTotal: value,
             safe: safe,
             discount: discount,
             link: "link",
