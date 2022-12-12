@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
     @media (min-width: 768px) {
