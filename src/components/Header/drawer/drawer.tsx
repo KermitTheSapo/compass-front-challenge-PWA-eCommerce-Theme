@@ -31,8 +31,8 @@ export default function Drawer({ setState }: Props) {
                 <S.DrawerHeader>
                     <S.Profile>
                         <S.ProfileContent>
-                            <S.ImgProfile src={contact.image} alt="user image" />
-                            <S.ProfileText>Hello, {contact.firstName === "" ? "guest" : contact.firstName}!</S.ProfileText>
+                            <S.ImgProfile src={contact.image ? contact.image : "/src/assets/imgs/userProfile/profilePicture.png"} alt="user image" />
+                            <S.ProfileText>Hello, {contact.firstName == ! "" || contact.firstName ? contact.firstName : "guest"}!</S.ProfileText>
                         </S.ProfileContent>
                         <S.ImgArrow src={arrow} alt="left arrow icon" onClick={() => navigate("/profile")} />
                     </S.Profile>
