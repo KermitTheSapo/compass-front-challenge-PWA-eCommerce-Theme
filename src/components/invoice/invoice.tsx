@@ -7,6 +7,9 @@ import InvoiceCard from "./invoiceCard/invoiceCard"
 import { useEffect, useState } from "react"
 import { getOrderById } from "../../products/order"
 import { Helmet } from "react-helmet"
+import html2canvas from "html2canvas"
+import jsPDF from "jspdf"
+
 
 export default function Invoice() {
     const navigate = useNavigate()
@@ -51,8 +54,20 @@ export default function Invoice() {
     useEffect(() => {
         getOrderById(id).then(res => setOrderProduct(res))
     }, [id])
+    const downloadPdf = () => {
+        const input = document.querySelector("#App")
+        // @ts-ignore
+        html2canvas(input, { logging: true, letterRendering: 1, useCORS: true }).then(canvas => {
+            const imgWidth = 210;
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            const imgData = canvas.toDataURL("img/png");
+            const pdf = new jsPDF('p', "mm", "a4");
+            pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+            pdf.save("invoice.pdf")
+        })
+    }
     return (
-        <S.InvoiceContainer>
+        <S.InvoiceContainer id="App">
             <Helmet>
                 <title>Coral'l | Invoice</title>
             </Helmet>
@@ -90,7 +105,7 @@ export default function Invoice() {
                     <S.OrderDetailsInfoPrice>-$00.00</S.OrderDetailsInfoPrice>
                 </S.Summary>
                 <S.Summary>
-                    <S.OrderDetailsInfoParagraph>Delivery Fee</S.OrderDetailsInfoParagraph>
+                    <S.OrderDetailsInfoParagraph>Delivery Free</S.OrderDetailsInfoParagraph>
                     <S.OrderDetailsInfoPrice>-$0.00</S.OrderDetailsInfoPrice>
                 </S.Summary>
                 <S.Summary>
@@ -99,7 +114,7 @@ export default function Invoice() {
                 </S.Summary>
             </S.OrderDetailsInfo>
             <S.DivButtonDownload>
-                <S.ButtonDownload>Download Invoice</S.ButtonDownload>
+                <S.ButtonDownload onClick={() => downloadPdf()}>Download Invoice</S.ButtonDownload>
             </S.DivButtonDownload>
         </S.InvoiceContainer>
     )
