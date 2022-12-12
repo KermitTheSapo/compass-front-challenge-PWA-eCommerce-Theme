@@ -114,7 +114,7 @@ export default function OrderDetail() {
                         </S.ProductInformation>
                         <S.Separator></S.Separator>
                         {orderProduct.product && orderProduct.product.map((item => (
-                            <ProductCardVertical id={item._id} name={item.name} paragraph={item.paragraph} price={item.price} image={item.image} quantity={item.quantity} />
+                            <ProductCardVertical id={item._id} name={item.name} paragraph={item.description} price={item.price} image={item.image} quantity={item.quantity} />
                         )))}
                     </>
                 }
