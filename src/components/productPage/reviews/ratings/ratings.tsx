@@ -28,9 +28,11 @@ export default function Ratings({ date, description, productId, rating, title, u
                 <S.RatingsTitle>{title}</S.RatingsTitle>
                 <S.RatingsDescription>{description}</S.RatingsDescription>
             </S.Content>
-            <S.ImgsCarousel>
-                <S.ImgCarousel src={image} alt="product img" />
-            </S.ImgsCarousel>
+            {
+                image === undefined? null : <S.ImgsCarousel>
+                    <S.ImgCarousel src={image} alt="product img" />
+                </S.ImgsCarousel>
+            }
         </S.RatingsContainer>
     )
 }
