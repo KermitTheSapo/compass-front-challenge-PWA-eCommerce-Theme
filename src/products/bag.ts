@@ -8,6 +8,14 @@ export const getBag = async () => {
     });
 }
 // @ts-ignore
+export const getBagById = async (id) => {
+    let apiId = `${Api}/${id}`
+    return axios.get(apiId).then((res) => {
+        let data = res.data
+        return data;
+    });
+}
+// @ts-ignore
 export const postBag = async (value) => {
     return axios.post(Api, value).then((res) => {
         let data = res.data
