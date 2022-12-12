@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import StatsBar from "./statsBar/statsBar"
 import * as S from "./statsStyle"
 
@@ -12,48 +12,49 @@ type Props = {
         title: string;
         userName: string;
     }[];
+    total: number;
 }
 
-export default function Stats({ state }: Props) {
-    // const [total, setTotal] = useState(0)
-    // const [starOne, setStarOne] = useState(0)
-    // const [starTwo, setStarTwo] = useState(0)
-    // const [starThree, setStarThree] = useState(0)
-    // const [starFour, setStarFour] = useState(0)
-    // const [starFive, setStarFive] = useState(0)
-    // useEffect(() => {
-    //     state.map((item) => {
-    //         if (item.rating === "1") {
-    //             setStarOne(starOne + 1)
-    //         }
-    //         if (item.rating === "2") {
-    //             setStarTwo(starTwo + 1)
-    //         }
-    //         if (item.rating === "3") {
-    //             setStarThree(starThree + 1)
-    //         }
-    //         if (item.rating === "4") {
-    //             setStarFour(starFour + 1)
-    //         }
-    //         if (item.rating === "5") {
-    //             setStarFive(starFive + 1)
-    //         }
-    //     })
-    // }, [state])
-    // console.log(starOne, starTwo, starThree, starFour, starFive)
-    // useEffect(() => {
-    //     state.map((item) => {
-    //         setTotal(Number(item.rating) + total)
-    //         console.log(total)
-    //     })
-    // }, [state])
+export default function Stats({ state, total }: Props) {
+    const [starOne, setStarOne] = useState(0)
+    const [starTwo, setStarTwo] = useState(0)
+    const [starThree, setStarThree] = useState(0)
+    const [starFour, setStarFour] = useState(0)
+    const [starFive, setStarFive] = useState(0)
+    useEffect(() => {
+        let teste = [
+            { star: 1, count: 0 },
+            { star: 2, count: 0 },
+            { star: 3, count: 0 },
+            { star: 4, count: 0 },
+            { star: 5, count: 0 }
+        ]
+        state.map((item) => {
+            if (item.rating == "1") {
+                teste[0].count++
+            } else if (item.rating == "2") {
+                teste[1].count++
+            } else if (item.rating == "3") {
+                teste[2].count++
+            } else if (item.rating == "4") {
+                teste[3].count++
+            } else if (item.rating == "5") {
+                teste[4].count++
+            }
+        })
+        setStarOne(teste[0].count)
+        setStarTwo(teste[1].count)
+        setStarThree(teste[2].count)
+        setStarFour(teste[3].count)
+        setStarFive(teste[4].count)
+    }, [state])
     return (
         <S.StatsContainer>
-            <StatsBar StarRating={"5.0"} StarRatingCount={`10`} StarRatingPercent={"100"} />
-            <StatsBar StarRating={"4.0"} StarRatingCount={`20`} StarRatingPercent={"100"} />
-            <StatsBar StarRating={"3.0"} StarRatingCount={`30`} StarRatingPercent={"100"} />
-            <StatsBar StarRating={"2.0"} StarRatingCount={`40`} StarRatingPercent={"100"} />
-            <StatsBar StarRating={"1.0"} StarRatingCount={`50`} StarRatingPercent={"100"} />
+            <StatsBar StarRating={"5.0"} StarRatingCount={`${starFive}`} StarRatingPercent={`${total}`} />
+            <StatsBar StarRating={"4.0"} StarRatingCount={`${starFour}`} StarRatingPercent={`${total}`} />
+            <StatsBar StarRating={"3.0"} StarRatingCount={`${starThree}`} StarRatingPercent={`${total}`} />
+            <StatsBar StarRating={"2.0"} StarRatingCount={`${starTwo}`} StarRatingPercent={`${total}`} />
+            <StatsBar StarRating={"1.0"} StarRatingCount={`${starOne}`} StarRatingPercent={`${total}`} />
         </S.StatsContainer>
     )
 }
