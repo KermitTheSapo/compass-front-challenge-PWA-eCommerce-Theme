@@ -24,7 +24,7 @@ export default function OrderItem({ id, orderId, date, price, status }: Props) {
                     <S.LabelDate>{date}</S.LabelDate>
                 </S.DateDiv>
                 <S.PriceDiv>
-                    <S.Label>${price}</S.Label>
+                    <S.Label>${Number(price).toFixed(2)}</S.Label>
                 </S.PriceDiv>
             </S.OrderCardContent>
             <S.StatusDiv>
