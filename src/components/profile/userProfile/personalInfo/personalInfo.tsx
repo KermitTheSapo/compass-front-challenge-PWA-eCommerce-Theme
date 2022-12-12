@@ -35,7 +35,8 @@ export default function PersonalInfo() {
         email: "",
         dateBirth: "",
         password: "",
-        image: ""
+        image: "",
+        name: ""
     })
     const maskPhone = (value: string) => {
         return value
@@ -57,16 +58,23 @@ export default function PersonalInfo() {
         setPhone(contact.phone)
         setPhoneMask(maskPhone(contact.phone))
         setFirstName(contact.firstName)
-        if (contact) {
+        if (contact.firstName) {
             setFirstNameMask(maskOnlyLetters(contact.firstName))
             setLastNameMask(maskOnlyLetters(contact.LastName))
             setDate(contact.dateBirth.replace(/\//g, " ").split(" ").reverse().join("-"))
+        } else if (contact.name) {
+            setFirstNameMask(contact.name.split(" ")[0])
+            setLastNameMask(contact.name.split(" ")[1])
         }
         setLastName(contact.LastName)
         setEmail(contact.email)
         setDDD(contact.ddd)
         setDDDmask(maskDDD(contact.ddd))
-        setImage(contact.image)
+        if (contact.image) {
+            setImage(contact.image)
+        } else {
+            setImage("/src/assets/imgs/userProfile/profilePicture.png")
+        }
     }, [contact])
     const saveInfo = () => {
         if (phone.length !== 16) {
@@ -133,7 +141,7 @@ export default function PersonalInfo() {
         }, 500)
     }
 
-    
+
     return (
         <S.PersonalInfoContainer>
             <S.InfoHeader>
