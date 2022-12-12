@@ -5,9 +5,8 @@ import Navigation from "../../components/Home/main/bottom-navigation/navigation"
 import { Helmet } from "react-helmet"
 import UserProfile from "./userProfile/userProfile"
 import { useEffect, useState } from "react"
-import { getContact } from "../../products/contact"
+import { getContact, postContact } from "../../products/contact"
 import { useNavigate } from "react-router-dom"
-
 
 export default function Profile() {
     const [size, setSize] = useState(false)
@@ -47,6 +46,21 @@ export default function Profile() {
     useEffect(() => {
         getContact().then(res => setContact(res[res.length - 1]))
     }, [])
+    const logoutBtn = () => {
+        const logout = {
+            ddd: "09",
+            phone: "86757684968",
+            firstName: "",
+            LastName: "",
+            email: "",
+            dateBirth: "",
+            password: "",
+            image: "/src/assets/imgs/userProfile/profilePicture.png"
+        }
+        //@ts-ignore
+        setContact(logout)
+        postContact(logout)
+    }
     return (
         <S.ProfileContainer>
             <Helmet>
@@ -56,7 +70,7 @@ export default function Profile() {
                 <S.ProfileTitle>Profile</S.ProfileTitle>
             </S.ProfileHeader>
             <S.ProfileBanner>
-                <S.ImgProfile src={contact.image} alt="profile img" />
+                <S.ImgProfile src={contact.image ? contact.image : "/src/assets/imgs/userProfile/profilePicture.png"} alt="profile img" />
                 <S.ProfileContent>
                     <S.ProfileName>{`${contact.firstName} ${contact.LastName}`}</S.ProfileName>
                     <S.ProfileEmail>{contact.email}</S.ProfileEmail>
@@ -74,7 +88,7 @@ export default function Profile() {
                 <SideNavigation path={"/savedCards"} name={"My Saved Cards"} />
             </S.NavigationOptions>
             <S.BtnLogoutDiv>
-                <S.BtnLogout>Logout</S.BtnLogout>
+                <S.BtnLogout onClick={() => logoutBtn()}>Logout</S.BtnLogout>
             </S.BtnLogoutDiv>
             <S.BottomNavigation>
                 <Navigation homeTrue={false} categoriesTrue={false} profileTrue={true} bagTrue={false} />
