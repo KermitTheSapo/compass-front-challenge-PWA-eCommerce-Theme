@@ -62,6 +62,7 @@ export const RatingsDescription = styled.p`
     font-size: 0.875rem;
     color: var(--TypeLowEmphasis);
     text-transform: capitalize;
+    word-break: break-all;
 `
 export const ImgsCarousel = styled.div`
     display: flex;

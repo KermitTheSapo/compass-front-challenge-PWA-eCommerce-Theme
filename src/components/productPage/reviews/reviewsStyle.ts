@@ -54,6 +54,6 @@ export const ButtonAddText = styled.button`
 
 export const ReviewDiv = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin-bottom: 100px;
 `

@@ -102,6 +102,7 @@ export const OrderDetailsInfo = styled.div`
     padding: 16px 16px;
     height: 15vh;
     gap: 15px;
+    margin-bottom: 100px;
 `
 
 export const OrderDetailsInfoTitle = styled.h2`
@@ -150,6 +151,7 @@ export const DivButtonDownload = styled.div`
     bottom: 0;
     left: 0;
     @media (min-width: 768px) {
+        margin-top: 25px;
         position: static;
     }
 `

@@ -37,7 +37,7 @@ export const BtnTrending = styled.div`
     justify-content: center;
     position: relative;
     top: 20px;
-    right: 60px;
+    right: 90px;
     z-index: 2;
 `
 

@@ -9,9 +9,10 @@ export const ItemArrival = styled.div`
   margin-top: 12px;
   @media (min-width: 768px) {
     gap: 38px;
+    width: 22vw;    
   }
-  @media (max-width: 375px) {
-    width: 130px;
+  @media (max-width: 425px) {
+    width: 180px;    
   }
 `
 export const ImgProduct = styled.img`
@@ -52,6 +53,10 @@ export const ItemName = styled.h3`
   font-size: 0.75rem;
   color: var(--TypeHighEmphasis);
   text-transform: capitalize;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  width: 80%;
   @media (min-width: 768px) {
     font-weight: 500;
     font-size: 1rem;
