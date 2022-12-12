@@ -19,8 +19,7 @@ export const BottomSheetHomeContainer = styled.div`
 export const SheetHeader = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 40%; 
+    width: 80%; 
     gap: 20px;
 `
 
