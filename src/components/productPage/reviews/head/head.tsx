@@ -20,6 +20,8 @@ type Props = {
 
 export default function Head({ id, state }: Props) {
     let location = useLocation();
+    const [Ratings, setRatings] = useState([0])
+    const [TotalRatings, setTotalRatings] = useState(0)
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -38,6 +40,13 @@ export default function Head({ id, state }: Props) {
         getProductsById(id).then((res) => setProductsList([res]))
     }, [location, id])
 
+    useEffect(() => {
+        let value = state.map(item => Number(item.rating))
+        setRatings(value)
+    }, [state])
+    useEffect(() => {
+        setTotalRatings(Ratings.reduce((a, b) => a + b, 0))
+    }, [Ratings])
     return (
         <S.HeadContainer>
             <S.ProductHead>
@@ -50,11 +59,11 @@ export default function Head({ id, state }: Props) {
             </S.ProductHead>
             <S.Ratings>
                 <S.AverageRatings>
-                    <S.AverageRatingsNumber>4.5</S.AverageRatingsNumber>
+                    <S.AverageRatingsNumber>{(TotalRatings / state.length).toFixed(2)}</S.AverageRatingsNumber>
                     <S.AverageRatingsStar src={star} alt="star icon" />
                     <S.AverageTitle>Average Rating</S.AverageTitle>
                 </S.AverageRatings>
-                <Stats id={id} state={state} />
+                <Stats id={id} state={state} total={state.length} />
             </S.Ratings>
             <S.Photos>
                 <S.PhotosTitle>Customer Photos</S.PhotosTitle>
