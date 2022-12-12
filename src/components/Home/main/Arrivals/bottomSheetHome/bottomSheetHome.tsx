@@ -30,7 +30,7 @@ export default function BottomSheetHome({ name, description, price, img, link, o
                     <S.ContentTitle>
                         <S.Title>{name}</S.Title>
                         <S.Description>{description}</S.Description>
-                        <S.Price>{price}</S.Price>
+                        <S.Price>${price.toFixed(2)}</S.Price>
                     </S.ContentTitle>
                 </S.SheetHeader>
                 <S.AverageDiv>
