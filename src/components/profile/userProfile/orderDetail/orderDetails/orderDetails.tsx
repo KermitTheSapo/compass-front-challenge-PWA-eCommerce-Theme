@@ -24,7 +24,7 @@ export default function OrderDetails({ subTotal, discount, total }: Props) {
             </S.OrderSummary>
             <S.OrderSummary>
                 <S.OrderLabelTotal>Grand Total</S.OrderLabelTotal>
-                <S.OrderLabelTotal>${total}</S.OrderLabelTotal>
+                <S.OrderLabelTotal>${Number(total).toFixed(2)}</S.OrderLabelTotal>
             </S.OrderSummary>
         </S.OrderDetailsContainer>
     )
