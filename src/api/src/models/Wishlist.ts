@@ -12,7 +12,8 @@ const WishlistSchema = new mongoose.Schema({
   imgAlt: { type: String, required: true },
   image: { type: String, required: true },
   ratings: { type: Number, required: true },
-  quantity: { type: Number, required: true }
+  quantity: { type: Number, required: true },
+  heartStatus: { type: Boolean, required: true }
 })
 
 const Wishlist = mongoose.model('wishlist', WishlistSchema)
