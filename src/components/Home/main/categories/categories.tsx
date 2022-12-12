@@ -14,10 +14,7 @@ export default function Categories() {
                 <Item label={"Jewellery"} icon={Jewellery} alt={"ring icon"} route={"/jewellery"} />
                 <Item label={"Handbags"} icon={Handbags} alt={"handbag icon"} route={"/handbags"} />
                 <Item label={"Watches"} icon={Watches} alt={"clock icon"} route={"/watches"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/eyewear"} />
                 <Item label={"Apparels"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/apparels"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/eyewear"} />
-                <Item label={"Eyewear"} icon={skinCare} alt={"icon of a bottle with a straw"} route={"/eyewear"} />
             </S.CategoriesList>
         </S.CategoriesContainer>
     )
