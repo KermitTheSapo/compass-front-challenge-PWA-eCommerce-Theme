@@ -44,10 +44,6 @@ export default function Header() {
     const [tax, setTax] = useState(2)
     const navigate = useNavigate();
     useEffect(() => {
-        // @ts-ignore
-        getBag().then((res) => { setProductsList(res); let value = res.map(item => item.price); setTotalValue(value) })
-    }, [])
-    useEffect(() => {
         setPriceValue(totalValue.reduce((a, b) => a + b, 0))
         let value = 0
         productsList.map((item) => { value = value + item.price });
@@ -55,6 +51,8 @@ export default function Header() {
         value = 0;
     }, [productsList, totalValue])
     const openCartInfo = () => {
+        // @ts-ignore
+        getBag().then((res) => { setProductsList(res); let value = res.map(item => item.price); setTotalValue(value) })
         if (showCartInfo) {
             setShowCartInfo(false)
         } else {
