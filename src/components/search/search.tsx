@@ -14,6 +14,7 @@ export default function Search() {
     const [input, setInput] = useState("")
     const [loading, setLoading] = useState(true)
     const [noResult, setNoResult] = useState(false)
+    const [recentSearchValue, setRecentSearchValue] = useState([{ name: "" }])
     const [arrayFiltrado, setArrayFiltrado] = useState([{
         _id: "",
         name: "",
@@ -57,6 +58,19 @@ export default function Search() {
         }
     }, [input, productsList])
 
+    const recentSearch = (e: string) => {
+        setTimeout(() => {
+            setRecentSearchValue([...recentSearchValue, { name: e }])
+            localStorage.setItem("recentSearch", JSON.stringify([...recentSearchValue, { name: e }]))
+        }, 3000)
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem("recentSearch")) {
+            setRecentSearchValue(JSON.parse(localStorage.getItem("recentSearch") || ""))
+        }
+    }, [])
+
     return (
         <S.SearchContainer>
             <Helmet>
@@ -64,16 +78,18 @@ export default function Search() {
             </Helmet>
             <S.SearchHeader>
                 <S.ArrowBack onClick={() => { navigate(-1) }} src={arrowBack} alt="left arrow icon" />
-                <S.InputSearch type="text" placeholder="Search" value={input} onChange={(e) => setInput(e.target.value)} />
+                <S.InputSearch type="text" placeholder="Search" value={input} onChange={(e) => { setInput(e.target.value); recentSearch(e.target.value) }} />
             </S.SearchHeader>
             <S.RecentSearch>
                 <S.RecentSearchTitle>Recent Search</S.RecentSearchTitle>
                 <S.RecentSearchList>
-                    <S.RecentSearchItem>Recent Search</S.RecentSearchItem>
-                    <S.RecentSearchItem>Recent Search</S.RecentSearchItem>
-                    <S.RecentSearchItem>Recent Search</S.RecentSearchItem>
-                    <S.RecentSearchItem>Recent Search</S.RecentSearchItem>
-                    <S.RecentSearchItem>Recent</S.RecentSearchItem>
+                    {recentSearchValue.map((item) => {
+                        if (item.name === "") {
+                            return null
+                        } else {
+                            return <S.RecentSearchItem onClick={() => setInput(item.name)}>{item.name}</S.RecentSearchItem>
+                        }
+                    })}
                 </S.RecentSearchList>
             </S.RecentSearch>
             <S.NewArrivals>

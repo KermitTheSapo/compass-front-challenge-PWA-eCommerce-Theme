@@ -76,7 +76,6 @@ export default function OrderDetail() {
     useEffect(() => {
         getOrderById(id).then(res => setOrderProduct(res))
     }, [id])
-    console.log(orderProduct)
     return (
         <S.OrderDetailContainer>
             <S.OrderHeader>

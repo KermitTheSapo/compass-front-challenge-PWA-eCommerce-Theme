@@ -88,23 +88,14 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
     }
     useEffect(() => {
         getWishlist().then(res => setWishlist(res))
-    }, [])
-    // const teste = (value) => {
-    //     let teste = false
-    //     wishlist.map((item) => {
-    //         if (item._id === value) {
-    //             // setHeartStatus(true)
-    //             teste = true
-    //         } else {
-    //             // setHeartStatus(false)
-    //             teste = false
-    //         }
-    //     })
-    //     return teste
-    // }
-    // useEffect(() => {
-    //     console.log(wishlist)
-    // }, [])
+    }, [wishlist])
+    useEffect(() => {
+        wishlist.map((item) => {
+            if (item._id === link) {
+                setHeartStatus(true)
+            }
+        })
+    }, [wishlist])
     return (
         <>
             <S.ItemLink>
