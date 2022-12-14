@@ -34,8 +34,10 @@ export default function Address() {
                     <S.ConfirmedAdviseTitle>No Address</S.ConfirmedAdviseTitle>
                     <S.ConfirmedAdviseText>It seems you have not updated your address yet.</S.ConfirmedAdviseText>
                 </S.ConfirmedAdvise> : <S.AddressList>
-                    {addressList.map((item) => (
-                        <AddressCard streetAddress={item.streetAddress} city={item.city} uf={item.uf} pinCode={item.pinCode} />
+                    {addressList.map((item, key) => (
+                        <div key={key} >
+                            <AddressCard streetAddress={item.streetAddress} city={item.city} uf={item.uf} pinCode={item.pinCode} />
+                        </div>
                     ))}
                 </S.AddressList>
             }
