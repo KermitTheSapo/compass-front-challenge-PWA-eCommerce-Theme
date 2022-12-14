@@ -5,7 +5,7 @@ type Props = {
     streetAddress: string;
     city: string;
     uf: string;
-    pinCode: Number;
+    pinCode: number;
 }
 export default function AddressCard({ streetAddress, city, uf, pinCode }: Props) {
     const [contact, setContact] = useState({
