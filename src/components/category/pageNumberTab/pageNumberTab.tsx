@@ -7,9 +7,10 @@ type Props = {
     setStatePageThree: React.Dispatch<React.SetStateAction<boolean>>;
     setStatePageFour: React.Dispatch<React.SetStateAction<boolean>>;
     setStatePageFive: React.Dispatch<React.SetStateAction<boolean>>;
+    setOffset: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setStatePageThree, setStatePageFour, setStatePageFive }: Props) {
+export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setStatePageThree, setStatePageFour, setStatePageFive, setOffset }: Props) {
     const [numberOneColor, setNumberOneColor] = useState("#FFFFFF")
     const [numberTwoColor, setNumberTwoColor] = useState("#626262")
     const [numberThreeColor, setNumberThreeColor] = useState("#626262")
@@ -48,6 +49,7 @@ export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setSta
         setNumberOneBackgroundColor("#1B4B66")
         ResetPage()
         setStatePageOne(true)
+        setOffset(0)
     }
     const focusNumberTwo = () => {
         ResetColors()
@@ -55,6 +57,7 @@ export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setSta
         setNumberTwoBackgroundColor("#1B4B66")
         ResetPage()
         setStatePageTwo(true)
+        setOffset(5)
     }
     const focusNumberThree = () => {
         ResetColors()
@@ -62,6 +65,7 @@ export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setSta
         setNumberThreeBackgroundColor("#1B4B66")
         ResetPage()
         setStatePageThree(true)
+        setOffset(10)
     }
     const focusNumberFour = () => {
         ResetColors()
@@ -69,6 +73,7 @@ export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setSta
         setNumberFourBackgroundColor("#1B4B66")
         ResetPage()
         setStatePageFour(true)
+        setOffset(15)
     }
     const focusNumberFive = () => {
         ResetColors()
@@ -76,6 +81,7 @@ export default function PageNumberTab({ setStatePageOne, setStatePageTwo, setSta
         setNumberFiveBackgroundColor("#1B4B66")
         ResetPage()
         setStatePageFive(true)
+        setOffset(20)
     }
 
     const ChangeNumberButton = () => {
