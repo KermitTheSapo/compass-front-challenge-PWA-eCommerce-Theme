@@ -21,8 +21,8 @@ import MenuSideNav from "./menuSideNav/menuSideNav"
 import { useEffect, useState } from "react"
 import PageNumberTab from "./pageNumberTab/pageNumberTab"
 
-import { getProducts } from "../../products/products"
 import { getBag } from "../../products/bag"
+import { getCategory } from "../../products/category"
 type Props = {
     categoryName: string;
 };
@@ -41,6 +41,8 @@ export default function Category({ categoryName }: Props) {
     const [pageThree, setPageThree] = useState(false)
     const [pageFour, setPageFour] = useState(false)
     const [pageFive, setPageFive] = useState(false)
+    const [limit, setLimit] = useState("5")
+    const [offset, setOffset] = useState(0)
     const [bagList, setBagList] = useState([{
         _id: "",
         name: "",
@@ -56,21 +58,7 @@ export default function Category({ categoryName }: Props) {
         safe: 0
     }])
     const [productsList, setProductsList] = useState([{
-        _id: "",
-        name: "",
-        price: 0,
-        category: "",
-        image: "",
-        description: "",
-        imgAlt: "",
-        paragraph: "",
-        link: "",
-        ratings: 0,
-        discount: 0,
-        safe: 0
-    }])
-    const [productsFilterList, setProductsFilterList] = useState([{
-        _id: "",
+        id: "",
         name: "",
         price: 0,
         category: "",
@@ -84,14 +72,9 @@ export default function Category({ categoryName }: Props) {
         safe: 0
     }])
     useEffect(() => {
-        getProducts().then((res) => setProductsList(res))
+        getCategory(limit, offset, categoryName).then((res) => setProductsList(res.results))
         getBag().then((res) => setBagList(res))
-    }, [])
-    useEffect(() => {
-        if (productsList.length !== 0) {
-            setProductsFilterList(productsList.filter((item) => item.category.includes(categoryName)))
-        }
-    }, [productsList])
+    }, [offset, limit])
     // @ts-ignore
     const setSortValue = (e) => {
         if (e.target.value === "priceLowToHigh") {
@@ -163,15 +146,18 @@ export default function Category({ categoryName }: Props) {
                                 <S.ImgGrid src={sortImg} alt="a list icon a square with a small square and a rectangle" />
                             </S.GridDiv>
                         </S.GridSort>
-                        <S.ParagraphShow>Showing 1 - {productsFilterList.length} of {productsFilterList.length} items</S.ParagraphShow>
+                        <S.ParagraphShow>Showing 1 - {productsList.length} of {productsList.length} items</S.ParagraphShow>
                         <S.ToShow>
                             <S.ToShowTitle>To Show:</S.ToShowTitle>
-                            <S.SelectToShow name="" id="">
+                            <S.SelectToShow name="" id="" value={limit} onChange={((e) => setLimit(e.target.value))}>
                                 <S.OptionToShow value="1">1</S.OptionToShow>
                                 <S.OptionToShow value="2">2</S.OptionToShow>
                                 <S.OptionToShow value="3">3</S.OptionToShow>
                                 <S.OptionToShow value="4">4</S.OptionToShow>
                                 <S.OptionToShow value="5">5</S.OptionToShow>
+                                <S.OptionToShow value="6">6</S.OptionToShow>
+                                <S.OptionToShow value="7">7</S.OptionToShow>
+                                <S.OptionToShow value="8">8</S.OptionToShow>
                             </S.SelectToShow>
                         </S.ToShow>
                         <S.SortBy>
@@ -190,27 +176,30 @@ export default function Category({ categoryName }: Props) {
                     </S.ListingOptions >
                     <S.Products>
                         {pageOne && <>
-                            {inicialProducts && productsFilterList.map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                            {inicialProducts && productsList.map((item, key) => (
+                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                             ))}
                             {priceLowToHigh &&
-                                productsFilterList.sort(function (a, b) { return a.price - b.price }).map((item, key) => (
-                                    <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                productsList.sort(function (a, b) { return a.price - b.price }).map((item, key) => (
+                                    <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                                 ))
                             }
-                            {priceHighToLow && productsFilterList.sort(function (a, b) { return b.price - a.price }).map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                            {priceHighToLow && productsList.sort(function (a, b) { return b.price - a.price }).map((item, key) => (
+                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                             ))}
-                            {popularity && productsFilterList.sort(function (a, b) { return b.ratings - a.ratings }).map((item, key) => (
+                            {popularity && productsList.sort(function (a, b) { return b.ratings - a.ratings }).map((item, key) => (
                                 <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                             ))}</>}
-                        {pageTwo && <S.DivPage><p>Page 2</p></S.DivPage>}
+                        {pageTwo && <>
+                            {inicialProducts && productsList.map((item, key) => (
+                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                            ))}</>}
                         {pageThree && <S.DivPage><p>Page 3</p></S.DivPage>}
                         {pageFour && <S.DivPage><p>Page 4</p></S.DivPage>}
                         {pageFive && <S.DivPage><p>Page 5</p></S.DivPage>}
                     </S.Products>
                     <S.NumberPageTabs>
-                        <PageNumberTab setStatePageOne={setPageOne} setStatePageTwo={setPageTwo} setStatePageThree={setPageThree} setStatePageFour={setPageFour} setStatePageFive={setPageFive} />
+                        <PageNumberTab setStatePageOne={setPageOne} setStatePageTwo={setPageTwo} setStatePageThree={setPageThree} setStatePageFour={setPageFour} setStatePageFive={setPageFive} setOffset={setOffset} />
                     </S.NumberPageTabs>
                 </S.Content >
             </S.CategoryDiv >
