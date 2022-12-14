@@ -98,22 +98,29 @@ export default function OrderList() {
                     <S.OrderQuantity>{order.length} Order(s)</S.OrderQuantity>
                     {
                         completed && <>
-                            {order && order.map((item) => (
-                                <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                            {order && order.map((item, key) => (
+                                <div key={key}>
+                                    <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                                </div>
                             ))}
                         </>
                     }
                     {
                         processing && <>
-                            {order && order.map((item) => (
-                                <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                            {order && order.map((item, key) => (
+                                <div key={key}>
+                                    <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+
+                                </div>
                             ))}
                         </>
                     }
                     {
                         cancelled && <>
-                            {order && order.map((item) => (
-                                <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                            {order && order.map((item, key) => (
+                                <div key={key}>
+                                    <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                                </div>
                             ))}
                         </>
                     }

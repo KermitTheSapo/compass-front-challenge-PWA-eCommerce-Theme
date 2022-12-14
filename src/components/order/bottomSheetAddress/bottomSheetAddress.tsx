@@ -32,8 +32,10 @@ export default function BottomSheetAddress({ state, setState, stateAddress }: Pr
                 </S.SelectAddressHeader>
                 <S.Separator></S.Separator>
                 <S.SelectAddressContent>
-                    {stateAddress.map((item) => (
-                        <AddressCard streetAddress={item.streetAddress} city={item.city} uf={item.uf} pinCode={item.pinCode} />
+                    {stateAddress.map((item, key) => (
+                        <div key={key}>
+                            <AddressCard streetAddress={item.streetAddress} city={item.city} uf={item.uf} pinCode={item.pinCode} />
+                        </div>
                     ))}
                 </S.SelectAddressContent>
                 <S.ButtonDiv>

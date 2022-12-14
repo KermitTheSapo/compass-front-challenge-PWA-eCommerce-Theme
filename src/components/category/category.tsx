@@ -177,22 +177,33 @@ export default function Category({ categoryName }: Props) {
                     <S.Products>
                         {pageOne && <>
                             {inicialProducts && productsList.map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                <div key={key}>
+                                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                </div>
                             ))}
                             {priceLowToHigh &&
                                 productsList.sort(function (a, b) { return a.price - b.price }).map((item, key) => (
-                                    <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                    <div key={key}>
+                                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                    </div>
                                 ))
                             }
                             {priceHighToLow && productsList.sort(function (a, b) { return b.price - a.price }).map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                <div key={key}>
+                                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+
+                                </div>
                             ))}
                             {popularity && productsList.sort(function (a, b) { return b.ratings - a.ratings }).map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                <div key={key}>
+                                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.link} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                </div>
                             ))}</>}
                         {pageTwo && <>
                             {inicialProducts && productsList.map((item, key) => (
-                                <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                <div key={key}>
+                                    <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                                </div>
                             ))}</>}
                         {pageThree && <S.DivPage><p>Page 3</p></S.DivPage>}
                         {pageFour && <S.DivPage><p>Page 4</p></S.DivPage>}

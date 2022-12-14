@@ -51,8 +51,10 @@ export default function Reviews() {
             <Head id={id} state={reviewFilterList} />
             <S.Separator></S.Separator>
             <S.ReviewDiv>
-                {reviewFilterList && reviewFilterList.map((item) => (
-                    <Ratings date={item.date} description={item.description} productId={item.productId} rating={item.rating} title={item.title} userName={item.userName} image={item.image} />
+                {reviewFilterList && reviewFilterList.map((item, key) => (
+                    <div key={key}>
+                        <Ratings date={item.date} description={item.description} productId={item.productId} rating={item.rating} title={item.title} userName={item.userName} image={item.image} />
+                    </div>
                 ))}
             </S.ReviewDiv>
             <S.ButtonAdd>

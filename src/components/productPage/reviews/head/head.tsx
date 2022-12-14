@@ -50,11 +50,11 @@ export default function Head({ id, state }: Props) {
     return (
         <S.HeadContainer>
             <S.ProductHead>
-                {productsList && productsList.map((item) => (
-                    <>
+                {productsList && productsList.map((item, key) => (
+                    <div key={key}>
                         <S.ProductHeadTitle>{item.name}</S.ProductHeadTitle>
                         <S.ProductHeadSubTitle>{item.paragraph}</S.ProductHeadSubTitle>
-                    </>
+                    </div>
                 ))}
             </S.ProductHead>
             <S.Ratings>

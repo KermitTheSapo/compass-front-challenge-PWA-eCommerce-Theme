@@ -29,8 +29,8 @@ export default function WishlistPage() {
             <S.ItemList>
 
                 {productsList.map((item, key) => (
-                    <S.ItemDiv>
-                        <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                    <S.ItemDiv key={key}>
+                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
                     </S.ItemDiv>
                 ))}
 

@@ -57,8 +57,10 @@ export default function ProductInfo({ name, value, safe, discount, productParagr
                 </S.RatingDiv>
             </S.ProductAverage>
             <S.CouponDiv>
-                {couponList.map((item) => (
-                    <Coupon name={item.name} code={item.code} />
+                {couponList.map((item, key) => (
+                    <div key={key}>
+                        <Coupon name={item.name} code={item.code} />
+                    </div>
                 ))}
             </S.CouponDiv>
         </S.ProductInfo>

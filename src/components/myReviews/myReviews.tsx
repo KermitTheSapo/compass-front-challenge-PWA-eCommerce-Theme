@@ -34,8 +34,10 @@ export default function MyReviews() {
             </S.ReviewsHeader>
             <S.ReviewContent>
                 {
-                    review && review.map((item) => (
-                        <ReviewCard date={item.date} title={item.title} paragraph={item.description} description={item.description} rating={item.rating} />
+                    review && review.map((item, key) => (
+                        <div key={key}>
+                            <ReviewCard date={item.date} title={item.title} paragraph={item.description} description={item.description} rating={item.rating} />
+                        </div>
                     ))
                 }
             </S.ReviewContent>

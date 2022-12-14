@@ -112,8 +112,10 @@ export default function OrderDetail() {
                             </S.TableHeaders>
                         </S.ProductInformation>
                         <S.Separator></S.Separator>
-                        {orderProduct.product && orderProduct.product.map((item => (
-                            <ProductCardVertical id={item._id} name={item.name} paragraph={item.description} price={item.price} image={item.image} quantity={item.quantity} />
+                        {orderProduct.product && orderProduct.product.map(((item, key) => (
+                            <div key={key}>
+                                <ProductCardVertical id={item._id} name={item.name} paragraph={item.description} price={item.price} image={item.image} quantity={item.quantity} />
+                            </div>
                         )))}
                     </>
                 }
@@ -124,8 +126,10 @@ export default function OrderDetail() {
                 }
             </S.ProductList>
             <S.CardOrderDiv>
-                {orderProduct.product && orderProduct.product.map((item => (
-                    <CardOrder image={item.image} name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
+                {orderProduct.product && orderProduct.product.map((item, key => (
+                    <div key={key}>
+                        <CardOrder image={item.image} name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
+                    </div>
                 )))}
             </S.CardOrderDiv>
             <S.OrderInformation>

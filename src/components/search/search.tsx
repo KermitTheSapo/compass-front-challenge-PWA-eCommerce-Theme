@@ -96,8 +96,11 @@ export default function Search() {
                 <S.NewArrivalsTitle>New Arrivals</S.NewArrivalsTitle>
                 <S.NewArrivalsList>
                     {loading && <p>Loading...</p>}
-                    {!loading ? arrayFiltrado.map((item) => (
-                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
+                    {!loading ? arrayFiltrado.map((item, key) => (
+                        <div key={key}>
+                            <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
+                        </div>
+
                     )) : null}
                 </S.NewArrivalsList>
             </S.NewArrivals>

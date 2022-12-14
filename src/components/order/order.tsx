@@ -66,8 +66,10 @@ export default function Order() {
             <Address state={sheetEditAddress} setState={setSheetEditAddress} />
             <S.DeliveryDiv>
                 <S.DeliveryTitle>Expected Delivery</S.DeliveryTitle>
-                {productsList.map((item) => (
-                    <DeliveryCard name={item.name} paragraph={item.description} img={item.image} />
+                {productsList.map((item, key) => (
+                    <div key={key}>
+                        <DeliveryCard name={item.name} paragraph={item.description} img={item.image} />
+                    </div>
                 ))}
             </S.DeliveryDiv>
             <S.OrderDetails>

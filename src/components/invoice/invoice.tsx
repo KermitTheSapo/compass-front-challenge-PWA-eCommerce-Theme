@@ -88,8 +88,11 @@ export default function Invoice() {
             <S.ParagraphItems>{orderProduct.product && orderProduct.product.length} Item(s)</S.ParagraphItems>
             <S.InvoiceCards>
                 {
-                    orderProduct.product && orderProduct.product.map((item) => (
-                        <InvoiceCard name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
+                    orderProduct.product && orderProduct.product.map((item, key) => (
+                        <div key={key}>
+                            <InvoiceCard name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
+
+                        </div>
                     ))
                 }
             </S.InvoiceCards>

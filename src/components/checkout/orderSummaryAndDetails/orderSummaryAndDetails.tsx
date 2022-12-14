@@ -31,8 +31,10 @@ export default function OrderSummaryAndDetails({ productListState, subTotal, all
                 </S.OrderSummaryHeader>
                 <S.Separator></S.Separator>
                 <S.OrderSummaryContent>
-                    {productListState.map((item) => (
-                        <SummaryProduct productTitle={item.name} productParagraph={item.description} img={item.image} quantity={item.quantity} />
+                    {productListState.map((item, key) => (
+                        <div key={key}>
+                            <SummaryProduct productTitle={item.name} productParagraph={item.description} img={item.image} quantity={item.quantity} />
+                        </div>
                     ))}
                     {productListState.length === 0 && <S.EmptyCart>
                         <S.EmptyTitle>Uh Oh....!</S.EmptyTitle>

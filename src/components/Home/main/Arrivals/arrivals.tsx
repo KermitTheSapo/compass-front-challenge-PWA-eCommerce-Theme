@@ -32,8 +32,10 @@ export default function Arrivals() {
                 </S.LinkParagraph>
             </S.ArrivalHeader>
             <S.ArrivalList>
-                {productsList && productsList.map((item) => (
-                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
+                {productsList && productsList.map((item, key) => (
+                    <div key={key}>
+                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
+                    </div>
                 ))}
             </S.ArrivalList>
         </S.ArrivalsSection>

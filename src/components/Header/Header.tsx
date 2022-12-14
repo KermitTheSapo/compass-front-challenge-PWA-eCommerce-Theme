@@ -140,7 +140,7 @@ export default function Header() {
                         <S.DivCardProducts>
                             {productsList.length === 0 && <S.DivBagEmpty><p>The Bag is empty :(</p></S.DivBagEmpty>}
                             {productsList && productsList.map((item: any, index: number) => (
-                                <div>
+                                <div key={index}>
                                     < CardVertical productTitle={item.name} productParagraph={item.description} productPrice={item.price} img={item.image} setState={setProductsList} id={item._id} quantity={item.quantity} index={index} setTotalValue={setTotalValue} stateProductList={productsList} />
                                     <S.Separator></S.Separator>
                                 </div>

@@ -42,7 +42,9 @@ export default function Wishlist() {
                 <S.WishlistParagraph>{productsList.length} Product(s)</S.WishlistParagraph>
                 <S.WishlistProducts>
                     {productsList.map((item, key) => (
-                        <ItemArrival key={key} ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                        <div key={key}>
+                            <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} safe={item.safe} discount={item.discount} star={stars} ratings={item.ratings} information={true} isButtonAddTrue={true} />
+                        </div>
                     ))}
                     {productsList.length === 0 && <WishlistError />}
                 </S.WishlistProducts>
