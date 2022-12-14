@@ -8,7 +8,7 @@ type Props = {
 
 export default function AlsoLikeItem({ value }: Props) {
     const [productsList, setProductsList] = useState([{
-        _id: "",
+        id: "",
         name: "",
         price: 0,
         category: "",
@@ -22,13 +22,13 @@ export default function AlsoLikeItem({ value }: Props) {
         discount: 0
     }])
     useEffect(() => {
-        getProducts().then((res) => setProductsList(res))
+        getProducts("36", "0").then((res) => setProductsList(res.products))
     }, [])
     return (
         <S.AlsoLikeProducts>
             {productsList && productsList.map((item, key) => (
                 <S.Div key={key}>
-                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} information={value} isButtonAddTrue={false} safe={item.safe} discount={item.discount} />
+                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} ratings={item.ratings} information={value} isButtonAddTrue={false} safe={item.safe} discount={item.discount} />
                     <S.BtnTrending>
                         <S.SpanTrending>Trending</S.SpanTrending>
                     </S.BtnTrending>
