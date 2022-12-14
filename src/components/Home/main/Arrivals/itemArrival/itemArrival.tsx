@@ -88,7 +88,7 @@ export default function ItemArrival({ Description, ImgAlt, ImgSrc, Price, itemNa
     }
     useEffect(() => {
         getWishlist().then(res => setWishlist(res))
-    }, [wishlist])
+    }, [])
     useEffect(() => {
         wishlist.map((item) => {
             if (item._id === link) {
