@@ -12,7 +12,7 @@ export default function SearchBar({ input }: Props) {
     const [noResult, setNoResult] = useState(false)
     const navigate = useNavigate();
     const [arrayFiltrado, setArrayFiltrado] = useState([{
-        _id: "",
+        id: "",
         name: "",
         price: 0,
         category: "",
@@ -26,7 +26,7 @@ export default function SearchBar({ input }: Props) {
         safe: 0
     }])
     const [productsList, setProductsList] = useState([{
-        _id: "",
+        id: "",
         name: "",
         price: 0,
         category: "",
@@ -41,7 +41,7 @@ export default function SearchBar({ input }: Props) {
     }])
 
     useEffect(() => {
-        getProducts().then((res) => { setProductsList(res); setLoading(false) })
+        getProducts("36", "0").then((res) => { setProductsList(res.results); setLoading(false) })
     }, [])
 
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function SearchBar({ input }: Props) {
         <S.SearchBar>
             {loading && <p>Loading...</p>}
             {!loading ? arrayFiltrado.map((item, key) => (
-                <S.ProductDiv key={key} onClick={() => navigate(`/product?id=${item._id}`)}>
+                <S.ProductDiv key={key} onClick={() => navigate(`/product?id=${item.id}`)}>
                     <S.ImgProduct src={item.image} alt="image of a product" />
                     <S.ProductInfo>
                         <S.ProductName>{item.name}</S.ProductName>

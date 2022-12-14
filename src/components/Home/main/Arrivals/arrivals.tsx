@@ -7,7 +7,7 @@ import { getProducts } from "../../../../products/products";
 export default function Arrivals() {
     const navigate = useNavigate();
     const [productsList, setProductsList] = useState([{
-        _id: "",
+        id: "",
         name: "",
         price: 0,
         category: "",
@@ -21,7 +21,7 @@ export default function Arrivals() {
         discount: 0
     }])
     useEffect(() => {
-        getProducts().then((res) => setProductsList(res))
+        getProducts("36", "0").then((res) => setProductsList(res.results))
     }, [])
     return (
         <S.ArrivalsSection>
@@ -33,7 +33,7 @@ export default function Arrivals() {
             </S.ArrivalHeader>
             <S.ArrivalList>
                 {productsList && productsList.map((item) => (
-                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
+                    <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
                 ))}
             </S.ArrivalList>
         </S.ArrivalsSection>
