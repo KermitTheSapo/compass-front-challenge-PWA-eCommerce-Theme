@@ -16,7 +16,7 @@ export default function Search() {
     const [noResult, setNoResult] = useState(false)
     const [recentSearchValue, setRecentSearchValue] = useState([{ name: "" }])
     const [arrayFiltrado, setArrayFiltrado] = useState([{
-        _id: "",
+        id: "",
         name: "",
         price: 0,
         category: "",
@@ -30,7 +30,7 @@ export default function Search() {
         safe: 0
     }])
     const [productsList, setProductsList] = useState([{
-        _id: "",
+        id: "",
         name: "",
         price: 0,
         category: "",
@@ -45,7 +45,7 @@ export default function Search() {
     }])
 
     useEffect(() => {
-        getProducts().then((res) => { setProductsList(res); setLoading(false) })
+        getProducts("36", "0").then((res) => { setProductsList(res.results); setLoading(false) })
     }, [])
     useEffect(() => {
         if (productsList.length !== 0) {
@@ -97,7 +97,7 @@ export default function Search() {
                 <S.NewArrivalsList>
                     {loading && <p>Loading...</p>}
                     {!loading ? arrayFiltrado.map((item) => (
-                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item._id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
+                        <ItemArrival ImgSrc={item.image} ImgAlt={item.imgAlt} itemName={item.name} Description={item.paragraph} Price={item.price} link={item.id} ratings={item.ratings} information={false} safe={item.safe} discount={item.discount} isButtonAddTrue={false} />
                     )) : null}
                 </S.NewArrivalsList>
             </S.NewArrivals>

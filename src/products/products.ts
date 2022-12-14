@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const Api = `http://localhost:4000/product`
-export const getProducts = async () => {
-    return axios.get(Api).then((res) => {
+// @ts-ignore
+export const getProducts = async (limit, offset) => {
+    return axios.get(`${Api}?limit=${limit}&offset=${offset}`).then((res) => {
         let data = res.data
         return data;
     });
