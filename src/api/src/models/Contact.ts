@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import bcrypt from "bcrypt"
 
 const ContactSchema = new mongoose.Schema({
   id: { type: String },
@@ -10,8 +11,14 @@ const ContactSchema = new mongoose.Schema({
   LastName: { type: String },
   email: { type: String },
   dateBirth: { type: String },
-  password: { type: String },
+  password: { type: String, select: false },
   image: { type: String }
+})
+
+ContactSchema.pre("save", async function (next) {
+  // @ts-ignore
+  this.password = await bcrypt.hash(this.password, 10);
+  next();
 })
 
 const Contact = mongoose.model('contact', ContactSchema)
