@@ -7,7 +7,6 @@ import address from './addressRoutes'
 import contact from './contactRoutes'
 import review from './reviewRoutes'
 import order from './orderRoutes'
-import auth from './authRoutes'
 // @ts-ignore
 const routes = (app) => {
   // @ts-ignore
@@ -45,10 +44,6 @@ const routes = (app) => {
   app.use(
     express.json(),
     order
-  )
-  app.use(
-    express.json(),
-    auth
   )
 }
 export default routes

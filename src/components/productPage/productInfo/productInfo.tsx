@@ -13,11 +13,10 @@ type Props = {
     safe: number;
     discount: number;
     productParagraph: string;
-    ratings: number;
     id: string;
 }
 
-export default function ProductInfo({ name, value, safe, discount, productParagraph, ratings, id }: Props) {
+export default function ProductInfo({ name, value, safe, discount, productParagraph, id }: Props) {
     const [Ratings, setRatings] = useState([0])
     const [TotalRatings, setTotalRatings] = useState(0)
     const [couponList, setCouponList] = useState([{

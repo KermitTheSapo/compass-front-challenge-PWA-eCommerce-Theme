@@ -98,7 +98,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 </S.ProductsPics>
                 <S.Content>
                     <Products imgCarousel={imgCarousel} />
-                    <ProductInfo name={name} value={value * counter} productParagraph={productParagraph} safe={safe} discount={discount} ratings={ratings} id={_id}/>
+                    <ProductInfo name={name} value={value * counter} productParagraph={productParagraph} safe={safe} discount={discount} id={_id} />
                     <DeliveryDetails />
                     <Quantity state={counter} setState={setCounter} />
                     <Buttons onClick={() => addToApiStorage(counter)} />

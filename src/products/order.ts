@@ -21,7 +21,7 @@ export const deleteOrder = async (value) => {
         return data;
     });
 }
-
+// @ts-ignore
 export const getOrderById = async (id) => {
     let apiId = `${Api}/${id}`
     return axios.get(apiId).then((res) => {

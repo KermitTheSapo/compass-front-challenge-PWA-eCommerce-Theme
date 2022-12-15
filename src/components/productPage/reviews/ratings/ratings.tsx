@@ -4,14 +4,13 @@ import star from "@/assets/imgs/productPage/reviews/star.svg"
 type Props = {
     date: string;
     description: string;
-    productId: string;
     rating: string;
     title: string;
     userName: string;
     image: string;
 }
 
-export default function Ratings({ date, description, productId, rating, title, userName, image }: Props) {
+export default function Ratings({ date, description, rating, title, userName, image }: Props) {
     return (
         <S.RatingsContainer>
             <S.HeaderInformation>

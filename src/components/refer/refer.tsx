@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet";
 export default function Refer() {
     const navigate = useNavigate();
+    // @ts-ignore
     const [code, setCode] = useState("IVN6374730")
     const [msg, setMsg] = useState(false)
 

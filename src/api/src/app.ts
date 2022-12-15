@@ -9,7 +9,6 @@ import address from "./routes/addressRoutes"
 import contact from "./routes/contactRoutes"
 import order from "./routes/orderRoutes"
 import review from "./routes/reviewRoutes"
-import auth from "./routes/authRoutes"
 import cors from 'cors'
 const PORT = process.env.PORT || 4000
 const HOSTNAME = process.env.HOSTNAME || 'http://localhost'
@@ -39,8 +38,7 @@ app.use("/coupon", coupon)
 app.use("/address", address)
 app.use("/contact", contact)
 app.use("/review", review)
-app.use("/order", order)  
-app.use("/auth", auth)  
+app.use("/order", order)
 
 app.use((_, res) => {
   res.status(404)

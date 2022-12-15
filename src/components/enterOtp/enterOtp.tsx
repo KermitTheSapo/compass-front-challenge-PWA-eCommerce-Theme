@@ -11,6 +11,7 @@ export default function EnterOtp() {
     const [numberTwo, setNumberTwo] = useState("")
     const [numberThree, setNumberThree] = useState("")
     const [numberFour, setNumberFour] = useState("")
+    // @ts-ignore
     const [info, setInfo] = useState({
         phone: "86757684968",
         firstName: "",

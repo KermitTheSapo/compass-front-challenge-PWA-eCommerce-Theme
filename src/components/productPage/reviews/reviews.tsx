@@ -53,7 +53,7 @@ export default function Reviews() {
             <S.ReviewDiv>
                 {reviewFilterList && reviewFilterList.map((item, key) => (
                     <div key={key}>
-                        <Ratings date={item.date} description={item.description} productId={item.productId} rating={item.rating} title={item.title} userName={item.userName} image={item.image} />
+                        <Ratings date={item.date} description={item.description} rating={item.rating} title={item.title} userName={item.userName} image={item.image} />
                     </div>
                 ))}
             </S.ReviewDiv>

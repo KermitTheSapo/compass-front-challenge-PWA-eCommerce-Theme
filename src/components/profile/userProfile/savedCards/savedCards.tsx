@@ -5,6 +5,7 @@ import * as S from "./savedCardsStyle"
 export default function SavedCards() {
     const [upi, setUpi] = useState([])
     useEffect(() => {
+        //@ts-ignore
         getOrder().then(res => setUpi(res.map((item) => item.upi)))
     }, [])
     console.log(upi)
