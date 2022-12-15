@@ -5,7 +5,7 @@ import creditCard from "@/assets/imgs/checkout/creditCard.svg"
 import amazon from "@/assets/imgs/checkout/amazon.svg"
 import apple from "@/assets/imgs/checkout/apple.svg"
 import upi from "@/assets/imgs/checkout/upi.svg"
-import googlePlay from "@/assets/imgs/checkout/GooglePlay.svg"
+// import googlePlay from "@/assets/imgs/checkout/GooglePlay.svg"
 import phonePe from "@/assets/imgs/checkout/phonePe.svg"
 import paytm from "@/assets/imgs/checkout/paytm.svg"
 import { useState } from "react"
@@ -56,7 +56,7 @@ export default function CheckoutPayments({ state, setState }: Props) {
                         <S.MethodItem onClick={() => setShowUpi(!showUpi)}>
                             <label htmlFor="google">
                                 <S.ImgTitleItem>
-                                    <S.ImgMethod src={googlePlay} alt="google pay icon" />
+                                    {/* <S.ImgMethod src={googlePlay} alt="google pay icon" /> */}
                                     <S.MethodItemTitle>Google Pay</S.MethodItemTitle>
                                 </S.ImgTitleItem>
                             </label>
