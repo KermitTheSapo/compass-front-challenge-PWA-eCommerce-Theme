@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import plus from "@/assets/imgs/productPage/reviews/plus.svg"
+import plus from "@/assets/imgs/productPage/reviews/Plus.svg"
 
 export const ReviewsContainer = styled.div`
 
