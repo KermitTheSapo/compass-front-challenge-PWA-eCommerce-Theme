@@ -58,6 +58,7 @@ export const Content = styled.main`
     flex-direction: column;
     padding: 0 16px;
     margin-top: 56px;
+    min-width: 60%;
 
 `
 export const ProductHeader = styled.div`
@@ -78,7 +79,7 @@ export const GridSort = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-`   
+`
 export const ParagraphShow = styled.p`
     font-weight: 500;
     font-size: 1rem;
