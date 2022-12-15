@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import * as S from "./itemStyle"
 
-
 type Props = {
     label: string;
     icon: string;
