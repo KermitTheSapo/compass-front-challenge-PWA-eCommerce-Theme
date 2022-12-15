@@ -30,9 +30,10 @@ type Props = {
     discount: number;
     imgCarousel: string;
     ratings: number;
+    _id: string;
 }
 
-export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel, ratings }: Props) {
+export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel, ratings, _id }: Props) {
     const [id, setId] = useState("")
     const addToApiStorage = (counter: number) => {
         const product = {
@@ -97,7 +98,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                 </S.ProductsPics>
                 <S.Content>
                     <Products imgCarousel={imgCarousel} />
-                    <ProductInfo name={name} value={value * counter} productParagraph={productParagraph} safe={safe} discount={discount} ratings={ratings} />
+                    <ProductInfo name={name} value={value * counter} productParagraph={productParagraph} safe={safe} discount={discount} ratings={ratings} id={_id}/>
                     <DeliveryDetails />
                     <Quantity state={counter} setState={setCounter} />
                     <Buttons onClick={() => addToApiStorage(counter)} />
