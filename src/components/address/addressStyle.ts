@@ -10,7 +10,7 @@ export const ConfirmedHeader = styled.div`
     display: flex;
     align-items: center;
     padding: 0 16px;
-    height: 56px;
+    min-height: 5vh;
     background-color: var(--Bright);
 `
 export const ImgBack = styled.img`
