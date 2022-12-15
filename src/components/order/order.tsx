@@ -13,6 +13,10 @@ import { getAddress } from "../../products/address"
 export default function Order() {
     const navigate = useNavigate()
     const [sheetEditAddress, setSheetEditAddress] = useState(false)
+    const [date, setDate] = useState("")
+    const [total, setTotal] = useState("")
+    const [subTotal, setSubTotal] = useState("")
+    const [discount, setDiscount] = useState("")
     const [addressList, setAddressList] = useState([{
         _id: "",
         streetAddress: "",
@@ -23,6 +27,12 @@ export default function Order() {
 
     useEffect(() => {
         getAddress().then((res) => setAddressList(res))
+        // @ts-ignore
+        let params = new URL(document.location).searchParams;
+        setDate(params.get("date") as string)
+        setTotal(params.get("total") as string)
+        setSubTotal(params.get("subTotal") as string)
+        setDiscount(params.get("discount") as string)
     }, [])
     const [productsList, setProductsList] = useState([{
         _id: "",
@@ -39,20 +49,8 @@ export default function Order() {
         safe: 0,
         quantity: 0
     }])
-    const [allPrice, setAllPrice] = useState(0)
-    const [subTotal, setSubTotal] = useState(0)
     useEffect(() => {
         getBag().then((res) => setProductsList(res))
-        let Total = 0
-        productsList.map((product) => {
-            Total = Total + (product.price * product.quantity)
-        })
-        setAllPrice(Total)
-        let subTotal = 0
-        productsList.map((product) => {
-            subTotal = subTotal + product.price
-        })
-        setSubTotal(subTotal)
     }, [productsList])
     return (
         <S.OrderContainer>
@@ -66,9 +64,12 @@ export default function Order() {
             <Address state={sheetEditAddress} setState={setSheetEditAddress} />
             <S.DeliveryDiv>
                 <S.DeliveryTitle>Expected Delivery</S.DeliveryTitle>
+                {
+                    productsList.length === 0 && <p>No order found!</p>
+                }
                 {productsList.map((item, key) => (
                     <div key={key}>
-                        <DeliveryCard name={item.name} paragraph={item.description} img={item.image} />
+                        <DeliveryCard name={item.name} paragraph={item.description} img={item.image} date={date} />
                     </div>
                 ))}
             </S.DeliveryDiv>
@@ -77,11 +78,11 @@ export default function Order() {
                 <S.Summary>
                     <S.DivList>
                         <S.ListTitle>Sub Total</S.ListTitle>
-                        <S.ListPrice>${subTotal.toFixed(2)}</S.ListPrice>
+                        <S.ListPrice>${Number(subTotal).toFixed(2)}</S.ListPrice>
                     </S.DivList>
                     <S.DivList>
                         <S.ListTitle>Discount</S.ListTitle>
-                        <S.ListPrice>-$0.00</S.ListPrice>
+                        <S.ListPrice>-${Number(discount).toFixed(2)}</S.ListPrice>
                     </S.DivList>
                     <S.DivList>
                         <S.ListTitle>Delivery Fee</S.ListTitle>
@@ -89,12 +90,12 @@ export default function Order() {
                     </S.DivList>
                     <S.DivList>
                         <S.ListResult>Grand Total</S.ListResult>
-                        <S.ListResultValue>${allPrice.toFixed(2)}</S.ListResultValue>
+                        <S.ListResultValue>${Number(total).toFixed(2)}</S.ListResultValue>
                     </S.DivList>
                 </S.Summary>
             </S.OrderDetails>
             <S.DivBtnFooter>
-                <S.ButtonPayments onClick={() => navigate(`/payments?total=${allPrice.toFixed(2)}&subtotal=${subTotal.toFixed(2)}`)} >Proceed to Payments</S.ButtonPayments>
+                <S.ButtonPayments onClick={() => navigate(`/payments?total=${Number(total).toFixed(2)}&subtotal=${Number(subTotal).toFixed(2)}&discount=${Number(discount).toFixed(2)}`)} >Proceed to Payments</S.ButtonPayments>
             </S.DivBtnFooter>
             {sheetEditAddress && <BottomSheetAddress state={sheetEditAddress} setState={setSheetEditAddress} stateAddress={addressList} />}
         </S.OrderContainer>
