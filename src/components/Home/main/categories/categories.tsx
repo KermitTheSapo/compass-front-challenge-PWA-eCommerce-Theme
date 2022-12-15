@@ -1,7 +1,7 @@
 import * as S from "./categoriesStyle"
 import Item from "./item/item"
 import skinCare from '@/assets/imgs/home/main/categories/skincare.svg'
-import Jewellery from '@/assets/imgs/home/main/categories/Jewellery.svg'
+import Jewellery from '@/assets/imgs/home/main/categories/jewellery.svg'
 import Handbags from '@/assets/imgs/home/main/categories/Handbags.svg'
 import Watches from '@/assets/imgs/home/main/categories/Watches.svg'
 
