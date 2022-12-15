@@ -81,7 +81,6 @@ export default function App() {
           <Route path="saved" element={<SavedCards />} />
           <Route path="*" element={<SavedCards />} />
         </Route>
-
         <Route path="/notification" element={<Notification />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/categories" element={<Categories />} />
