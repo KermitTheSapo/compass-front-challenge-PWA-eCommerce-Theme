@@ -40,6 +40,7 @@ export default function Payments() {
     let params = new URL(document.location).searchParams;
     let total = params.get("total") as string;
     let subTotal = params.get("subtotal") as string;
+    let discount = params.get("discount") as string;
     const [addressList, setAddressList] = useState([{
         _id: "",
         streetAddress: "",
@@ -77,6 +78,7 @@ export default function Payments() {
                 total: total,
                 subTotal: subTotal,
                 upi: upiText,
+                discount: discount,
                 addressList: addressList[0],
                 product: productsList,
                 orderDate: date,

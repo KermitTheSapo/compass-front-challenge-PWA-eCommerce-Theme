@@ -27,6 +27,7 @@ export default function OrderDetail() {
         total: "",
         subTotal: "",
         upi: "",
+        discount: "",
         addressList: {
             _id: "",
             pinCode: 0,
@@ -126,11 +127,11 @@ export default function OrderDetail() {
                 }
             </S.ProductList>
             <S.CardOrderDiv>
-                {orderProduct.product && orderProduct.product.map((item, key => (
+                {orderProduct.product && orderProduct.product.map((item, key) => (
                     <div key={key}>
                         <CardOrder image={item.image} name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
                     </div>
-                )))}
+                ))}
             </S.CardOrderDiv>
             <S.OrderInformation>
                 <S.OrderInfoHeader>
@@ -139,7 +140,7 @@ export default function OrderDetail() {
                 </S.OrderInfoHeader>
                 <S.OrderInfoContent>
                     <S.bigSeparator></S.bigSeparator>
-                    <OrderDetails subTotal={orderProduct.subTotal} discount={0.00} total={orderProduct.total} />
+                    <OrderDetails subTotal={orderProduct.subTotal} discount={orderProduct.discount} total={orderProduct.total} />
                     <S.bigSeparator></S.bigSeparator>
                     <PaymentsDetails payment={orderProduct.upi} />
                     <S.bigSeparator></S.bigSeparator>

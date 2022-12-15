@@ -2,7 +2,7 @@ import * as S from "./orderDetailsStyle"
 
 type Props = {
     subTotal: string;
-    discount: number
+    discount: string
     total: string;
 }
 

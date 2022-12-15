@@ -18,6 +18,7 @@ export default function OrderList() {
         total: "",
         subTotal: "",
         upi: "",
+        discount: "",
         addressList: {
             _id: "",
             pinCode: 0,
