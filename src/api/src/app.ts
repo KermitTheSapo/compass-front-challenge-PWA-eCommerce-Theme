@@ -11,7 +11,7 @@ import order from "./routes/orderRoutes"
 import review from "./routes/reviewRoutes"
 import cors from 'cors'
 const PORT = process.env.PORT || 4000
-const HOSTNAME = process.env.HOSTNAME || 'http://localhost'
+const HOSTNAME = process.env.HOSTNAME || 'https://compass-ecommerce.onrender.com'
 
 db.on('error', console.log.bind(console, 'connection error'))
 db.once('open', () => {
@@ -19,7 +19,7 @@ db.once('open', () => {
 })
 
 const app = express()
-const allowedOrigins = ['http://127.0.0.1:5173', 'http://localhost:5173'];
+const allowedOrigins = ['https://compass-ecommerce.onrender.com'];
 const options: cors.CorsOptions = {
   origin: allowedOrigins
 };
