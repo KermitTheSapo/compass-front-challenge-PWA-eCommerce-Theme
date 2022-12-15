@@ -22,7 +22,7 @@ export default function Stats({ state, total }: Props) {
     const [starFour, setStarFour] = useState(0)
     const [starFive, setStarFive] = useState(0)
     useEffect(() => {
-        let teste = [
+        let stars = [
             { star: 1, count: 0 },
             { star: 2, count: 0 },
             { star: 3, count: 0 },
@@ -31,22 +31,22 @@ export default function Stats({ state, total }: Props) {
         ]
         state.map((item) => {
             if (item.rating == "1") {
-                teste[0].count++
+                stars[0].count++
             } else if (item.rating == "2") {
-                teste[1].count++
+                stars[1].count++
             } else if (item.rating == "3") {
-                teste[2].count++
+                stars[2].count++
             } else if (item.rating == "4") {
-                teste[3].count++
+                stars[3].count++
             } else if (item.rating == "5") {
-                teste[4].count++
+                stars[4].count++
             }
         })
-        setStarOne(teste[0].count)
-        setStarTwo(teste[1].count)
-        setStarThree(teste[2].count)
-        setStarFour(teste[3].count)
-        setStarFive(teste[4].count)
+        setStarOne(stars[0].count)
+        setStarTwo(stars[1].count)
+        setStarThree(stars[2].count)
+        setStarFour(stars[3].count)
+        setStarFive(stars[4].count)
     }, [state])
     return (
         <S.StatsContainer>
