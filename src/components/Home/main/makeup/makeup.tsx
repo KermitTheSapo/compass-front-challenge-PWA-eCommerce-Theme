@@ -2,7 +2,7 @@ import * as S from "./makeupStyle"
 
 import brownArrow from "@/assets/imgs/home/main/makeup/brownArrow.svg"
 import pinkArrow from "@/assets/imgs/home/main/makeup/pinkArrow.svg"
-import GreenArrow from "@/assets/imgs/home/main/makeup/GreenArrow.svg"
+import GreenArrow from "@/assets/imgs/home/main/makeup/greenArrow.svg"
 import { useNavigate } from "react-router-dom";
 
 export default function Makeup() {
