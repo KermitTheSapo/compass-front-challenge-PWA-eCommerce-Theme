@@ -19,7 +19,7 @@ db.once('open', () => {
 })
 
 const app = express()
-const allowedOrigins = ['http://127.0.0.1:5173', 'http://localhost:5173', "https://compass-ecommerce.onrender.com"];
+const allowedOrigins = ['http://127.0.0.1:5173', 'http://localhost:5173', "https://compass-front-challenge-pwa-e-commerce-theme.vercel.app/"];
 const options: cors.CorsOptions = {
   origin: allowedOrigins
 };
