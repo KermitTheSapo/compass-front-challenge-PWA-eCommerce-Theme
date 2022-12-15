@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Api = `http://localhost:4000/review`
+const Api = `https://compass-ecommerce.onrender.com/review`
 export const getReview = async () => {
     return axios.get(Api).then((res) => {
         let data = res.data

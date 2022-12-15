@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Api = `http://localhost:4000/product`
+const Api = `https://compass-ecommerce.onrender.com/product`
 // @ts-ignore
 export const getProducts = async (limit, offset) => {
     return axios.get(`${Api}?limit=${limit}&offset=${offset}`).then((res) => {

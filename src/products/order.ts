@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Api = `http://localhost:4000/order`
+const Api = `https://compass-ecommerce.onrender.com/order`
 export const getOrder = async () => {
     return axios.get(Api).then((res) => {
         let data = res.data

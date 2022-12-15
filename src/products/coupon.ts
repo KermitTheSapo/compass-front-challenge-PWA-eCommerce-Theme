@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Api = `http://localhost:4000/coupon`
+const Api = `https://compass-ecommerce.onrender.com/coupon`
 export const getCoupon = async () => {
     return axios.get(Api).then((res) => {
         let data = res.data

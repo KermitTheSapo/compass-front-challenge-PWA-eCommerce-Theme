@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Api = `http://localhost:4000/wishlist`
+const Api = `https://compass-ecommerce.onrender.com/wishlist`
 export const getWishlist = async () => {
     return axios.get(Api).then((res) => {
         let data = res.data
