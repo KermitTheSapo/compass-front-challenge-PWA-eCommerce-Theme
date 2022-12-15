@@ -7,9 +7,19 @@ import bag from "@/assets/imgs/bag/bag.svg"
 import { Helmet } from "react-helmet"
 import { useEffect, useState } from "react"
 import { getBag } from "../../products/bag"
+import { getCoupon } from "../../products/coupon"
 
 export default function Bag() {
     const navigate = useNavigate()
+    const [date, setDate] = useState("")
+    const [discountValue, setDiscountValue] = useState(0)
+    const [code, setCode] = useState("")
+    const [couponList, setCouponList] = useState([{
+        _id: "",
+        name: "",
+        value: 0,
+        code: "",
+    }])
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -30,6 +40,13 @@ export default function Bag() {
     useEffect(() => {
         // @ts-ignore
         getBag().then((res) => { setProductsList(res); let value = res.map(item => item.price); setTotalValue(value) })
+        let now = new Date
+        const day = (now.getDate()).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false
+        })
+        let monName = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
+        setDate(`${day} ${monName[now.getMonth()].slice(0, 3)}`)
     }, [])
     useEffect(() => {
         setPriceValue(totalValue.reduce((a, b) => a + b, 0))
@@ -39,6 +56,23 @@ export default function Bag() {
         })
         setSubTotalValue(subTotal)
     }, [productsList, totalValue])
+    useEffect(() => {
+        getCoupon().then((res) => setCouponList(res))
+    }, [])
+    const checkCoupon = () => {
+        let coupon = couponList.filter((item) => item.code === code)
+        if (coupon.length === 0) {
+            alert("Coupon code is not valid")
+        } else {
+            let discount = coupon[0].value
+
+            let discountPrice = (subTotalValue * discount) / 100
+            setDiscountValue((subTotalValue * discount) / 100)
+            let newPrice = subTotalValue - discountPrice
+            setPriceValue(newPrice)
+        }
+
+    }
     return (
         <S.BagContainer>
             <Helmet>
@@ -62,8 +96,8 @@ export default function Bag() {
                         ))}
                     </S.CardsContainers>
                     <S.CouponDiv>
-                        <S.InputCode type="text" placeholder="Apply Coupon Code" />
-                        <S.ButtonCheck>Check</S.ButtonCheck>
+                        <S.InputCode type="text" placeholder="Apply Coupon Code" value={code} onChange={(e) => setCode(e.target.value)} />
+                        <S.ButtonCheck onClick={() => checkCoupon()}>Check</S.ButtonCheck>
                     </S.CouponDiv>
                     <S.OrderDetailsDiv>
                         <S.OrderTitle>Order Details</S.OrderTitle>
@@ -74,7 +108,7 @@ export default function Bag() {
                             </S.DivList>
                             <S.DivList>
                                 <S.ListTitle>Discount</S.ListTitle>
-                                <S.ListPrice>-$0.00</S.ListPrice>
+                                <S.ListPrice>-${discountValue.toFixed(2)}</S.ListPrice>
                             </S.DivList>
                             <S.DivList>
                                 <S.ListTitle>Delivery Fee</S.ListTitle>
@@ -90,7 +124,7 @@ export default function Bag() {
                                 <S.TotalTitle>Total Bag Amount</S.TotalTitle>
                                 <S.TotalPrice>${priceValue.toFixed(2)}</S.TotalPrice>
                             </S.TotalBag>
-                            <S.ButtonPlaceOrder onClick={() => navigate("/order")}>Place Order</S.ButtonPlaceOrder>
+                            <S.ButtonPlaceOrder onClick={() => navigate(`/order?date=${date}&total=${priceValue.toFixed(2)}&subTotal=${subTotalValue.toFixed(2)}&discount=${discountValue.toFixed(2)}`)}>Place Order</S.ButtonPlaceOrder>
                         </S.ButtonDiv>
                     </S.OrderDetailsDiv>
                 </>}
