@@ -11,6 +11,7 @@ const OrderSchema = new mongoose.Schema({
   addressList: { type: Object, required: true },
   product: { type: Array, required: true },
   status: { type: String, required: true },
+  discount: { type: String },
 })
 
 const Order = mongoose.model('order', OrderSchema)
