@@ -101,11 +101,7 @@ export default function PersonalInfo() {
             alert("Date is invalid")
             return
         }
-        if (currentPassword.length > 0) {
-            if (currentPassword !== contact.password) {
-                alert("Current password is invalid")
-                return
-            }
+        if (newPassword.length > 0) {
             if (newPassword.length < 6) {
                 alert("New password is invalid")
                 return

@@ -38,4 +38,7 @@ export const StartBtn = styled.button`
     position: fixed;
     bottom: 2%;
     left: 5%;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
