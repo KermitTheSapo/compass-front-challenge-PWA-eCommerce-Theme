@@ -1,6 +1,5 @@
 import * as S from "./headStyle"
 import star from "@/assets/imgs/productPage/reviews/star.svg"
-import img from "@/assets/imgs/productPage/reviews/image.png"
 import Stats from "./stats/stats"
 import { getProductsById } from "../../../../products/products"
 import { useLocation } from "react-router-dom"

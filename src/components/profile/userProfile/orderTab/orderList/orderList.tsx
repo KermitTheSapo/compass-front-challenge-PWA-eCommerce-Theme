@@ -97,34 +97,37 @@ export default function OrderList() {
 
                 <S.OrderProducts>
                     <S.OrderQuantity>{order.length} Order(s)</S.OrderQuantity>
-                    {
-                        completed && <>
-                            {order && order.map((item, key) => (
-                                <div key={key}>
-                                    <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
-                                </div>
-                            ))}
-                        </>
-                    }
-                    {
-                        processing && <>
-                            {order && order.map((item, key) => (
-                                <div key={key}>
-                                    <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                    <S.OrderItemDiv>
 
-                                </div>
-                            ))}
-                        </>
-                    }
-                    {
-                        cancelled && <>
-                            {order && order.map((item, key) => (
-                                <div key={key}>
-                                    <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
-                                </div>
-                            ))}
-                        </>
-                    }
+                        {
+                            completed && <>
+                                {order && order.map((item, key) => (
+                                    <div key={key}>
+                                        <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                                    </div>
+                                ))}
+                            </>
+                        }
+                        {
+                            processing && <>
+                                {order && order.map((item, key) => (
+                                    <div key={key}>
+                                        <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+
+                                    </div>
+                                ))}
+                            </>
+                        }
+                        {
+                            cancelled && <>
+                                {order && order.map((item, key) => (
+                                    <div key={key}>
+                                        <OrderItem orderId={item.orderId} date={item.orderDate} price={item.total} status={item.status} id={item._id} />
+                                    </div>
+                                ))}
+                            </>
+                        }
+                    </S.OrderItemDiv>
                 </S.OrderProducts>
             </S.OrderList>
         </>

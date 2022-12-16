@@ -41,6 +41,8 @@ export default function MyCart() {
     const navigate = useNavigate()
     useEffect(() => {
         getBag().then((res) => setProductsList(res))
+    }, [])
+    useEffect(() => {
         let Total = 0
         productsList.map((product) => {
             Total = Total + (product.price * product.quantity)
@@ -67,6 +69,7 @@ export default function MyCart() {
             setAllPrice(newPrice)
         }
     }
+
     return (
         <>
             <Helmet>
@@ -119,7 +122,7 @@ export default function MyCart() {
                                 </S.ListSummary>
                                 <S.ListSummary>
                                     <S.SummaryLabel>Discount</S.SummaryLabel>
-                                    <S.SummaryPrice>-${discountValue}</S.SummaryPrice>
+                                    <S.SummaryPrice>-${discountValue.toFixed(2)}</S.SummaryPrice>
                                 </S.ListSummary>
                                 <S.ListSummary>
                                     <S.SummaryLabel>Delivery Fee</S.SummaryLabel>
@@ -131,7 +134,7 @@ export default function MyCart() {
                                 </S.ListSummary>
                             </S.Summary>
                             <S.ButtonsActions>
-                                <S.BtnOrder onClick={() => navigate("/checkout")}>Place Order</S.BtnOrder>
+                                <S.BtnOrder onClick={() => navigate(`/checkout?coupon=${discountValue.toFixed(2)}`)}>Place Order</S.BtnOrder>
                                 <S.BtnContinue onClick={() => navigate("/home")}>Continue Shopping</S.BtnContinue>
                             </S.ButtonsActions>
                         </S.OrderSummaryContent>

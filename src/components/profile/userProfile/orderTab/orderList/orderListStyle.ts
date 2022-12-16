@@ -109,3 +109,8 @@ export const OrderQuantity = styled.p`
         display: none;
     }
 `
+export const OrderItemDiv = styled.div`
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 15px;
+`
