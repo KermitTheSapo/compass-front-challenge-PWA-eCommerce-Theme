@@ -20,6 +20,7 @@ export default function Checkout() {
     const navigate = useNavigate()
     const [showAddress, setShowAddress] = useState(true)
     const [ddd, setDdd] = useState("")
+    const [coupon, setCoupon] = useState("")
     const [DDDValue, setDDDValue] = useState("")
     const [phone, setPhone] = useState("");
     const [pinCode, setPinCode] = useState("")
@@ -152,6 +153,7 @@ export default function Checkout() {
                 addressList: address,
                 product: productsList,
                 orderDate: date,
+                discount: coupon,
                 status: "Paid"
             }
             postAddress(Address)
@@ -166,6 +168,11 @@ export default function Checkout() {
             alert("Fill in all fields")
         }
     }
+    useEffect(() => {
+        //@ts-ignore
+        let params = new URL(document.location).searchParams;
+        setCoupon(params.get("coupon") as string)
+    }, [])
     return (
         <>
             <Helmet>
@@ -225,7 +232,7 @@ export default function Checkout() {
                         </S.NewAddressDiv>
                         <CheckoutPayments state={upiText} setState={setUpiText} />
                     </S.AddressAndPayment>
-                    <OrderSummaryAndDetails productListState={productsList} subTotal={subTotal} allPrice={allPrice} />
+                    <OrderSummaryAndDetails productListState={productsList} subTotal={subTotal} allPrice={allPrice} discount={coupon} />
                 </S.CheckoutContent>
                 <S.ButtonsActions>
                     <S.ButtonBack>Back to Cart</S.ButtonBack>
