@@ -51,6 +51,9 @@ export default function Reviews() {
             <Head id={id} state={reviewFilterList} />
             <S.Separator></S.Separator>
             <S.ReviewDiv>
+                {
+                    reviewFilterList.length === 0 && <S.NoReview>There are no reviews yet.</S.NoReview>
+                }
                 {reviewFilterList && reviewFilterList.map((item, key) => (
                     <div key={key}>
                         <Ratings date={item.date} description={item.description} rating={item.rating} title={item.title} userName={item.userName} image={item.image} />
