@@ -1,5 +1,7 @@
 import { useState } from "react"
+import AddReview from "../addReview/addReview";
 import AlsoLikeItem from "../alsoLike/alsoLikeItem/alsoLikeItem";
+import Reviews from "../reviews/reviews";
 import * as S from "./productDescriptionDesktopStyle"
 
 type Props = {
@@ -46,7 +48,9 @@ export default function ProductDescriptionDesktop({ productDescription }: Props)
                     <AlsoLikeItem value={false} />
                 </S.DivAlsoLike>}
                 {tabColorThree === "#1B4B66" && <>
-                    <S.Paragraph>Ratings & Reviews</S.Paragraph>
+                    {/* <S.Paragraph>Ratings & Reviews</S.Paragraph> */}
+                    <AddReview />
+                    <Reviews />
                 </>}
             </S.DescriptionContent>
         </S.ProductDescriptionDesktopContainer>
