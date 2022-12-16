@@ -27,7 +27,7 @@ export default function ProductInfo({ name, value, safe, discount, productParagr
     }])
     useEffect(() => {
         getCoupon().then((res) => setCouponList(res))
-    })
+    }, [])
     const [reviewList, setReviewList] = useState([{
         date: "",
         description: "",
