@@ -46,8 +46,9 @@ Thiago decided to enter the e-commerce sector (online sales), in addition, he de
 "Npm run dev" for back-end Api in api folder
 "npm run storybook" for storybook
 
-link do deploy da api: https://compass-ecommerce.onrender.com
-link do deploy do front: https://compass-front-challenge-pwa-e-commerce-theme-kermitthesapo.vercel.app/
+api deploy link: https://compass-ecommerce.onrender.com
+
+front deploy link: https://compass-front-challenge-pwa-e-commerce-theme-kermitthesapo.vercel.app/
 
 Currently working for mobile screens: 420px and desktop: 1440px.
 
