@@ -43,10 +43,15 @@ Thiago decided to enter the e-commerce sector (online sales), in addition, he de
 
 "npm install" for install the dependences
 "Npm run dev" for localhost
-"Npm run dev" for back-end Api
+"Npm run dev" for back-end Api in api folder
 "npm run storybook" for storybook
 
+link do deploy da api: https://compass-ecommerce.onrender.com
+link do deploy do front: https://compass-front-challenge-pwa-e-commerce-theme-kermitthesapo.vercel.app/
+
 Currently working for mobile screens: 420px and desktop: 1440px.
+
+It is recommended to use npm run dev in the api, because the api is slow and when a long time goes by without being used it is kind of disabled
 
 ---
 
@@ -79,7 +84,7 @@ Currently working for mobile screens: 420px and desktop: 1440px.
 - [X] search
      - [X] structure and styling
      - [X] filter
-     - [ ] search history
+     - [X] search history
      - [X] search error
 - [X] reviews
      - [X] structure and styling
@@ -93,8 +98,7 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [X] bag empty
 - [ ] order summary
      - [ ] select address
-     - [ ] receive items
-     - [ ] receive items
+     - [X] receive items
      - [X] add address
 - [ ] Address
      - [ ] address sheet and edit
@@ -103,15 +107,15 @@ Currently working for mobile screens: 420px and desktop: 1440px.
      - [X] use post office api
      - [X] structure and styling
      - [ ] able to edit address
-- [ ] payments
-     - [ ] product details
-     - [ ] card verification
+- [X] payments
+     - [X] product details
+     - [X] card verification
 - [X] confirmed page
      - [X] structure and styling
-- [ ] categories
-     - [ ] sort categories
-- [ ] filters
-     - [ ] filter logic
+- [X] categories
+     - [X] sort categories
+- [X] filters
+     - [X] filter logic
 - [X] singup
     - [X] enter otp - structure and styling
     - [X] enter your phone - structure and styling
@@ -154,12 +158,12 @@ Currently working for mobile screens: 420px and desktop: 1440px.
         - [X] mobile footer
         - [X] app bar
         - [X] bottom navigation
-    - [ ] Elements
+    - [X] Elements
         - [X] buttons and chips
         - [X] assembly
         - [X] banners
         - [X] Accordion
-        - [ ] Checkboxes and Radio Buttons
+        - [X] Checkboxes and Radio Buttons
         - [X] buttons and chips
     - [X] Menu
         - [X] Tabs and Breadcrumbs
