@@ -68,6 +68,7 @@ export default function App() {
         <Route path="/personal" element={<PersonalInfo />} />
         <Route path="/orders" element={<OrderList />} />
         <Route path="/orderProduct" element={<OrderDetail />} />
+        <Route path="/savedCards" element={<SavedCards />} />
         <Route path="/profile" element={<Profile />}>
           <Route index element={<PersonalInfo />} />
           <Route path="refer" element={<Refer />} />
