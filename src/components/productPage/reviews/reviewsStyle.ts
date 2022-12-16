@@ -14,6 +14,9 @@ export const HeaderNav = styled.header`
     top: 0;
     width: 100%;
     background-color: var(--Bright);
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const ImgNavArrow = styled.img`
 
@@ -34,6 +37,9 @@ export const ButtonAdd = styled.div`
     bottom: 0;
     width: 100%;
     height: 8vh;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 
 export const ButtonAddText = styled.button`
@@ -56,4 +62,14 @@ export const ReviewDiv = styled.div`
     display: flex;
     flex-direction: column-reverse;
     margin-bottom: 100px;
+`
+
+export const NoReview = styled.p`
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--TypeHighEmphasis);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `

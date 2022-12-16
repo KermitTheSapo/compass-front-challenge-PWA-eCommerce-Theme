@@ -11,6 +11,10 @@ export const HeaderInformation = styled.div`
     justify-content: space-between;
     width: 45%;
     padding: 15px 0px 0px 16px;
+    @media (min-width: 768px) {
+        justify-content: flex-start;
+        gap: 15px;
+    }
 `
 export const RatingsPill = styled.div`
     display: flex;

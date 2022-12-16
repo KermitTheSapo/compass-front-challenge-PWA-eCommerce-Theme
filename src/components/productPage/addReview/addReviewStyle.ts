@@ -14,6 +14,9 @@ export const HeaderNav = styled.div`
     width: 100%;
     background-color: var(--Bright);
     height: 8vh;
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
 export const HeaderNavTitle = styled.h1`
     font-weight: 600;
@@ -125,6 +128,9 @@ export const ButtonSubmitDiv = styled.div`
     bottom: 0;
     width: 100%;
     right: 0px;
+    @media (min-width: 768px) {
+        position: static;
+    }
 `
 export const ButtonSubmit = styled.button`
     background-color: var(--Primary);

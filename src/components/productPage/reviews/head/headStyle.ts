@@ -80,4 +80,13 @@ export const ImgCarousel = styled.img`
     height: 80px;
     width: 80px;
 `
-// export const XX = styled.div``
+
+export const NoImageParagraph = styled.p`
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--TypeHighEmphasis);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
