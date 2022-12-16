@@ -15,6 +15,7 @@ type Props = {
         rating: string;
         title: string;
         userName: string;
+        image: string;
     }[];
 }
 
@@ -59,7 +60,7 @@ export default function Head({ id, state }: Props) {
             </S.ProductHead>
             <S.Ratings>
                 <S.AverageRatings>
-                    <S.AverageRatingsNumber>{(TotalRatings / state.length).toFixed(2)}</S.AverageRatingsNumber>
+                    <S.AverageRatingsNumber>{TotalRatings === 0 ? 0 : (TotalRatings / state.length).toFixed(2)}</S.AverageRatingsNumber>
                     <S.AverageRatingsStar src={star} alt="star icon" />
                     <S.AverageTitle>Average Rating</S.AverageTitle>
                 </S.AverageRatings>
@@ -68,13 +69,17 @@ export default function Head({ id, state }: Props) {
             <S.Photos>
                 <S.PhotosTitle>Customer Photos</S.PhotosTitle>
                 <S.PhotoCarousel>
-                    <S.ImgCarousel src={img} alt="product img" />
-                    <S.ImgCarousel src={img} alt="product img" />
-                    <S.ImgCarousel src={img} alt="product img" />
-                    <S.ImgCarousel src={img} alt="product img" />
-                    <S.ImgCarousel src={img} alt="product img" />
-                    <S.ImgCarousel src={img} alt="product img" />
-                    <S.ImgCarousel src={img} alt="product img" />
+                    {
+                        state.length === 0 ? <S.NoImageParagraph>There are no images yet :/</S.NoImageParagraph> : null
+                    }
+                    {
+                        //@ts-ignore
+                        state.map((item) => {
+                            if (item.image !== "") {
+                                return <S.ImgCarousel src={item.image} alt="product img" />
+                            }
+                        })
+                    }
                 </S.PhotoCarousel>
             </S.Photos>
         </S.HeadContainer>
