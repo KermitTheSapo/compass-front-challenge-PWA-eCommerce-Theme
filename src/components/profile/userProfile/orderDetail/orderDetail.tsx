@@ -129,7 +129,7 @@ export default function OrderDetail() {
             <S.CardOrderDiv>
                 {orderProduct.product && orderProduct.product.map((item, key) => (
                     <div key={key}>
-                        <CardOrder image={item.image} name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} />
+                        <CardOrder image={item.image} name={item.name} description={item.paragraph} price={item.price} quantity={item.quantity} safe={item.safe} discount={item.discount} ratings={item.ratings}/>
                     </div>
                 ))}
             </S.CardOrderDiv>
