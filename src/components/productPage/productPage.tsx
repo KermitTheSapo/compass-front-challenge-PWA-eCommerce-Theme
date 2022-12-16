@@ -19,6 +19,7 @@ import Footer from "../footer/footer"
 import { useNavigate } from "react-router-dom"
 import { postBag } from "../../products/bag"
 import { useEffect, useState } from "react"
+import { postWishlist } from "../../products/wishlist"
 
 type Props = {
     name: string;
@@ -35,6 +36,7 @@ type Props = {
 
 export default function ProductPage({ img, name, productDescription, value, productParagraph, safe, discount, imgCarousel, ratings, _id }: Props) {
     const [id, setId] = useState("")
+    const [counter, setCounter] = useState(1)
     const addToApiStorage = (counter: number) => {
         const product = {
             name: name,
@@ -62,7 +64,26 @@ export default function ProductPage({ img, name, productDescription, value, prod
         getId()
     }, [id])
     const navigate = useNavigate()
-    const [counter, setCounter] = useState(1)
+
+    const addToWishlist = () => {
+        const wishlist = {
+            name: name,
+            paragraph: productParagraph,
+            description: productDescription,
+            price: value,
+            subTotal: value,
+            safe: safe,
+            discount: discount,
+            link: "link",
+            imgAlt: "imgAlt",
+            image: img,
+            ratings: ratings,
+            quantity: counter,
+            heartStatus: true,
+        }
+        postWishlist(wishlist)
+        alert("Item added to wishlist")
+    }
     return (
         <S.ProductPageContainer>
             <Header />
@@ -101,7 +122,7 @@ export default function ProductPage({ img, name, productDescription, value, prod
                     <ProductInfo name={name} value={value * counter} productParagraph={productParagraph} safe={safe} discount={discount} id={_id} />
                     <DeliveryDetails />
                     <Quantity state={counter} setState={setCounter} />
-                    <Buttons onClick={() => addToApiStorage(counter)} />
+                    <Buttons onClick={() => addToApiStorage(counter)} wishlist={() => addToWishlist()} />
                     <S.Separator></S.Separator>
                     <ProductDescription />
                     <S.Separator></S.Separator>
