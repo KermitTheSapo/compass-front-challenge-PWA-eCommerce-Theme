@@ -9,9 +9,18 @@ import { Key, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import { getBag } from "../../products/bag"
+import { getCoupon } from "../../products/coupon"
 
 export default function MyCart() {
     const [showCoupon, setShowCoupon] = useState(false)
+    const [coupon, setCoupon] = useState("")
+    const [discountValue, setDiscountValue] = useState(0)
+    const [couponList, setCouponList] = useState([{
+        _id: "",
+        name: "",
+        value: 0,
+        code: "",
+    }])
     const [productsList, setProductsList] = useState([{
         _id: "",
         name: "",
@@ -43,6 +52,21 @@ export default function MyCart() {
         })
         setSubTotal(subTotal)
     }, [productsList])
+    useEffect(() => {
+        getCoupon().then((res) => setCouponList(res))
+    }, [])
+    const checkCoupon = () => {
+        let couponCode = couponList.filter((item) => item.code === coupon)
+        if (couponCode.length === 0) {
+            alert("Coupon code is not valid")
+        } else {
+            let discount = couponCode[0].value
+            let discountPrice = (subTotal * discount) / 100
+            setDiscountValue((subTotal * discount) / 100)
+            let newPrice = subTotal - discountPrice
+            setAllPrice(newPrice)
+        }
+    }
     return (
         <>
             <Helmet>
@@ -95,7 +119,7 @@ export default function MyCart() {
                                 </S.ListSummary>
                                 <S.ListSummary>
                                     <S.SummaryLabel>Discount</S.SummaryLabel>
-                                    <S.SummaryPrice>-$0.00</S.SummaryPrice>
+                                    <S.SummaryPrice>-${discountValue}</S.SummaryPrice>
                                 </S.ListSummary>
                                 <S.ListSummary>
                                     <S.SummaryLabel>Delivery Fee</S.SummaryLabel>
@@ -120,8 +144,8 @@ export default function MyCart() {
                     </S.ApplyHeader>
                     <S.Separator></S.Separator>
                     {showCoupon && <S.CouponDiv>
-                        <S.InputCode type="text" placeholder="Apply Coupon Code" />
-                        <S.ButtonCheck>Check</S.ButtonCheck>
+                        <S.InputCode type="text" placeholder="Apply Coupon Code" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
+                        <S.ButtonCheck onClick={() => checkCoupon()}>Check</S.ButtonCheck>
                     </S.CouponDiv>}
                 </S.ApplyCoupon>
             </S.MyCartContainer>

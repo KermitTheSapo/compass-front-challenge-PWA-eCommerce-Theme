@@ -71,7 +71,6 @@ export default function Bag() {
             let newPrice = subTotalValue - discountPrice
             setPriceValue(newPrice)
         }
-
     }
     return (
         <S.BagContainer>
