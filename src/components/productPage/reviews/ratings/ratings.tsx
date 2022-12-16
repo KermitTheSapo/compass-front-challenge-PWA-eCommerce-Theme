@@ -28,7 +28,7 @@ export default function Ratings({ date, description, rating, title, userName, im
                 <S.RatingsDescription>{description}</S.RatingsDescription>
             </S.Content>
             {
-                image === undefined? null : <S.ImgsCarousel>
+                image === "" ? null : <S.ImgsCarousel>
                     <S.ImgCarousel src={image} alt="product img" />
                 </S.ImgsCarousel>
             }
