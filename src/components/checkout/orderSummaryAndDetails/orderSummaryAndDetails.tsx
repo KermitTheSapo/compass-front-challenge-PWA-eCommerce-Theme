@@ -18,10 +18,11 @@ type Props = {
         quantity: number;
     }[],
     subTotal: number,
-    allPrice: number
+    allPrice: number,
+    discount: string;
 }
 
-export default function OrderSummaryAndDetails({ productListState, subTotal, allPrice }: Props) {
+export default function OrderSummaryAndDetails({ productListState, subTotal, allPrice, discount }: Props) {
 
     return (
         <S.SummaryAndDetails>
@@ -54,7 +55,7 @@ export default function OrderSummaryAndDetails({ productListState, subTotal, all
                     </S.OrderDetailsList>
                     <S.OrderDetailsList>
                         <S.OrderLabel>Discount</S.OrderLabel>
-                        <S.OrderPrice>-$0.00</S.OrderPrice>
+                        <S.OrderPrice>-${Number(discount).toFixed(2)}</S.OrderPrice>
                     </S.OrderDetailsList>
                     <S.OrderDetailsList>
                         <S.OrderLabel>Delivery Fee</S.OrderLabel>
@@ -62,7 +63,7 @@ export default function OrderSummaryAndDetails({ productListState, subTotal, all
                     </S.OrderDetailsList>
                     <S.OrderDetailsList>
                         <S.OrderResult>Grand Total</S.OrderResult>
-                        <S.OrderResult>${allPrice.toFixed(2)}</S.OrderResult>
+                        <S.OrderResult>${Number(allPrice.toFixed(2)) - Number(discount)}</S.OrderResult>
                     </S.OrderDetailsList>
                 </S.OrderDetailsContent>
             </S.OrderDetailsDiv>
